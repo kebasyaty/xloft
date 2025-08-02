@@ -9,20 +9,22 @@ def test_separate_arguments() -> None:
     """Create with separate arguments."""
     nt = NamedTuple(x=10, y="Hello")
     assert nt.x == 10
+    assert nt.y == "Hello"
 
 
-# def test_kwargs_arguments() -> None:
-#     """Create with kwargs arguments."""
-#     d = {"x": 10, "y": "Hello"}
-#     nt = NamedTuple(**d)
-#     assert nt.y == "Hello"
+def test_kwargs_arguments() -> None:
+    """Create with kwargs arguments."""
+    d = {"x": 10, "y": "Hello"}
+    nt = NamedTuple(**d)
+    assert nt.x == 10
+    assert nt.y == "Hello"
 
 
-# @pytest.mark.xfail(raises=AttributeError)
-# def test_fail_setter() -> None:
-#     """Setter is not supported."""
-#     nt = NamedTuple(x=10)
-#     nt.x = 20
+@pytest.mark.xfail(raises=AttributeError)
+def test_fail_setter() -> None:
+    """Setter is not supported."""
+    nt = NamedTuple(x=10)
+    nt.x = 20
 
 
 # @pytest.mark.xfail(raises=AttributeError)
