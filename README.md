@@ -30,7 +30,7 @@
       <a href="https://github.com/kebasyaty/xloft"><img src="https://img.shields.io/github/last-commit/kebasyaty/xloft/main" alt="Last commit"></a>
     </p>
     <p align="center">
-      ???
+      ...
     </p>
   </p>
 </div>
