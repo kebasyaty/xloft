@@ -50,3 +50,9 @@ def test_fail_add_new_attribute() -> None:
     """It is forbidden to add new attributes."""
     nt = NamedTuple(x=10, y="Hello")
     nt.z = 20
+
+
+@pytest.mark.xfail(raises=TypeError)
+def test_forbidden_type_of_argument() -> None:
+    """NamedTuple is not supported for arguments."""
+    NamedTuple(x=10, y="Hello", z=NamedTuple(x=10, y="Hello"))
