@@ -7,7 +7,7 @@ authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
 license = "MIT"
 license-files = ["LICENSE"]
 requires-python = ">=3.12,<4.0"
-keywords = ["collections", "tools", "xloft", "namedtuple"]
+keywords = ["collection", "tools", "xloft", "namedtuple"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
