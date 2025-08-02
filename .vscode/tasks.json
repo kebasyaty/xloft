@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Ruff: Run Check",
+      "type": "shell",
+      "command": ["uv run ruff check --fix --config pyproject.toml"],
+      "problemMatcher": []
+    },
+    {
+      "label": "MyPy: Run Check",
+      "type": "shell",
+      "command": ["uv run mypy --config-file pyproject.toml"],
+      "problemMatcher": []
+    },
+    {
+      "label": "UV: Run Upgrade",
+      "type": "shell",
+      "command": ["uv sync --upgrade"],
+      "problemMatcher": []
+    },
+    {
+      "label": "UV: Run Lock",
+      "type": "shell",
+      "command": ["uv lock"],
+      "problemMatcher": []
+    },
+    {
+      "label": "PyTest: Run Tests",
+      "type": "shell",
+      "command": ["uv run pytest -v tests/"],
+      "problemMatcher": []
+    }
+  ]
+}
