@@ -27,12 +27,19 @@ def test_kwargs_arguments() -> None:
 @pytest.mark.xfail(raises=AttributeDoesNotSetValue)
 def test_fail_setter() -> None:
     """Setter is not supported."""
-    nt = NamedTuple(x=10)
+    nt = NamedTuple(x=10, y="Hello")
     nt.x = 20
 
 
-# @pytest.mark.xfail(raises=AttributeError)
-# def test_fail_access_to_field() -> None:
-#     """An attempt to access the non-existent field."""
-#     nt = NamedTuple(x=10, y="Hello")
-#     nt.z
+@pytest.mark.xfail(raises=AttributeCannotBeDelete)
+def test_fail_deletter() -> None:
+    """Deletter is not supported."""
+    nt = NamedTuple(x=10, y="Hello")
+    del nt.x
+
+
+@pytest.mark.xfail(raises=KeyError)
+def test_fail_access_to_attribute() -> None:
+    """An attempt to access the non-existent attribute."""
+    nt = NamedTuple(x=10, y="Hello")
+    nt.z

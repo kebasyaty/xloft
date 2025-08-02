@@ -1,6 +1,6 @@
 """Named Tuple."""
 
-from typing import Any, Callable
+from typing import Any
 
 from xloft.errors import (
     AttributeCannotBeDelete,
