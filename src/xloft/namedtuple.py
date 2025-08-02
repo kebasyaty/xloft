@@ -13,6 +13,9 @@ class NamedTuple:
 
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
         for key, value in kwargs.items():
+            if isinstance(value, NamedTuple):
+                err_msg = f"`{key}` - NamedTuple is not supported for arguments!"
+                raise TypeError(err_msg)
             self.__dict__[key] = value
 
     def __getattr__(self, key: str) -> Any:
