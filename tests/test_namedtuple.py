@@ -43,3 +43,10 @@ def test_fail_access_to_attribute() -> None:
     """An attempt to access the non-existent attribute."""
     nt = NamedTuple(x=10, y="Hello")
     nt.z
+
+
+@pytest.mark.xfail(raises=AttributeDoesNotSetValue)
+def test_fail_add_new_attribute() -> None:
+    """It is forbidden to add new attributes."""
+    nt = NamedTuple(x=10, y="Hello")
+    nt.z = 20
