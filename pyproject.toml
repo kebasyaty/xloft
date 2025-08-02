@@ -1,13 +1,13 @@
 [project]
-name = "loft"
+name = "xloft"
 version = "0.1.0"
-description = "(LOFT) Library of tools"
+description = "(XLOFT) X-Library of tools"
 readme = "README.md"
 authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
 license = "MIT"
 license-files = ["LICENSE"]
 requires-python = ">=3.12,<4.0"
-keywords = ["collections", "tools", "loft", "namedtuple"]
+keywords = ["collections", "tools", "xloft", "namedtuple"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -17,17 +17,17 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: Implementation :: CPython",
-    "Topic :: Database",
+    "Topic :: Library",
     "Typing :: Typed",
 ]
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/kebasyaty/loft"
-Repository = "https://github.com/kebasyaty/loft"
-Source = "https://github.com/kebasyaty/loft"
-"Bug Tracker" = "https://github.com/kebasyaty/loft/issues"
-Changelog = "https://github.com/kebasyaty/loft/blob/v0/CHANGELOG.md"
+Homepage = "https://github.com/kebasyaty/xloft"
+Repository = "https://github.com/kebasyaty/xloft"
+Source = "https://github.com/kebasyaty/xloft"
+"Bug Tracker" = "https://github.com/kebasyaty/xloft/issues"
+Changelog = "https://github.com/kebasyaty/xloft/blob/v0/CHANGELOG.md"
 
 [tool.uv]
 package = true
