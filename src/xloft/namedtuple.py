@@ -2,6 +2,11 @@
 
 from typing import Any, Callable
 
+from xloft.errors import (
+    AttributeCannotBeDelete,
+    AttributeDoesNotSetValue,
+)
+
 
 class NamedTuple:
     """Named Tuple."""
@@ -16,8 +21,8 @@ class NamedTuple:
 
     def __setattr__(self, key: str, value: Any) -> None:
         """Setter."""
-        raise Exception("It is read only!")
+        raise AttributeDoesNotSetValue(key)
 
     def __delattr__(self, str: Any, /) -> None:
         """Deleter."""
-        raise Exception("It is read only!")
+        raise AttributeCannotBeDelete(str)

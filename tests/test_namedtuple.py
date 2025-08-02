@@ -3,6 +3,7 @@
 import pytest
 
 from xloft import NamedTuple
+from xloft.errors import NotSettingValueError
 
 
 def test_separate_arguments() -> None:
@@ -20,7 +21,7 @@ def test_kwargs_arguments() -> None:
     assert nt.y == "Hello"
 
 
-@pytest.mark.xfail(raises=AttributeError)
+@pytest.mark.xfail(raises=NotSettingValueError)
 def test_fail_setter() -> None:
     """Setter is not supported."""
     nt = NamedTuple(x=10)
