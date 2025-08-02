@@ -46,7 +46,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies of project
-        run: uv sync --locked --dev
+        run: uv sync --locked --dev --group test
 
       - name: Run checking of code
         run: uv run ruff check --config pyproject.toml
