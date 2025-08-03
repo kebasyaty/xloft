@@ -120,7 +120,14 @@ def test_len_method() -> None:
 
 
 def test_keys_method() -> None:
-    """Get the number of elements."""
+    """Get a list of keys."""
     d = {"x": 10, "y": "Hello"}
     nt = NamedTuple(**d)
     assert nt.keys() == ["x", "y"]
+
+
+def test_values_method() -> None:
+    """Get a list of values."""
+    d = {"x": 10, "y": "Hello"}
+    nt = NamedTuple(**d)
+    assert nt.values() == [10, "Hello"]

@@ -71,3 +71,11 @@ class NamedTuple:
     def keys(self) -> list[str]:
         """Get a list of keys."""
         return self._keys
+
+    def values(self) -> list[Any]:
+        """Get a list of values."""
+        return [
+            value
+            for key, value in self.__dict__.items()
+            if not callable(value) and not key in ["_keys", "_len"]
+        ]

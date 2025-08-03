@@ -62,6 +62,9 @@ nt.x  # => 10
 nt.y  # => "Hello"
 nt.z  # => raise: KeyError
 
+len(nt)  # => 2
+nt.keys()  # => ["x", "y"]
+
 nt["x"]  # => raise: KeyError
 nt["y"]  # => raise: KeyError
 nt["x"] = 20  # => TypeError
