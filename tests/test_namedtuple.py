@@ -66,9 +66,9 @@ def test_update_method() -> None:
     """Testing a `update` method."""
     d = {"x": 10, "y": "Hello"}
     nt = NamedTuple(**d)
-    assert nt.get("x") == 10
-    assert nt.get("y") == "Hello"
+    assert nt.x == 10
+    assert nt.y == "Hello"
     nt.update("x", 20)
     nt.update("y", "Hi")
-    assert nt.get("x") == 20
-    assert nt.get("y") == "Hi"
+    assert nt.x == 20
+    assert nt.y == "Hi"
