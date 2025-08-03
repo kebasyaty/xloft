@@ -4,6 +4,8 @@
 
 ### Dependencies
 
+- None
+
 ### Dev-Dependencies
 
 - [ruff](https://pypi.org/project/ruff/ "ruff")
