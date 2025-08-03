@@ -91,8 +91,6 @@ del nt.x  # => raise: AttributeCannotBeDelete
 del nt.y # => raise: AttributeCannotBeDelete
 ```
 
-### [See more examples here.](https://github.com/kebasyaty/xloft/tree/main/examples "See more examples here.")
-
 ## Changelog
 
 [View the change history.](https://github.com/kebasyaty/xloft/blob/main/CHANGELOG.md "Changelog")
