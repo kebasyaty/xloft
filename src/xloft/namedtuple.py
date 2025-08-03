@@ -67,3 +67,7 @@ class NamedTuple:
             for key, value in self.__dict__.items()
             if not callable(value) and not key in ["_keys", "_len"]
         ]
+
+    def keys(self) -> list[str]:
+        """Get a list of keys."""
+        return self._keys

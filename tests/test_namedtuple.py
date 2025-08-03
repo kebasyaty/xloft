@@ -117,3 +117,10 @@ def test_len_method() -> None:
     d = {"x": 10, "y": "Hello"}
     nt = NamedTuple(**d)
     assert len(nt) == 2
+
+
+def test_keys_method() -> None:
+    """Get the number of elements."""
+    d = {"x": 10, "y": "Hello"}
+    nt = NamedTuple(**d)
+    assert nt.keys() == ["x", "y"]
