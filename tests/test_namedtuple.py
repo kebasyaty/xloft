@@ -73,7 +73,7 @@ def test_get_method() -> None:
     assert nt.get("x") == 10
     assert nt.get("y") == "Hello"
     assert nt.get("z") == None
-    assert nt.get("z", "Hi") == "Hi"
+    assert nt.get("z", [1, 2, 3]) == [1, 2, 3]
 
 
 def test_update_method() -> None:
@@ -88,7 +88,7 @@ def test_update_method() -> None:
     assert nt.y == "Hi"
 
 
-def test_iterator() -> None:
+def test_convert_to_dict() -> None:
     """Convert to the dictionary."""
     nt = NamedTuple(x=10, y="Hello")
     d = nt.to_dict()

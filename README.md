@@ -51,6 +51,41 @@ uv add xloft
 
 ```python
 import xloft
+
+
+nt = NamedTuple(x=10, y="Hello")
+# or
+d = {"x": 10, "y": "Hello"}
+nt = NamedTuple(**d)
+
+nt.x  # => 10
+nt.y  # => "Hello"
+nt.z  # => raise: KeyError
+
+nt["x"]  # => 10
+nt["y"]  # => "Hello"
+nt["z"]  # => raise: KeyError
+
+nt.get("x")  # => 10
+nt.get("y")  # => "Hello"
+nt.get("z")  # => None
+nt.get("z", [1, 2, 3] )  # => [1, 2, 3]
+
+nt.x = 20  # => raise: AttributeDoesNotSetValue
+nt.y = "Hi"  # => raise: AttributeDoesNotSetValue
+nt.z = [1, 2, 3]  # => raise: AttributeDoesNotSetValue
+
+nt.update("x", 20)
+nt.update("y", "Hi")
+nt["x"]  # => 20
+nt["y"]  # => "Hi"
+
+d = nt.to_dict()
+d["x"]  # => 10
+d["y"]  # => "Hello"
+
+del nt.x  # => raise: AttributeCannotBeDelete
+del nt.y # => raise: AttributeCannotBeDelete
 ```
 
 ### [See more examples here.](https://github.com/kebasyaty/xloft/tree/main/examples "See more examples here.")
