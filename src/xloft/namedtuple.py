@@ -20,16 +20,12 @@ class NamedTuple:
         return self.__dict__[name]
 
     def __setattr__(self, name: str, value: Any) -> None:
-        """Setter."""
+        """Fail Setter."""
         raise AttributeDoesNotSetValue(name)
 
     def __delattr__(self, name: str) -> None:
-        """Deleter."""
+        """Fail Deleter."""
         raise AttributeCannotBeDelete(name)
-
-    def __getitem__(self, key: str) -> Any:
-        """Access by  name of key."""
-        return self.__dict__[key]
 
     def get(self, key: str, default: Any | None = None) -> Any | None:
         """Return the value for key if key is in the dictionary, else default."""
