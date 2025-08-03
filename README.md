@@ -70,7 +70,6 @@ nt["y"] = "Hi"  # => TypeError
 nt.get("x")  # => 10
 nt.get("y")  # => "Hello"
 nt.get("z")  # => None
-nt.get("z", [1, 2, 3] )  # => [1, 2, 3]
 
 nt.x = 20  # => raise: AttributeDoesNotSetValue
 nt.y = "Hi"  # => raise: AttributeDoesNotSetValue
