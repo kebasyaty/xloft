@@ -50,7 +50,7 @@ uv add xloft
 ## Usage
 
 ```python
-import xloft
+from xloft import NamedTuple
 
 
 nt = NamedTuple(x=10, y="Hello")
