@@ -1,6 +1,6 @@
 """Named Tuple."""
 
-from typing import Any, Callable
+from typing import Any
 
 from xloft.errors import (
     AttributeCannotBeDelete,
@@ -12,17 +12,39 @@ class NamedTuple:
     """Named Tuple."""
 
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
-        for key, value in kwargs.items():
-            self.__dict__[key] = value
+        for name, value in kwargs.items():
+            self.__dict__[name] = value
 
-    def __getattr__(self, key: str) -> Any:
+    def __getattr__(self, name: str) -> Any:
         """Getter."""
+        return self.__dict__[name]
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        """Setter."""
+        raise AttributeDoesNotSetValue(name)
+
+    def __delattr__(self, name: str) -> None:
+        """Deleter."""
+        raise AttributeCannotBeDelete(name)
+
+    def __getitem__(self, key: str) -> Any:
+        """Access by  name of key."""
         return self.__dict__[key]
 
-    def __setattr__(self, key: str, value: Any) -> None:
-        """Setter."""
-        raise AttributeDoesNotSetValue(key)
+    def get(self, key: str, default: Any | None = None) -> Any | None:
+        """Return the value for key if key is in the dictionary, else default."""
+        value = self.__dict__.get(key)
+        if value is not None:
+            return value
+        return default
 
-    def __delattr__(self, str: Any, /) -> None:
-        """Deleter."""
-        raise AttributeCannotBeDelete(str)
+    def update(self, key: str, value: Any) -> Any:
+        """Update a value of key.
+
+        Attention: This is an uncharacteristic action for the type `tuple`.
+        """
+        self.__dict__[key] = value
+
+    def to_dict(self) -> dict[str, Any]:
+        """Convert to the dictionary."""
+        return {key: value for key, value in self.__dict__.items() if not callable(value)}
