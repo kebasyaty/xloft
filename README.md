@@ -30,7 +30,7 @@
       <a href="https://github.com/kebasyaty/xloft"><img src="https://img.shields.io/github/last-commit/kebasyaty/xloft/main" alt="Last commit"></a>
     </p>
     <p align="center">
-      ...
+      Currently, the collection is represented by one element `NamedTuple`.
     </p>
   </p>
 </div>
@@ -50,7 +50,7 @@ uv add xloft
 ## Usage
 
 ```python
-import xloft
+from xloft import NamedTuple
 
 
 nt = NamedTuple(x=10, y="Hello")
@@ -83,6 +83,9 @@ nt["y"]  # => "Hi"
 d = nt.to_dict()
 d["x"]  # => 10
 d["y"]  # => "Hello"
+
+for key, val in nt.items():
+    print(f"Key: {key}, Value: {val}")
 
 del nt.x  # => raise: AttributeCannotBeDelete
 del nt.y # => raise: AttributeCannotBeDelete
