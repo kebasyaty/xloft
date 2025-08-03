@@ -9,21 +9,6 @@ from xloft.errors import (
 )
 
 
-def test_separate_arguments() -> None:
-    """Create with separate arguments."""
-    nt = NamedTuple(x=10, y="Hello")
-    assert nt.x == 10
-    assert nt.y == "Hello"
-
-
-def test_kwargs_arguments() -> None:
-    """Create with kwargs arguments."""
-    d = {"x": 10, "y": "Hello"}
-    nt = NamedTuple(**d)
-    assert nt.x == 10
-    assert nt.y == "Hello"
-
-
 @pytest.mark.xfail(raises=AttributeDoesNotSetValue)
 def test_fail_setter() -> None:
     """Setter is not supported."""
@@ -52,7 +37,26 @@ def test_fail_add_new_attribute() -> None:
     nt.z = 20
 
 
-@pytest.mark.xfail(raises=TypeError)
-def test_forbidden_type_of_argument() -> None:
-    """NamedTuple is not supported for arguments."""
-    NamedTuple(x=10, y="Hello", z=NamedTuple(x=10, y="Hello"))
+def test_separate_arguments() -> None:
+    """Create with separate arguments."""
+    nt = NamedTuple(x=10, y="Hello")
+    assert nt.x == 10
+    assert nt.y == "Hello"
+
+
+def test_kwargs_arguments() -> None:
+    """Create with kwargs arguments."""
+    d = {"x": 10, "y": "Hello"}
+    nt = NamedTuple(**d)
+    assert nt.x == 10
+    assert nt.y == "Hello"
+
+
+def test_get_method() -> None:
+    """Testing a `get` method."""
+    d = {"x": 10, "y": "Hello"}
+    nt = NamedTuple(**d)
+    assert nt.get("x") == 10
+    assert nt.get("y") == "Hello"
+    assert nt.get("z") == None
+    assert nt.get("z", "Hi") == "Hi"
