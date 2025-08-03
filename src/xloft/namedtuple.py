@@ -12,8 +12,15 @@ class NamedTuple:
     """Named Tuple."""
 
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
+        self.__dict__["_keys"] = []
         for name, value in kwargs.items():
             self.__dict__[name] = value
+            self._keys.append(name)
+        else:
+            self.__dict__["_len"] = len(self._keys)
+
+    def __len__(self) -> int:  # noqa: D105
+        return self._len
 
     def __getattr__(self, name: str) -> Any:
         """Getter."""
@@ -39,15 +46,23 @@ class NamedTuple:
 
         Attention: This is an uncharacteristic action for the type `tuple`.
         """
-        if not key in self.__dict__.keys():
+        if not key in self._keys:
             err_msg = f"The key `{key}` is missing!"
             raise KeyError(err_msg)
         self.__dict__[key] = value
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to the dictionary."""
-        return {key: value for key, value in self.__dict__.items() if not callable(value)}
+        return {
+            key: value
+            for key, value in self.__dict__.items()
+            if not callable(value) and not key in ["_keys", "_len"]
+        }
 
     def items(self) -> list[tuple[str, Any]]:
         """Return a set-like object providing a view on the NamedTuple's items."""
-        return [(key, value) for key, value in self.__dict__.items() if not callable(value)]
+        return [
+            (key, value)
+            for key, value in self.__dict__.items()
+            if not callable(value) and not key in ["_keys", "_len"]
+        ]
