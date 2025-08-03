@@ -48,7 +48,7 @@ def test_fail_getitem() -> None:
 def test_fail_setitem() -> None:
     """Fail Setter."""
     nt = NamedTuple(x=10, y="Hello")
-    nt["x"] == 20
+    nt["x"] = 20
 
 
 def test_separate_arguments() -> None:

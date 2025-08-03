@@ -64,6 +64,8 @@ nt.z  # => raise: KeyError
 
 nt["x"]  # => raise: KeyError
 nt["y"]  # => raise: KeyError
+nt["x"] = 20  # => TypeError
+nt["y"] = "Hi"  # => TypeError
 
 nt.get("x")  # => 10
 nt.get("y")  # => "Hello"
