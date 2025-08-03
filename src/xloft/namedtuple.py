@@ -28,7 +28,7 @@ class NamedTuple:
         raise AttributeCannotBeDelete(name)
 
     def __getitem__(self, key: str) -> Any:
-        """Access by index (or key)."""
+        """Access by  name of key."""
         return self.__dict__[key]
 
     def get(self, key: str, default: Any | None = None) -> Any | None:
@@ -44,3 +44,10 @@ class NamedTuple:
         Attention: This is an uncharacteristic action for the type `tuple`.
         """
         self.__dict__[key] = value
+
+    # def __iter__(self) -> dict[str, Any]:
+    #     """Returns the iterator object itself."""
+    #     data = {key: value for key, value in self.__dict__.items() if not callable(value)}
+    #     keys = data.keys()
+    #     values = data.values()
+    #     return {"keys": keys, "values": values}

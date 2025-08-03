@@ -37,6 +37,13 @@ def test_fail_add_new_attribute() -> None:
     nt.z = 20
 
 
+@pytest.mark.xfail(raises=KeyError)
+def test_fail_getitem() -> None:
+    """Access by  name of key."""
+    nt = NamedTuple(x=10, y="Hello")
+    nt["z"]
+
+
 def test_separate_arguments() -> None:
     """Create with separate arguments."""
     nt = NamedTuple(x=10, y="Hello")
@@ -50,6 +57,13 @@ def test_kwargs_arguments() -> None:
     nt = NamedTuple(**d)
     assert nt.x == 10
     assert nt.y == "Hello"
+
+
+def test_getitem() -> None:
+    """Access by  name of key."""
+    nt = NamedTuple(x=10, y="Hello")
+    assert nt["x"] == 10
+    assert nt["y"] == "Hello"
 
 
 def test_get_method() -> None:
@@ -72,3 +86,9 @@ def test_update_method() -> None:
     nt.update("y", "Hi")
     assert nt.x == 20
     assert nt.y == "Hi"
+
+
+# def test_iterator() -> None:
+#     """???"""
+#     nt = NamedTuple(x=10, y="Hello")
+#     d = dict(nt)
