@@ -48,3 +48,7 @@ class NamedTuple:
     def to_dict(self) -> dict[str, Any]:
         """Convert to the dictionary."""
         return {key: value for key, value in self.__dict__.items() if not callable(value)}
+
+    def items(self) -> list[tuple[str, Any]]:
+        """Return a set-like object providing a view on the NamedTuple's items."""
+        return [(key, value) for key, value in self.__dict__.items() if not callable(value)]

@@ -88,7 +88,7 @@ def test_update_method() -> None:
     assert nt.y == "Hi"
 
 
-def test_convert_to_dict() -> None:
+def test_to_dict_method() -> None:
     """Convert to the dictionary."""
     nt = NamedTuple(x=10, y="Hello")
     d = nt.to_dict()
@@ -97,9 +97,9 @@ def test_convert_to_dict() -> None:
     assert d["y"] == "Hello"
 
 
-def test_in_loop() -> None:
+def test_items_method() -> None:
     """In the cycle `for`."""
     d = {"x": 10, "y": "Hello"}
     nt = NamedTuple(**d)
-    for key, val in nt.to_dict().items():
+    for key, val in nt.items():
         assert val == d[key]
