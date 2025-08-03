@@ -51,6 +51,14 @@ def test_fail_setitem() -> None:
     nt["x"] = 20
 
 
+@pytest.mark.xfail(raises=KeyError)
+def test_fail_update_method() -> None:
+    """Testing a `update` method."""
+    d = {"x": 10, "y": "Hello"}
+    nt = NamedTuple(**d)
+    nt.update("z", [1, 2, 3])
+
+
 def test_separate_arguments() -> None:
     """Create with separate arguments."""
     nt = NamedTuple(x=10, y="Hello")
@@ -86,9 +94,6 @@ def test_update_method() -> None:
     nt.update("y", "Hi")
     assert nt.x == 20
     assert nt.y == "Hi"
-    nt.update("z", [1, 2, 3])
-    assert nt.get("z") == [1, 2, 3]
-    assert nt.z == [1, 2, 3]
 
 
 def test_to_dict_method() -> None:

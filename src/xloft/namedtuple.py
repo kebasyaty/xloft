@@ -39,6 +39,9 @@ class NamedTuple:
 
         Attention: This is an uncharacteristic action for the type `tuple`.
         """
+        if not key in self.__dict__.keys():
+            err_msg = f"The key `{key}` is missing!"
+            raise KeyError(err_msg)
         self.__dict__[key] = value
 
     def to_dict(self) -> dict[str, Any]:
