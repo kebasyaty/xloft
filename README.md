@@ -84,6 +84,9 @@ d = nt.to_dict()
 d["x"]  # => 10
 d["y"]  # => "Hello"
 
+for key, val in nt.items():
+    print(f"Key: {key}, Value: {val}")
+
 del nt.x  # => raise: AttributeCannotBeDelete
 del nt.y # => raise: AttributeCannotBeDelete
 ```
