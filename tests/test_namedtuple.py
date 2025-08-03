@@ -81,7 +81,6 @@ def test_get_method() -> None:
     assert nt.get("x") == 10
     assert nt.get("y") == "Hello"
     assert nt.get("z") == None
-    assert nt.get("z", [1, 2, 3]) == [1, 2, 3]
 
 
 def test_update_method() -> None:

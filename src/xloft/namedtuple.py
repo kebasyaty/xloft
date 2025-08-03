@@ -27,12 +27,12 @@ class NamedTuple:
         """Fail Deleter."""
         raise AttributeCannotBeDelete(name)
 
-    def get(self, key: str, default: Any | None = None) -> Any | None:
-        """Return the value for key if key is in the dictionary, else default."""
+    def get(self, key: str) -> Any:
+        """Return the value for key if key is in the dictionary, else `None`."""
         value = self.__dict__.get(key)
         if value is not None:
             return value
-        return default
+        return None
 
     def update(self, key: str, value: Any) -> Any:
         """Update a value of key.
