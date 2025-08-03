@@ -51,6 +51,14 @@ def test_fail_setitem() -> None:
     nt["x"] = 20
 
 
+@pytest.mark.xfail(raises=KeyError)
+def test_fail_update_method() -> None:
+    """Testing a `update` method."""
+    d = {"x": 10, "y": "Hello"}
+    nt = NamedTuple(**d)
+    nt.update("z", [1, 2, 3])
+
+
 def test_separate_arguments() -> None:
     """Create with separate arguments."""
     nt = NamedTuple(x=10, y="Hello")
@@ -73,7 +81,6 @@ def test_get_method() -> None:
     assert nt.get("x") == 10
     assert nt.get("y") == "Hello"
     assert nt.get("z") == None
-    assert nt.get("z", [1, 2, 3]) == [1, 2, 3]
 
 
 def test_update_method() -> None:
@@ -86,9 +93,6 @@ def test_update_method() -> None:
     nt.update("y", "Hi")
     assert nt.x == 20
     assert nt.y == "Hi"
-    nt.update("z", [1, 2, 3])
-    assert nt.get("z") == [1, 2, 3]
-    assert nt.z == [1, 2, 3]
 
 
 def test_to_dict_method() -> None:
@@ -106,3 +110,24 @@ def test_items_method() -> None:
     nt = NamedTuple(**d)
     for key, val in nt.items():
         assert val == d[key]
+
+
+def test_len_method() -> None:
+    """Get the number of elements."""
+    d = {"x": 10, "y": "Hello"}
+    nt = NamedTuple(**d)
+    assert len(nt) == 2
+
+
+def test_keys_method() -> None:
+    """Get a list of keys."""
+    d = {"x": 10, "y": "Hello"}
+    nt = NamedTuple(**d)
+    assert nt.keys() == ["x", "y"]
+
+
+def test_values_method() -> None:
+    """Get a list of values."""
+    d = {"x": 10, "y": "Hello"}
+    nt = NamedTuple(**d)
+    assert nt.values() == [10, "Hello"]

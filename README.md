@@ -62,6 +62,10 @@ nt.x  # => 10
 nt.y  # => "Hello"
 nt.z  # => raise: KeyError
 
+len(nt)  # => 2
+nt.keys()  # => ["x", "y"]
+nt.values()  # => [10, "Hello"]
+
 nt["x"]  # => raise: KeyError
 nt["y"]  # => raise: KeyError
 nt["x"] = 20  # => TypeError
@@ -70,7 +74,6 @@ nt["y"] = "Hi"  # => TypeError
 nt.get("x")  # => 10
 nt.get("y")  # => "Hello"
 nt.get("z")  # => None
-nt.get("z", [1, 2, 3] )  # => [1, 2, 3]
 
 nt.x = 20  # => raise: AttributeDoesNotSetValue
 nt.y = "Hi"  # => raise: AttributeDoesNotSetValue
@@ -80,8 +83,7 @@ nt.update("x", 20)
 nt.update("y", "Hi")
 nt.x  # => 20
 nt.y  # => "Hi"
-nt.update("z", [1, 2, 3])
-nt.z  # => [1, 2, 3]
+nt.update("z", [1, 2, 3])  # => raise: KeyError
 
 d = nt.to_dict()
 d["x"]  # => 10
