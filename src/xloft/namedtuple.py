@@ -37,3 +37,10 @@ class NamedTuple:
         if value is not None:
             return value
         return default
+
+    def update(self, key: str, value: Any) -> Any:
+        """Update a value of key.
+
+        Attention: This is an uncharacteristic action for the type `tuple`.
+        """
+        self.__dict__[key] = value
