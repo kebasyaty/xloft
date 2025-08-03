@@ -79,6 +79,8 @@ nt.update("x", 20)
 nt.update("y", "Hi")
 nt["x"]  # => 20
 nt["y"]  # => "Hi"
+nt.update("z", [1, 2, 3])
+nt.get("z", [1, 2, 3])  # => [1, 2, 3]
 
 d = nt.to_dict()
 d["x"]  # => 10

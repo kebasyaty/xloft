@@ -86,6 +86,10 @@ def test_update_method() -> None:
     nt.update("y", "Hi")
     assert nt.x == 20
     assert nt.y == "Hi"
+    nt.update("z", [1, 2, 3])
+    assert nt.get("z") == [1, 2, 3]
+    assert nt["z"] == [1, 2, 3]
+    assert nt.z == [1, 2, 3]
 
 
 def test_to_dict_method() -> None:
