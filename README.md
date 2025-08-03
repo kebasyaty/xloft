@@ -11,7 +11,7 @@
     <h1>XLOFT</h1>
     <h3>(XLOFT) X-Library of tools.</h3>
     <p align="center">
-      <a href="https://github.com/kebasyaty/xloft/actions/workflows/test.yml" alt="Build Status"><img src="https://github.com/kebasyaty/xloft/actions/workflows/specs.yml/badge.svg" alt="Build Status"></a>
+      <a href="https://github.com/kebasyaty/xloft/actions/workflows/test.yml" alt="Build Status"><img src="https://github.com/kebasyaty/xloft/actions/workflows/test.yml/badge.svg" alt="Build Status"></a>
       <a href="https://kebasyaty.github.io/xloft/" alt="Docs"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
       <a href="https://pypi.python.org/pypi/xloft/" alt="PyPI pyversions"><img src="https://img.shields.io/pypi/pyversions/xloft.svg" alt="PyPI pyversions"></a>
       <a href="https://pypi.python.org/pypi/xloft/" alt="PyPI status"><img src="https://img.shields.io/pypi/status/xloft.svg" alt="PyPI status"></a>
