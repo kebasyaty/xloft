@@ -95,3 +95,11 @@ def test_convert_to_dict() -> None:
     assert isinstance(d, dict) == True
     assert d["x"] == 10
     assert d["y"] == "Hello"
+
+
+def test_in_loop() -> None:
+    """In the cycle `for`."""
+    d = {"x": 10, "y": "Hello"}
+    nt = NamedTuple(**d)
+    for key, val in nt.to_dict().items():
+        assert val == d[key]
