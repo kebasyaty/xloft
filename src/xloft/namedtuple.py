@@ -19,7 +19,8 @@ class NamedTuple:
         else:
             self.__dict__["_len"] = len(self._keys)
 
-    def __len__(self) -> int:  # noqa: D105
+    def __len__(self) -> int:
+        """Get the number of elements."""
         return self._len
 
     def __getattr__(self, name: str) -> Any:

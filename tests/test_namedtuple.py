@@ -110,3 +110,10 @@ def test_items_method() -> None:
     nt = NamedTuple(**d)
     for key, val in nt.items():
         assert val == d[key]
+
+
+def test_len_method() -> None:
+    """Get the number of elements."""
+    d = {"x": 10, "y": "Hello"}
+    nt = NamedTuple(**d)
+    assert len(nt) == 2
