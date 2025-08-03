@@ -88,7 +88,10 @@ def test_update_method() -> None:
     assert nt.y == "Hi"
 
 
-# def test_iterator() -> None:
-#     """???"""
-#     nt = NamedTuple(x=10, y="Hello")
-#     d = dict(nt)
+def test_iterator() -> None:
+    """Convert to the dictionary."""
+    nt = NamedTuple(x=10, y="Hello")
+    d = nt.to_dict()
+    assert isinstance(d, dict) == True
+    assert d["x"] == 10
+    assert d["y"] == "Hello"

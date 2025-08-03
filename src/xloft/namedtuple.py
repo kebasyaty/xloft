@@ -45,9 +45,6 @@ class NamedTuple:
         """
         self.__dict__[key] = value
 
-    # def __iter__(self) -> dict[str, Any]:
-    #     """Returns the iterator object itself."""
-    #     data = {key: value for key, value in self.__dict__.items() if not callable(value)}
-    #     keys = data.keys()
-    #     values = data.values()
-    #     return {"keys": keys, "values": values}
+    def to_dict(self) -> dict[str, Any]:
+        """Convert to the dictionary."""
+        return {key: value for key, value in self.__dict__.items() if not callable(value)}
