@@ -76,8 +76,8 @@ nt.z = [1, 2, 3]  # => raise: AttributeDoesNotSetValue
 
 nt.update("x", 20)
 nt.update("y", "Hi")
-nt["x"]  # => 20
-nt["y"]  # => "Hi"
+nt.x  # => 20
+nt.y  # => "Hi"
 nt.update("z", [1, 2, 3])
 nt.z  # => [1, 2, 3]
 
