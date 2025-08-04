@@ -53,7 +53,7 @@ from xloft.errors import (
 
 
 class NamedTuple:
-    """This class imitates the behavior of the named tuple."""
+    """This class imitates the behavior of the _named tuple_."""
 
     VAR_NAME_FOR_KEYS_LIST: str = "_jWjSaNy1RbtQinsN_keys"
 
@@ -87,6 +87,9 @@ class NamedTuple:
             >>> nt.x
             10
 
+        Args:
+            name: Key name.
+
         Returns:
             Value of key.
         """
@@ -102,6 +105,9 @@ class NamedTuple:
 
     def get(self, key: str) -> Any:
         """Return the value for key if key is in the dictionary, else `None`.
+
+        Args:
+            key: Key name.
 
         Examples:
             >>> from xloft import NamedTuple
@@ -121,6 +127,10 @@ class NamedTuple:
         """Update a value of key.
 
         Attention: This is an uncharacteristic action for the type `tuple`.
+
+        Args:
+            name: Key name.
+            value: Value of key.
 
         Examples:
             >>> from xloft import NamedTuple
@@ -206,6 +216,9 @@ class NamedTuple:
     def has_key(self, key: str) -> bool:
         """Returns True if the key exists, otherwise False.
 
+        Args:
+            key: Key name.
+
         Examples:
             >>> from xloft import NamedTuple
             >>> nt = NamedTuple(x=10, y="Hello")
@@ -220,6 +233,9 @@ class NamedTuple:
 
     def has_value(self, value: Any) -> bool:
         """Returns True if the value exists, otherwise False.
+
+        Args:
+            value: Value of key.
 
         Examples:
             >>> from xloft import NamedTuple
