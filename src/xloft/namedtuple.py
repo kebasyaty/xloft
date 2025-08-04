@@ -129,7 +129,7 @@ class NamedTuple:
         Attention: This is an uncharacteristic action for the type `tuple`.
 
         Args:
-            name: Key name.
+            key: Key name.
             value: Value of key.
 
         Examples:

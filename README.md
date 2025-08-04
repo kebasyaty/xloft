@@ -37,6 +37,10 @@
 
 ##
 
+## Documentation
+
+Online browsable documentation is available at [https://kebasyaty.github.io/xloft/](https://kebasyaty.github.io/xloft/ "Documentation").
+
 ## Requirements
 
 [View the list of requirements.](https://github.com/kebasyaty/xloft/blob/main/REQUIREMENTS.md "View the list of requirements.")
