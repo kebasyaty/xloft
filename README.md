@@ -116,4 +116,4 @@ del nt.y # => raise: AttributeCannotBeDelete
 
 ## License
 
-**This project is licensed under the** [MIT](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")**.**
+This project is licensed under the** [MIT](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")**.
