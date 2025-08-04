@@ -1,6 +1,7 @@
 """NamedTuple.
 
 This module contains the implementation of the `NamedTuple` class.
+`NamedTuple` class imitates the behavior of the _named tuple_.
 
 Examples:
     >>> from xloft import NamedTuple
@@ -52,7 +53,7 @@ from xloft.errors import (
 
 
 class NamedTuple:
-    """Named Tuple."""
+    """This class imitates the behavior of the named tuple."""
 
     VAR_NAME_FOR_KEYS_LIST: str = "_jWjSaNy1RbtQinsN_keys"
 
@@ -64,11 +65,31 @@ class NamedTuple:
             self.__dict__[vnkl].append(name)
 
     def __len__(self) -> int:
-        """Get the number of elements."""
+        """Get the number of elements.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> len(nt)
+            2
+
+        Returns:
+            The number of elements in the tuple.
+        """
         return len(self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST])
 
     def __getattr__(self, name: str) -> Any:
-        """Getter."""
+        """Getter.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> nt.x
+            10
+
+        Returns:
+            Value of key.
+        """
         return self.__dict__[name]
 
     def __setattr__(self, name: str, value: Any) -> None:
@@ -80,16 +101,36 @@ class NamedTuple:
         raise AttributeCannotBeDelete(name)
 
     def get(self, key: str) -> Any:
-        """Return the value for key if key is in the dictionary, else `None`."""
+        """Return the value for key if key is in the dictionary, else `None`.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> nt.get("x")
+            10
+
+        Returns:
+            Value of key.
+        """
         value = self.__dict__.get(key)
         if value is not None:
             return value
         return None
 
-    def update(self, key: str, value: Any) -> Any:
+    def update(self, key: str, value: Any) -> None:
         """Update a value of key.
 
         Attention: This is an uncharacteristic action for the type `tuple`.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> nt.update("x", 20)
+            >>> nt.x
+            20
+
+        Returns:
+            None
         """
         keys: list[str] = self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
         if not key in keys:
@@ -98,23 +139,66 @@ class NamedTuple:
         self.__dict__[key] = value
 
     def to_dict(self) -> dict[str, Any]:
-        """Convert to the dictionary."""
+        """Convert to the dictionary.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> d = nt.to_dict()
+            >>> d["x"]
+            10
+
+        Returns:
+            Dictionary with keys and values of the tuple.
+        """
         attrs: dict[str, Any] = self.__dict__
         keys: list[str] = attrs[self.__class__.VAR_NAME_FOR_KEYS_LIST]
         return {key: attrs[key] for key in keys}
 
     def items(self) -> list[tuple[str, Any]]:
-        """Return a set-like object providing a view on the NamedTuple's items."""
+        """Return a set-like object providing a view on the NamedTuple's items.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> for key, val in nt.items():
+            ...     print(f"Key: {key}, Value: {val}")
+            "Key: x, Value: 10"
+            "Key: y, Value: Hello"
+
+        Returns:
+            list[tuple[str, Any]]
+        """
         attrs: dict[str, Any] = self.__dict__
         keys: list[str] = attrs[self.__class__.VAR_NAME_FOR_KEYS_LIST]
         return [(key, attrs[key]) for key in keys]
 
     def keys(self) -> list[str]:
-        """Get a list of keys."""
+        """Get a list of keys.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> nt.keys()
+            ["x", "y"]
+
+        Returns:
+            List of keys.
+        """
         return self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
 
     def values(self) -> list[Any]:
-        """Get a list of values."""
+        """Get a list of values.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> nt.values()
+            [10, "Hello"]
+
+        Returns:
+            List of values.
+        """
         attrs: dict[str, Any] = self.__dict__
         keys: list[str] = attrs[self.__class__.VAR_NAME_FOR_KEYS_LIST]
         return [attrs[key] for key in keys]
