@@ -1,3 +1,9 @@
+#### v0.1.10 2025-08-04
+
+- General optimization in `NamedTuple`.
+- Updated Docstrings.
+- Updated `README.md` file.
+
 #### v0.1.9 2025-08-04
 
 - General optimization in `NamedTuple`.
