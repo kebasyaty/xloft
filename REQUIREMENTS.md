@@ -14,3 +14,6 @@
 - [pytest-asyncio](https://pypi.org/project/pytest-asyncio/ "pytest-asyncio")
 - [pytest-httpx](https://pypi.org/project/pytest-httpx/ "pytest-httpx")
 - [pytest-mock](https://pypi.org/project/pytest-mock/ "pytest-mock")
+- [mkdocs](https://pypi.org/project/mkdocs/ "mkdocs")
+- [mkdocstrings](https://pypi.org/project/mkdocstrings/ "mkdocstrings")
+- [mkdocs-material](https://pypi.org/project/mkdocs-material/ "mkdocs-material")
