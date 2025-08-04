@@ -1,6 +1,5 @@
-"""NamedTuple.
+"""This module contains the implementation of the `NamedTuple` class.
 
-This module contains the implementation of the `NamedTuple` class.
 `NamedTuple` class imitates the behavior of the _named tuple_.
 
 Examples:
