@@ -71,3 +71,8 @@ class NamedTuple:
         """Get a list of values."""
         keys: list[str] = self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
         return [self.__dict__[key] for key in keys]
+
+    def has_key(self, key: str) -> bool:
+        """Returns True if the key exists, otherwise False."""
+        keys: list[str] = self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
+        return key in keys
