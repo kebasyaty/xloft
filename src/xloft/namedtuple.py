@@ -56,13 +56,15 @@ class NamedTuple:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to the dictionary."""
-        keys: list[str] = self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
-        return {key: self.__dict__[key] for key in keys}
+        attrs: dict[str, Any] = self.__dict__
+        keys: list[str] = attrs[self.__class__.VAR_NAME_FOR_KEYS_LIST]
+        return {key: attrs[key] for key in keys}
 
     def items(self) -> list[tuple[str, Any]]:
         """Return a set-like object providing a view on the NamedTuple's items."""
-        keys: list[str] = self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
-        return [(key, self.__dict__[key]) for key in keys]
+        attrs: dict[str, Any] = self.__dict__
+        keys: list[str] = attrs[self.__class__.VAR_NAME_FOR_KEYS_LIST]
+        return [(key, attrs[key]) for key in keys]
 
     def keys(self) -> list[str]:
         """Get a list of keys."""
@@ -70,8 +72,9 @@ class NamedTuple:
 
     def values(self) -> list[Any]:
         """Get a list of values."""
-        keys: list[str] = self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
-        return [self.__dict__[key] for key in keys]
+        attrs: dict[str, Any] = self.__dict__
+        keys: list[str] = attrs[self.__class__.VAR_NAME_FOR_KEYS_LIST]
+        return [attrs[key] for key in keys]
 
     def has_key(self, key: str) -> bool:
         """Returns True if the key exists, otherwise False."""
