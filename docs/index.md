@@ -37,6 +37,12 @@
 
 <hr>
 
+##### Installation
+
+```shell
+uv add xloft
+```
+
 ##### Requirements
 
 [View the list of requirements.](https://github.com/kebasyaty/xloft/blob/main/REQUIREMENTS.md "View the list of requirements.")
