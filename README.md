@@ -66,18 +66,17 @@ len(nt)  # => 2
 nt.keys()  # => ["x", "y"]
 nt.values()  # => [10, "Hello"]
 
-nt["x"]  # => raise: KeyError
-nt["y"]  # => raise: KeyError
-nt["x"] = 20  # => TypeError
-nt["y"] = "Hi"  # => TypeError
+nt.has_key("x")  # => True
+nt.has_key("y")  # => True
+nt.has_key("z")  # => False
+
+nt.has_value(10)  # => True
+nt.has_value("Hello")  # => True
+nt.has_value([1, 2, 3])  # => False
 
 nt.get("x")  # => 10
 nt.get("y")  # => "Hello"
 nt.get("z")  # => None
-
-nt.x = 20  # => raise: AttributeDoesNotSetValue
-nt.y = "Hi"  # => raise: AttributeDoesNotSetValue
-nt.z = [1, 2, 3]  # => raise: AttributeDoesNotSetValue
 
 nt.update("x", 20)
 nt.update("y", "Hi")
@@ -91,6 +90,17 @@ d["y"]  # => "Hello"
 
 for key, val in nt.items():
     print(f"Key: {key}, Value: {val}")
+
+nt["x"]  # => raise: KeyError
+nt["y"]  # => raise: KeyError
+nt["z"]  # => raise: KeyError
+nt["x"] = 20  # => TypeError
+nt["y"] = "Hi"  # => TypeError
+nt["z"] = [1, 2, 3]  # => TypeError
+
+nt.x = 20  # => raise: AttributeDoesNotSetValue
+nt.y = "Hi"  # => raise: AttributeDoesNotSetValue
+nt.z = [1, 2, 3]  # => raise: AttributeDoesNotSetValue
 
 del nt.x  # => raise: AttributeCannotBeDelete
 del nt.y # => raise: AttributeCannotBeDelete
