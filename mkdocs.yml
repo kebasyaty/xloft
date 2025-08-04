@@ -1,0 +1,14 @@
+site_name: XLOFT Docs
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+
+plugins:
+  - mkdocstrings
+
+nav:
+  - XLOFT: index.md
+  - NamedTuple: namedtuple.md
+  - Errors: errors.md

@@ -96,11 +96,11 @@ class NamedTuple:
         return self.__dict__[name]
 
     def __setattr__(self, name: str, value: Any) -> None:
-        """Fail Setter."""
+        """Blocked Setter."""
         raise AttributeDoesNotSetValue(name)
 
     def __delattr__(self, name: str) -> None:
-        """Fail Deleter."""
+        """Blocked Deleter."""
         raise AttributeCannotBeDelete(name)
 
     def get(self, key: str) -> Any:
