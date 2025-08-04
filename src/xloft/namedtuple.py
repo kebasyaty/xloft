@@ -14,14 +14,15 @@ class NamedTuple:
     VAR_NAME_FOR_KEYS_LIST: str = "_jWjSaNy1RbtQinsN_keys"
 
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
-        self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST] = []
+        vnkl = self.__class__.VAR_NAME_FOR_KEYS_LIST
+        self.__dict__[vnkl] = []
         for name, value in kwargs.items():
             self.__dict__[name] = value
-            self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST].append(name)
+            self.__dict__[vnkl].append(name)
 
     def __len__(self) -> int:
         """Get the number of elements."""
-        return len(self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST])
+        return len(self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST])
 
     def __getattr__(self, name: str) -> Any:
         """Getter."""
@@ -47,7 +48,7 @@ class NamedTuple:
 
         Attention: This is an uncharacteristic action for the type `tuple`.
         """
-        keys: list[str] = self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
+        keys: list[str] = self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
         if not key in keys:
             err_msg = f"The key `{key}` is missing!"
             raise KeyError(err_msg)
@@ -55,26 +56,26 @@ class NamedTuple:
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to the dictionary."""
-        keys: list[str] = self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
+        keys: list[str] = self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
         return {key: self.__dict__[key] for key in keys}
 
     def items(self) -> list[tuple[str, Any]]:
         """Return a set-like object providing a view on the NamedTuple's items."""
-        keys: list[str] = self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
+        keys: list[str] = self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
         return [(key, self.__dict__[key]) for key in keys]
 
     def keys(self) -> list[str]:
         """Get a list of keys."""
-        return self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
+        return self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
 
     def values(self) -> list[Any]:
         """Get a list of values."""
-        keys: list[str] = self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
+        keys: list[str] = self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
         return [self.__dict__[key] for key in keys]
 
     def has_key(self, key: str) -> bool:
         """Returns True if the key exists, otherwise False."""
-        keys: list[str] = self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
+        keys: list[str] = self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
         return key in keys
 
     def has_value(self, value: Any) -> bool:

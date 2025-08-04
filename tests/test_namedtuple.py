@@ -61,17 +61,19 @@ def test_fail_update_method() -> None:
 
 def test_separate_arguments() -> None:
     """Create with separate arguments."""
-    nt = NamedTuple(x=10, y="Hello")
+    nt = NamedTuple(x=10, y="Hello", _id=123)
     assert nt.x == 10
     assert nt.y == "Hello"
+    assert nt._id == 123
 
 
 def test_kwargs_arguments() -> None:
     """Create with kwargs arguments."""
-    d = {"x": 10, "y": "Hello"}
+    d = {"x": 10, "y": "Hello", "_id": 123}
     nt = NamedTuple(**d)
     assert nt.x == 10
     assert nt.y == "Hello"
+    assert nt._id == 123
 
 
 def test_get_method() -> None:
