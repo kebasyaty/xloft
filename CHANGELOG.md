@@ -1,3 +1,7 @@
+#### v0.1.10 2025-08-04
+
+- General optimization in `NamedTuple`.
+
 #### v0.1.9 2025-08-04
 
 - General optimization in `NamedTuple`.
