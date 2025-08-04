@@ -1,3 +1,9 @@
+#### v0.1.8 2025-08-04
+
+- Added a `has_key`, `has_value` methods to `NamedTuple`.
+- General optimization in `NamedTuple`.
+- Updated `README.md` file.
+
 #### v0.1.7 2025-08-03
 
 - Fixed a `get`, `update`, `items`, `to_dict` methods to `NamedTuple`.

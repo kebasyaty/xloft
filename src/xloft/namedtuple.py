@@ -11,17 +11,17 @@ from xloft.errors import (
 class NamedTuple:
     """Named Tuple."""
 
+    VAR_NAME_FOR_KEYS_LIST: str = "_jWjSaNy1RbtQinsN_keys"
+
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
-        self.__dict__["_keys"] = []
+        self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST] = []
         for name, value in kwargs.items():
             self.__dict__[name] = value
-            self._keys.append(name)
-        else:
-            self.__dict__["_len"] = len(self._keys)
+            self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST].append(name)
 
     def __len__(self) -> int:
         """Get the number of elements."""
-        return self._len
+        return len(self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST])
 
     def __getattr__(self, name: str) -> Any:
         """Getter."""
@@ -47,35 +47,37 @@ class NamedTuple:
 
         Attention: This is an uncharacteristic action for the type `tuple`.
         """
-        if not key in self._keys:
+        keys: list[str] = self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
+        if not key in keys:
             err_msg = f"The key `{key}` is missing!"
             raise KeyError(err_msg)
         self.__dict__[key] = value
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to the dictionary."""
-        return {
-            key: value
-            for key, value in self.__dict__.items()
-            if not callable(value) and not key in ["_keys", "_len"]
-        }
+        keys: list[str] = self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
+        return {key: self.__dict__[key] for key in keys}
 
     def items(self) -> list[tuple[str, Any]]:
         """Return a set-like object providing a view on the NamedTuple's items."""
-        return [
-            (key, value)
-            for key, value in self.__dict__.items()
-            if not callable(value) and not key in ["_keys", "_len"]
-        ]
+        keys: list[str] = self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
+        return [(key, self.__dict__[key]) for key in keys]
 
     def keys(self) -> list[str]:
         """Get a list of keys."""
-        return self._keys
+        return self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
 
     def values(self) -> list[Any]:
         """Get a list of values."""
-        return [
-            value
-            for key, value in self.__dict__.items()
-            if not callable(value) and not key in ["_keys", "_len"]
-        ]
+        keys: list[str] = self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
+        return [self.__dict__[key] for key in keys]
+
+    def has_key(self, key: str) -> bool:
+        """Returns True if the key exists, otherwise False."""
+        keys: list[str] = self.__dict__[NamedTuple.VAR_NAME_FOR_KEYS_LIST]
+        return key in keys
+
+    def has_value(self, value: Any) -> bool:
+        """Returns True if the value exists, otherwise False."""
+        values = self.values()
+        return value in values

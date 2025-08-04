@@ -131,3 +131,19 @@ def test_values_method() -> None:
     d = {"x": 10, "y": "Hello"}
     nt = NamedTuple(**d)
     assert nt.values() == [10, "Hello"]
+
+
+def test_has_key() -> None:
+    """Returns True if the key exists, otherwise False."""
+    nt = NamedTuple(x=10, y="Hello")
+    assert nt.has_key("x") == True
+    assert nt.has_key("y") == True
+    assert nt.has_key("z") == False
+
+
+def test_has_value() -> None:
+    """Returns True if the value exists, otherwise False."""
+    nt = NamedTuple(x=10, y="Hello")
+    assert nt.has_value(10) == True
+    assert nt.has_value("Hello") == True
+    assert nt.has_value([1, 2, 3]) == False
