@@ -30,6 +30,30 @@
       "type": "shell",
       "command": ["uv run pytest -v tests/"],
       "problemMatcher": []
+    },
+    {
+      "label": "MkDocs: Create New Docs",
+      "type": "shell",
+      "command": ["uv run mkdocs new ."],
+      "problemMatcher": []
+    },
+    {
+      "label": "MkDocs: Run Build",
+      "type": "shell",
+      "command": ["uv run mkdocs build"],
+      "problemMatcher": []
+    },
+    {
+      "label": "MkDocs: Run Serve",
+      "type": "shell",
+      "command": ["uv run mkdocs serve"],
+      "problemMatcher": []
+    },
+    {
+      "label": "MkDocs: Run Deploy",
+      "type": "shell",
+      "command": ["uv run mkdocs gh-deploy"],
+      "problemMatcher": []
     }
   ]
 }
