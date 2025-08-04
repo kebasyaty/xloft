@@ -1,4 +1,47 @@
-"""Named Tuple."""
+"""NamedTuple.
+
+This module contains the implementation of the `NamedTuple` class.
+
+Examples:
+    >>> from xloft import NamedTuple
+    >>> nt = NamedTuple(x=10, y="Hello")
+    >>> nt.x
+    10
+    >>> nt.z
+    KeyError
+    >>> len(nt)
+    2
+    >>> nt.keys()
+    ["x", "y"]
+    >>> nt.values()
+    [10, "Hello"]
+    >>> nt.has_key("x")
+    True
+    >>> nt.has_key("z")
+    False
+    >>> nt.has_value(10)
+    True
+    >>> nt.has_value([1, 2, 3])
+    False
+    >>> nt.get("x")
+    10
+    >>> nt.get("z")
+    None
+    >>> nt.update("z", [1, 2, 3])
+    KeyError
+    >>> d = nt.to_dict()
+    >>> d["x"]
+    10
+    >>> nt["z"] = [1, 2, 3]
+    TypeError
+    >>> nt.update("x", 20)
+    >>> nt.x
+    20
+    >>> nt.x = 20
+    Error: AttributeDoesNotSetValue
+    >>> del nt.x
+    Error: AttributeCannotBeDelete
+"""
 
 from typing import Any
 
