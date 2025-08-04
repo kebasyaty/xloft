@@ -204,11 +204,31 @@ class NamedTuple:
         return [attrs[key] for key in keys]
 
     def has_key(self, key: str) -> bool:
-        """Returns True if the key exists, otherwise False."""
+        """Returns True if the key exists, otherwise False.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> nt.has_key("x")
+            True
+
+        Returns:
+            True if the key exists, otherwise False.
+        """
         keys: list[str] = self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
         return key in keys
 
     def has_value(self, value: Any) -> bool:
-        """Returns True if the value exists, otherwise False."""
+        """Returns True if the value exists, otherwise False.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> nt.has_value(10)
+            True
+
+        Returns:
+            True if the value exists, otherwise False.
+        """
         values = self.values()
         return value in values
