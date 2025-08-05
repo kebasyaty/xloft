@@ -85,6 +85,7 @@ nt.get("z")  # => None
 d = nt.to_dict()
 d["x"]  # => 10
 d.get("y")  # => "Hello"
+d.get("z") # => None
 
 for key, val in nt.items():
     print(f"Key: {key}, Value: {val}")
