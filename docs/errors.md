@@ -1,1 +1,1 @@
-::: src.xloft.errors
+::: xloft.errors
