@@ -37,20 +37,20 @@
 
 <hr>
 
-##### Installation
+#### Installation
 
 ```shell
 uv add xloft
 ```
 
-##### Requirements
+#### Requirements
 
 [View the list of requirements.](https://github.com/kebasyaty/xloft/blob/main/REQUIREMENTS.md "View the list of requirements.")
 
-##### Changelog
+#### Changelog
 
 [View the change history.](https://github.com/kebasyaty/xloft/blob/main/CHANGELOG.md "Changelog")
 
-##### License
+#### License
 
-This project is licensed under the **[MIT](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")**.
+_This project is licensed under the_ **[MIT](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")**.
