@@ -1,1 +1,1 @@
-::: src.xloft.namedtuple
+::: xloft.namedtuple

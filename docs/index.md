@@ -33,7 +33,9 @@
 
 ##
 
-::: src.xloft
+::: xloft
+    options:
+      members: no
 
 <hr>
 
