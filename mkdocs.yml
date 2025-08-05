@@ -33,7 +33,12 @@ theme:
         name: Switch to system preference
 
 plugins:
-  - mkdocstrings
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
   - search
   - tags
 
