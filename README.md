@@ -90,18 +90,18 @@ d.get("z") # => None
 for key, val in nt.items():
     print(f"Key: {key}, Value: {val}")
 
+nt.update("x", 20)
+nt.update("y", "Hi")
+nt.x  # => 20
+nt.y  # => "Hi"
+nt.update("z", [1, 2, 3])  # => raise: KeyError
+
 nt["x"]  # => raise: KeyError
 nt["y"]  # => raise: KeyError
 nt["z"]  # => raise: KeyError
 nt["x"] = 20  # => TypeError
 nt["y"] = "Hi"  # => TypeError
 nt["z"] = [1, 2, 3]  # => TypeError
-
-nt.update("x", 20)
-nt.update("y", "Hi")
-nt.x  # => 20
-nt.y  # => "Hi"
-nt.update("z", [1, 2, 3])  # => raise: KeyError
 
 nt.x = 20  # => raise: AttributeDoesNotSetValue
 nt.y = "Hi"  # => raise: AttributeDoesNotSetValue
