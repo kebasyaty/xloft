@@ -1,7 +1,18 @@
 site_name: XLOFT Docs
+repo_url: https://github.com/kebasyaty/xloft
 
 theme:
   name: material
+  font:
+    text: Roboto
+  language: en
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
+    - navigation.top
+  icon:
+    repo: fontawesome/brands/github
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
@@ -23,6 +34,8 @@ theme:
 
 plugins:
   - mkdocstrings
+  - search
+  - tags
 
 nav:
   - XLOFT: index.md
