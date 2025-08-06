@@ -26,6 +26,7 @@
     <a href="https://github.com/kebasyaty/xloft"><img src="https://img.shields.io/github/languages/top/kebasyaty/xloft" alt="Top"></a>
     <a href="https://github.com/kebasyaty/xloft"><img src="https://img.shields.io/github/repo-size/kebasyaty/xloft" alt="Size"></a>
     <a href="https://github.com/kebasyaty/xloft"><img src="https://img.shields.io/github/last-commit/kebasyaty/xloft/main" alt="Last commit"></a>
+    <a href="https://github.com/kebasyaty/xloft/releases/" alt="GitHub release"><img src="https://img.shields.io/github/release/kebasyaty/xloft" alt="GitHub release"></a>
   </p>
 </div>
 
