@@ -1,6 +1,6 @@
 """Testing NamedTuple."""
 
-import pytest
+import pytest  # type: ignore
 
 from xloft import NamedTuple
 from xloft.errors import (
