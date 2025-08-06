@@ -1,5 +1,3 @@
-# Installation
-
 ```shell
 pip install xloft
 # or
