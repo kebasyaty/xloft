@@ -1,3 +1,9 @@
+#### v0.1.13 2025-08-06
+
+- Updated tests for `NamedTuple`.
+- Updated Docs.
+- Updated `README.md` file.
+
 #### v0.1.10 2025-08-04
 
 - General optimization in `NamedTuple`.
