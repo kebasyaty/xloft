@@ -17,3 +17,5 @@
 - [mkdocs](https://pypi.org/project/mkdocs/ "mkdocs")
 - [mkdocstrings](https://pypi.org/project/mkdocstrings/ "mkdocstrings")
 - [mkdocs-material](https://pypi.org/project/mkdocs-material/ "mkdocs-material")
+- [mkdocs-git-authors-plugin](https://pypi.org/project/mkdocs-git-authors-plugin/ "mkdocs-git-authors-plugin")
+- [pymdown-extensions](https://pypi.org/project/mkdocs-git-authors-plugin/ "pymdown-extensions")
