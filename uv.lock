@@ -683,7 +683,7 @@ wheels = [
 
 [[package]]
 name = "xloft"
-version = "0.1.12"
+version = "0.1.13"
 source = { editable = "." }
 
 [package.dev-dependencies]
@@ -695,6 +695,7 @@ docs = [
     { name = "mkdocs" },
     { name = "mkdocs-material" },
     { name = "mkdocstrings", extra = ["python"] },
+    { name = "pymdown-extensions" },
 ]
 test = [
     { name = "pytest" },
@@ -714,6 +715,7 @@ docs = [
     { name = "mkdocs", specifier = ">=1.6.1" },
     { name = "mkdocs-material", specifier = ">=9.6.16" },
     { name = "mkdocstrings", extras = ["python"], specifier = ">=0.30.0" },
+    { name = "pymdown-extensions", specifier = ">=10.16.1" },
 ]
 test = [
     { name = "pytest", specifier = ">=8.4.1" },
