@@ -20,7 +20,6 @@ theme:
     - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
-    - navigation.path
     - navigation.indexes
     - navigation.top
     - navigation.footer
@@ -49,17 +48,6 @@ theme:
 plugins:
   - search
   - git-authors
-  - mkdocs-breadcrumbs-plugin:
-      delimiter: " / "  # separator between sections
-      log_level: "WARNING"  # "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"
-      exclude_paths:
-        - "docs/mkdocs/**"
-        - "docs/mkdocs"   # avoid generating index.md
-      additional_index_folders:
-        - temp_dir
-      generate_home_index: false
-      use_page_titles: false # use page title instead of path in breadcrumbs
-      home_text: "home"
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
   - tags:
       tags_slugify: !!python/object/apply:pymdownx.slugs.slugify
