@@ -46,14 +46,14 @@ theme:
         name: Switch to system preference
 
 plugins:
+  - search
+  - tags
   - mkdocstrings:
       handlers:
         python:
           paths: [src]
           options:
             docstring_style: google
-  - search
-  - tags
 
 markdown_extensions:
   - markdown.extensions.toc:
