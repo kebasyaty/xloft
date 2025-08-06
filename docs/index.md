@@ -56,3 +56,5 @@ uv add xloft
 #### License
 
 _This project is licensed under the_ **[MIT](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")**.
+
+<hr>
