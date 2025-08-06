@@ -1,6 +1,6 @@
 [project]
 name = "xloft"
-version = "0.1.13"
+version = "0.1.14"
 description = "(XLOFT) X-Library of tools"
 readme = "README.md"
 authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
@@ -56,6 +56,8 @@ test = [
 ]
 docs = [
     "mkdocs>=1.6.1",
+    "mkdocs-breadcrumbs-plugin>=0.1.14",
+    "mkdocs-git-authors-plugin>=0.10.0",
     "mkdocs-material>=9.6.16",
     "mkdocstrings[python]>=0.30.0",
     "pymdown-extensions>=10.16.1",

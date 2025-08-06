@@ -56,8 +56,7 @@ class NamedTuple:
 
     VAR_NAME_FOR_KEYS_LIST: str = "_jWjSaNy1RbtQinsN_keys"
 
-    def __init__(self, **kwargs: dict[str, Any]) -> None:
-        """Initialize the instance."""
+    def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
         vnkl = self.__class__.VAR_NAME_FOR_KEYS_LIST
         self.__dict__[vnkl] = []
         for name, value in kwargs.items():
