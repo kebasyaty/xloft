@@ -1,5 +1,7 @@
 """Testing NamedTuple."""
 
+from typing import Any
+
 import pytest  # type: ignore
 
 from xloft import NamedTuple
@@ -9,50 +11,56 @@ from xloft.errors import (
 )
 
 
+@pytest.fixture
+def init_namedtuple() -> NamedTuple:
+    """Init NamedTuple."""
+    nt = NamedTuple(x=10, y="Hello")
+    return nt
+
+
 class TestNegative:
     """Negative tests."""
 
-    @pytest.mark.xfail(raises=AttributeDoesNotSetValue)
-    def test_fail_setter(self) -> None:
+    @pytest.mark.xfail(raises=AttributeDoesNotSetValue, strict=True)
+    def test_fail_setter(self, init_namedtuple) -> None:
         """Setter is not supported."""
-        nt = NamedTuple(x=10, y="Hello")
+        nt = init_namedtuple
         nt.x = 20
 
-    @pytest.mark.xfail(raises=AttributeCannotBeDelete)
-    def test_fail_deletter(self) -> None:
+    @pytest.mark.xfail(raises=AttributeCannotBeDelete, strict=True)
+    def test_fail_deletter(self, init_namedtuple) -> None:
         """Deletter is not supported."""
-        nt = NamedTuple(x=10, y="Hello")
+        nt = init_namedtuple
         del nt.x
 
-    @pytest.mark.xfail(raises=KeyError)
-    def test_fail_access_to_attribute(self) -> None:
+    @pytest.mark.xfail(raises=KeyError, strict=True)
+    def test_fail_access_to_attribute(self, init_namedtuple) -> None:
         """An attempt to access the non-existent attribute."""
-        nt = NamedTuple(x=10, y="Hello")
+        nt = init_namedtuple
         nt.z
 
-    @pytest.mark.xfail(raises=AttributeDoesNotSetValue)
-    def test_fail_add_new_attribute(self) -> None:
+    @pytest.mark.xfail(raises=AttributeDoesNotSetValue, strict=True)
+    def test_fail_add_new_attribute(self, init_namedtuple) -> None:
         """It is forbidden to add new attributes."""
-        nt = NamedTuple(x=10, y="Hello")
+        nt = init_namedtuple
         nt.z = 20
 
-    @pytest.mark.xfail(raises=TypeError)
-    def test_fail_getitem(self) -> None:
+    @pytest.mark.xfail(raises=TypeError, strict=True)
+    def test_fail_getitem(self, init_namedtuple) -> None:
         """Access by  name of key."""
-        nt = NamedTuple(x=10, y="Hello")
+        nt = init_namedtuple
         nt["x"]
 
-    @pytest.mark.xfail(raises=TypeError)
-    def test_fail_setitem(self) -> None:
+    @pytest.mark.xfail(raises=TypeError, strict=True)
+    def test_fail_setitem(self, init_namedtuple) -> None:
         """Fail Setter."""
-        nt = NamedTuple(x=10, y="Hello")
+        nt = init_namedtuple
         nt["x"] = 20
 
-    @pytest.mark.xfail(raises=KeyError)
-    def test_fail_update_method(self) -> None:
+    @pytest.mark.xfail(raises=KeyError, strict=True)
+    def test_fail_update_method(self, init_namedtuple) -> None:
         """Testing a `update` method."""
-        d = {"x": 10, "y": "Hello"}
-        nt = NamedTuple(**d)
+        nt = init_namedtuple
         nt.update("z", [1, 2, 3])
 
 
@@ -74,18 +82,16 @@ class TestPositive:
         assert nt.y == "Hello"
         assert nt._id == 123
 
-    def test_get_method(self) -> None:
+    def test_get_method(self, init_namedtuple) -> None:
         """Testing a `get` method."""
-        d = {"x": 10, "y": "Hello"}
-        nt = NamedTuple(**d)
+        nt = init_namedtuple
         assert nt.get("x") == 10
         assert nt.get("y") == "Hello"
         assert nt.get("z") == None
 
-    def test_update_method(self) -> None:
+    def test_update_method(self, init_namedtuple) -> None:
         """Testing a `update` method."""
-        d = {"x": 10, "y": "Hello"}
-        nt = NamedTuple(**d)
+        nt = init_namedtuple
         assert nt.x == 10
         assert nt.y == "Hello"
         nt.update("x", 20)
@@ -93,49 +99,46 @@ class TestPositive:
         assert nt.x == 20
         assert nt.y == "Hi"
 
-    def test_to_dict_method(self) -> None:
+    def test_to_dict_method(self, init_namedtuple) -> None:
         """Convert to the dictionary."""
-        nt = NamedTuple(x=10, y="Hello")
+        nt = init_namedtuple
         d = nt.to_dict()
         assert isinstance(d, dict) == True
         assert d["x"] == 10
         assert d["y"] == "Hello"
 
-    def test_items_method(self) -> None:
+    def test_items_method(self, init_namedtuple) -> None:
         """In the cycle `for`."""
+        nt = init_namedtuple
         d = {"x": 10, "y": "Hello"}
-        nt = NamedTuple(**d)
         for key, val in nt.items():
-            assert val == d[key]
+            assert d[key] == val
 
-    def test_len_method(self) -> None:
+    def test_len_method(self, init_namedtuple) -> None:
         """Get the number of elements."""
-        d = {"x": 10, "y": "Hello"}
-        nt = NamedTuple(**d)
+        nt = init_namedtuple
         assert len(nt) == 2
 
-    def test_keys_method(self) -> None:
+    def test_keys_method(self, init_namedtuple) -> None:
         """Get a list of keys."""
-        d = {"x": 10, "y": "Hello"}
-        nt = NamedTuple(**d)
+        nt = init_namedtuple
         assert nt.keys() == ["x", "y"]
 
-    def test_values_method(self) -> None:
+    def test_values_method(self, init_namedtuple) -> None:
         """Get a list of values."""
-        d = {"x": 10, "y": "Hello"}
-        nt = NamedTuple(**d)
+        nt = init_namedtuple
         assert nt.values() == [10, "Hello"]
 
-    def test_has_key(self) -> None:
+    def test_has_key(self, init_namedtuple) -> None:
         """Returns True if the key exists, otherwise False."""
-        nt = NamedTuple(x=10, y="Hello")
+        nt = init_namedtuple
         assert nt.has_key("x") == True
         assert nt.has_key("y") == True
         assert nt.has_key("z") == False
 
-    def test_has_value(self) -> None:
+    def test_has_value(self, init_namedtuple) -> None:
         """Returns True if the value exists, otherwise False."""
-        nt = NamedTuple(x=10, y="Hello")
+        nt = init_namedtuple
         assert nt.has_value(10) == True
         assert nt.has_value("Hello") == True
         assert nt.has_value([1, 2, 3]) == False
