@@ -54,14 +54,11 @@ from xloft.errors import (
 class NamedTuple:
     """This class imitates the behavior of the _named tuple_."""
 
-    VAR_NAME_FOR_KEYS_LIST: str = "_jWjSaNy1RbtQinsN_keys"
-
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
-        vnkl = self.__class__.VAR_NAME_FOR_KEYS_LIST
-        self.__dict__[vnkl] = []
+        self.__dict__["_jWjSaNy1RbtQinsN_keys"] = []
         for name, value in kwargs.items():
             self.__dict__[name] = value
-            self.__dict__[vnkl].append(name)
+            self._jWjSaNy1RbtQinsN_keys.append(name)
 
     def __len__(self) -> int:
         """Get the number of elements.
@@ -75,7 +72,7 @@ class NamedTuple:
         Returns:
             The number of elements in the tuple.
         """
-        return len(self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST])
+        return len(self._jWjSaNy1RbtQinsN_keys)
 
     def __getattr__(self, name: str) -> Any:
         """Getter.
@@ -141,7 +138,7 @@ class NamedTuple:
         Returns:
             None
         """
-        keys: list[str] = self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
+        keys: list[str] = self._jWjSaNy1RbtQinsN_keys
         if not key in keys:
             err_msg = f"The key `{key}` is missing!"
             raise KeyError(err_msg)
@@ -161,7 +158,7 @@ class NamedTuple:
             Dictionary with keys and values of the tuple.
         """
         attrs: dict[str, Any] = self.__dict__
-        keys: list[str] = attrs[self.__class__.VAR_NAME_FOR_KEYS_LIST]
+        keys: list[str] = self._jWjSaNy1RbtQinsN_keys
         return {key: attrs[key] for key in keys}
 
     def items(self) -> list[tuple[str, Any]]:
@@ -179,7 +176,7 @@ class NamedTuple:
             list[tuple[str, Any]]
         """
         attrs: dict[str, Any] = self.__dict__
-        keys: list[str] = attrs[self.__class__.VAR_NAME_FOR_KEYS_LIST]
+        keys: list[str] = self._jWjSaNy1RbtQinsN_keys
         return [(key, attrs[key]) for key in keys]
 
     def keys(self) -> list[str]:
@@ -194,7 +191,7 @@ class NamedTuple:
         Returns:
             List of keys.
         """
-        return self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
+        return self._jWjSaNy1RbtQinsN_keys
 
     def values(self) -> list[Any]:
         """Get a list of values.
@@ -209,7 +206,7 @@ class NamedTuple:
             List of values.
         """
         attrs: dict[str, Any] = self.__dict__
-        keys: list[str] = attrs[self.__class__.VAR_NAME_FOR_KEYS_LIST]
+        keys: list[str] = self._jWjSaNy1RbtQinsN_keys
         return [attrs[key] for key in keys]
 
     def has_key(self, key: str) -> bool:
@@ -227,7 +224,7 @@ class NamedTuple:
         Returns:
             True if the key exists, otherwise False.
         """
-        keys: list[str] = self.__dict__[self.__class__.VAR_NAME_FOR_KEYS_LIST]
+        keys: list[str] = self._jWjSaNy1RbtQinsN_keys
         return key in keys
 
     def has_value(self, value: Any) -> bool:
