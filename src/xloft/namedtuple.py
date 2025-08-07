@@ -37,6 +37,12 @@ Examples:
     >>> nt.update("x", 20)
     >>> nt.x
     20
+    >>> from xloft import NamedTuple
+    >>> nt = NamedTuple(x=10, y="Hello")
+    >>> for key, val in nt.items():
+    ...     print(f"Key: {key}, Value: {val}")
+    "Key: x, Value: 10"
+    "Key: y, Value: Hello"
     >>> nt.x = 20
     Error: AttributeDoesNotSetValue
     >>> del nt.x
