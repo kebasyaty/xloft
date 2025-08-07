@@ -109,8 +109,8 @@ class TestPositive:
 
     def test_items_method(self, init_namedtuple) -> None:
         """In the cycle `for`."""
-        nt = init_namedtuple
         d = {"x": 10, "y": "Hello"}
+        nt = init_namedtuple
         for key, val in nt.items():
             assert d[key] == val
 
