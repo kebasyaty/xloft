@@ -18,6 +18,12 @@ h1, h2, h3, h4, h5, h6 {
     color: #becada;
 }
 
+.md-nav--lifted>.md-nav__list>.md-nav__item--active>.md-nav__link {
+    background: none!important;
+    box-shadow: none!important;
+    color: #becada;
+}
+
 .md-top {
     background-color: #151b23;
 }
@@ -44,6 +50,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .md-header {
+    background-color: #010409;
+    color: #becada;
+}
+
+.md-tabs {
     background-color: #010409;
     color: #becada;
 }
