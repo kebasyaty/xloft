@@ -29,10 +29,11 @@ theme:
     #- navigation.tabs.sticky
   palette:
     scheme: slate
-    primary: indigo
+    # primary: blue
 
 extra_css:
-  - github_style/css/extra.css
+  # - custom_style/github_black/css/extra.css
+  - custom_style/github_blue/css/extra.css
 
 plugins:
   - search
