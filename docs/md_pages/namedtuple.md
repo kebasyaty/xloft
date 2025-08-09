@@ -1,3 +1,1 @@
 ::: xloft.namedtuple
-
-<br>
