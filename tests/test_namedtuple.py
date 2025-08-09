@@ -2,7 +2,7 @@
 
 from typing import Any
 
-import pytest  # type: ignore
+import pytest
 
 from xloft import NamedTuple
 from xloft.errors import (
