@@ -3,5 +3,3 @@ pip install xloft
 # or
 uv add xloft
 ```
-
-<br>

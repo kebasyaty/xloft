@@ -8,6 +8,7 @@ repo_url: https://github.com/kebasyaty/xloft
 
 theme:
   name: material
+  custom_dir: docs/overrides
   font:
     text: Roboto
   icon:
