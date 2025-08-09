@@ -66,19 +66,35 @@ fix = true
 line-length = 100
 indent-width = 4
 required-version = ">=0.7.11"
-src = ["src", "tests"]
-include = [
-    "*.py",
-    "*.pyi",
-    "*.ipynb",
-    "**/pyproject.toml",
-    "src/**/*.py",
-    "tests/**/*.py",
-]
+src = ["src"]
+include = ["*.py", "*.pyi", "*.ipynb", "**/pyproject.toml", "src/**/*.py"]
+exclude = ["tests/**/*.py"]
 
 [tool.ruff.lint]
-select = ["D"]
+preview = false
+select = [
+    "D",    # pydocstyle
+    "I",    # isort
+    "E",    # flake8-errors
+    "W",    # flake8-warnings
+    "F",    # flake8-pyflakes
+    "B",    # flake8-bugbear
+    "C4",   # flake8-comprehensions
+    "S",    # flake8-bandit
+    "BLE",  # flake8-blind-except
+    "T20",  # flake8-print
+    "T10",  # flake8-debugger
+    "PT",   # flake8-pytest-style
+    "RUF",  # Ruff
+    "DTZ",  # flake8-datetimez
+    "ERA",  # eradicate
+    "FURB", # refurb
+]
 ignore = ["D417", "D206"]
+fixable = ["I"]
+
+[tool.ruff.lint.flake8-bandit]
+check-typed-exception = true
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
