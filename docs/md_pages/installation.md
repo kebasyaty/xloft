@@ -4,4 +4,4 @@ pip install xloft
 uv add xloft
 ```
 
-<hr>
+<br>
