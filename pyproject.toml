@@ -90,7 +90,7 @@ select = [
     "ERA",  # eradicate
     "FURB", # refurb
 ]
-ignore = ["D417", "D206"]
+ignore = ["D417", "D206", "C408", "RUF001", "RUF002", "RUF003", "S110"]
 fixable = ["I"]
 
 [tool.ruff.lint.flake8-bandit]
