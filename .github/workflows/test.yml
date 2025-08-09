@@ -48,8 +48,10 @@ jobs:
       - name: Install dependencies of project
         run: uv sync --locked --dev --group test
 
-      - name: Run checking of code
-        run: uv run ruff check --config pyproject.toml
+      - name: Run check
+        run: |
+          uv run ruff check --config pyproject.toml
+          uv run mypy --config-file pyproject.toml
 
       - name: Run tests
         run: uv run pytest -v tests/
