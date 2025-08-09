@@ -1,13 +1,19 @@
 # https://squidfunk.github.io/mkdocs-material/setup/
 site_name: XLOFT Docs
-repo_url: https://github.com/kebasyaty/xloft
+site_description: "(XLOFT) X-Library of tools."
+site_url: https://kebasyaty.github.io/xloft/
+site_author: Gennady Kostyunin
+copyright: Copyright &copy; 2025 Maintained by <a href="https://github.com/kebasyaty">Gennady Kostyunin</a>
 repo_name: kebasyaty/xloft
+repo_url: https://github.com/kebasyaty/xloft
 
 theme:
   name: material
   font:
     text: Roboto
   icon:
+    # https://pictogrammers.com/library/mdi/
+    # logo: material/book-open-page-variant
     repo: fontawesome/brands/github
   language: en
   features:
@@ -29,15 +35,15 @@ theme:
     #- navigation.tabs.sticky
   palette:
     scheme: slate
-    # primary: blue
+    # github_black: indigo | github_blue: blue
+    primary: blue
 
 extra_css:
-  # - custom_style/github_black/css/extra.css
-  - custom_style/github_blue/css/extra.css
+  # - custom_style/github_black.css
+  - custom_style/github_blue.css
 
 plugins:
   - search
-  - git-authors
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
   - tags:
       tags_slugify: !!python/object/apply:pymdownx.slugs.slugify
@@ -67,10 +73,8 @@ extra:
     - icon: fontawesome/brands/x-twitter
       link: https://twitter.com
 
-copyright: Copyright &copy; 2025 kebasyaty
-
 nav:
   - XLOFT: index.md
-  - Installation: installation.md
-  - NamedTuple: namedtuple.md
-  - Errors: errors.md
+  - Installation: md_pages/installation.md
+  - NamedTuple: md_pages/namedtuple.md
+  - Errors: md_pages/errors.md
