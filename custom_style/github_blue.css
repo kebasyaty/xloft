@@ -25,7 +25,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .md-top {
-    background-color: #151b23;
+    background-color: #0125ed;
+    color: #becada;
+}
+.md-top:hover {
+    background-color: #1762fe;
+    color: #becada;
 }
 
 .md-typeset code {
@@ -63,7 +68,6 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #011fc6;
     color: #becada;
 }
-
 .md-search__form:hover {
    background-color: #1762fe;
 }
