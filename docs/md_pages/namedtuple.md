@@ -1,3 +1,3 @@
 ::: xloft.namedtuple
 
-<hr>
+<br>

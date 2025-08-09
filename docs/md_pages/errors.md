@@ -1,3 +1,3 @@
 ::: xloft.errors
 
-<hr>
+<br>
