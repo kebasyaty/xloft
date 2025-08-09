@@ -35,6 +35,7 @@ theme:
     scheme: slate
     # github_black: indigo | github_blue: blue
     primary: blue
+    accent: blue
 
 extra_css:
   - custom_style/github_blue.css
