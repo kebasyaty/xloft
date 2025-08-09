@@ -143,7 +143,7 @@ class NamedTuple:
             None
         """
         keys: list[str] = self._jWjSaNy1RbtQinsN_keys
-        if not key in keys:
+        if key not in keys:
             err_msg = f"The key `{key}` is missing!"
             raise KeyError(err_msg)
         self.__dict__[key] = value
