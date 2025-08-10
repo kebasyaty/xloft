@@ -1,7 +1,5 @@
 """Testing NamedTuple."""
 
-from typing import Any
-
 import pytest
 
 from xloft import NamedTuple
