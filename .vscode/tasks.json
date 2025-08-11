@@ -42,7 +42,10 @@
     {
       "label": "Pre-Commit: Run Check",
       "type": "shell",
-      "command": ["uv run pre-commit run --all-files"],
+      "command": [
+        "uv run pre-commit run --all-files;",
+        "uv run pytest -v tests/"
+      ],
       "problemMatcher": []
     },
     {
