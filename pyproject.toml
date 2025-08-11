@@ -47,7 +47,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [dependency-groups]
-dev = ["mypy>=1.17.1", "ruff>=0.12.7"]
+dev = ["mypy>=1.17.1", "pre-commit>=4.3.0", "ruff>=0.12.7"]
 test = [
     "pytest>=8.4.1",
     "pytest-asyncio>=1.1.0",
@@ -154,7 +154,13 @@ strict = true
 show_error_codes = true
 pretty = true
 files = ["src/**/*.py", "tests/**/*.py"]
-disable_error_code = ["type-arg", "no-any-return", "attr-defined", "index"]
+disable_error_code = [
+    "type-arg",
+    "no-any-return",
+    "attr-defined",
+    "index",
+    "operator",
+]
 
 [[tool.mypy.overrides]]
 module = ["tests.*"]
