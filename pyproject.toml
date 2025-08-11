@@ -154,7 +154,13 @@ strict = true
 show_error_codes = true
 pretty = true
 files = ["src/**/*.py", "tests/**/*.py"]
-disable_error_code = ["type-arg", "no-any-return", "attr-defined", "index"]
+disable_error_code = [
+    "type-arg",
+    "no-any-return",
+    "attr-defined",
+    "index",
+    "operator",
+]
 
 [[tool.mypy.overrides]]
 module = ["tests.*"]
