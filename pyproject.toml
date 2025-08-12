@@ -48,7 +48,6 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
-    "detect-secrets>=1.5.0",
     "mypy>=1.17.1",
     "pre-commit>=4.3.0",
     "ruff>=0.12.7",
