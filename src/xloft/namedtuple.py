@@ -4,17 +4,21 @@
 
 Examples:
     >>> from xloft import NamedTuple
-    >>> nt = NamedTuple(x=10, y="Hello")
+    >>> nt = NamedTuple(x=10, y="Hello", _id="507c7f79bcf86cd7994f6c0e")
     >>> nt.x
     10
+    >>> nt.y
+    Hello
+    >>> nt._id
+    507c7f79bcf86cd7994f6c0e
     >>> nt.z
     KeyError
     >>> len(nt)
-    2
+    3
     >>> nt.keys()
-    ["x", "y"]
+    ["x", "y", "_id"]
     >>> nt.values()
-    [10, "Hello"]
+    [10, "Hello", "507c7f79bcf86cd7994f6c0e"]
     >>> nt.has_key("x")
     True
     >>> nt.has_key("z")
@@ -27,20 +31,21 @@ Examples:
     10
     >>> nt.get("z")
     None
-    >>> nt.update("z", [1, 2, 3])
-    KeyError
     >>> d = nt.to_dict()
     >>> d["x"]
     10
-    >>> nt["z"] = [1, 2, 3]
-    TypeError
-    >>> nt.update("x", 20)
-    >>> nt.x
-    20
     >>> for key, val in nt.items():
     ...     print(f"Key: {key}, Value: {val}")
     "Key: x, Value: 10"
     "Key: y, Value: Hello"
+    "Key: _id, value: 507c7f79bcf86cd7994f6c0e"
+    >>> nt.update("x", 20)
+    >>> nt.x
+    20
+    >>> nt.update("z", [1, 2, 3])
+    KeyError
+    >>> nt["z"] = [1, 2, 3]
+    TypeError
     >>> nt.x = 20
     Error: AttributeDoesNotSetValue
     >>> del nt.x
