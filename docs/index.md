@@ -32,8 +32,6 @@
 
 <hr>
 
-<br>
-
 ::: xloft
     options:
       members: no
