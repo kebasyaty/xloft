@@ -35,7 +35,7 @@ Changelog = "https://github.com/kebasyaty/xloft/blob/v0/CHANGELOG.md"
 
 [tool.uv]
 package = true
-default-groups = ["dev", "test", "docs"]
+default-groups = ["dev", "lint", "test", "docs", "types"]
 compile-bytecode = true
 check-url = "https://pypi.org/simple"
 
@@ -47,7 +47,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [dependency-groups]
-dev = [
+dev = []
+lint = [
     "mypy>=1.17.1",
     "pre-commit>=4.3.0",
     "ruff>=0.12.7",
@@ -64,6 +65,7 @@ docs = [
     "mkdocstrings[python]>=0.30.0",
     "pymdown-extensions>=10.16.1",
 ]
+types = []
 
 [tool.ruff]
 fix = true

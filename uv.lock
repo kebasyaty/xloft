@@ -769,16 +769,16 @@ version = "0.1.17"
 source = { editable = "." }
 
 [package.dev-dependencies]
-dev = [
-    { name = "mypy" },
-    { name = "pre-commit" },
-    { name = "ruff" },
-]
 docs = [
     { name = "mkdocs" },
     { name = "mkdocs-material" },
     { name = "mkdocstrings", extra = ["python"] },
     { name = "pymdown-extensions" },
+]
+lint = [
+    { name = "mypy" },
+    { name = "pre-commit" },
+    { name = "ruff" },
 ]
 test = [
     { name = "pytest" },
@@ -790,16 +790,17 @@ test = [
 [package.metadata]
 
 [package.metadata.requires-dev]
-dev = [
-    { name = "mypy", specifier = ">=1.17.1" },
-    { name = "pre-commit", specifier = ">=4.3.0" },
-    { name = "ruff", specifier = ">=0.12.7" },
-]
+dev = []
 docs = [
     { name = "mkdocs", specifier = ">=1.6.1" },
     { name = "mkdocs-material", specifier = ">=9.6.16" },
     { name = "mkdocstrings", extras = ["python"], specifier = ">=0.30.0" },
     { name = "pymdown-extensions", specifier = ">=10.16.1" },
+]
+lint = [
+    { name = "mypy", specifier = ">=1.17.1" },
+    { name = "pre-commit", specifier = ">=4.3.0" },
+    { name = "ruff", specifier = ">=0.12.7" },
 ]
 test = [
     { name = "pytest", specifier = ">=8.4.1" },
@@ -807,3 +808,4 @@ test = [
     { name = "pytest-httpx", specifier = ">=0.35.0" },
     { name = "pytest-mock", specifier = ">=3.14.1" },
 ]
+types = []
