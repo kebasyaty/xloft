@@ -1,9 +1,8 @@
 """Humanism.
 
-Examples:
-    >>> from xloft import to_human_size
-    >>> to_human_size(1048576)
-    1 MB
+The module contains the following functions:
+
+- `to_human_size(size)` - Returns a humanized string: 200 bytes | 1 KB | 1.5 MB etc.
 """
 
 import math
@@ -14,6 +13,8 @@ def to_human_size(size: int) -> str:
 
     Examples:
     >>> from xloft import to_human_size
+    >>> to_human_size(200)
+    200 bytes
     >>> to_human_size(1048576)
     1 MB
 
