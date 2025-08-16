@@ -1,5 +1,11 @@
 ### CHANGELOG
 
+#### v0.1.18 2025-08-16
+
+- Added a `to_human_size` method.
+- Updated Docs.
+- Updated `README.md` file.
+
 #### v0.1.13 2025-08-06
 
 - Updated tests for `NamedTuple`.
