@@ -12,11 +12,11 @@ def to_human_size(size: int) -> str:
     """Convert number of bytes to readable format.
 
     Examples:
-    >>> from xloft import to_human_size
-    >>> to_human_size(200)
-    200 bytes
-    >>> to_human_size(1048576)
-    1 MB
+        >>> from xloft import to_human_size
+        >>> to_human_size(200)
+        200 bytes
+        >>> to_human_size(1048576)
+        1 MB
 
     Args:
         size: The number of bytes.
