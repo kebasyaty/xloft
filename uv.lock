@@ -765,7 +765,7 @@ wheels = [
 
 [[package]]
 name = "xloft"
-version = "0.1.18"
+version = "0.1.19"
 source = { editable = "." }
 
 [package.dev-dependencies]
