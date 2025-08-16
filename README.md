@@ -31,7 +31,7 @@
       <a href="https://github.com/kebasyaty/xloft/releases/" alt="GitHub release"><img src="https://img.shields.io/github/release/kebasyaty/xloft" alt="GitHub release"></a>
     </p>
     <p align="center">
-      Currently, the collection is represented by one element `NamedTuple`.
+      Currently, the collection is represented by two elements of `ТameЕuple` and` to_human_size`.
     </p>
   </p>
 </div>
