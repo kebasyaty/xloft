@@ -54,6 +54,8 @@ uv add xloft
 
 ## Usage
 
+- **NamedTuple**
+
 ```python
 from xloft import NamedTuple
 
@@ -120,6 +122,19 @@ nt.z = [1, 2, 3]  # => raise: AttributeDoesNotSetValue
 del nt.x  # => raise: AttributeCannotBeDelete
 del nt.y # => raise: AttributeCannotBeDelete
 del nt._id # => raise: AttributeCannotBeDelete
+```
+
+- **to_human_size**
+
+```python
+from xloft import to_human_size
+
+
+s = to_human_size(200)
+print(s)  # => 200 bytes
+
+s = to_human_size(1048576)
+print(s)  # => 1 MB
 ```
 
 ## Changelog
