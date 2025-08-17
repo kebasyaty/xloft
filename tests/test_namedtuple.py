@@ -1,4 +1,4 @@
-"""Testing NamedTuple."""
+"""Testing a `NamedTuple` module."""
 
 import pytest
 

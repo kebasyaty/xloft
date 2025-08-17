@@ -31,7 +31,7 @@
       <a href="https://github.com/kebasyaty/xloft/releases/" alt="GitHub release"><img src="https://img.shields.io/github/release/kebasyaty/xloft" alt="GitHub release"></a>
     </p>
     <p align="center">
-      Currently, the collection is represented by two elements of `NamedTuple` and `to_human_size`.
+      Currently, the collection is represented by three modules of `NamedTuple`, `Humanism` and `Quantum`.
     </p>
   </p>
 </div>
@@ -124,10 +124,10 @@ del nt.y # => raise: AttributeCannotBeDelete
 del nt._id # => raise: AttributeCannotBeDelete
 ```
 
-- **to_human_size**
+- **Humanism**
 
 ```python
-from xloft import to_human_size
+from xloft.humanism import to_human_size
 
 
 s = to_human_size(200)
@@ -138,6 +138,24 @@ print(s)  # => 1 MB
 
 s = to_human_size(1048575)
 print(s)  # => 1023.999 KB
+```
+
+- **Quantum**
+
+```python
+from xloft.quantum import LoopMode, QuantumLoop, count_qubits
+
+num = count_qubits()
+print(num)  # => 16
+
+def quantum(self, item):
+    return item * item
+
+data = range(10)
+
+qloop = QuantumLoop(quantum, data, mode=LoopMode.PROCESS_POOL)
+results = qloop.run()
+print(results)  # => [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
 
 ## Changelog
