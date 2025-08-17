@@ -1,4 +1,11 @@
-"""A set of tools for quantum calculations."""
+"""A set of tools for quantum calculations.
+
+The module contains the following tools:
+
+- `count_qubits()` - Counting the number of qubits of your computer.
+- `LoopMode` - Quantum loop mode.
+- `QuantumLoop` - Divide the cycle into quantums.
+"""
 
 import concurrent.futures
 import multiprocessing
