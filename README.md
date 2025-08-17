@@ -127,7 +127,7 @@ del nt._id # => raise: AttributeCannotBeDelete
 - **to_human_size**
 
 ```python
-from xloft import to_human_size
+from xloft.humanism import to_human_size
 
 
 s = to_human_size(200)
