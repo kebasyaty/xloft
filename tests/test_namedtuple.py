@@ -35,7 +35,7 @@ class TestNegative:
     def test_fail_access_to_attribute(self, init_namedtuple) -> None:
         """An attempt to access the non-existent attribute."""
         nt = init_namedtuple
-        nt.z
+        nt.z  # noqa: B018
 
     @pytest.mark.xfail(raises=AttributeDoesNotSetValue, strict=True)
     def test_fail_add_new_attribute(self, init_namedtuple) -> None:
@@ -85,7 +85,7 @@ class TestPositive:
         nt = init_namedtuple
         assert nt.get("x") == 10
         assert nt.get("y") == "Hello"
-        assert nt.get("z") == None
+        assert nt.get("z") is None
 
     def test_update_method(self, init_namedtuple) -> None:
         """Testing a `update` method."""
@@ -101,7 +101,7 @@ class TestPositive:
         """Convert to the dictionary."""
         nt = init_namedtuple
         d = nt.to_dict()
-        assert isinstance(d, dict) == True
+        assert isinstance(d, dict)
         assert d["x"] == 10
         assert d["y"] == "Hello"
 
@@ -130,13 +130,13 @@ class TestPositive:
     def test_has_key(self, init_namedtuple) -> None:
         """Returns True if the key exists, otherwise False."""
         nt = init_namedtuple
-        assert nt.has_key("x") == True
-        assert nt.has_key("y") == True
-        assert nt.has_key("z") == False
+        assert nt.has_key("x")
+        assert nt.has_key("y")
+        assert not nt.has_key("z")
 
     def test_has_value(self, init_namedtuple) -> None:
         """Returns True if the value exists, otherwise False."""
         nt = init_namedtuple
-        assert nt.has_value(10) == True
-        assert nt.has_value("Hello") == True
-        assert nt.has_value([1, 2, 3]) == False
+        assert nt.has_value(10)
+        assert nt.has_value("Hello")
+        assert not nt.has_value([1, 2, 3])
