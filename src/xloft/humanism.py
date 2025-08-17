@@ -1,4 +1,4 @@
-"""Humanism.
+"""A collection of instruments for converting data to format is convenient for humans.
 
 The module contains the following functions:
 
@@ -17,6 +17,8 @@ def to_human_size(size: int) -> str:
         200 bytes
         >>> to_human_size(1048576)
         1 MB
+        >>> to_human_size(1048575)
+        1023.999 KB
 
     Args:
         size: The number of bytes.
@@ -25,6 +27,9 @@ def to_human_size(size: int) -> str:
         Returns a humanized string: 200 bytes | 1 KB | 1.5 MB etc.
     """
     idx: int = math.floor(math.log(size) / math.log(1024))
-    human_size: int | float = size if size < 1024 else abs(round(size / pow(1024, idx), 2))
+    ndigits: int = [0, 3, 6, 9, 12][idx]
+    human_size: int | float = size if size < 1024 else abs(round(size / pow(1024, idx), ndigits))
     order = ["bytes", "KB", "MB", "GB", "TB"][idx]
-    return "{:g} {}".format(human_size, order)
+    if math.modf(human_size)[0] == 0.0:
+        human_size = int(human_size)
+    return f"{human_size} {order}"

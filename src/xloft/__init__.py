@@ -2,7 +2,8 @@
 
 Modules exported by this package:
 
-- `NamedTuple`: Class imitates the behavior of the _named tuple_.
+- `namedtuple`: Class imitates the behavior of the _named tuple_.
+- `humanism` - A collection of instruments for converting data to format is convenient for humans.
 """
 
 __all__ = (
