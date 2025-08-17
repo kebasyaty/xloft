@@ -12,6 +12,11 @@ def count_qubits() -> int:
     A qubit in a regular computer is some algorithm that is executed in
     one iteration of a cycle in a separate processor thread.
 
+    Examples:
+        >>> from xloft.quantum import count_qubits
+        >>> count_qubits()
+        16
+
     Returns:
         The number of qubits.
     """
@@ -26,7 +31,17 @@ class LoopMode(Enum):
 
 
 class QuantumLoop:
-    """Divide the cycle into quantums."""
+    """Divide the cycle into quantums.
+
+    Examples:
+        >>> from xloft.quantum import LoopMode, QuantumLoop, count_qubits
+        >>> def quantum(self, item):
+        ... return item * item
+        >>> data = range(10)
+        >>> qloop = QuantumLoop(quantum, data, mode=LoopMode.PROCESS_POOL)
+        >>> qloop.run()
+        [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+    """
 
     def __init__(  # noqa: D107
         self,
