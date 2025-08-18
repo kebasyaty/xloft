@@ -148,7 +148,8 @@ from xloft.quantum import LoopMode, QuantumLoop, count_qubits
 num = count_qubits()
 print(num)  # => 16
 
-def quantum(self, item):
+def quantum(item):
+    """Task."""
     return item * item
 
 data = range(10)
