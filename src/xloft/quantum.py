@@ -56,11 +56,11 @@ class QuantumLoop:
         mode: The operating mode for a quantum loop: LoopMode.PROCESS_POOL | LoopMode.THREAD_POOL.
 
     Examples:
-        >>> from xloft.quantum import LoopMode, QuantumLoop, count_qubits
+        >>> from xloft.quantum import QuantumLoop
         >>> def quantum(item):
         ... return item * item
         >>> data = range(10)
-        >>> qloop = QuantumLoop(quantum, data, mode=LoopMode.PROCESS_POOL)
+        >>> qloop = QuantumLoop(quantum, data)
         >>> qloop.run()
         [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
     """

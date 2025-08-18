@@ -20,7 +20,7 @@ class TestQuantumLoop:
     def test_process_pool(self) -> None:
         """Testing a `process_pool` method."""
         data = range(10)
-        qloop = QuantumLoop(self.quantum, data, mode=LoopMode.PROCESS_POOL)
+        qloop = QuantumLoop(self.quantum, data)
         assert qloop.run() == [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
     def test_thread_pool(self) -> None:
