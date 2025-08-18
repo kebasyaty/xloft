@@ -45,6 +45,9 @@ class QuantumLoop:
     Args:
         quantum: Function with a task algorithm.
         data: The data that needs to be processed.
+        max_workers: The maximum number of processes that can be used to
+                     execute the given calls. If None or not given then as many
+                     worker processes will be created as the machine has processors.
         timeout: The maximum number of seconds to wait. If None, then there
                  is no limit on the wait time.
         chunksize: The size of the chunks the iterable will be broken into
@@ -54,7 +57,7 @@ class QuantumLoop:
 
     Examples:
         >>> from xloft.quantum import LoopMode, QuantumLoop, count_qubits
-        >>> def quantum(self, item):
+        >>> def quantum(item):
         ... return item * item
         >>> data = range(10)
         >>> qloop = QuantumLoop(quantum, data, mode=LoopMode.PROCESS_POOL)
@@ -66,19 +69,21 @@ class QuantumLoop:
         self,
         quantum: Callable,
         data: Iterable[Any],
+        max_workers: int | None = None,
         timeout: float | None = None,
         chunksize: int = 1,
         mode: LoopMode = LoopMode.PROCESS_POOL,
     ) -> None:
         self.quantum = quantum
         self.data = data
+        self.max_workers = max_workers
         self.timeout = timeout
         self.chunksize = chunksize
         self.mode = mode
 
     def process_pool(self) -> list[Any]:
         """Better suitable for operations for which large processor resources are required."""
-        with concurrent.futures.ProcessPoolExecutor() as executor:
+        with concurrent.futures.ProcessPoolExecutor(self.max_workers) as executor:
             results = list(
                 executor.map(
                     self.quantum,
@@ -93,7 +98,7 @@ class QuantumLoop:
         """More suitable for tasks related to input-output
         (for example, network queries, file operations),
         where GIL is freed during input-output operations."""  # noqa: D205, D209
-        with concurrent.futures.ThreadPoolExecutor() as executor:
+        with concurrent.futures.ThreadPoolExecutor(self.max_workers) as executor:
             results = list(
                 executor.map(
                     self.quantum,
