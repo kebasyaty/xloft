@@ -7,6 +7,8 @@ Modules exported by this package:
 - `quantum` - A set of tools for quantum calculations.
 """
 
+from __future__ import annotations
+
 __all__ = ("NamedTuple",)
 
 from xloft.namedtuple import NamedTuple

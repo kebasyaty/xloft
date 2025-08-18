@@ -15,10 +15,13 @@ The module contains the following tools:
 - `QuantumLoop` - Separation of the cycle into quantums.
 """
 
+from __future__ import annotations
+
 import concurrent.futures
 import multiprocessing
+from collections.abc import Callable, Iterable
 from enum import Enum
-from typing import Any, Callable, Iterable, Never, assert_never
+from typing import Any, Never, assert_never
 
 
 def count_qubits() -> int:
@@ -100,7 +103,7 @@ class QuantumLoop:
                     chunksize=self.chunksize,
                 ),
             )
-        return results
+        return results  # noqa: RET504
 
     def thread_pool(self) -> list[Any]:
         """More suitable for tasks related to input-output
@@ -115,7 +118,7 @@ class QuantumLoop:
                     chunksize=self.chunksize,
                 ),
             )
-        return results
+        return results  # noqa: RET504
 
     def run(self) -> list[Any]:
         """Run the quantum loop."""
