@@ -1,6 +1,6 @@
 [project]
 name = "xloft"
-version = "0.1.22"
+version = "0.1.23"
 description = "(XLOFT) X-Library of tools"
 readme = "README.md"
 authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]

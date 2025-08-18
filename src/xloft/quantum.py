@@ -43,7 +43,7 @@ class QuantumLoop:
     """Separation of the cycle into quantums.
 
     Args:
-        quantum: A function that describes the task.
+        quantum: Function with a task algorithm.
         data: The data that needs to be processed.
         timeout: The maximum number of seconds to wait. If None, then there
                  is no limit on the wait time.
