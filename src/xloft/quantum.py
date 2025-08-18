@@ -46,11 +46,10 @@ class QuantumLoop:
         quantum: A function that describes the task.
         data: The data that needs to be processed.
         timeout: The maximum number of seconds to wait. If None, then there
-        is no limit on the wait time.
+                 is no limit on the wait time.
         chunksize: The size of the chunks the iterable will be broken into
-        before being passed to a child process. This argument is only
-        used by ProcessPoolExecutor; it is ignored by
-        ThreadPoolExecutor.
+                   before being passed to a child process. This argument is only
+                   used by ProcessPoolExecutor; it is ignored by ThreadPoolExecutor.
         mode: The operating mode for a quantum loop: LoopMode.PROCESS_POOL | LoopMode.THREAD_POOL.
 
     Examples:
