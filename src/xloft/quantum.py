@@ -4,7 +4,7 @@ The module contains the following tools:
 
 - `count_qubits()` - Counting the number of qubits of your computer.
 - `LoopMode` - Quantum loop mode.
-- `QuantumLoop` - Divide the cycle into quantums.
+- `QuantumLoop` - Separation of the cycle into quantums.
 """
 
 import concurrent.futures
