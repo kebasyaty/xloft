@@ -1,5 +1,10 @@
 """A set of tools for quantum calculations.
 
+A qubit in a regular computer is quantum of algorithm that is executed in
+one iteration of a cycle in a separate processor thread.
+
+Quantum is a function with an algorithm of task for data processing.
+
 The module contains the following tools:
 
 - `count_qubits()` - Counting the number of qubits of your computer.
