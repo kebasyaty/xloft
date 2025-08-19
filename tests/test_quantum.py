@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import multiprocessing
 
-from xloft.quantum import LoopMode, QuantumLoop, count_qubits
+from packages.quantum.src.quantum import LoopMode, QuantumLoop, count_qubits
 
 
 def test_count_qubits() -> None:

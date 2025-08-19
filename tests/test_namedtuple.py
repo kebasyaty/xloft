@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import pytest
+from packages.namedtuple.src.namedtuple import NamedTuple
 
-from xloft import NamedTuple
 from xloft.errors import (
     AttributeCannotBeDelete,
     AttributeDoesNotSetValue,

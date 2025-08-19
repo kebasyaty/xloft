@@ -1,0 +1,14 @@
+[project]
+name = "quantum"
+version = "0.1.0"
+description = "A set of tools for quantum calculations."
+readme = "README.md"
+authors = [
+    { name = "kebasyaty", email = "kebasyaty@gmail.com" }
+]
+requires-python = ">=3.12,<4.0"
+dependencies = []
+
+[build-system]
+requires = ["uv_build>=0.8.11,<0.9.0"]
+build-backend = "uv_build"

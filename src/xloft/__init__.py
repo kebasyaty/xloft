@@ -8,7 +8,3 @@ Modules exported by this package:
 """
 
 from __future__ import annotations
-
-__all__ = ("NamedTuple",)
-
-from xloft.namedtuple import NamedTuple
