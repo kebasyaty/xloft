@@ -1,6 +1,12 @@
 ### CHANGELOG
 
-#### v0.1.18 2025-08-16
+#### v0.3.0 2025-08-19
+
+- Added a `Quantum` module.
+- Updated Docs.
+- Updated `README.md` file.
+
+#### v0.2.0 2025-08-16
 
 - Added a `to_human_size` method.
 - Updated Docs.
