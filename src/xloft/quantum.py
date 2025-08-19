@@ -25,7 +25,7 @@ from typing import Any, Never, assert_never
 
 
 def count_qubits() -> int:
-    """Counting the number of qubits of your computer.
+    """Counting the number of conceptual qubits of your computer.
 
     A qubit in a regular computer is quantum of algorithm that is executed in
     one iteration of a cycle in a separate processor thread.
@@ -38,7 +38,7 @@ def count_qubits() -> int:
         16
 
     Returns:
-        The number of qubits.
+        The number of conceptual qubits.
     """
     return multiprocessing.cpu_count()
 
