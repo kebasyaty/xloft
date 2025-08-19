@@ -149,6 +149,8 @@ ignore = [
     "S110",   # try-except-pass detected, consider logging the exception
     "S101",   # Use of `assert` detected
     "PLR",    # Design related pylint codes
+    "EM101",  # Exception must not use a string literal, assign to variable first
+    "EM102",  # Exception must not use an f-string literal, assign to variable first
 ]
 fixable = ["I"]
 unfixable = [

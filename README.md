@@ -145,6 +145,7 @@ print(s)  # => 1023.999 KB
 ```python
 from xloft.quantum import LoopMode, QuantumLoop, count_qubits
 
+# Counting the number of conceptual qubits of your computer.
 num = count_qubits()
 print(num)  # => 16
 
