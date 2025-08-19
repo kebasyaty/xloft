@@ -27,16 +27,14 @@ classifiers = [
 dependencies = []
 
 [project.optional-dependencies]
-namedtuple = ["xloft"]
-humanism = ["xloft"]
-quantum = ["xloft"]
+namedtuple = ["namedtuple"]
+humanism = ["humanism"]
+quantum = ["quantum"]
 
 [tool.uv.sources]
-xloft = [
-    { workspace = true, extra = "namedtuple" },
-    { workspace = true, extra = "humanism" },
-    { workspace = true, extra = "quantum" },
-]
+namedtuple = { workspace = true, extra = "namedtuple" }
+humanism = { workspace = true, extra = "humanism" }
+quantum = { workspace = true, extra = "quantum" }
 
 [tool.uv.workspace]
 members = ["packages/*"]
