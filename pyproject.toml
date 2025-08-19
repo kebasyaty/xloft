@@ -1,6 +1,6 @@
 [project]
 name = "xloft"
-version = "0.3.0"
+version = "0.3.1"
 description = "(XLOFT) X-Library of tools"
 readme = "README.md"
 authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
@@ -172,7 +172,7 @@ convention = "google"
 quote-style = "double"
 indent-style = "space"
 docstring-code-format = true
-docstring-code-line-length = 100
+docstring-code-line-length = 120
 skip-magic-trailing-comma = false
 line-ending = "auto"
 
