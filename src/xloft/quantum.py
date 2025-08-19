@@ -10,9 +10,9 @@ but it is a concept of the principle of operation of quantum calculations on a r
 
 The module contains the following tools:
 
-- `count_qubits()` - Counting the number of qubits of your computer.
 - `LoopMode` - Quantum loop mode.
-- `QuantumLoop` - Separation of the cycle into quantums.
+- `count_qubits()` - Counting the number of conceptual qubits of your computer.
+- `QuantumLoop` - Separation of the cycle into quantum algorithms for multiprocessing data processing.
 """
 
 from __future__ import annotations
@@ -22,6 +22,13 @@ import multiprocessing
 from collections.abc import Callable, Iterable
 from enum import Enum
 from typing import Any, Never, assert_never
+
+
+class LoopMode(Enum):
+    """Quantum loop mode."""
+
+    PROCESS_POOL = 1
+    THREAD_POOL = 2
 
 
 def count_qubits() -> int:
@@ -41,13 +48,6 @@ def count_qubits() -> int:
         The number of conceptual qubits.
     """
     return multiprocessing.cpu_count()
-
-
-class LoopMode(Enum):
-    """Quantum loop mode."""
-
-    PROCESS_POOL = 1
-    THREAD_POOL = 2
 
 
 class QuantumLoop:
