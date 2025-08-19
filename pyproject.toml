@@ -27,14 +27,16 @@ classifiers = [
 dependencies = []
 
 [project.optional-dependencies]
-namedtuple = ["namedtuple"]
-humanism = ["humanism"]
-quantum = ["quantum"]
+namedtuple = ["xloft"]
+humanism = ["xloft"]
+quantum = ["xloft"]
 
 [tool.uv.sources]
-namedtuple = { workspace = true }
-humanism = { workspace = true }
-quantum = { workspace = true }
+xloft = [
+    { workspace = true, extra = "namedtuple" },
+    { workspace = true, extra = "humanism" },
+    { workspace = true, extra = "quantum" },
+]
 
 [tool.uv.workspace]
 members = ["packages/*"]
@@ -81,8 +83,16 @@ fix = true
 line-length = 120
 indent-width = 4
 required-version = ">=0.7.11"
-src = ["src", "tests", "packages"]
-include = ["src/**/*.py", "tests/**/*.py", "packages/**/*.py"]
+src = [
+    "src",
+    "packages/humanism/src",
+    "packages/namedtuple/src",
+    "packages/quantum/src",
+    "packages/humanism/tests",
+    "packages/namedtuple/tests",
+    "packages/quantum/tests",
+]
+include = ["src/**/*.py", "packages/**/*.py"]
 exclude = [
     ".bzr",
     ".direnv",
@@ -193,7 +203,7 @@ line-ending = "auto"
 strict = true
 show_error_codes = true
 pretty = true
-files = ["src/**/*.py", "tests/**/*.py", "packages/**/*.py"]
+files = ["src/**/*.py", "packages/**/*.py"]
 disable_error_code = [
     "type-arg",
     "no-any-return",
@@ -203,7 +213,11 @@ disable_error_code = [
 ]
 
 [[tool.mypy.overrides]]
-module = ["tests.*"]
+module = [
+    "packages/humanism/tests.*",
+    "packages/namedtuple/tests.*",
+    "packages/quantum/tests.*",
+]
 disable_error_code = [
     "arg-type",
     "no-untyped-def",
@@ -216,4 +230,8 @@ disable_error_code = [
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = [
+    "packages/humanism/tests",
+    "packages/namedtuple/tests",
+    "packages/quantum/tests",
+]

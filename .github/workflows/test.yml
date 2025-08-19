@@ -36,4 +36,7 @@ jobs:
         run: uv sync --locked --dev --group test
 
       - name: Run tests
-        run: uv run pytest -v tests/
+        run: |
+          run: uv run pytest -v packages/humanism/tests/
+          uv run pytest -v packages/namedtuple/tests/
+          uv run pytest -v packages/quantum/tests/

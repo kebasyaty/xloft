@@ -3,9 +3,7 @@ name = "namedtuple"
 version = "0.1.0"
 description = "This module contains the implementation of the `NamedTuple` class."
 readme = "README.md"
-authors = [
-    { name = "kebasyaty", email = "kebasyaty@gmail.com" }
-]
+authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
 requires-python = ">=3.12,<4.0"
 dependencies = []
 

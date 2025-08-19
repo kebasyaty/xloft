@@ -3,9 +3,7 @@ name = "humanism"
 version = "0.1.0"
 description = "A collection of instruments for converting data to format is convenient for humans."
 readme = "README.md"
-authors = [
-    { name = "kebasyaty", email = "kebasyaty@gmail.com" }
-]
+authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
 requires-python = ">=3.12,<4.0"
 dependencies = []
 

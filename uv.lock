@@ -793,17 +793,6 @@ name = "xloft"
 version = "0.3.1"
 source = { editable = "." }
 
-[package.optional-dependencies]
-humanism = [
-    { name = "humanism" },
-]
-namedtuple = [
-    { name = "namedtuple" },
-]
-quantum = [
-    { name = "quantum" },
-]
-
 [package.dev-dependencies]
 docs = [
     { name = "mkdocs" },
@@ -825,9 +814,9 @@ test = [
 
 [package.metadata]
 requires-dist = [
-    { name = "humanism", marker = "extra == 'humanism'", editable = "packages/humanism" },
-    { name = "namedtuple", marker = "extra == 'namedtuple'", editable = "packages/namedtuple" },
-    { name = "quantum", marker = "extra == 'quantum'", editable = "packages/quantum" },
+    { name = "xloft", marker = "extra == 'humanism'", editable = "." },
+    { name = "xloft", marker = "extra == 'namedtuple'", editable = "." },
+    { name = "xloft", marker = "extra == 'quantum'", editable = "." },
 ]
 provides-extras = ["namedtuple", "humanism", "quantum"]
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from packages.humanism.src.humanism import to_human_size
+from src.humanism import to_human_size
 
 
 def test_to_human_size() -> None:
