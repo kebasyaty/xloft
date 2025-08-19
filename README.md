@@ -155,6 +155,7 @@ def quantum(item):
 
 data = range(10)
 
+# Separation of the cycle into quantum algorithms for multiprocessing data processing.
 qloop = QuantumLoop(quantum, data)
 results = qloop.run()
 print(results)  # => [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]

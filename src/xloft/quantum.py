@@ -27,10 +27,10 @@ from typing import Any, Never, assert_never
 def count_qubits() -> int:
     """Counting the number of conceptual qubits of your computer.
 
-    A qubit in a regular computer is quantum of algorithm that is executed in
-    one iteration of a cycle in a separate processor thread.
+    Conceptual qubit is quantum of algorithm (task) that is executed in
+    iterations of a cycle in a separate processor thread.
 
-    Quantum is a function with an algorithm of task for data processing.
+    Quantum of algorithm is a function for data processing.
 
     Examples:
         >>> from xloft.quantum import count_qubits
@@ -51,7 +51,7 @@ class LoopMode(Enum):
 
 
 class QuantumLoop:
-    """Separation of the cycle into quantums.
+    """Separation of the cycle into quantum algorithms for multiprocessing data processing.
 
     Args:
         quantum: Function with a task algorithm.
