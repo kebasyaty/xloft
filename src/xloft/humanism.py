@@ -5,6 +5,8 @@ The module contains the following functions:
 - `to_human_size(size)` - Returns a humanized string: 200 bytes | 1 KB | 1.5 MB etc.
 """
 
+from __future__ import annotations
+
 import math
 
 

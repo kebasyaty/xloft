@@ -1,5 +1,7 @@
 """XLOT Exceptions."""
 
+from __future__ import annotations
+
 
 class XLOTException(Exception):
     """Root Custom Exception."""

@@ -1,5 +1,7 @@
 """Testing a `NamedTuple` module."""
 
+from __future__ import annotations
+
 import pytest
 
 from xloft import NamedTuple
@@ -12,8 +14,7 @@ from xloft.errors import (
 @pytest.fixture
 def init_namedtuple() -> NamedTuple:
     """Init NamedTuple."""
-    nt = NamedTuple(x=10, y="Hello")
-    return nt
+    return NamedTuple(x=10, y="Hello")
 
 
 class TestNegative:

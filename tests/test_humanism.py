@@ -1,5 +1,7 @@
 """Testing a `Humanism` module."""
 
+from __future__ import annotations
+
 from xloft.humanism import to_human_size
 
 
