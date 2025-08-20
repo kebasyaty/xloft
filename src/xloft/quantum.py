@@ -58,8 +58,7 @@ class QuantumLoop:
         >>> def task(item):
         ... return item * item
         >>> data = range(10)
-        >>> qloop = QuantumLoop(task, data)
-        >>> qloop.run()
+        >>> QuantumLoop(task, data).run()
         [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
     Args:

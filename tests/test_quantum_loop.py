@@ -9,6 +9,11 @@ class TestQuantumLoop:
     """Testing a `QuantumLoop` class."""
 
     @staticmethod
+    def control_sample() -> list[int]:
+        """Control sample."""
+        return [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+    @staticmethod
     def task(item: int) -> int:
         """Test Quantum."""
         return item * item
@@ -16,11 +21,15 @@ class TestQuantumLoop:
     def test_process_pool(self) -> None:
         """Testing a `process_pool` method."""
         data = range(10)
-        qloop = QuantumLoop(self.task, data)
-        assert qloop.run() == [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+        results = QuantumLoop(self.task, data).run()
+        assert results == self.control_sample()
 
     def test_thread_pool(self) -> None:
         """Testing a `thread_pool` method."""
         data = range(10)
-        qloop = QuantumLoop(self.task, data, mode=LoopMode.THREAD_POOL)
-        assert qloop.run() == [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+        results = QuantumLoop(
+            self.task,
+            data,
+            mode=LoopMode.THREAD_POOL,
+        ).run()
+        assert results == self.control_sample()
