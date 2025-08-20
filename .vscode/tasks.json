@@ -58,10 +58,7 @@
     {
       "label": "PyTest: Run Tests",
       "type": "shell",
-      "command": [
-        "uv run pytest -v tests/;",
-        "uv run pytest -v packages/quantum/tests/"
-      ],
+      "command": ["uv run pytest -v tests/"],
       "problemMatcher": []
     },
     {

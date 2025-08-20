@@ -651,11 +651,6 @@ wheels = [
 ]
 
 [[package]]
-name = "quantum"
-version = "0.4.0"
-source = { git = "https://github.com/kebasyaty/xloft?subdirectory=packages%2Fquantum&branch=main#ae9e9509cffbdc63b5665648460a5f846e224954" }
-
-[[package]]
 name = "requests"
 version = "2.32.5"
 source = { registry = "https://pypi.org/simple" }
@@ -772,13 +767,8 @@ wheels = [
 
 [[package]]
 name = "xloft"
-version = "0.4.2"
+version = "0.4.4"
 source = { editable = "." }
-
-[package.optional-dependencies]
-quantum = [
-    { name = "quantum" },
-]
 
 [package.dev-dependencies]
 docs = [
@@ -800,8 +790,6 @@ test = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "quantum", marker = "extra == 'quantum'", git = "https://github.com/kebasyaty/xloft?subdirectory=packages%2Fquantum&branch=main" }]
-provides-extras = ["quantum"]
 
 [package.metadata.requires-dev]
 dev = []

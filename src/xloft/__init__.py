@@ -5,7 +5,6 @@ Modules exported by this package:
 - `namedtuple`: Class imitates the behavior of the _named tuple_.
 - `human` - A collection of instruments for converting data to format is convenient for humans.
 - `quantum` - A set of tools for quantum calculations.
-              Hint: uv add xloft[quantum]
 """
 
 from __future__ import annotations

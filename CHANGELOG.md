@@ -2,8 +2,6 @@
 
 #### v0.4.0 2025-08-20
 
-- The `Quantum` module is put into a separate package.
-  To install it, use: `uv add xloft[quantum]`.
 - Updated `README.md` file.
 - Updated Docs.
 
