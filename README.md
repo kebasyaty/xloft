@@ -31,7 +31,7 @@
       <a href="https://github.com/kebasyaty/xloft/releases/" alt="GitHub release"><img src="https://img.shields.io/github/release/kebasyaty/xloft" alt="GitHub release"></a>
     </p>
     <p align="center">
-      The collection is represented by three modules of `NamedTuple`, `Human` and `Quantum`.
+      The collection is represented by three modules of `NamedTuple`, `Human` and `Quantum`.<br>
       In the future, new tools can be added.
     </p>
   </p>
