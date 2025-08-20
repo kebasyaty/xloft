@@ -2,12 +2,6 @@ version = 1
 revision = 3
 requires-python = ">=3.12, <4.0"
 
-[manifest]
-members = [
-    "quantum",
-    "xloft",
-]
-
 [[package]]
 name = "anyio"
 version = "4.10.0"
@@ -659,7 +653,7 @@ wheels = [
 [[package]]
 name = "quantum"
 version = "0.4.0"
-source = { editable = "packages/quantum" }
+source = { git = "https://github.com/kebasyaty/xloft?subdirectory=packages%2Fquantum#67d04cee5968057b0d37ed49742756017a2f8e1f" }
 
 [[package]]
 name = "requests"
@@ -778,7 +772,7 @@ wheels = [
 
 [[package]]
 name = "xloft"
-version = "0.4.0"
+version = "0.4.1"
 source = { editable = "." }
 
 [package.optional-dependencies]
@@ -806,7 +800,7 @@ test = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "quantum", marker = "extra == 'quantum'", editable = "packages/quantum" }]
+requires-dist = [{ name = "quantum", marker = "extra == 'quantum'", git = "https://github.com/kebasyaty/xloft?subdirectory=packages%2Fquantum" }]
 provides-extras = ["quantum"]
 
 [package.metadata.requires-dev]

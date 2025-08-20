@@ -1,6 +1,6 @@
 [project]
 name = "xloft"
-version = "0.4.0"
+version = "0.4.1"
 description = "(XLOFT) X-Library of tools"
 readme = "README.md"
 authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
@@ -30,10 +30,7 @@ dependencies = []
 quantum = ["quantum"]
 
 [tool.uv.sources]
-quantum = { workspace = true, extra = "quantum" }
-
-[tool.uv.workspace]
-members = ["packages/*"]
+quantum = { git = "https://github.com/kebasyaty/xloft", subdirectory = "packages/quantum", extra = "quantum" }
 
 [project.urls]
 Homepage = "https://github.com/kebasyaty/xloft"
