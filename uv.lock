@@ -653,7 +653,7 @@ wheels = [
 [[package]]
 name = "quantum"
 version = "0.4.0"
-source = { git = "https://github.com/kebasyaty/xloft?subdirectory=packages%2Fquantum#67d04cee5968057b0d37ed49742756017a2f8e1f" }
+source = { git = "https://github.com/kebasyaty/xloft?subdirectory=packages%2Fquantum&branch=main#ae9e9509cffbdc63b5665648460a5f846e224954" }
 
 [[package]]
 name = "requests"
@@ -772,7 +772,7 @@ wheels = [
 
 [[package]]
 name = "xloft"
-version = "0.4.1"
+version = "0.4.2"
 source = { editable = "." }
 
 [package.optional-dependencies]
@@ -800,7 +800,7 @@ test = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "quantum", marker = "extra == 'quantum'", git = "https://github.com/kebasyaty/xloft?subdirectory=packages%2Fquantum" }]
+requires-dist = [{ name = "quantum", marker = "extra == 'quantum'", git = "https://github.com/kebasyaty/xloft?subdirectory=packages%2Fquantum&branch=main" }]
 provides-extras = ["quantum"]
 
 [package.metadata.requires-dev]

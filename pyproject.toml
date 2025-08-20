@@ -1,6 +1,6 @@
 [project]
 name = "xloft"
-version = "0.4.1"
+version = "0.4.2"
 description = "(XLOFT) X-Library of tools"
 readme = "README.md"
 authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
@@ -26,18 +26,15 @@ classifiers = [
 ]
 dependencies = []
 
-[project.optional-dependencies]
-quantum = ["quantum"]
-
-[tool.uv.sources]
-quantum = { git = "https://github.com/kebasyaty/xloft", subdirectory = "packages/quantum", extra = "quantum" }
-
 [project.urls]
 Homepage = "https://github.com/kebasyaty/xloft"
 Repository = "https://github.com/kebasyaty/xloft"
 Source = "https://github.com/kebasyaty/xloft"
 "Bug Tracker" = "https://github.com/kebasyaty/xloft/issues"
 Changelog = "https://github.com/kebasyaty/xloft/blob/v0/CHANGELOG.md"
+
+[project.optional-dependencies]
+quantum = ["quantum"]
 
 [tool.uv]
 package = true
@@ -47,6 +44,9 @@ check-url = "https://pypi.org/simple"
 
 [tool.uv.build-backend]
 module-root = "src"
+
+[tool.uv.sources]
+quantum = { git = "https://github.com/kebasyaty/xloft", subdirectory = "packages/quantum", branch = "main" }
 
 [build-system]
 requires = ["hatchling"]
