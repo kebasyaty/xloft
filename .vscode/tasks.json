@@ -59,9 +59,9 @@
       "label": "PyTest: Run Tests",
       "type": "shell",
       "command": [
-        "uv run pytest -v packages/humanism/tests/;",
-        "uv run pytest -v packages/namedtuple/tests/;",
-        "uv run pytest -v packages/quantum/tests/;"
+        "uv run pytest -v packages/humanism/tests_humanism/;",
+        "uv run pytest -v packages/namedtuple/tests_namedtuple/;",
+        "uv run pytest -v packages/quantum/tests_quantum/;"
       ],
       "problemMatcher": []
     },

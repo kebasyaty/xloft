@@ -83,12 +83,13 @@ indent-width = 4
 required-version = ">=0.7.11"
 src = [
     "src",
+    "tests",
     "packages/humanism/src",
     "packages/namedtuple/src",
     "packages/quantum/src",
-    "packages/humanism/tests",
-    "packages/namedtuple/tests",
-    "packages/quantum/tests",
+    "packages/humanism/tests_humanism",
+    "packages/namedtuple/tests_namedtuple",
+    "packages/quantum/tests_quantum",
 ]
 include = ["src/**/*.py", "packages/**/*.py"]
 exclude = [
@@ -201,7 +202,13 @@ line-ending = "auto"
 strict = true
 show_error_codes = true
 pretty = true
-files = ["src/**/*.py", "packages/**/*.py"]
+files = [
+    "src/**/*.py",
+    "tests/**/*.py",
+    "packages/humanism/src/**/*.py",
+    "packages/namedtuple/src/**/*.py",
+    "packages/quantum/src/**/*.py",
+]
 disable_error_code = [
     "type-arg",
     "no-any-return",
@@ -212,9 +219,10 @@ disable_error_code = [
 
 [[tool.mypy.overrides]]
 module = [
-    "packages/humanism/tests.*",
-    "packages/namedtuple/tests.*",
-    "packages/quantum/tests.*",
+    "tests.*",
+    "packages/humanism/tests_humanism.*",
+    "packages/namedtuple/tests_namedtuple.*",
+    "packages/quantum/tests_quantum.*",
 ]
 disable_error_code = [
     "arg-type",
@@ -224,12 +232,14 @@ disable_error_code = [
     "union-attr",
     "import-not-found",
     "import-untyped",
+    "no-untyped-def",
     "misc",
 ]
 
 [tool.pytest.ini_options]
 testpaths = [
-    "packages/humanism/tests",
-    "packages/namedtuple/tests",
-    "packages/quantum/tests",
+    "tests",
+    "packages/humanism/tests_humanism",
+    "packages/namedtuple/tests_namedtuple",
+    "packages/quantum/tests_quantum",
 ]

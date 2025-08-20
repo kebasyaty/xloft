@@ -15,7 +15,8 @@ def test_count_qubits() -> None:
 class TestQuantumLoop:
     """Testing a `QuantumLoop` class."""
 
-    def quantum(self, item):
+    @staticmethod
+    def quantum(item: int) -> int:
         """Test task."""
         return item * item
 
