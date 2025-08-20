@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from src.quantum import LoopMode, QuantumLoop
+from xloft.quantum import LoopMode, QuantumLoop
 
 
 class TestQuantumLoop:
