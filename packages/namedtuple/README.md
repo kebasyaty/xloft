@@ -1,1 +1,0 @@
-# namedtuple

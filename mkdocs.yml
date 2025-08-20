@@ -66,6 +66,6 @@ nav:
   - XLOFT: index.md
   - Installation: md_pages/installation.md
   - NamedTuple: md_pages/namedtuple.md
-  - Humanism: md_pages/humanism.md
+  - Human: md_pages/human.md
   - Quantum: md_pages/quantum.md
   - Errors: md_pages/errors.md

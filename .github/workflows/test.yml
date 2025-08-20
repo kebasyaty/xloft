@@ -37,6 +37,5 @@ jobs:
 
       - name: Run tests
         run: |
-          run: uv run pytest -v packages/humanism/src/tests/
-          uv run pytest -v packages/namedtuple/src/tests/
-          uv run pytest -v packages/quantum/src/tests/
+          uv run pytest -v tests/
+          uv run pytest -v packages/quantum/tests_quantum/

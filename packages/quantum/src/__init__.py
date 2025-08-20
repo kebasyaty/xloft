@@ -40,7 +40,7 @@ def count_qubits() -> int:
     Quantum of algorithm is a function for data processing.
 
     Examples:
-        >>> from xloft.quantum import count_qubits
+        >>> from quantum import count_qubits
         >>> count_qubits()
         16
 
@@ -53,8 +53,17 @@ def count_qubits() -> int:
 class QuantumLoop:
     """Separation of the cycle into quantum algorithms for multiprocessing data processing.
 
+    Examples:
+        >>> from quantum import QuantumLoop
+        >>> def task(item):
+        ... return item * item
+        >>> data = range(10)
+        >>> qloop = QuantumLoop(task, data)
+        >>> qloop.run()
+        [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
     Args:
-        quantum: Function with a task algorithm.
+        task: Function with a task algorithm.
         data: The data that needs to be processed.
         max_workers: The maximum number of processes that can be used to
                      execute the given calls. If None or not given then as many
@@ -65,27 +74,18 @@ class QuantumLoop:
                    before being passed to a child process. This argument is only
                    used by ProcessPoolExecutor; it is ignored by ThreadPoolExecutor.
         mode: The operating mode for a quantum loop: LoopMode.PROCESS_POOL | LoopMode.THREAD_POOL.
-
-    Examples:
-        >>> from xloft.quantum import QuantumLoop
-        >>> def quantum(item):
-        ... return item * item
-        >>> data = range(10)
-        >>> qloop = QuantumLoop(quantum, data)
-        >>> qloop.run()
-        [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
     """
 
     def __init__(  # noqa: D107
         self,
-        quantum: Callable,
+        task: Callable,
         data: Iterable[Any],
         max_workers: int | None = None,
         timeout: float | None = None,
         chunksize: int = 1,
         mode: LoopMode = LoopMode.PROCESS_POOL,
     ) -> None:
-        self.quantum = quantum
+        self.quantum = task
         self.data = data
         self.max_workers = max_workers
         self.timeout = timeout

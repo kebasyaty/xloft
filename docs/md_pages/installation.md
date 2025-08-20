@@ -1,5 +1,5 @@
 ```shell
-pip install xloft
-# or
 uv add xloft
+# For a Quantum module:
+uv add xloft[quantum]
 ```

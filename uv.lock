@@ -4,8 +4,6 @@ requires-python = ">=3.12, <4.0"
 
 [manifest]
 members = [
-    "humanism",
-    "namedtuple",
     "quantum",
     "xloft",
 ]
@@ -206,11 +204,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/b1/df/48c586a5fe32a0f01
 wheels = [
     { url = "https://files.pythonhosted.org/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl", hash = "sha256:d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad", size = 73517, upload-time = "2024-12-06T15:37:21.509Z" },
 ]
-
-[[package]]
-name = "humanism"
-version = "0.1.0"
-source = { editable = "packages/humanism" }
 
 [[package]]
 name = "identify"
@@ -467,11 +460,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/a2/6e/371856a3fb9d31ca8
 wheels = [
     { url = "https://files.pythonhosted.org/packages/79/7b/2c79738432f5c924bef5071f933bcc9efd0473bac3b4aa584a6f7c1c8df8/mypy_extensions-1.1.0-py3-none-any.whl", hash = "sha256:1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505", size = 4963, upload-time = "2025-04-22T14:54:22.983Z" },
 ]
-
-[[package]]
-name = "namedtuple"
-version = "0.1.0"
-source = { editable = "packages/namedtuple" }
 
 [[package]]
 name = "nodeenv"
@@ -794,12 +782,6 @@ version = "0.3.1"
 source = { editable = "." }
 
 [package.optional-dependencies]
-humanism = [
-    { name = "humanism" },
-]
-namedtuple = [
-    { name = "namedtuple" },
-]
 quantum = [
     { name = "quantum" },
 ]
@@ -824,12 +806,8 @@ test = [
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "humanism", marker = "extra == 'humanism'", editable = "packages/humanism" },
-    { name = "namedtuple", marker = "extra == 'namedtuple'", editable = "packages/namedtuple" },
-    { name = "quantum", marker = "extra == 'quantum'", editable = "packages/quantum" },
-]
-provides-extras = ["namedtuple", "humanism", "quantum"]
+requires-dist = [{ name = "quantum", marker = "extra == 'quantum'", editable = "packages/quantum" }]
+provides-extras = ["quantum"]
 
 [package.metadata.requires-dev]
 dev = []
