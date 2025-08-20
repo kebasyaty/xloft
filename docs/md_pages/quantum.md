@@ -1,1 +1,1 @@
-::: xloft.quantum
+::: quantum
