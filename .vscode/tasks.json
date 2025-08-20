@@ -60,7 +60,7 @@
       "type": "shell",
       "command": [
         "uv run pytest -v tests/;",
-        "uv run pytest -v packages/quantum/tests_quantum/"
+        "uv run pytest -v packages/quantum/tests/"
       ],
       "problemMatcher": []
     },

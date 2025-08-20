@@ -199,7 +199,7 @@ disable_error_code = [
 ]
 
 [[tool.mypy.overrides]]
-module = ["tests.*", "packages/quantum/tests_quantum.*"]
+module = ["tests.*", "packages/quantum/tests.*"]
 disable_error_code = [
     "arg-type",
     "no-untyped-def",
@@ -213,4 +213,4 @@ disable_error_code = [
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["tests", "packages/quantum/tests_quantum"]
+testpaths = ["tests", "packages/quantum/tests"]
