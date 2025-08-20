@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from src import LoopMode, QuantumLoop
+from src.quantum import LoopMode, QuantumLoop
 
 
 class TestQuantumLoop:

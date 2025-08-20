@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import multiprocessing
 
-from src import count_qubits
+from src.quantum import count_qubits
 
 
 def test_count_qubits() -> None:
