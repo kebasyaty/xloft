@@ -40,7 +40,7 @@ def count_qubits() -> int:
     Quantum of algorithm is a function for data processing.
 
     Examples:
-        >>> from quantum import count_qubits
+        >>> from xloft.quantum import count_qubits
         >>> count_qubits()
         16
 
@@ -54,7 +54,7 @@ class QuantumLoop:
     """Separation of the cycle into quantum algorithms for multiprocessing data processing.
 
     Examples:
-        >>> from quantum import QuantumLoop
+        >>> from xloft.quantum import QuantumLoop
         >>> def task(item):
         ... return item * item
         >>> data = range(10)
