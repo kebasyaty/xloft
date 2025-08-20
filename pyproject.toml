@@ -1,6 +1,6 @@
 [project]
 name = "xloft"
-version = "0.3.1"
+version = "0.4.0"
 description = "(XLOFT) X-Library of tools"
 readme = "README.md"
 authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
@@ -25,6 +25,15 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = []
+
+[project.optional-dependencies]
+quantum = ["quantum"]
+
+[tool.uv.sources]
+quantum = { workspace = true, extra = "quantum" }
+
+[tool.uv.workspace]
+members = ["packages/*"]
 
 [project.urls]
 Homepage = "https://github.com/kebasyaty/xloft"
@@ -68,8 +77,8 @@ fix = true
 line-length = 120
 indent-width = 4
 required-version = ">=0.7.11"
-src = ["src", "tests"]
-include = ["src/**/*.py", "tests/**/*.py"]
+src = ["src", "tests", "packages/quantum/src", "packages/quantum/tests_quantum"]
+include = ["src/**/*.py", "packages/**/*.py"]
 exclude = [
     ".bzr",
     ".direnv",
@@ -180,7 +189,7 @@ line-ending = "auto"
 strict = true
 show_error_codes = true
 pretty = true
-files = ["src/**/*.py", "tests/**/*.py"]
+files = ["src/**/*.py", "tests/**/*.py", "packages/quantum/src/**/*.py"]
 disable_error_code = [
     "type-arg",
     "no-any-return",
@@ -190,7 +199,7 @@ disable_error_code = [
 ]
 
 [[tool.mypy.overrides]]
-module = ["tests.*"]
+module = ["tests.*", "packages/quantum/tests_quantum.*"]
 disable_error_code = [
     "arg-type",
     "no-untyped-def",
@@ -198,8 +207,10 @@ disable_error_code = [
     "func-returns-value",
     "union-attr",
     "import-not-found",
+    "import-untyped",
+    "no-untyped-def",
     "misc",
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["tests", "packages/quantum/tests_quantum"]

@@ -83,6 +83,7 @@ repos:
             --ignore-missing-imports,
             --install-types,
             --non-interactive,
+            --explicit-package-bases,
             --config-file=pyproject.toml,
           ]
         exclude: examples

@@ -31,7 +31,8 @@
       <a href="https://github.com/kebasyaty/xloft/releases/" alt="GitHub release"><img src="https://img.shields.io/github/release/kebasyaty/xloft" alt="GitHub release"></a>
     </p>
     <p align="center">
-      Currently, the collection is represented by three modules of `NamedTuple`, `Humanism` and `Quantum`.
+      The collection is represented by three modules of `NamedTuple`, `Human` and `Quantum`.
+      In the future, new tools can be added.
     </p>
   </p>
 </div>
@@ -50,6 +51,8 @@ Online browsable documentation is available at [https://kebasyaty.github.io/xlof
 
 ```shell
 uv add xloft
+# For a Quantum module:
+uv add xloft[quantum]
 ```
 
 ## Usage
@@ -124,10 +127,10 @@ del nt.y # => raise: AttributeCannotBeDelete
 del nt._id # => raise: AttributeCannotBeDelete
 ```
 
-- **Humanism**
+- **Human**
 
 ```python
-from xloft.humanism import to_human_size
+from xloft import to_human_size
 
 
 s = to_human_size(200)
@@ -143,20 +146,20 @@ print(s)  # => 1023.999 KB
 - **Quantum**
 
 ```python
-from xloft.quantum import LoopMode, QuantumLoop, count_qubits
+from quantum import LoopMode, QuantumLoop, count_qubits
 
 # Counting the number of conceptual qubits of your computer.
 num = count_qubits()
 print(num)  # => 16
 
-def quantum(item):
-    """Task."""
+def task(item):
+    """Quantum."""
     return item * item
 
 data = range(10)
 
 # Separation of the cycle into quantum algorithms for multiprocessing data processing.
-qloop = QuantumLoop(quantum, data)
+qloop = QuantumLoop(task, data)
 results = qloop.run()
 print(results)  # => [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```

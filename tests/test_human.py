@@ -1,8 +1,8 @@
-"""Testing a `Humanism` module."""
+"""Testing a `Human` module."""
 
 from __future__ import annotations
 
-from xloft.humanism import to_human_size
+from xloft.human import to_human_size
 
 
 def test_to_human_size() -> None:

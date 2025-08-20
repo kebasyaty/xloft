@@ -36,4 +36,6 @@ jobs:
         run: uv sync --locked --dev --group test
 
       - name: Run tests
-        run: uv run pytest -v tests/
+        run: |
+          uv run pytest -v tests/
+          uv run pytest -v packages/quantum/tests_quantum/

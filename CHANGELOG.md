@@ -1,22 +1,29 @@
 ### CHANGELOG
 
+#### v0.4.0 2025-08-20
+
+- The `Quantum` module is put into a separate package.
+  To install it, use: `uv add xloft[quantum]`.
+- Updated `README.md` file.
+- Updated Docs.
+
 #### v0.3.0 2025-08-19
 
 - Added a `Quantum` module.
-- Updated Docs.
 - Updated `README.md` file.
+- Updated Docs.
 
 #### v0.2.0 2025-08-16
 
 - Added a `to_human_size` method.
-- Updated Docs.
 - Updated `README.md` file.
+- Updated Docs.
 
 #### v0.1.13 2025-08-06
 
 - Updated tests for `NamedTuple`.
-- Updated Docs.
 - Updated `README.md` file.
+- Updated Docs.
 
 #### v0.1.10 2025-08-04
 

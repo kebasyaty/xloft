@@ -24,7 +24,9 @@
     {
       "label": "MyPy: Run Check",
       "type": "shell",
-      "command": ["uv run mypy --ignore-missing-imports --config-file pyproject.toml"],
+      "command": [
+        "uv run mypy --ignore-missing-imports --config-file pyproject.toml"
+      ],
       "problemMatcher": []
     },
     {
@@ -56,7 +58,10 @@
     {
       "label": "PyTest: Run Tests",
       "type": "shell",
-      "command": ["uv run pytest -v tests/"],
+      "command": [
+        "uv run pytest -v tests/;",
+        "uv run pytest -v packages/quantum/tests_quantum/"
+      ],
       "problemMatcher": []
     },
     {
