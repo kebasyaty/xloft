@@ -77,7 +77,7 @@ fix = true
 line-length = 120
 indent-width = 4
 required-version = ">=0.7.11"
-src = ["src", "tests", "packages/quantum/src", "packages/quantum/tests_quantum"]
+src = ["src", "tests", "packages/quantum/src", "packages/quantum/tests"]
 include = ["src/**/*.py", "packages/**/*.py"]
 exclude = [
     ".bzr",
@@ -189,7 +189,12 @@ line-ending = "auto"
 strict = true
 show_error_codes = true
 pretty = true
-files = ["src/**/*.py", "tests/**/*.py", "packages/quantum/src/**/*.py"]
+files = [
+    "src/**/*.py",
+    "tests/**/*.py",
+    "packages/quantum/src/**/*.py",
+    "packages/quantum/tests/**/*.py",
+]
 disable_error_code = [
     "type-arg",
     "no-any-return",
