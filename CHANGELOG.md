@@ -1,5 +1,12 @@
 ### CHANGELOG
 
+#### v0.4.6 2025-08-21
+
+- Updated tests for a `quantum` module.
+- Added caching of the results for the function `to_human_size` with a target optimization.
+- Updated `README.md` file.
+- Updated Docs.
+
 #### v0.4.0 2025-08-20
 
 - Updated `README.md` file.
