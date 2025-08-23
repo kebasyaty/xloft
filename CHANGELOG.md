@@ -1,5 +1,9 @@
 ### CHANGELOG
 
+#### v0.4.7 2025-08-23
+
+- Added a `clean_cache_human_size` method to a `human` module.
+
 #### v0.4.6 2025-08-21
 
 - Updated tests for a `quantum` module.
