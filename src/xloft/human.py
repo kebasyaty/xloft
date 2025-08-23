@@ -9,21 +9,27 @@ from __future__ import annotations
 
 __all__ = (
     "to_human_size",
-    "get_cach_human_size",
+    "get_cache_human_size",
 )
 
 import math
 
 # To caching the results from to_human_size method.
-_cach_human_size: dict[int, str] = {}
+_cache_human_size: dict[int, str] = {}
 
 
-def get_cach_human_size() -> dict[int, str]:
-    """Get a copy of the variable _cach_human_size.
+def get_cache_human_size() -> dict[int, str]:
+    """Get a copy of variable _cach_human_size.
 
     Hint: To tests.
     """
-    return _cach_human_size.copy()
+    return _cache_human_size.copy()
+
+
+def clean_cache_human_size() -> None:
+    """Reset of variable _cach_human_size."""
+    global _cache_human_size  # noqa: PLW0603
+    _cache_human_size = {}
 
 
 def to_human_size(n_bytes: int) -> str:
@@ -44,7 +50,7 @@ def to_human_size(n_bytes: int) -> str:
     Returns:
         Returns a humanized string: 200 bytes | 1 KB | 1.5 MB etc.
     """
-    result: str | None = _cach_human_size.get(n_bytes)
+    result: str | None = _cache_human_size.get(n_bytes)
     if result is not None:
         return result
     idx: int = math.floor(math.log(n_bytes) / math.log(1024))
@@ -54,5 +60,5 @@ def to_human_size(n_bytes: int) -> str:
     if math.modf(human_size)[0] == 0.0:
         human_size = int(human_size)
     result = f"{human_size} {order}"
-    _cach_human_size[n_bytes] = result
+    _cache_human_size[n_bytes] = result
     return result

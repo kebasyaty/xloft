@@ -2,9 +2,13 @@
 
 from __future__ import annotations
 
-from xloft.human import get_cach_human_size, to_human_size
+from xloft.human import (
+    clean_cache_human_size,
+    get_cache_human_size,
+    to_human_size,
+)
 
-data: dict[int, str] = {
+sample_data: dict[int, str] = {
     200: "200 bytes",
     1023: "1023 bytes",
     1024: "1 KB",
@@ -26,12 +30,16 @@ data: dict[int, str] = {
 
 def test_to_human_size() -> None:
     """Testing a `to_human_size` method."""
-    for key, val in data.items():
-        assert to_human_size(key) == val
+    clean_cache_human_size()
+    assert get_cache_human_size() == {}
 
-
-def test_cach_human_size() -> None:
-    """Testing the `_cach_human_size` variable."""
-    for key, val in data.items():
+    for key, val in sample_data.items():
         assert to_human_size(key) == val
-    assert get_cach_human_size() == data
+    assert get_cache_human_size() == sample_data
+
+    for key, val in sample_data.items():
+        assert to_human_size(key) == val
+    assert get_cache_human_size() == sample_data
+
+    clean_cache_human_size()
+    assert get_cache_human_size() == {}
