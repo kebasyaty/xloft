@@ -72,5 +72,4 @@ nav:
   - Installation: pages/installation.md
   - NamedTuple: pages/namedtuple.md
   - Human: pages/human.md
-  - Quantum: pages/quantum.md
   - Errors: pages/errors.md
