@@ -1,5 +1,11 @@
 ### CHANGELOG
 
+#### v0.5.0 2025-09-08
+
+- Deleted a `quantum` module.
+- Updated Docs.
+- Updated `README.md` file.
+
 #### v0.4.7 2025-08-23
 
 - Added a `clean_cache_human_size` method to a `human` module.
