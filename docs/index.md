@@ -2,7 +2,7 @@
   <p align="center">
     <a href="https://github.com/kebasyaty/xloft">
       <img
-        height="120"
+        height="100"
         alt="Logo"
         src="https://raw.githubusercontent.com/kebasyaty/xloft/main/assets/logo.svg">
     </a>
