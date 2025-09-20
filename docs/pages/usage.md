@@ -1,5 +1,6 @@
+#### NamedTuple
+
 ```py linenums="1"
-"""NamedTuple."""
 
 from xloft import NamedTuple
 
@@ -68,8 +69,9 @@ del nt.y # => raise: AttributeCannotBeDelete
 del nt._id # => raise: AttributeCannotBeDelete
 ```
 
+#### Human
+
 ```py linenums="1"
-"""Human."""
 
 from xloft import to_human_size
 
