@@ -1,5 +1,9 @@
 ### CHANGELOG
 
+#### v0.5.1 2025-09-20
+
+- Updated dependencies.
+
 #### v0.5.0 2025-09-08
 
 - Deleted a `quantum` module.
