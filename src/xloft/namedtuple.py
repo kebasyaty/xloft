@@ -153,7 +153,7 @@ class NamedTuple:
         Returns:
             List of keys.
         """
-        return self._0D5rSmH9Sy2XUWb5_keys
+        return self._0D5rSmH9Sy2XUWb5_keys.copy()
 
     def values(self) -> list[Any]:
         """Get a list of values.
@@ -186,8 +186,7 @@ class NamedTuple:
         Returns:
             True if the key exists, otherwise False.
         """
-        keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
-        return key in keys
+        return key in self._0D5rSmH9Sy2XUWb5_keys
 
     def has_value(self, value: Any) -> bool:
         """Returns True if the value exists, otherwise False.
@@ -204,5 +203,4 @@ class NamedTuple:
         Returns:
             True if the value exists, otherwise False.
         """
-        values = self.values()
-        return value in values
+        return value in self.values()
