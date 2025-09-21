@@ -72,6 +72,9 @@ class TestPositive:
         assert nt.x == 10
         assert nt.y == "Hello"
         assert nt._id == 123
+        x = nt.x
+        x = 5
+        assert nt.x != x
 
     def test_kwargs_arguments(self) -> None:
         """Create with kwargs arguments."""
@@ -80,6 +83,9 @@ class TestPositive:
         assert nt.x == 10
         assert nt.y == "Hello"
         assert nt._id == 123
+        y = nt.y
+        y = "Hi"
+        assert nt.y != y
 
     def test_get_method(self, init_namedtuple) -> None:
         """Testing a `get` method."""
@@ -87,6 +93,9 @@ class TestPositive:
         assert nt.get("x") == 10
         assert nt.get("y") == "Hello"
         assert nt.get("z") is None
+        x = nt.get("x")
+        x = 5
+        assert nt.get("x") != x
 
     def test_update_method(self, init_namedtuple) -> None:
         """Testing a `update` method."""
@@ -105,6 +114,8 @@ class TestPositive:
         assert isinstance(d, dict)
         assert d["x"] == 10
         assert d["y"] == "Hello"
+        d["x"] = 5
+        assert nt.x != d["x"]
 
     def test_items_method(self, init_namedtuple) -> None:
         """In the cycle `for`."""
@@ -122,11 +133,17 @@ class TestPositive:
         """Get a list of keys."""
         nt = init_namedtuple
         assert nt.keys() == ["x", "y"]
+        keys = nt.keys()
+        keys[0] = "x2"
+        assert nt.keys()[0] != keys[0]
 
     def test_values_method(self, init_namedtuple) -> None:
         """Get a list of values."""
         nt = init_namedtuple
         assert nt.values() == [10, "Hello"]
+        values = nt.values()
+        values[0] = 5
+        assert nt.values()[0] != values[0]
 
     def test_has_key(self, init_namedtuple) -> None:
         """Returns True if the key exists, otherwise False."""

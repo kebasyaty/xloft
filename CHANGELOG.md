@@ -1,5 +1,10 @@
 ### CHANGELOG
 
+#### v0.5.2 2025-09-21
+
+- Fixed a `NamedTuple.keys()` method.
+- Updated Docs.
+
 #### v0.5.1 2025-09-20
 
 - Updated dependencies.
