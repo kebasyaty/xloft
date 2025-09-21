@@ -1,55 +1,6 @@
 """This module contains the implementation of the `NamedTuple` class.
 
-`NamedTuple` class imitates the behavior of the _named tuple_.
-
-Examples:
-    >>> from xloft import NamedTuple
-    >>> nt = NamedTuple(x=10, y="Hello", _id="507c7f79bcf86cd7994f6c0e")
-    >>> nt.x
-    10
-    >>> nt.y
-    Hello
-    >>> nt._id
-    507c7f79bcf86cd7994f6c0e
-    >>> nt.z
-    KeyError
-    >>> len(nt)
-    3
-    >>> nt.keys()
-    ["x", "y", "_id"]
-    >>> nt.values()
-    [10, "Hello", "507c7f79bcf86cd7994f6c0e"]
-    >>> nt.has_key("x")
-    True
-    >>> nt.has_key("z")
-    False
-    >>> nt.has_value(10)
-    True
-    >>> nt.has_value([1, 2, 3])
-    False
-    >>> nt.get("x")
-    10
-    >>> nt.get("z")
-    None
-    >>> d = nt.to_dict()
-    >>> d["x"]
-    10
-    >>> for key, val in nt.items():
-    ...     print(f"Key: {key}, Value: {val}")
-    "Key: x, Value: 10"
-    "Key: y, Value: Hello"
-    "Key: _id, value: 507c7f79bcf86cd7994f6c0e"
-    >>> nt.update("x", 20)
-    >>> nt.x
-    20
-    >>> nt.update("z", [1, 2, 3])
-    KeyError
-    >>> nt["z"] = [1, 2, 3]
-    TypeError
-    >>> nt.x = 20
-    Error: AttributeDoesNotSetValue
-    >>> del nt.x
-    Error: AttributeCannotBeDelete
+`NamedTuple` class imitates the behavior of the *named tuple*.
 """
 
 from __future__ import annotations
@@ -63,13 +14,13 @@ from xloft.errors import (
 
 
 class NamedTuple:
-    """This class imitates the behavior of the _named tuple_."""
+    """This class imitates the behavior of the *named tuple*."""
 
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
-        self.__dict__["_jWjSaNy1RbtQinsN_keys"] = []
+        self.__dict__["_0D5rSmH9Sy2XUWb5_keys"] = []
         for name, value in kwargs.items():
             self.__dict__[name] = value
-            self._jWjSaNy1RbtQinsN_keys.append(name)
+            self._0D5rSmH9Sy2XUWb5_keys.append(name)
 
     def __len__(self) -> int:
         """Get the number of elements.
@@ -83,7 +34,7 @@ class NamedTuple:
         Returns:
             The number of elements in the tuple.
         """
-        return len(self._jWjSaNy1RbtQinsN_keys)
+        return len(self._0D5rSmH9Sy2XUWb5_keys)
 
     def __getattr__(self, name: str) -> Any:
         """Getter.
@@ -149,7 +100,7 @@ class NamedTuple:
         Returns:
             None
         """
-        keys: list[str] = self._jWjSaNy1RbtQinsN_keys
+        keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
         if key not in keys:
             err_msg = f"The key `{key}` is missing!"
             raise KeyError(err_msg)
@@ -169,7 +120,7 @@ class NamedTuple:
             Dictionary with keys and values of the tuple.
         """
         attrs: dict[str, Any] = self.__dict__
-        keys: list[str] = self._jWjSaNy1RbtQinsN_keys
+        keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
         return {key: attrs[key] for key in keys}
 
     def items(self) -> list[tuple[str, Any]]:
@@ -187,7 +138,7 @@ class NamedTuple:
             list[tuple[str, Any]]
         """
         attrs: dict[str, Any] = self.__dict__
-        keys: list[str] = self._jWjSaNy1RbtQinsN_keys
+        keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
         return [(key, attrs[key]) for key in keys]
 
     def keys(self) -> list[str]:
@@ -202,7 +153,7 @@ class NamedTuple:
         Returns:
             List of keys.
         """
-        return self._jWjSaNy1RbtQinsN_keys
+        return self._0D5rSmH9Sy2XUWb5_keys
 
     def values(self) -> list[Any]:
         """Get a list of values.
@@ -217,7 +168,7 @@ class NamedTuple:
             List of values.
         """
         attrs: dict[str, Any] = self.__dict__
-        keys: list[str] = self._jWjSaNy1RbtQinsN_keys
+        keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
         return [attrs[key] for key in keys]
 
     def has_key(self, key: str) -> bool:
@@ -235,7 +186,7 @@ class NamedTuple:
         Returns:
             True if the key exists, otherwise False.
         """
-        keys: list[str] = self._jWjSaNy1RbtQinsN_keys
+        keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
         return key in keys
 
     def has_value(self, value: Any) -> bool:
