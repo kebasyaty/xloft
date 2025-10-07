@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+__all__ = ("is_number",)
+
 from xloft.constants import REGEX_IS_NUMBER
 
 
