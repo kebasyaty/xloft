@@ -81,4 +81,5 @@ nav:
   - Usage: pages/usage.md
   - NamedTuple: pages/namedtuple.md
   - Human: pages/human.md
+  - Constants: pages/constants.md
   - Errors: pages/errors.md
