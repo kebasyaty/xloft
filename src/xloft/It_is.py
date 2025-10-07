@@ -16,6 +16,6 @@ def is_number(value: str) -> bool:
         value: Some kind of string.
 
     Returns:
-        True, if the line is a number.
+        True, if the string is a number.
     """
     return REGEX_IS_NUMBER.match(value) is not None
