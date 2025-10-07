@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from xloft.it_is import (
+from xloft import (
     is_number,
 )
 
