@@ -76,12 +76,29 @@ del nt._id # => raise: AttributeCannotBeDelete
 from xloft import to_human_size
 
 
-s = to_human_size(200)
-print(s)  # => 200 bytes
+to_human_size(200)  # => 200 bytes
+to_human_size(1048576)  # => 1 MB
+to_human_size(1048575)  # => 1023.999 KB
+```
 
-s = to_human_size(1048576)
-print(s)  # => 1 MB
+#### ItIs
 
-s = to_human_size(1048575)
-print(s)  # => 1023.999 KB
+```py linenums="1"
+from xloft import is_number
+
+
+is_number("-1230.0123")  # => True
+is_number("+1230.0123")  # => True
+is_number("1230.0123")  # => True
+is_number("1230.0")  # => True
+is_number("1230")  # => True
+is_number("1.23e-5")  # => True
+is_number("1.23e-05")  # => True
+is_number(".5")  # => True
+
+is_number("")  # => False
+is_number(" ")  # => False
+is_number("1230.")  # => False
+is_number("0x5")  # => False
+is_number("0o5")  # => False
 ```

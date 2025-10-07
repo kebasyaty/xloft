@@ -141,14 +141,9 @@ del nt._id # => raise: AttributeCannotBeDelete
 from xloft import to_human_size
 
 
-s = to_human_size(200)
-print(s)  # => 200 bytes
-
-s = to_human_size(1048576)
-print(s)  # => 1 MB
-
-s = to_human_size(1048575)
-print(s)  # => 1023.999 KB
+to_human_size(200)  # => 200 bytes
+to_human_size(1048576)  # => 1 MB
+to_human_size(1048575)  # => 1023.999 KB
 ```
 
 - **ItIs**
