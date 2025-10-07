@@ -10,8 +10,10 @@ from __future__ import annotations
 
 __all__ = (
     "to_human_size",
+    "is_number",
     "NamedTuple",
 )
 
 from xloft.human import to_human_size
+from xloft.it_is import is_number
 from xloft.namedtuple import NamedTuple

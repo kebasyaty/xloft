@@ -1,8 +1,8 @@
-"""Testing a `It Is` module."""
+"""Testing a `ItIs` module."""
 
 from __future__ import annotations
 
-from xloft.It_is import (
+from xloft.it_is import (
     is_number,
 )
 

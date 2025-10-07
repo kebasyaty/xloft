@@ -31,7 +31,7 @@
       <a href="https://github.com/kebasyaty/xloft/releases/" alt="GitHub release"><img src="https://img.shields.io/github/release/kebasyaty/xloft" alt="GitHub release"></a>
     </p>
     <p align="center">
-      The collection is represented by three modules of `NamedTuple`, `Human`.
+      The collection is represented by three modules of `NamedTuple`, `Human`, `ItIs`.
       <br>
       In the future, new tools can be added.
     </p>
@@ -149,6 +149,28 @@ print(s)  # => 1 MB
 
 s = to_human_size(1048575)
 print(s)  # => 1023.999 KB
+```
+
+- **ItIs**
+
+```python
+from xloft import is_number
+
+
+is_number("-1230.0123")  # => True
+is_number("+1230.0123")  # => True
+is_number("1230.0123")  # => True
+is_number("1230.0")  # => True
+is_number("1230")  # => True
+is_number("1.23e-5")  # => True
+is_number("1.23e-05")  # => True
+is_number(".5")  # => True
+
+is_number("")  # => False
+is_number(" ")  # => False
+is_number("1230.")  # => False
+is_number("0x5")  # => False
+is_number("0o5")  # => False
 ```
 
 ## Changelog
