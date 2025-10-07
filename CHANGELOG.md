@@ -1,5 +1,12 @@
 ### CHANGELOG
 
+#### v0.6.0 2025-10-07
+
+- Added a `is_number` method.
+- Updated documentation.
+- Updated `README.md` file.
+- Updated tests.
+
 #### v0.5.2 2025-09-21
 
 - Fixed a `NamedTuple.keys()` method.
