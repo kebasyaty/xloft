@@ -2,9 +2,7 @@
 
 from __future__ import annotations
 
-import re
-
-REGEX_IS_NUMBER = re.compile(r"^[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?$")
+from xloft.constants import REGEX_IS_NUMBER
 
 
 def is_number(value: str) -> bool:
