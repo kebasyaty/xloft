@@ -11,5 +11,11 @@ def is_number(value: str) -> bool:
     """Check if a string is a number.
 
     Only decimal numbers.
+
+    Args:
+        value: Some kind of string.
+
+    Returns:
+        True, if the line is a number.
     """
     return REGEX_IS_NUMBER.match(value) is not None
