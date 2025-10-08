@@ -4,6 +4,7 @@ Modules exported by this package:
 
 - `namedtuple`- Class imitates the behavior of the _named tuple_.
 - `human` - A collection of instruments for converting data to format is convenient for humans.
+- `it_is` - Tools for determining something.
 """
 
 from __future__ import annotations
