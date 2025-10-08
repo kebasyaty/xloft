@@ -78,7 +78,11 @@ extra:
 nav:
   - XLOFT: index.md
   - Installation: pages/installation.md
-  - Usage: pages/usage.md
+  - Usage:
+      - Usage: pages/usage/index.md
+      - NamedTuple: pages/usage/named_tuple.md
+      - Human: pages/usage/human.md
+      - ItIs: pages/usage/it_is.md
   - NamedTuple: pages/namedtuple.md
   - Human: pages/human.md
   - Errors: pages/errors.md
