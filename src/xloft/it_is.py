@@ -6,6 +6,7 @@ __all__ = ("is_number",)
 
 import re
 
+# Caching
 _REGEX_IS_NUMBER = re.compile(r"^[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?$")
 
 
