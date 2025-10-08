@@ -158,7 +158,7 @@ is_number("1230.0123")  # => True
 is_number("1230.0")  # => True
 is_number("1230")  # => True
 is_number("1.23e-5")  # => True
-is_number("1.23e-05")  # => True
+is_number("1.23E-5")  # => True
 is_number(".5")  # => True
 
 is_number("")  # => False
