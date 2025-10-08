@@ -1,6 +1,7 @@
-#### ItIs
+#### Is number
 
 ```py linenums="1"
+"""Check if a string is a number."""
 
 from xloft import is_number
 

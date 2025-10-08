@@ -14,7 +14,7 @@ from xloft.errors import (
 
 
 class NamedTuple:
-    """This class imitates the behavior of the *named tuple*."""
+    """This class imitates the behavior of the `named tuple`."""
 
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
         self.__dict__["_0D5rSmH9Sy2XUWb5_keys"] = []

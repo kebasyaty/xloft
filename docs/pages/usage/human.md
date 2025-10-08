@@ -1,6 +1,7 @@
-#### Human
+#### To human size
 
 ```py linenums="1"
+"""Convert number of bytes to readable format."""
 
 from xloft import to_human_size
 
