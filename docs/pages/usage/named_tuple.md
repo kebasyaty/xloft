@@ -1,6 +1,7 @@
 #### NamedTuple
 
 ```py linenums="1"
+"""This class imitates the behavior of the `named tuple`."""
 
 from xloft import NamedTuple
 
