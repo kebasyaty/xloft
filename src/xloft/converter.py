@@ -10,6 +10,7 @@ from __future__ import annotations
 __all__ = (
     "to_human_size",
     "get_cache_human_size",
+    "clean_cache_human_size",
 )
 
 import math
