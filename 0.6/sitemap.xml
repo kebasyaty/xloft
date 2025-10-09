@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://kebasyaty.github.io/xloft/0.6/</loc>
-         <lastmod>2025-10-08</lastmod>
+         <lastmod>2025-10-09</lastmod>
+    </url>
+    <url>
+         <loc>https://kebasyaty.github.io/xloft/0.6/pages/converter/</loc>
+         <lastmod>2025-10-09</lastmod>
     </url>
     <url>
          <loc>https://kebasyaty.github.io/xloft/0.6/pages/errors/</loc>
-         <lastmod>2025-10-08</lastmod>
-    </url>
-    <url>
-         <loc>https://kebasyaty.github.io/xloft/0.6/pages/human/</loc>
-         <lastmod>2025-10-08</lastmod>
+         <lastmod>2025-10-09</lastmod>
     </url>
     <url>
          <loc>https://kebasyaty.github.io/xloft/0.6/pages/installation/</loc>
-         <lastmod>2025-10-08</lastmod>
+         <lastmod>2025-10-09</lastmod>
+    </url>
+    <url>
+         <loc>https://kebasyaty.github.io/xloft/0.6/pages/itis/</loc>
+         <lastmod>2025-10-09</lastmod>
     </url>
     <url>
          <loc>https://kebasyaty.github.io/xloft/0.6/pages/namedtuple/</loc>
-         <lastmod>2025-10-08</lastmod>
+         <lastmod>2025-10-09</lastmod>
     </url>
     <url>
          <loc>https://kebasyaty.github.io/xloft/0.6/pages/usage/</loc>
-         <lastmod>2025-10-08</lastmod>
+         <lastmod>2025-10-09</lastmod>
     </url>
     <url>
-         <loc>https://kebasyaty.github.io/xloft/0.6/pages/usage/human/</loc>
-         <lastmod>2025-10-08</lastmod>
+         <loc>https://kebasyaty.github.io/xloft/0.6/pages/usage/converter/</loc>
+         <lastmod>2025-10-09</lastmod>
     </url>
     <url>
-         <loc>https://kebasyaty.github.io/xloft/0.6/pages/usage/it_is/</loc>
-         <lastmod>2025-10-08</lastmod>
+         <loc>https://kebasyaty.github.io/xloft/0.6/pages/usage/itis/</loc>
+         <lastmod>2025-10-09</lastmod>
     </url>
     <url>
          <loc>https://kebasyaty.github.io/xloft/0.6/pages/usage/named_tuple/</loc>
-         <lastmod>2025-10-08</lastmod>
+         <lastmod>2025-10-09</lastmod>
     </url>
 </urlset>
