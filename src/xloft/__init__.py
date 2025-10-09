@@ -16,5 +16,5 @@ __all__ = (
 )
 
 from xloft.converter import to_human_size
-from xloft.it_is import is_number
+from xloft.itis import is_number
 from xloft.namedtuple import NamedTuple

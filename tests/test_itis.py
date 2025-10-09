@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from xloft import is_number
-from xloft.it_is import _REGEX_IS_NUMBER  # noqa: PLC2701
+from xloft.itis import _REGEX_IS_NUMBER  # noqa: PLC2701
 
 
 def test_is_number() -> None:
