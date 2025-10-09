@@ -1,8 +1,10 @@
-"""A collection of instruments for converting data to format is convenient for humans.
+"""Converts the number of bytes into a human-readable format.
 
 The module contains the following functions:
 
-- `to_human_size(size)` - Returns a humanized string: 200 bytes | 1 KB | 1.5 MB etc.
+- `to_human_size(n_bytes)` - Returns a humanized string: 200 bytes | 1 KB | 1.5 MB etc.
+- `get_cache_human_size` - Gets a copy of variable _cach_human_size.
+- `clean_cache_human_size` - Resets of variable _cach_human_size.
 """
 
 from __future__ import annotations
@@ -10,6 +12,7 @@ from __future__ import annotations
 __all__ = (
     "to_human_size",
     "get_cache_human_size",
+    "clean_cache_human_size",
 )
 
 import math
@@ -19,7 +22,7 @@ _cache_human_size: dict[int, str] = {}
 
 
 def get_cache_human_size() -> dict[int, str]:
-    """Get a copy of variable _cach_human_size.
+    """Gets a copy of variable _cach_human_size.
 
     Hint: To tests.
     """
@@ -27,13 +30,13 @@ def get_cache_human_size() -> dict[int, str]:
 
 
 def clean_cache_human_size() -> None:
-    """Reset of variable _cach_human_size."""
+    """Resets of variable _cach_human_size."""
     global _cache_human_size  # noqa: PLW0603
     _cache_human_size = {}
 
 
 def to_human_size(n_bytes: int) -> str:
-    """Convert number of bytes to readable format.
+    """Converts the number of bytes into a human-readable format.
 
     Examples:
         >>> from xloft import to_human_size

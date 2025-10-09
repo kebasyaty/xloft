@@ -1,5 +1,12 @@
 ### CHANGELOG
 
+#### v0.6.3 2025-10-09
+
+- Renamed a `human` module to `converter`.
+- Updated documentation.
+- Updated `README.md` file.
+- Updated tests.
+
 #### v0.6.0 2025-10-07
 
 - Added a `is_number` method.

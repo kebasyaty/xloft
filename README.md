@@ -31,7 +31,7 @@
       <a href="https://github.com/kebasyaty/xloft/releases/" alt="GitHub release"><img src="https://img.shields.io/github/release/kebasyaty/xloft" alt="GitHub release"></a>
     </p>
     <p align="center">
-      The collection is represented by three modules of `NamedTuple`, `Human`, `ItIs`.
+      The collection is represented by three modules of `NamedTuple`, `Converter`, `ItIs`.
       <br>
       In the future, new tools can be added.
     </p>
@@ -135,7 +135,7 @@ del nt.y # => raise: AttributeCannotBeDelete
 del nt._id # => raise: AttributeCannotBeDelete
 ```
 
-- **Human**
+- **Converter**
 
 ```python
 from xloft import to_human_size
