@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from xloft.converter import (
+from xloft.converter.human_size import (
     clean_cache_human_size,
     get_cache_human_size,
     to_human_size,
