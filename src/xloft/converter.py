@@ -1,4 +1,4 @@
-"""A collection of instruments for converting data to format is convenient for humans.
+"""A collection of instruments for converting data.
 
 The module contains the following functions:
 
@@ -33,7 +33,7 @@ def clean_cache_human_size() -> None:
 
 
 def to_human_size(n_bytes: int) -> str:
-    """Convert number of bytes to readable format.
+    """Converts the number of bytes into a human-readable format.
 
     Examples:
         >>> from xloft import to_human_size

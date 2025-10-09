@@ -1,8 +1,8 @@
-"""Testing a `Human` module."""
+"""Testing a `Converter` module."""
 
 from __future__ import annotations
 
-from xloft.human import (
+from xloft.converter import (
     clean_cache_human_size,
     get_cache_human_size,
     to_human_size,
