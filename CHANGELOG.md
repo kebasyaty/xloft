@@ -2,7 +2,8 @@
 
 #### v0.6.4 2025-10-09
 
-- Fixed a docstring to a `human_size` module.
+- Fixed docstring to a `converter` module
+- Fixed a docstring to a `converter.human_size` module.
 - Updated documentation.
 
 #### v0.6.3 2025-10-09
