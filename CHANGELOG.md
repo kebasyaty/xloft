@@ -1,5 +1,12 @@
 ### CHANGELOG
 
+#### v0.6.5 2025-10-10
+
+- Renamed a `converter` module to `converters`.
+- Updated documentation.
+- Updated `README.md` file.
+- Updated tests.
+
 #### v0.6.4 2025-10-09
 
 - Fixed docstring to a `converter` module
