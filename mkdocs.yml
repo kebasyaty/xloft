@@ -81,9 +81,9 @@ nav:
   - Usage:
       - Usage: pages/usage/index.md
       - NamedTuple: pages/usage/named_tuple.md
-      - Converter: pages/usage/converter.md
+      - Converters: pages/usage/converters.md
       - ItIs: pages/usage/itis.md
   - NamedTuple: pages/namedtuple.md
-  - Converter: pages/converter.md
+  - Converters: pages/converters.md
   - ItIs: pages/itis.md
   - Errors: pages/errors.md

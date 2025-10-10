@@ -37,7 +37,7 @@
 <br>
 
 <p>
-The collection is represented by three modules of `NamedTuple`, `Converter`, `ItIs`.
+The collection is represented by three modules of `NamedTuple`, `Converters`, `ItIs`.
 <br>
 In the future, new tools can be added.
 </p>
