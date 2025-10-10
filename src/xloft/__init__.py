@@ -3,7 +3,7 @@
 Modules exported by this package:
 
 - `namedtuple`- Class imitates the behavior of the _named tuple_.
-- `converter` - A collection of instruments for converting data to format is convenient for humans.
+- `converters` - Collection of tools for converting data.
 - `itis` - Tools for determining something.
 """
 

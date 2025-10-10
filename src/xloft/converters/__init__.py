@@ -1,4 +1,4 @@
-"""A collection of instruments for converting data.
+"""Collection of tools for converting data.
 
 The module contains the following functions:
 
