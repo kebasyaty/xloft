@@ -40,13 +40,6 @@
 
 ##
 
-<img src="https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/attention.svg" alt="Attention">
-<p>
-The `quantum` module was deleted.
-<br>
-<a href="https://pypi.python.org/pypi/quantum-loop/" alt="quantum-loop">He is now here</a>
-</p>
-
 <br>
 
 ## Documentation
