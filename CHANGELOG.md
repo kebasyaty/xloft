@@ -1,5 +1,13 @@
 ### CHANGELOG
 
+#### v0.6.6 2025-10-11
+
+- Deleted caching for a `to_human_size` method.
+- Updated dependencies.
+- Updated documentation.
+- Updated `README.md` file.
+- Updated tests.
+
 #### v0.6.5 2025-10-10
 
 - Renamed a `converter` module to `converters`.
