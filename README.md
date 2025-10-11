@@ -61,6 +61,8 @@ uv add xloft
 - **NamedTuple**
 
 ```python
+"""This class imitates the behavior of the `named tuple`."""
+
 from xloft import NamedTuple
 
 
@@ -131,6 +133,8 @@ del nt._id # => raise: AttributeCannotBeDelete
 - **Converter**
 
 ```python
+"""Convert the number of bytes into a human-readable format."""
+
 from xloft import to_human_size
 
 
@@ -142,6 +146,8 @@ to_human_size(1048575)  # => 1023.999 KB
 - **ItIs**
 
 ```python
+"""Check if a string is a number."""
+
 from xloft import is_number
 
 
