@@ -3,7 +3,7 @@
 ```py linenums="1"
 """Convert the number of bytes into a human-readable format."""
 
-from xloft import to_human_size
+from xloft.converters import to_human_size
 
 
 to_human_size(200)  # => 200 bytes

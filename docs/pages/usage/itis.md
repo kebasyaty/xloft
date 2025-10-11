@@ -3,7 +3,7 @@
 ```py linenums="1"
 """Check if a string is a number."""
 
-from xloft import is_number
+from xloft.itis import is_number
 
 
 is_number("-1230.0123")  # => True
