@@ -9,12 +9,7 @@ Modules exported by this package:
 
 from __future__ import annotations
 
-__all__ = (
-    "to_human_size",
-    "is_number",
-    "NamedTuple",
-)
+__all__ = ("NamedTuple",)
 
-from xloft.converters.human_size import to_human_size
-from xloft.itis import is_number
+
 from xloft.namedtuple import NamedTuple
