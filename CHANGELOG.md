@@ -1,5 +1,12 @@
 ### CHANGELOG
 
+#### v0.6.7 2025-10-11
+
+- Updated a `is_number` method.
+- Updated documentation.
+- Updated `README.md` file.
+- Updated tests.
+
 #### v0.6.6 2025-10-11
 
 - Deleted caching for a `to_human_size` method.
