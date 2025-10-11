@@ -2,26 +2,20 @@
 
 from __future__ import annotations
 
-from xloft import is_number
-from xloft.itis import _REGEX_IS_NUMBER  # noqa: PLC2701
+from xloft.itis import is_number
 
 
 def test_is_number() -> None:
     """Testing a `is_number` method."""
-    original_pattern_string = _REGEX_IS_NUMBER.pattern
-    assert original_pattern_string == r"^[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?$"
-    #
     # Negative tests.
     for item in [
         "",
         " ",
-        "1230.",
         "123ayu456",
         "0x5",
         "0o5",
     ]:
         assert not is_number(item)
-    #
     # Positive tests.
     for item in [
         "-1230.0123",
@@ -34,5 +28,6 @@ def test_is_number() -> None:
         "1.23e-05",
         "1.23E-05",
         ".5",
+        "5.",
     ]:
         assert is_number(item)
