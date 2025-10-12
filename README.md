@@ -135,7 +135,8 @@ del nt._id # => raise: AttributeCannotBeDelete
 ```python
 """Convert the number of bytes into a human-readable format."""
 
-from xloft.converters import to_human_size
+from xloft import to_human_size
+# from xloft.converters import to_human_size
 
 
 to_human_size(200)  # => 200 bytes
@@ -148,7 +149,8 @@ to_human_size(1048575)  # => 1023.999 KB
 ```python
 """Check if a string is a number."""
 
-from xloft.itis import is_number
+from xloft import is_number
+# from xloft.itis import is_number
 
 
 is_number("")  # => False
