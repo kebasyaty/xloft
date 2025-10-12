@@ -1,5 +1,11 @@
 ### CHANGELOG
 
+#### v0.6.9 2025-10-12
+
+- Updated import to a `xloft` module.
+- Updated documentation.
+- Updated `README.md` file.
+
 #### v0.6.7 2025-10-11
 
 - Updated a `is_number` method.
