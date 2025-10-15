@@ -1,5 +1,9 @@
 ### CHANGELOG
 
+#### v0.6.10 2025-10-15
+
+- Added support `python 3.14`.
+
 #### v0.6.9 2025-10-12
 
 - Updated import to a `xloft` module.
