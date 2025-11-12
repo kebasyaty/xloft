@@ -17,18 +17,14 @@
       <a href="https://pypi.python.org/pypi/xloft/" alt="PyPI status"><img src="https://img.shields.io/pypi/status/xloft.svg" alt="PyPI status"></a>
       <a href="https://pypi.python.org/pypi/xloft/" alt="PyPI version fury.io"><img src="https://badge.fury.io/py/xloft.svg" alt="PyPI version fury.io"></a>
       <br>
-      <a href="https://github.com/kebasyaty/xloft/issues"><img src="https://img.shields.io/github/issues/kebasyaty/xloft.svg" alt="GitHub issues"></a>
-      <a href="https://pepy.tech/projects/xloft"><img src="https://static.pepy.tech/badge/xloft" alt="PyPI Downloads"></a>
-      <a href="https://github.com/kebasyaty/xloft/blob/main/LICENSE" alt="GitHub license"><img src="https://img.shields.io/github/license/kebasyaty/xloft" alt="GitHub license"></a>
       <a href="https://mypy-lang.org/" alt="Types: Mypy"><img src="https://img.shields.io/badge/types-Mypy-202235.svg?color=0c7ebf" alt="Types: Mypy"></a>
       <a href="https://docs.astral.sh/ruff/" alt="Code style: Ruff"><img src="https://img.shields.io/badge/code%20style-Ruff-FDD835.svg" alt="Code style: Ruff"></a>
-      <a href="https://github.com/kebasyaty/xloft" alt="PyPI implementation"><img src="https://img.shields.io/pypi/implementation/xloft" alt="PyPI implementation"></a>
-      <br>
       <a href="https://pypi.org/project/xloft"><img src="https://img.shields.io/pypi/format/xloft" alt="Format"></a>
       <a href="https://github.com/kebasyaty/xloft"><img src="https://img.shields.io/github/languages/top/kebasyaty/xloft" alt="Top"></a>
-      <a href="https://github.com/kebasyaty/xloft"><img src="https://img.shields.io/github/repo-size/kebasyaty/xloft" alt="Size"></a>
-      <a href="https://github.com/kebasyaty/xloft"><img src="https://img.shields.io/github/last-commit/kebasyaty/xloft/main" alt="Last commit"></a>
-      <a href="https://github.com/kebasyaty/xloft/releases/" alt="GitHub release"><img src="https://img.shields.io/github/release/kebasyaty/xloft" alt="GitHub release"></a>
+      <a href="https://github.com/kebasyaty/xloft" alt="PyPI implementation"><img src="https://img.shields.io/pypi/implementation/xloft" alt="PyPI implementation"></a>
+      <br>
+      <a href="https://pepy.tech/projects/xloft"><img src="https://static.pepy.tech/badge/xloft" alt="PyPI Downloads"></a>
+      <a href="https://github.com/kebasyaty/xloft/blob/main/LICENSE" alt="GitHub license"><img src="https://img.shields.io/github/license/kebasyaty/xloft" alt="GitHub license"></a>
     </p>
     <p align="center">
       The collection is represented by three modules of `NamedTuple`, `Converters`, `ItIs`.
