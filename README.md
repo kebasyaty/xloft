@@ -20,9 +20,6 @@
       <a href="https://mypy-lang.org/" alt="Types: Mypy"><img src="https://img.shields.io/badge/types-Mypy-202235.svg?color=0c7ebf" alt="Types: Mypy"></a>
       <a href="https://docs.astral.sh/ruff/" alt="Code style: Ruff"><img src="https://img.shields.io/badge/code%20style-Ruff-FDD835.svg" alt="Code style: Ruff"></a>
       <a href="https://pypi.org/project/xloft"><img src="https://img.shields.io/pypi/format/xloft" alt="Format"></a>
-      <a href="https://github.com/kebasyaty/xloft"><img src="https://img.shields.io/github/languages/top/kebasyaty/xloft" alt="Top"></a>
-      <a href="https://github.com/kebasyaty/xloft" alt="PyPI implementation"><img src="https://img.shields.io/pypi/implementation/xloft" alt="PyPI implementation"></a>
-      <br>
       <a href="https://pepy.tech/projects/xloft"><img src="https://static.pepy.tech/badge/xloft" alt="PyPI Downloads"></a>
       <a href="https://github.com/kebasyaty/xloft/blob/main/LICENSE" alt="GitHub license"><img src="https://img.shields.io/github/license/kebasyaty/xloft" alt="GitHub license"></a>
     </p>
