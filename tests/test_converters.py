@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from xloft.converters import to_human_size
+from xloft.converters import int_to_roman, roman_to_int, to_human_size
+from xloft.converters.roman import ROMAN
 
 
 def test_to_human_size() -> None:
@@ -27,3 +28,17 @@ def test_to_human_size() -> None:
     }
     for key, val in sample_data.items():
         assert to_human_size(key) == val
+
+
+def test_int_to_roman() -> None:
+    """Testing a `int_to_roman` method."""
+    data = [*ROMAN, (3, "III"), (58, "LVIII"), (1994, "MCMXCIV")]
+    for item in data:
+        assert int_to_roman(item[0]) == item[1]
+
+
+def test_roman_to_int() -> None:
+    """Testing a `roman_to_int` method."""
+    data = [*ROMAN, (3, "III"), (58, "LVIII"), (1994, "MCMXCIV")]
+    for item in data:
+        assert roman_to_int(item[1]) == item[0]
