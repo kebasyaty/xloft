@@ -10,12 +10,14 @@ Modules exported by this package:
 from __future__ import annotations
 
 __all__ = (
+    "int_to_roman",
+    "roman_to_int",
     "to_human_size",
     "is_number",
     "NamedTuple",
 )
 
 
-from xloft.converters import to_human_size
+from xloft.converters import int_to_roman, roman_to_int, to_human_size
 from xloft.itis import is_number
 from xloft.namedtuple import NamedTuple
