@@ -128,13 +128,16 @@ del nt._id # => raise: AttributeCannotBeDelete
 ```python
 """Convert the number of bytes into a human-readable format."""
 
-from xloft import to_human_size
-# from xloft.converters import to_human_size
+from xloft import to_human_size, int_to_roman, roman_to_int
+# from xloft.converters import to_human_size, int_to_roman, roman_to_int
 
 
 to_human_size(200)  # => 200 bytes
 to_human_size(1048576)  # => 1 MB
 to_human_size(1048575)  # => 1023.999 KB
+#
+int_to_roman(1994)  # => MCMXCIV
+roman_to_int("MCMXCIV")  # => 1994
 ```
 
 - **ItIs**
