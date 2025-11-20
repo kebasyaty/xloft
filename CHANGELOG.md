@@ -1,5 +1,12 @@
 ### CHANGELOG
 
+#### v0.9.0 2025-11-20
+
+- Added a `is_palindrome` methods to a `itis` module.
+- Added a `NotAlphaNumericStringError` exception.
+- Updated documentation.
+- Updated `README.md` file.
+
 #### v0.8.1 2025-11-20
 
 - Updated docstrings to a `converters/roman` module.

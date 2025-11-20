@@ -24,3 +24,11 @@ class AttributeCannotBeDelete(XLOTException):
     def __init__(self, attribute_name: str) -> None:  # noqa: D107
         self.message = f"The attribute `{attribute_name}` cannot be delete!"
         super().__init__(self.message)
+
+
+class NotAlphaNumericStringError(XLOTException):
+    """Exception is raised if the string is not alpha-numeric."""
+
+    def __init__(self) -> None:  # noqa: D107
+        self.message = "The value is not an alpha-numeric string!"
+        super().__init__(self.message)
