@@ -145,8 +145,8 @@ roman_to_int("MCMXCIV")  # => 1994
 ```python
 """Check if a string is a number."""
 
-from xloft import is_number
-# from xloft.itis import is_number
+from xloft import is_number, is_palindrome
+# from xloft.itis import is_number, is_palindrome
 
 
 is_number("")  # => False
@@ -168,6 +168,10 @@ is_number("-1.7976931348623157e+308")  # => True
 is_number("1.7976931348623157e+308")  # => True
 is_number("72028601076372765770200707816364342373431783018070841859646251155447849538676")  # => True
 is_number("-72028601076372765770200707816364342373431783018070841859646251155447849538676")  # => True
+#
+is_palindrome("123aa321")  # True
+is_palindrome("123")  # False
+is_palindrome("123--321")  # NotAlphaNumericStringError
 ```
 
 ## Changelog
