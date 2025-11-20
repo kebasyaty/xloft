@@ -31,7 +31,7 @@ is_number("-72028601076372765770200707816364342373431783018070841859646251155447
 #### Is Palindrome
 
 ```py linenums="1"
-"""Check if a string is a number."""
+"""Check if a string is a palindrome."""
 
 from xloft import is_palindrome
 # from xloft.itis import is_palindrome
