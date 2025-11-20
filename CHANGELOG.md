@@ -3,6 +3,8 @@
 #### v0.8.0 2025-11-19
 
 - Added a `int_to_roman` and `roman_to_int` methods to a `Roman` module.
+- Updated documentation.
+- Updated `README.md` file.
 
 #### v0.6.10 2025-10-15
 
