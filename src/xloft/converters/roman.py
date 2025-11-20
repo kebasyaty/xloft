@@ -31,7 +31,19 @@ ROMAN = [
 
 
 def int_to_roman(number: int) -> str:
-    """Convert an integer to Roman."""
+    """Convert an integer to Roman.
+
+    Examples:
+        >>> from xloft import int_to_roman
+        >>> int_to_roman(1994)
+        MCMXCIV
+
+    Args:
+        number: Integer.
+
+    Returns:
+        Roman numeral string.
+    """
     result = ""
     for arabic, roman in ROMAN:
         (factor, number) = divmod(number, arabic)
@@ -40,7 +52,19 @@ def int_to_roman(number: int) -> str:
 
 
 def roman_to_int(roman: str) -> int:
-    """Convert to integer from Roman."""
+    """Convert to integer from Roman.
+
+    Examples:
+        >>> from xloft import roman_to_int
+        >>> roman_to_int("MCMXCIV")
+        1994
+
+    Args:
+        number: Roman numeral string.
+
+    Returns:
+        Integer.
+    """
     i_count = roman.count("I")
     v_count = roman.count("V")
     x_count = roman.count("X")

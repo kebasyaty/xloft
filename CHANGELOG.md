@@ -1,8 +1,15 @@
 ### CHANGELOG
 
+#### v0.8.1 2025-11-20
+
+- Updated docstrings to a `converters/roman` module.
+- Updated documentation.
+
 #### v0.8.0 2025-11-19
 
-- Added a `int_to_roman` and `roman_to_int` methods to a `Roman` module.
+- Added a `int_to_roman` and `roman_to_int` methods to a `converters/roman` module.
+- Updated documentation.
+- Updated `README.md` file.
 
 #### v0.6.10 2025-10-15
 
