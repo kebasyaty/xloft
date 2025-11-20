@@ -154,7 +154,6 @@ is_number(" ")  # => False
 is_number("1230.")  # => False
 is_number("0x5")  # => False
 is_number("0o5")  # => False
-
 is_number("-5.0")  # => True
 is_number("+5.0")  # => True
 is_number("5.0")  # => True
