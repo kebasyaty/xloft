@@ -50,6 +50,7 @@ def is_palindrome(value: str) -> bool:
 
     Returns:
         Boolean value.
+        ValueError - If the string is not alpha-numeric.
     """
     string_list = []
     for char in value:
