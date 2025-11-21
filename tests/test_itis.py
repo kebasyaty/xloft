@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import pytest
+
 from xloft.itis import is_number, is_palindrome
 
 
@@ -55,7 +57,10 @@ def test_is_number() -> None:
 
 def test_is_palindrome() -> None:
     """Testing a `is_palindrome` method."""
-    assert is_palindrome("")
+    with pytest.raises(TypeError):
+        assert is_palindrome(123)
+    with pytest.raises(ValueError, match=r"The string must not be empty!"):
+        assert is_palindrome("")
     assert not is_palindrome("123")
     assert not is_palindrome("Gene")
     assert not is_palindrome("Даша")

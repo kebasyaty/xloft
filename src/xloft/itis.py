@@ -51,6 +51,10 @@ def is_palindrome(value: str) -> bool:
     Returns:
         Boolean value.
     """
+    if not isinstance(value, str):
+        raise TypeError("The value is not a string!")
+    if not len(value):
+        raise ValueError("The string must not be empty!")
     string_list = [char.lower() for char in value if char.isalnum()]
     reverse_list = string_list[::-1]
     return reverse_list == string_list
