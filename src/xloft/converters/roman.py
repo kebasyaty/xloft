@@ -39,7 +39,7 @@ def int_to_roman(number: int) -> str:
         MCMXCIV
 
     Args:
-        number: Integer.
+        number (int): Integer.
 
     Returns:
         Roman numeral string.
@@ -60,7 +60,7 @@ def roman_to_int(roman: str) -> int:
         1994
 
     Args:
-        number: Roman numeral string.
+        roman (str): Roman numeral string.
 
     Returns:
         Integer.
