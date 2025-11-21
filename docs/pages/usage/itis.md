@@ -36,7 +36,11 @@ is_number("-72028601076372765770200707816364342373431783018070841859646251155447
 from xloft import is_palindrome
 # from xloft.itis import is_palindrome
 
-is_palindrome("123aa321")  # True
+is_palindrome("racecar")  # True
+is_palindrome("Go hang a salami, I'm a lasagna hog") # True
+is_palindrome("22022022")  # True
+is_palindrome("Gene")  # False
 is_palindrome("123")  # False
-is_palindrome("123--321")  # NotAlphaNumericStringError
+is_palindrome(123)  # TypeError
+is_palindrome("")  # ValueError
 ```

@@ -6,8 +6,8 @@ import pytest
 
 from xloft import NamedTuple
 from xloft.errors import (
-    AttributeCannotBeDelete,
-    AttributeDoesNotSetValue,
+    AttributeCannotBeDeleteError,
+    AttributeDoesNotSetValueError,
 )
 
 
@@ -20,13 +20,13 @@ def init_namedtuple() -> NamedTuple:
 class TestNegative:
     """Negative tests."""
 
-    @pytest.mark.xfail(raises=AttributeDoesNotSetValue, strict=True)
+    @pytest.mark.xfail(raises=AttributeDoesNotSetValueError, strict=True)
     def test_fail_setter(self, init_namedtuple) -> None:
         """Setter is not supported."""
         nt = init_namedtuple
         nt.x = 20
 
-    @pytest.mark.xfail(raises=AttributeCannotBeDelete, strict=True)
+    @pytest.mark.xfail(raises=AttributeCannotBeDeleteError, strict=True)
     def test_fail_deletter(self, init_namedtuple) -> None:
         """Deletter is not supported."""
         nt = init_namedtuple
@@ -38,7 +38,7 @@ class TestNegative:
         nt = init_namedtuple
         nt.z  # noqa: B018
 
-    @pytest.mark.xfail(raises=AttributeDoesNotSetValue, strict=True)
+    @pytest.mark.xfail(raises=AttributeDoesNotSetValueError, strict=True)
     def test_fail_add_new_attribute(self, init_namedtuple) -> None:
         """It is forbidden to add new attributes."""
         nt = init_namedtuple

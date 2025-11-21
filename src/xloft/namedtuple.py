@@ -8,8 +8,8 @@ from __future__ import annotations
 from typing import Any
 
 from xloft.errors import (
-    AttributeCannotBeDelete,
-    AttributeDoesNotSetValue,
+    AttributeCannotBeDeleteError,
+    AttributeDoesNotSetValueError,
 )
 
 
@@ -55,11 +55,11 @@ class NamedTuple:
 
     def __setattr__(self, name: str, value: Any) -> None:
         """Blocked Setter."""
-        raise AttributeDoesNotSetValue(name)
+        raise AttributeDoesNotSetValueError(name)
 
     def __delattr__(self, name: str) -> None:
         """Blocked Deleter."""
-        raise AttributeCannotBeDelete(name)
+        raise AttributeCannotBeDeleteError(name)
 
     def get(self, key: str) -> Any:
         """Return the value for key if key is in the dictionary, else `None`.

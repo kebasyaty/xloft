@@ -1,5 +1,11 @@
 ### CHANGELOG
 
+#### v0.9.1 2025-11-21
+
+- Fixed a `is_palindrome` methods to a `itis` module.
+- Updated documentation.
+- Updated `README.md` file.
+
 #### v0.9.0 2025-11-20
 
 - Added a `is_palindrome` methods to a `itis` module.
