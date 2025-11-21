@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-import pytest
-
-from xloft.errors import NotAlphaNumericStringError
 from xloft.itis import is_number, is_palindrome
 
 
@@ -58,7 +55,12 @@ def test_is_number() -> None:
 
 def test_is_palindrome() -> None:
     """Testing a `is_palindrome` method."""
-    with pytest.raises(NotAlphaNumericStringError):
-        is_palindrome("123--321")
-    assert is_palindrome("123aa321")
+    assert is_palindrome("")
     assert not is_palindrome("123")
+    assert not is_palindrome("Gene")
+    assert not is_palindrome("Даша")
+    assert is_palindrome("22022022")
+    assert is_palindrome("racecar")
+    assert is_palindrome("Go hang a salami, I'm a lasagna hog")
+    assert is_palindrome("топот")
+    assert is_palindrome("А роза упала на лапу Азора")

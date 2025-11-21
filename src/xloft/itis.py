@@ -13,8 +13,6 @@ __all__ = (
     "is_palindrome",
 )
 
-from xloft.errors import NotAlphaNumericStringError
-
 
 def is_number(value: str) -> bool:
     """Check if a string is a number.
@@ -54,10 +52,6 @@ def is_palindrome(value: str) -> bool:
         Boolean value.
         Error: NotAlphaNumericString - If the string is not alpha-numeric.
     """
-    string_list = []
-    for char in value:
-        if not char.isalnum():
-            raise NotAlphaNumericStringError()
-        string_list.append(char.lower())
+    string_list = [char.lower() for char in value if char.isalnum()]
     reverse_list = string_list[::-1]
     return reverse_list == string_list
