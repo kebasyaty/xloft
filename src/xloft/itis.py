@@ -42,7 +42,7 @@ def is_palindrome(value: str) -> bool:
 
     Examples:
         >>> from xloft import is_palindrome
-        >>> is_palindrome("123aa321")
+        >>> is_palindrome("Go hang a salami, I'm a lasagna hog")
         True
 
     Args:
