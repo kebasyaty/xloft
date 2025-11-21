@@ -50,7 +50,6 @@ def is_palindrome(value: str) -> bool:
 
     Returns:
         Boolean value.
-        Error: NotAlphaNumericString - If the string is not alpha-numeric.
     """
     string_list = [char.lower() for char in value if char.isalnum()]
     reverse_list = string_list[::-1]
