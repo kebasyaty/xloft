@@ -25,7 +25,7 @@ def is_number(value: str) -> bool:
         True
 
     Args:
-        value: Some kind of string.
+        value (str): Some kind of string.
 
     Returns:
         True, if the string is a number.
@@ -46,7 +46,7 @@ def is_palindrome(value: str) -> bool:
         True
 
     Args:
-        value: Alpha-numeric string.
+        value (str): Alpha-numeric string.
 
     Returns:
         Boolean value.
