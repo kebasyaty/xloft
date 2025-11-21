@@ -113,14 +113,14 @@ nt["y"] = "Hi"  # => TypeError
 nt["_id"] = "new_id"  # => TypeError
 nt["z"] = [1, 2, 3]  # => TypeError
 
-nt.x = 20  # => raise: AttributeDoesNotSetValue
-nt.y = "Hi"  # => raise: AttributeDoesNotSetValue
-nt._id = "new_id"  # => raise: AttributeDoesNotSetValue
-nt.z = [1, 2, 3]  # => raise: AttributeDoesNotSetValue
+nt.x = 20  # => raise: AttributeDoesNotSetValueError
+nt.y = "Hi"  # => raise: AttributeDoesNotSetValueError
+nt._id = "new_id"  # => raise: AttributeDoesNotSetValueError
+nt.z = [1, 2, 3]  # => raise: AttributeDoesNotSetValueError
 
-del nt.x  # => raise: AttributeCannotBeDelete
-del nt.y # => raise: AttributeCannotBeDelete
-del nt._id # => raise: AttributeCannotBeDelete
+del nt.x  # => raise: AttributeCannotBeDeleteError
+del nt.y # => raise: AttributeCannotBeDeleteError
+del nt._id # => raise: AttributeCannotBeDeleteError
 ```
 
 - **Converters**
@@ -170,7 +170,6 @@ is_number("-72028601076372765770200707816364342373431783018070841859646251155447
 #
 is_palindrome("123aa321")  # True
 is_palindrome("123")  # False
-is_palindrome("123--321")  # NotAlphaNumericStringError
 ```
 
 ## Changelog

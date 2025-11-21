@@ -38,5 +38,4 @@ from xloft import is_palindrome
 
 is_palindrome("123aa321")  # True
 is_palindrome("123")  # False
-is_palindrome("123--321")  # NotAlphaNumericStringError
 ```
