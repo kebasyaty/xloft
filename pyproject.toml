@@ -190,6 +190,7 @@ disable_error_code = [
     "attr-defined",
     "index",
     "operator",
+    "untyped-decorator",
 ]
 
 [[tool.mypy.overrides]]
@@ -204,7 +205,6 @@ disable_error_code = [
     "import-untyped",
     "no-untyped-def",
     "misc",
-    "untyped-decorator",
 ]
 
 [tool.pytest.ini_options]
