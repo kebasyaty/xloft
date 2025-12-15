@@ -204,6 +204,7 @@ disable_error_code = [
     "import-untyped",
     "no-untyped-def",
     "misc",
+    "untyped-decorator",
 ]
 
 [tool.pytest.ini_options]
