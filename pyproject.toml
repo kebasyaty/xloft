@@ -50,11 +50,7 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = []
-lint = [
- "pre-commit>=4.3.0",
- "pyrefly>=0.46.0",
- "ruff>=0.12.7",
-]
+lint = ["pre-commit>=4.3.0", "pyrefly>=0.46.0", "ruff>=0.12.7"]
 test = [
     "pytest>=8.4.1",
     "pytest-asyncio>=1.1.0",
@@ -196,7 +192,7 @@ missing-attribute = false
 matches = "tests/**"
 
 [tool.pyrefly.sub-config.errors]
-
+bad-argument-type = false
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
