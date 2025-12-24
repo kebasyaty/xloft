@@ -29,7 +29,7 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/kebasyaty/xloft"
+Homepage = "https://kebasyaty.github.io/xloft/"
 Repository = "https://github.com/kebasyaty/xloft"
 Source = "https://github.com/kebasyaty/xloft"
 "Bug Tracker" = "https://github.com/kebasyaty/xloft/issues"
