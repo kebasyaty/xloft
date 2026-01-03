@@ -1,5 +1,11 @@
 ### CHANGELOG
 
+#### v0.9.7 2026-01-03
+
+- Added a `Copyright` commets.
+- Upgraded all dependencies.
+- Updated documentation.
+
 #### v0.9.1 2025-11-21
 
 - Fixed a `is_palindrome` methods to a `itis` module.
