@@ -1,3 +1,7 @@
+# XLOFT - X-Library of tools.
+# Copyright (c) 2025 Gennady Kostyunin
+# SPDX-License-Identifier: MIT
+#
 """XLOT Exceptions."""
 
 from __future__ import annotations
