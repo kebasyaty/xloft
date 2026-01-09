@@ -1,7 +1,6 @@
 # XLOFT - X-Library of tools.
 # Copyright (c) 2025 Gennady Kostyunin
 # SPDX-License-Identifier: MIT
-#
 """Collection of tools for converting data.
 
 The module contains the following functions:

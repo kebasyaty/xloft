@@ -7,7 +7,6 @@
 #
 # Copyright (c) 2025 Gennady Kostyunin
 # SPDX-License-Identifier: MIT
-#
 """(XLOFT) X-Library of tools.
 
 Modules exported by this package:
