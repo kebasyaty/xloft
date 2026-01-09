@@ -1,7 +1,6 @@
 # XLOFT - X-Library of tools.
 # Copyright (c) 2025 Gennady Kostyunin
 # SPDX-License-Identifier: MIT
-#
 """Converts the number of bytes into a human-readable format.
 
 The module contains the following functions:

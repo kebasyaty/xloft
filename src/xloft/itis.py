@@ -1,7 +1,6 @@
 # XLOFT - X-Library of tools.
 # Copyright (c) 2025 Gennady Kostyunin
 # SPDX-License-Identifier: MIT
-#
 """Tools for determining something.
 
 The module contains the following functions:
