@@ -1,6 +1,6 @@
 [project]
 name = "xloft"
-version = "0.9.8"
+version = "0.9.9"
 description = "(XLOFT) X-Library of tools"
 readme = "README.md"
 authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
@@ -25,6 +25,7 @@ classifiers = [
     # "Programming Language :: Python :: Implementation :: PyPy",
     "Topic :: Utilities",
     "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
     "Typing :: Typed",
 ]
 dependencies = []
@@ -193,6 +194,7 @@ missing-attribute = false
 matches = "tests/**"
 
 [tool.pyrefly.sub-config.errors]
+missing-attribute = false
 bad-argument-type = false
 
 [tool.pytest.ini_options]
