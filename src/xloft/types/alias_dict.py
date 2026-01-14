@@ -140,3 +140,20 @@ class AliasDict:
             `True` if the alias is present.
         """
         return alias in self.all_alias_set
+
+    def has_value(self, value: Any) -> bool:
+        """Check for the presence of a value.
+
+        Args:
+            value (Any): Value associated with key.
+
+        Returns:
+            `True` if the value is present.
+        """
+        is_present = False
+        for item in self.store:
+            if value == item[1]:
+                is_present = True
+                break
+
+        return is_present
