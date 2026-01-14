@@ -74,7 +74,7 @@ class AliasDict:
             default (Any): Value by default.
 
         Returns:
-            Value associated with the key or value by default.
+            Deep copy of the value associated with the key or value by default.
         """
         for item in self.store:
             if alias in item[0]:
