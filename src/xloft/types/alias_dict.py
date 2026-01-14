@@ -103,3 +103,26 @@ class AliasDict:
         err_msg = f"Alias: `{alias}` is missing!"
         logging.error(err_msg)
         raise KeyError(err_msg)
+
+    def delete_alias(self, alias: str | int | float) -> None:
+        """Remove the alias from the existing set.
+
+        If the alias was the last one, then the value associated with it is deleted.
+
+        Args:
+            alias (str | int | float): Existing alias.
+
+        Returns:
+            `None` or `KeyError` is missing.
+        """
+        for item in self.store:
+            if alias in item[0]:
+                if len(item[0]) == 1:
+                    self.store = [item for item in self.store if alias not in item[0]]
+                else:
+                    item[0].remove(alias)
+                return
+
+        err_msg = f"Alias: `{alias}` is missing!"
+        logging.error(err_msg)
+        raise KeyError(err_msg)
