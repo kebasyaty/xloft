@@ -1,4 +1,4 @@
-"""Testing a `NamedTuple` module."""
+"""Test a `NamedTuple` module."""
 
 from __future__ import annotations
 
@@ -58,7 +58,7 @@ class TestNegative:
 
     @pytest.mark.xfail(raises=KeyError, strict=True)
     def test_fail_update_method(self, init_namedtuple) -> None:
-        """Testing a `update` method."""
+        """Test a `update` method."""
         nt = init_namedtuple
         nt.update("z", [1, 2, 3])
 
@@ -88,7 +88,7 @@ class TestPositive:
         assert nt.y != y
 
     def test_get_method(self, init_namedtuple) -> None:
-        """Testing a `get` method."""
+        """Test a `get` method."""
         nt = init_namedtuple
         assert nt.get("x") == 10
         assert nt.get("y") == "Hello"
@@ -98,7 +98,7 @@ class TestPositive:
         assert nt.get("x") != x
 
     def test_update_method(self, init_namedtuple) -> None:
-        """Testing a `update` method."""
+        """Test a `update` method."""
         nt = init_namedtuple
         assert nt.x == 10
         assert nt.y == "Hello"

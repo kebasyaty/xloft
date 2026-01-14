@@ -9,15 +9,15 @@ class TestNegative:
     """Negative tests."""
 
     def test_stub(self) -> None:
-        """Testing stub."""
+        """Test stub."""
         assert True
 
 
 class TestPositive:
     """Positive tests."""
 
-    def test_stub(self) -> None:
-        """Testing stub."""
+    def test_create_empty_adict(self) -> None:
+        """Test the creation of an empty dictionary."""
         d = [([1, 2, 3], "Hello!")]
         ad = AliasDict(d)
         store = ad.store
