@@ -58,6 +58,7 @@ class AliasDict:
                 return
 
         self.store.append([{alias}, value])
+        self.all_alias_set.add(alias)
 
     def delete(self, alias: str | int | float) -> None:
         """Delete the value associated with the key and all its aliases.
