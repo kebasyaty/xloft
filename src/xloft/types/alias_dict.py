@@ -83,7 +83,7 @@ class AliasDict:
         return default
 
     def set(self, alias: str | int | float, value: Any) -> None:
-        """Add a new value or update an existing one.
+        """Add a new (key and value) or update an existing one.
 
         Args:
             alias (str | int | float): Alias of key.
@@ -96,9 +96,7 @@ class AliasDict:
             if alias in item[0]:
                 item[1] = value
                 return
-        err_msg = f"Alias: `{alias}` is missing!"
-        logging.error(err_msg)
-        raise KeyError(err_msg)
+        self.store.append([{alias}, value])
 
     def delete(self, alias: str | int | float) -> None:
         """Delete the value associated with the key and all its aliases.
@@ -116,3 +114,6 @@ class AliasDict:
         err_msg = f"Alias: `{alias}` is missing!"
         logging.error(err_msg)
         raise KeyError(err_msg)
+
+    def add_alias(self, alias: str | int | float) -> None:
+        """???"""
