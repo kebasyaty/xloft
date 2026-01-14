@@ -7,6 +7,7 @@ from __future__ import annotations
 
 __all__ = ("AliasDict",)
 
+import copy
 from typing import Any, Never, assert_never
 
 
@@ -50,6 +51,7 @@ class AliasDict:
                         self.store = [item for item in self.store if alias not in item[0]]
                         break
                     case "add_alias":
+                        item[0].add(value)
                         break
                     case "delete_alias":
                         break
@@ -61,3 +63,20 @@ class AliasDict:
                         assert_never(Never(unreachable))  # pyrefly: ignore[not-callable]
 
         return (value, is_alias_present)
+
+    def get(self, alias, default: Any = None) -> Any:
+        """Get value by alias.
+
+        If there is no alias, return the default value.
+
+        Args:
+            alias (str | int | float): Alias of key.
+            default (Any): Value by default.
+
+        Returns:
+            Value associated with the key or value by default.
+        """
+        for item in self.store:
+            if alias in item[0]:
+                return copy.deepcopy(item[1])
+        return default
