@@ -8,6 +8,7 @@ from __future__ import annotations
 __all__ = ("AliasDict",)
 
 import copy
+import logging
 from typing import Any, Never, assert_never
 
 
@@ -80,3 +81,21 @@ class AliasDict:
             if alias in item[0]:
                 return copy.deepcopy(item[1])
         return default
+
+    def set(self, alias: str | int | float, value: Any) -> None:
+        """Add a new value or update an existing one.
+
+        Args:
+            alias (str | int | float): Alias of key.
+            value (Any): Value associated with key.
+
+        Returns:
+            `None` or `KeyError` is missing.
+        """
+        for item in self.store:
+            if alias in item[0]:
+                item[1] = value
+                return
+        err_msg = f"Alias: `{alias}` is missing!"
+        logging.error(err_msg)
+        raise KeyError(err_msg)
