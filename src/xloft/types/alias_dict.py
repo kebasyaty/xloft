@@ -64,7 +64,7 @@ class AliasDict:
 
         return (value, is_alias_present)
 
-    def get(self, alias, default: Any = None) -> Any:
+    def get(self, alias: str | int | float, default: Any = None) -> Any:
         """Get value by alias.
 
         If there is no alias, return the default value.
