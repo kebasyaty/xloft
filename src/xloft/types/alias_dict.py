@@ -18,13 +18,22 @@ class AliasDict:
         for item in data:
             self.store.append(list(item))
 
-    def run_action(
+    def _run_action(
         self,
         alias: str | int | float,
         value: Any | None = None,
         action: str | None = None,
     ) -> bool:
-        """Perform an action on a dictionary."""
+        """Action to work with a dictionary.
+
+        Args:
+            alias (str | int | float): Alias of key.
+            value (Any): Value for key.
+            action (str | None): Type of action for working with a dictionary.
+
+        Returns:
+            Returns `True` if the key is present.
+        """
         is_alias_present: bool = False
 
         for item in self.store:
