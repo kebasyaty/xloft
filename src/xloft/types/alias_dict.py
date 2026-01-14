@@ -42,18 +42,21 @@ class AliasDict:
                 match action:
                     case "get":
                         value = item[1]
+                        break
                     case "set":
                         item[1].add(value)
+                        break
                     case "delete":
-                        pass
+                        self.store = [item for item in self.store if alias not in item[0]]
+                        break
                     case "add_alias":
-                        pass
+                        break
                     case "delete_alias":
-                        pass
+                        break
                     case "has_alias":
-                        pass
+                        break
                     case "has_value":
-                        pass
+                        break
                     case _ as unreachable:
                         assert_never(Never(unreachable))  # pyrefly: ignore[not-callable]
 
