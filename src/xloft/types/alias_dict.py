@@ -130,6 +130,13 @@ class AliasDict:
         logging.error(err_msg)
         raise KeyError(err_msg)
 
-    def has_alias(self, alias: str | int | float) -> bool:  # noqa: ARG002
-        """???"""
-        return False
+    def has_alias(self, alias: str | int | float) -> bool:
+        """Check for the presence of an alias.
+
+        Args:
+            alias (str | int | float): Some alias.
+
+        Returns:
+            `True` if the alias is present.
+        """
+        return alias in self.all_alias_set
