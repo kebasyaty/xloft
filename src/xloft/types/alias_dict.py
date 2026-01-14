@@ -23,7 +23,7 @@ class AliasDict:
         alias: str | int | float,
         value: Any | None = None,
         action: str | None = None,
-    ) -> bool:
+    ) -> tuple[Any, bool]:
         """Action to work with a dictionary.
 
         Args:
@@ -41,9 +41,9 @@ class AliasDict:
                 is_alias_present = True
                 match action:
                     case "get":
-                        pass
+                        value = item[1]
                     case "set":
-                        item[1] = value
+                        item[1].add(value)
                     case "delete":
                         pass
                     case "add_alias":
@@ -57,4 +57,4 @@ class AliasDict:
                     case _ as unreachable:
                         assert_never(Never(unreachable))  # pyrefly: ignore[not-callable]
 
-        return is_alias_present
+        return (value, is_alias_present)
