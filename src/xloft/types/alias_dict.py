@@ -9,7 +9,7 @@ __all__ = ("AliasDict",)
 
 import copy
 import logging
-from typing import Any, Never, assert_never
+from typing import Any
 
 
 class AliasDict:
@@ -17,53 +17,11 @@ class AliasDict:
 
     def __init__(self, data: list[tuple[set[str | int | float], Any]]) -> None:  # noqa: D107
         self.store = []
+        self.all_alias_set = set()  # for uniqueness check
         for item in data:
-            self.store.append(list(item))
-
-    def _run_action(
-        self,
-        alias: str | int | float,
-        value: Any | None = None,
-        action: str | None = None,
-    ) -> tuple[Any, bool]:
-        """Action to work with a dictionary.
-
-        Args:
-            alias (str | int | float): Alias of key.
-            value (Any): Value for key.
-            action (str | None): Type of action for working with a dictionary.
-
-        Returns:
-            Returns `True` if the key is present.
-        """
-        is_alias_present: bool = False
-
-        for item in self.store:
-            if alias in item[0]:
-                is_alias_present = True
-                match action:
-                    case "get":
-                        value = item[1]
-                        break
-                    case "set":
-                        item[1].add(value)
-                        break
-                    case "delete":
-                        self.store = [item for item in self.store if alias not in item[0]]
-                        break
-                    case "add_alias":
-                        item[0].add(value)
-                        break
-                    case "delete_alias":
-                        break
-                    case "has_alias":
-                        break
-                    case "has_value":
-                        break
-                    case _ as unreachable:
-                        assert_never(Never(unreachable))  # pyrefly: ignore[not-callable]
-
-        return (value, is_alias_present)
+            if len(item[0].difference(self.all_alias_set)) == len(item[0]):
+                self.all_alias_set.union(item[0])
+                self.store.append(list(item))
 
     def get(self, alias: str | int | float, default: Any = None) -> Any:
         """Get value by alias.
@@ -80,6 +38,7 @@ class AliasDict:
         for item in self.store:
             if alias in item[0]:
                 return copy.deepcopy(item[1])
+
         return default
 
     def set(self, alias: str | int | float, value: Any) -> None:
@@ -96,6 +55,7 @@ class AliasDict:
             if alias in item[0]:
                 item[1] = value
                 return
+
         self.store.append([{alias}, value])
 
     def delete(self, alias: str | int | float) -> None:
@@ -111,9 +71,35 @@ class AliasDict:
             if alias in item[0]:
                 self.store = [item for item in self.store if alias not in item[0]]
                 return
+
         err_msg = f"Alias: `{alias}` is missing!"
         logging.error(err_msg)
         raise KeyError(err_msg)
 
-    def add_alias(self, alias: str | int | float) -> None:
-        """???"""
+    def add_alias(
+        self,
+        alias: str | int | float,
+        new_alias: str | int | float,
+    ) -> None:
+        """Add a new alias to an existing set.
+
+        Args:
+            alias (str | int | float): Existing alias.
+            new_alias (str | int | float): The alias that needs to be added to the existing set.
+
+        Returns:
+            `None` or `KeyError` is missing.
+        """
+        if new_alias in self.all_alias_set:
+            err_msg = f"New Alias: `{new_alias}` is not unique!"
+            logging.error(err_msg)
+            raise KeyError(err_msg)
+
+        for item in self.store:
+            if alias in item[0]:
+                item[0].add(new_alias)
+                return
+
+        err_msg = f"Alias: `{alias}` is missing!"
+        logging.error(err_msg)
+        raise KeyError(err_msg)
