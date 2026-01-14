@@ -69,6 +69,7 @@ class AliasDict:
         """
         for item in self.store:
             if alias in item[0]:
+                self.all_alias_set = {alias for alias in self.all_alias_set if alias not in item[0]}
                 self.store = [item for item in self.store if alias not in item[0]]
                 return
 
@@ -98,6 +99,7 @@ class AliasDict:
         for item in self.store:
             if alias in item[0]:
                 item[0].add(new_alias)
+                self.all_alias_set.add(alias)
                 return
 
         err_msg = f"Alias: `{alias}` is missing!"
@@ -126,3 +128,7 @@ class AliasDict:
         err_msg = f"Alias: `{alias}` is missing!"
         logging.error(err_msg)
         raise KeyError(err_msg)
+
+    def has_alias(self, alias: str | int | float) -> bool:  # noqa: ARG002
+        """???"""
+        return False
