@@ -20,8 +20,8 @@ class AliasDict:
         self.all_alias_set = set()  # for uniqueness check
         if data is not None:
             for item in data:
-                if len(item[0].difference(self.all_alias_set)) == len(item[0]):
-                    self.all_alias_set.union(item[0])
+                if self.all_alias_set.isdisjoint(item[0]):
+                    self.all_alias_set.update(item[0])
                     self.store.append(list(item))
 
     def get(self, alias: str | int | float, default: Any = None) -> Any:
