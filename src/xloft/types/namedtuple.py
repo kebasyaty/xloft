@@ -8,6 +8,8 @@
 
 from __future__ import annotations
 
+__all__ = ("NamedTuple",)
+
 from typing import Any
 
 from xloft.errors import (
