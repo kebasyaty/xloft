@@ -15,13 +15,14 @@ from typing import Any
 class AliasDict:
     """Pseudo dictionary with supports aliases for keys."""
 
-    def __init__(self, data: list[tuple[set[str | int | float], Any]]) -> None:  # noqa: D107
+    def __init__(self, data: list[tuple[set[str | int | float], Any]] | None = None) -> None:  # noqa: D107
         self.store = []
         self.all_alias_set = set()  # for uniqueness check
-        for item in data:
-            if len(item[0].difference(self.all_alias_set)) == len(item[0]):
-                self.all_alias_set.union(item[0])
-                self.store.append(list(item))
+        if data is not None:
+            for item in data:
+                if len(item[0].difference(self.all_alias_set)) == len(item[0]):
+                    self.all_alias_set.union(item[0])
+                    self.store.append(list(item))
 
     def get(self, alias: str | int | float, default: Any = None) -> Any:
         """Get value by alias.
