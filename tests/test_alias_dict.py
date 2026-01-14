@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from xloft import AliasDict
+
 
 class TestNegative:
     """Negative tests."""
@@ -16,4 +18,7 @@ class TestPositive:
 
     def test_stub(self) -> None:
         """Testing stub."""
-        assert True
+        d = [([1, 2, 3], "Hello!")]
+        ad = AliasDict(d)
+        store = ad.store
+        assert store.get([1, 2, 3]) == "Hello!"
