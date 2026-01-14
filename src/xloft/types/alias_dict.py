@@ -92,14 +92,14 @@ class AliasDict:
             `None` or `KeyError` is missing.
         """
         if new_alias in self.all_alias_set:
-            err_msg = f"New Alias: `{new_alias}` is not unique!"
+            err_msg = f"New Alias: `{new_alias}` is already exists!"
             logging.error(err_msg)
             raise KeyError(err_msg)
 
         for item in self.store:
             if alias in item[0]:
                 item[0].add(new_alias)
-                self.all_alias_set.add(alias)
+                self.all_alias_set.add(new_alias)
                 return
 
         err_msg = f"Alias: `{alias}` is missing!"
