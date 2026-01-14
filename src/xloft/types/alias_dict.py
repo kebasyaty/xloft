@@ -1,7 +1,7 @@
 # XLOFT - X-Library of tools.
 # Copyright (c) 2025 Gennady Kostyunin
 # SPDX-License-Identifier: MIT
-"""AliasDict - Simulates the behavior of a dictionary and supports aliases for keys."""
+"""`AliasDict` - Simulates the behavior of a dictionary and supports aliases for keys."""
 
 from __future__ import annotations
 

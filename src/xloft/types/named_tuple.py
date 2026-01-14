@@ -1,10 +1,7 @@
 # XLOFT - X-Library of tools.
 # Copyright (c) 2025 Gennady Kostyunin
 # SPDX-License-Identifier: MIT
-"""This module contains the implementation of the `NamedTuple` class.
-
-`NamedTuple` class imitates the behavior of the *named tuple*.
-"""
+"""`NamedTuple` class imitates the behavior of the *named tuple*."""
 
 from __future__ import annotations
 
