@@ -123,6 +123,7 @@ class AliasDict:
                     self.store = [item for item in self.store if alias not in item[0]]
                 else:
                     item[0].remove(alias)
+                self.all_alias_set.remove(alias)
                 return
 
         err_msg = f"Alias: `{alias}` is missing!"
