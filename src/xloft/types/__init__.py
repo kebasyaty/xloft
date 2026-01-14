@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
-__all__ = ("NamedTuple",)
+__all__ = (
+    "AliasDict",
+    "NamedTuple",
+)
 
-from xloft.types.namedtuple import NamedTuple
+from xloft.types.alias_dict import AliasDict
+from xloft.types.named_tuple import NamedTuple

@@ -12,7 +12,7 @@
 
 Modules exported by this package:
 
-- `namedtuple`- Class imitates the behavior of the _named tuple_.
+- `types`- Custom data types.
 - `converters` - Collection of tools for converting data.
 - `itis` - Tools for determining something.
 """
@@ -25,9 +25,11 @@ __all__ = (
     "to_human_size",
     "is_number",
     "is_palindrome",
+    "AliasDict",
     "NamedTuple",
 )
 
 from xloft.converters import int_to_roman, roman_to_int, to_human_size
 from xloft.itis import is_number, is_palindrome
-from xloft.types.namedtuple import NamedTuple
+from xloft.types.alias_dict import AliasDict
+from xloft.types.named_tuple import NamedTuple
