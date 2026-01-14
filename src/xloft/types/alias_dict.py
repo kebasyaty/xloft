@@ -14,4 +14,4 @@ class AliasDict:
     """Dictionary with supports aliases for keys."""
 
     def __init__(self, **kwargs: dict[list[str | int | float], Any]) -> None:  # noqa: D107
-        pass
+        self.store: list[tuple[list[str | int | float], Any]] = []
