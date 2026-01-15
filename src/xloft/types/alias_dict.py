@@ -11,6 +11,12 @@ import copy
 import logging
 from typing import Any
 
+from xloft.errors import (
+    AttributeCannotBeDeleteError,
+    AttributeDoesNotGetValueError,
+    AttributeDoesNotSetValueError,
+)
+
 
 class AliasDict:
     """Pseudo dictionary with supports aliases for keys."""
@@ -23,6 +29,18 @@ class AliasDict:
                 if self.all_alias_set.isdisjoint(item[0]):
                     self.all_alias_set.update(item[0])
                     self.store.append(list(item))
+
+    def __getattr__(self, name: str) -> None:
+        """Blocked Getter."""
+        raise AttributeDoesNotGetValueError(name)
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        """Blocked Setter."""
+        raise AttributeDoesNotSetValueError(name)
+
+    def __delattr__(self, name: str) -> None:
+        """Blocked Deleter."""
+        raise AttributeCannotBeDeleteError(name)
 
     def get(self, alias: str | int | float, default: Any = None) -> Any:
         """Get value by alias.

@@ -2,14 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any
-
 from xloft import AliasDict
-from xloft.errors import (
-    AttributeCannotBeDeleteError,
-    AttributeDoesNotGetValueError,
-    AttributeDoesNotSetValueError,
-)
 
 
 class TestPositive:
@@ -22,18 +15,6 @@ class TestPositive:
         assert isinstance(d.all_alias_set, set)
         assert d.store == []
         assert d.all_alias_set == set()
-
-    def __getattr__(self, name: str) -> None:
-        """Blocked Getter."""
-        raise AttributeDoesNotGetValueError(name)
-
-    def __setattr__(self, name: str, value: Any) -> None:
-        """Blocked Setter."""
-        raise AttributeDoesNotSetValueError(name)
-
-    def __delattr__(self, name: str) -> None:
-        """Blocked Deleter."""
-        raise AttributeCannotBeDeleteError(name)
 
     def test_get_value_from_empty(self) -> None:
         """Test get value from empty dictionary."""
