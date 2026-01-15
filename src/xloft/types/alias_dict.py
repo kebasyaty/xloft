@@ -27,7 +27,7 @@ class AliasDict:
         if data is not None:
             for item in data:
                 if not self.all_alias_set.isdisjoint(item[0]):
-                    err_msg = "In some keys, aliases are repeated."
+                    err_msg = "In some keys, aliases are repeated!"
                     logging.error(err_msg)
                     raise KeyError(err_msg)
                 self.all_alias_set.update(item[0])

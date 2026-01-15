@@ -51,6 +51,20 @@ class TestNegative:
         d = AliasDict(data)
         del d.en
 
+    def test_fail_aliases_are_repeated(self) -> None:
+        """If aliases are repeated in some keys."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de", "en"}, "lemmatize_de_all"),
+        ]
+
+        with pytest.raises(
+            KeyError,
+            match=r"In some keys, aliases are repeated!",
+        ):
+            AliasDict(data)
+
 
 class TestPositive:
     """Positive tests."""
