@@ -38,6 +38,18 @@ class TestPositive:
         assert 5 in d.__dict__["all_alias_set"]
         assert 5.1 in d.__dict__["all_alias_set"]
 
+    def test_len(self) -> None:
+        """Get the number of elements in the dictionary."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+        ]
+
+        d = AliasDict(data)
+
+        assert len(d) == 3
+
     def test_get_value(self) -> None:
         """Test get value by key."""
         data = [
