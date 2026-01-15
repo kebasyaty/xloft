@@ -211,7 +211,7 @@ class AliasDict:
             >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
             >>> for aliases, value in ad.items():
             ...     print(f"Aliases: {aliases}, Value: {value}")
-            "Key: ["English", "en"], Value: lemmatize_en_all"
+            "Key: ['English', 'en'], Value: lemmatize_en_all"
 
         Returns:
             `list[tuple[list[str | int | float], Any]]` or `[]`
