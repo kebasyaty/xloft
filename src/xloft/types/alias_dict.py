@@ -42,7 +42,7 @@ class AliasDict:
 
         return default
 
-    def set(self, alias: str | int | float, value: Any) -> None:
+    def add(self, alias: str | int | float, value: Any) -> None:
         """Add a new (key and value) or update an existing one.
 
         Args:
@@ -159,3 +159,20 @@ class AliasDict:
                 break
 
         return is_present
+
+    def items(self) -> list[tuple[set[str | int | float], Any]]:
+        """Returns a list of `AliasDict` elements grouped into tuples.
+
+        This is convenient for use in a `for` loop.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> for aliases, value in ad.items():
+            ...     print(f"Aliases: {aliases}, Value: {value}")
+            "Key: x, Value: lemmatize_en_all"
+
+        Returns:
+            `list[tuple[set[str | int | float], Any]]` or `[]`
+        """
+        return [(item[0], item[1]) for item in self.store]

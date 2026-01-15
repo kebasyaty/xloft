@@ -126,7 +126,9 @@ class NamedTuple:
         return {key: attrs[key] for key in keys}
 
     def items(self) -> list[tuple[str, Any]]:
-        """Return a set-like object providing a view on the NamedTuple's items.
+        """Returns a list of `NamedTuple` elements grouped into tuples.
+
+        This is convenient for use in a `for` loop.
 
         Examples:
             >>> from xloft import NamedTuple
@@ -137,7 +139,7 @@ class NamedTuple:
             "Key: y, Value: Hello"
 
         Returns:
-            list[tuple[str, Any]]
+            `list[tuple[str, Any]]`
         """
         attrs: dict[str, Any] = self.__dict__
         keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
