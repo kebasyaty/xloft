@@ -138,3 +138,26 @@ class TestPositive:
         assert d.get("Turkish") == "libstemmer_tr"
         assert d.get("tr") is None
         assert "tr" not in d.__dict__["all_alias_set"]
+
+    def test_has_alias(self) -> None:
+        """Check if the dictionary has an alias."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+            ({"five", 5}, "Five it's me!"),
+        ]
+
+        d = AliasDict(data)
+
+        assert d.has_alias("English")
+        assert d.has_alias("en")
+        assert d.has_alias("Russian")
+        assert d.has_alias("ru")
+        assert d.has_alias("German")
+        assert d.has_alias("de")
+        assert d.has_alias("five")
+        assert d.has_alias(5)
+
+        assert not d.has_alias("six")
+        assert not d.has_alias(6)
