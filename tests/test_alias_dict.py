@@ -21,8 +21,8 @@ class TestPositive:
         d = AliasDict()
         assert d.get("alias is missing") is None
 
-    def test_set_value_to_empty(self) -> None:
-        """Test set value to empty dictionary."""
+    def test_add_value_to_empty(self) -> None:
+        """Test add value to empty dictionary."""
         d = AliasDict()
 
         d.set("alias name", "Hello world!")
