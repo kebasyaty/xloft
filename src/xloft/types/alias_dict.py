@@ -232,7 +232,7 @@ class AliasDict:
         """
         return [(list(item[0]), item[1]) for item in self.store]
 
-    def keys(self) -> list[str]:
+    def keys(self) -> list[str | int | float]:
         """Get a list of all aliases.
 
         Examples:
@@ -242,6 +242,20 @@ class AliasDict:
             ["English", "en"]
 
         Returns:
-            List of keys.
+            List of all aliases.
         """
         return list(self.__dict__["all_alias_set"])
+
+    def values(self) -> list[Any]:
+        """Get a list of all values.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> ad.values()
+            ["lemmatize_en_all"]
+
+        Returns:
+            List of all values.
+        """
+        return [item[1] for item in self.__dict__["store"]]

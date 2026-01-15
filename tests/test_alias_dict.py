@@ -225,7 +225,29 @@ class TestPositive:
 
         d = AliasDict(data)
 
-        aliases = d.keys()
+        alias_list = d.keys()
 
-        assert isinstance(aliases, list)
-        assert len(aliases) == 6
+        assert isinstance(alias_list, list)
+        assert len(alias_list) == 6
+
+    def test_values(self) -> None:
+        """Test a `values` method."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+        ]
+
+        d = AliasDict(data)
+
+        value_list = d.values()
+
+        assert isinstance(value_list, list)
+        assert len(value_list) == 3
+
+        for item in value_list:
+            assert item in [
+                "lemmatize_en_all",
+                "lemmatize_ru_all",
+                "lemmatize_de_all",
+            ]
