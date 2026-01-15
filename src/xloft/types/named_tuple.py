@@ -25,7 +25,7 @@ class NamedTuple:
             self._0D5rSmH9Sy2XUWb5_keys.append(name)
 
     def __len__(self) -> int:
-        """Get the number of elements.
+        """Get the number of elements in the tuple.
 
         Examples:
             >>> from xloft import NamedTuple

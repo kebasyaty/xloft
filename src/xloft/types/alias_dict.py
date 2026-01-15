@@ -33,6 +33,20 @@ class AliasDict:
                 self.all_alias_set.update(item[0])
                 self.store.append(list(item))
 
+    def __len__(self) -> int:
+        """Get the number of elements in the dictionary.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> len(ad)
+            1
+
+        Returns:
+            The number of elements in the dictionary.
+        """
+        return len(self.__dict__["store"])
+
     def __getattr__(self, name: str) -> None:
         """Blocked Getter."""
         raise AttributeDoesNotGetValueError(name)
