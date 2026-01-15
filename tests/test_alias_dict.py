@@ -180,3 +180,25 @@ class TestPositive:
 
         assert not d.has_value("Hello world!")
         assert not d.has_value(6)
+
+    def test_items(self) -> None:
+        """Test a `items` method."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+        ]
+
+        data_for_check = {
+            "English": "lemmatize_en_all",
+            "Russian": "lemmatize_ru_all",
+            "German": "lemmatize_de_all",
+            "en": "lemmatize_en_all",
+            "ru": "lemmatize_ru_all",
+            "de": "lemmatize_de_all",
+        }
+
+        d = AliasDict(data)
+
+        for key, value in d.items():
+            assert value == data_for_check[key[0]]  # pyrefly: ignore[bad-typed-dict-key]

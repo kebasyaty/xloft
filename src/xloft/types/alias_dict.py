@@ -201,7 +201,7 @@ class AliasDict:
 
         return is_present
 
-    def items(self) -> list[tuple[set[str | int | float], Any]]:
+    def items(self) -> list[tuple[list[str | int | float], Any]]:
         """Returns a list of `AliasDict` elements grouped into tuples.
 
         This is convenient for use in a `for` loop.
@@ -216,4 +216,4 @@ class AliasDict:
         Returns:
             `list[tuple[set[str | int | float], Any]]` or `[]`
         """
-        return [(item[0], item[1]) for item in self.store]
+        return [(list(item[0]), item[1]) for item in self.store]
