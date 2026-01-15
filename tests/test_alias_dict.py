@@ -349,8 +349,8 @@ class TestPositive:
 
         d = AliasDict(data)
 
-        for key, value in d.items():
-            assert value == data_for_check[key[0]]  # pyrefly: ignore[bad-typed-dict-key]
+        for aliases, value in d.items():
+            assert value == data_for_check[aliases[0]]  # pyrefly: ignore[bad-typed-dict-key]
 
     def test_keys(self) -> None:
         """Test a `keys` method."""
