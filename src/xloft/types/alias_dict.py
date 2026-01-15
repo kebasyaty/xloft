@@ -90,10 +90,12 @@ class AliasDict:
         Returns:
             `None` or `KeyError` if alias is missing.
         """
-        for item in self.store:
+        for item in self.__dict__["store"]:
             if alias in item[0]:
-                self.all_alias_set = {alias for alias in self.all_alias_set if alias not in item[0]}
-                self.store = [item for item in self.store if alias not in item[0]]
+                self.__dict__["all_alias_set"] = {
+                    alias for alias in self.__dict__["all_alias_set"] if alias not in item[0]
+                }
+                self.__dict__["store"] = [item for item in self.__dict__["store"] if alias not in item[0]]
                 return
 
         err_msg = f"Alias: `{alias}` is missing!"
@@ -114,7 +116,7 @@ class AliasDict:
         Returns:
             `None` or `KeyError` if new alias is already exists.
         """
-        if new_alias in self.all_alias_set:
+        if new_alias in self.__dict__["all_alias_set"]:
             err_msg = f"New Alias: `{new_alias}` is already exists!"
             logging.error(err_msg)
             raise KeyError(err_msg)
@@ -162,7 +164,7 @@ class AliasDict:
         Returns:
             `True` if the alias is exists.
         """
-        return alias in self.all_alias_set
+        return alias in self.__dict__["all_alias_set"]
 
     def has_value(self, value: Any) -> bool:
         """Check if the value exists.

@@ -34,9 +34,9 @@ class TestPositive:
         d.add(5.1, 5.1)
         assert d.get(5.1) == 5.1
 
-        assert "alias name" in d.all_alias_set
-        assert 5 in d.all_alias_set
-        assert 5.1 in d.all_alias_set
+        assert "alias name" in d.__dict__["all_alias_set"]
+        assert 5 in d.__dict__["all_alias_set"]
+        assert 5.1 in d.__dict__["all_alias_set"]
 
     def test_get_value(self) -> None:
         """Test get value from dictionary."""
@@ -81,3 +81,22 @@ class TestPositive:
 
         assert d.get("Turkish") == "libstemmer_tr"
         assert d.get("tr") == "libstemmer_tr"
+
+    def test_delete_key_and_value(self) -> None:
+        """Test delete key and value from dictionary."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+            ({"five", 5}, "Five it's me!"),
+        ]
+
+        d = AliasDict(data)
+
+        assert d.get("five") == "Five it's me!"
+        assert d.get(5) == "Five it's me!"
+
+        d.delete(5)
+
+        assert d.get("five") is None
+        assert d.get(5) is None
