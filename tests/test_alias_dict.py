@@ -45,6 +45,7 @@ class TestPositive:
             ({"Russian", "ru"}, "lemmatize_ru_all"),
             ({"German", "de"}, "lemmatize_de_all"),
         ]
+
         d = AliasDict(data)
 
         assert d.get("English") == "lemmatize_en_all"
@@ -63,6 +64,7 @@ class TestPositive:
             ({"Russian", "ru"}, "lemmatize_ru_all"),
             ({"German", "de"}, "lemmatize_de_all"),
         ]
+
         d = AliasDict(data)
 
         d.add("Turkish", "libstemmer_tr")
@@ -76,3 +78,6 @@ class TestPositive:
 
         assert d.get("German") == "lemmatize_de_all"
         assert d.get("de") == "lemmatize_de_all"
+
+        assert d.get("Turkish") == "libstemmer_tr"
+        assert d.get("tr") == "libstemmer_tr"
