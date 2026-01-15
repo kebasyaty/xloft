@@ -19,11 +19,19 @@ class XLOTException(Exception):
         super().__init__(*args, **kwargs)
 
 
+class AttributeDoesNotGetValueError(XLOTException):
+    """Exception is raised if the attribute tries to get a value."""
+
+    def __init__(self, attribute_name: str) -> None:
+        self.message = f"The attribute `{attribute_name}` does not get value!"
+        super().__init__(self.message)
+
+
 class AttributeDoesNotSetValueError(XLOTException):
-    """Exception is raised if the attribute does not setting value."""
+    """Exception is raised if the attribute tries to set a value."""
 
     def __init__(self, attribute_name: str) -> None:  # noqa: D107
-        self.message = f"The attribute `{attribute_name}` does not setting value!"
+        self.message = f"The attribute `{attribute_name}` does not set value!"
         super().__init__(self.message)
 
 
