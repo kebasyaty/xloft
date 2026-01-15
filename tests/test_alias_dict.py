@@ -15,7 +15,6 @@ from xloft.errors import (
 class TestNegative:
     """Negative tests."""
 
-    @pytest.mark.xfail(raises=AttributeDoesNotGetValueError, strict=True)
     def test_fail_getter(self) -> None:
         """Getter is not supported."""
         data = [
@@ -25,9 +24,13 @@ class TestNegative:
         ]
 
         d = AliasDict(data)
-        d.en  # noqa: B018
 
-    @pytest.mark.xfail(raises=AttributeDoesNotSetValueError, strict=True)
+        with pytest.raises(
+            AttributeDoesNotGetValueError,
+            match=r"The attribute `en` does not get value!",
+        ):
+            d.en  # noqa: B018
+
     def test_fail_setter(self) -> None:
         """Setter is not supported."""
         data = [
@@ -37,9 +40,13 @@ class TestNegative:
         ]
 
         d = AliasDict(data)
-        d.en = "Some test"
 
-    @pytest.mark.xfail(raises=AttributeCannotBeDeleteError, strict=True)
+        with pytest.raises(
+            AttributeDoesNotSetValueError,
+            match=r"The attribute `en` does not set value!",
+        ):
+            d.en = "Some test"
+
     def test_fail_deletter(self) -> None:
         """Deletter is not supported."""
         data = [
@@ -49,7 +56,12 @@ class TestNegative:
         ]
 
         d = AliasDict(data)
-        del d.en
+
+        with pytest.raises(
+            AttributeCannotBeDeleteError,
+            match=r"The attribute `en` cannot be delete!",
+        ):
+            del d.en
 
     def test_fail_aliases_are_repeated(self) -> None:
         """If aliases are repeated in some keys."""
