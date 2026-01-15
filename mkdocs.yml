@@ -81,9 +81,11 @@ nav:
   - Usage:
       - Usage: pages/usage/index.md
       - NamedTuple: pages/usage/named_tuple.md
+      - AliasDict: pages/usage/alias_dict.md
       - Converters: pages/usage/converters.md
       - ItIs: pages/usage/itis.md
-  - NamedTuple: pages/namedtuple.md
+  - NamedTuple: pages/named_tuple.md
+  - AliasDict: pages/alias_dict.md
   - Converters: pages/converters.md
   - ItIs: pages/itis.md
   - Errors: pages/errors.md

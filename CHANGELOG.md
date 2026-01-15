@@ -1,5 +1,12 @@
 ### CHANGELOG
 
+#### v0.10.0 2026-01-115
+
+- Added a new custom data type `AliasDict`.
+- Upgraded all dependencies.
+- Updated documentation.
+- Updated `README.md` file.
+
 #### v0.9.7 2026-01-03
 
 - Added a `Copyright` commets.

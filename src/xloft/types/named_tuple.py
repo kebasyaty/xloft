@@ -1,12 +1,11 @@
 # XLOFT - X-Library of tools.
 # Copyright (c) 2025 Gennady Kostyunin
 # SPDX-License-Identifier: MIT
-"""This module contains the implementation of the `NamedTuple` class.
-
-`NamedTuple` class imitates the behavior of the *named tuple*.
-"""
+"""`NamedTuple` class imitates the behavior of the *named tuple*."""
 
 from __future__ import annotations
+
+__all__ = ("NamedTuple",)
 
 from typing import Any
 
@@ -26,7 +25,7 @@ class NamedTuple:
             self._0D5rSmH9Sy2XUWb5_keys.append(name)
 
     def __len__(self) -> int:
-        """Get the number of elements.
+        """Get the number of elements in the tuple.
 
         Examples:
             >>> from xloft import NamedTuple
@@ -127,7 +126,9 @@ class NamedTuple:
         return {key: attrs[key] for key in keys}
 
     def items(self) -> list[tuple[str, Any]]:
-        """Return a set-like object providing a view on the NamedTuple's items.
+        """Returns a list of `NamedTuple` elements grouped into tuples.
+
+        This is convenient for use in a `for` loop.
 
         Examples:
             >>> from xloft import NamedTuple
@@ -138,7 +139,7 @@ class NamedTuple:
             "Key: y, Value: Hello"
 
         Returns:
-            list[tuple[str, Any]]
+            `list[tuple[str, Any]]`
         """
         attrs: dict[str, Any] = self.__dict__
         keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys

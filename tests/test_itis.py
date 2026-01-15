@@ -1,4 +1,4 @@
-"""Testing a `ItIs` module."""
+"""Test a `ItIs` module."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ from xloft.itis import is_number, is_palindrome
 
 
 def test_is_number() -> None:
-    """Testing a `is_number` method."""
+    """Test a `is_number` method."""
     # Negative tests.
     for item in [
         "",
@@ -56,7 +56,7 @@ def test_is_number() -> None:
 
 
 def test_is_palindrome() -> None:
-    """Testing a `is_palindrome` method."""
+    """Test a `is_palindrome` method."""
     with pytest.raises(TypeError):
         assert is_palindrome(123)
     with pytest.raises(ValueError, match=r"The string must not be empty!"):

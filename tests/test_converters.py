@@ -1,4 +1,4 @@
-"""Testing a `Converters` module."""
+"""Test a `Converters` module."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from xloft.converters.roman import ROMAN
 
 
 def test_to_human_size() -> None:
-    """Testing a `to_human_size` method."""
+    """Test a `to_human_size` method."""
     sample_data: dict[int, str] = {
         200: "200 bytes",
         1023: "1023 bytes",
@@ -31,14 +31,14 @@ def test_to_human_size() -> None:
 
 
 def test_int_to_roman() -> None:
-    """Testing a `int_to_roman` method."""
+    """Test a `int_to_roman` method."""
     data = [*ROMAN, (3, "III"), (58, "LVIII"), (1994, "MCMXCIV")]
     for item in data:
         assert int_to_roman(item[0]) == item[1]
 
 
 def test_roman_to_int() -> None:
-    """Testing a `roman_to_int` method."""
+    """Test a `roman_to_int` method."""
     data = [*ROMAN, (3, "III"), (58, "LVIII"), (1994, "MCMXCIV")]
     for item in data:
         assert roman_to_int(item[1]) == item[0]
