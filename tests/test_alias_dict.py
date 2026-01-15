@@ -151,7 +151,7 @@ class TestPositive:
         assert d.get("tr") is None
         assert "tr" not in d.__dict__["all_alias_set"]
 
-    def test_has_alias(self) -> None:
+    def test_has_key(self) -> None:
         """Check if the dictionary has an alias."""
         data = [
             ({"English", "en"}, "lemmatize_en_all"),
@@ -162,17 +162,17 @@ class TestPositive:
 
         d = AliasDict(data)
 
-        assert d.has_alias("English")
-        assert d.has_alias("en")
-        assert d.has_alias("Russian")
-        assert d.has_alias("ru")
-        assert d.has_alias("German")
-        assert d.has_alias("de")
-        assert d.has_alias("five")
-        assert d.has_alias(5)
+        assert d.has_key("English")
+        assert d.has_key("en")
+        assert d.has_key("Russian")
+        assert d.has_key("ru")
+        assert d.has_key("German")
+        assert d.has_key("de")
+        assert d.has_key("five")
+        assert d.has_key(5)
 
-        assert not d.has_alias("six")
-        assert not d.has_alias(6)
+        assert not d.has_key("six")
+        assert not d.has_key(6)
 
     def test_has_value(self) -> None:
         """Check if the dictionary has a value."""

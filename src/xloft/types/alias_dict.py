@@ -64,6 +64,12 @@ class AliasDict:
 
         If there is no alias, return the default value.
 
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> ad.get("en")
+            "lemmatize_en_all"
+
         Args:
             alias (str | int | float): Alias of key.
             default (Any): Value by default.
@@ -79,6 +85,13 @@ class AliasDict:
 
     def add(self, aliases: set[str | int | float], value: Any) -> None:
         """Add a new key and value pair.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> ad.add({"Russian", "ru"}, "lemmatize_ru_all")
+            >>> ad.get("ru")
+            "lemmatize_ru_all"
 
         Args:
             aliases (set[str | int | float]): List (set) aliases of key.
@@ -96,6 +109,13 @@ class AliasDict:
 
     def update(self, alias: set[str | int | float], value: Any) -> None:
         """Update the value of an existing key.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> ad.update("en", "Hello world!")
+            >>> ad.get("English")
+            "Hello world!"
 
         Args:
             aliases (set[str | int | float]): Alias of key.
@@ -115,6 +135,13 @@ class AliasDict:
 
     def delete(self, alias: str | int | float) -> None:
         """Delete the value associated with the key and all its aliases.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> ad.delete("en")
+            >>> ad.get("English")
+            None
 
         Args:
             alias (str | int | float): Alias of key.
@@ -140,6 +167,13 @@ class AliasDict:
         new_alias: str | int | float,
     ) -> None:
         """Add a new alias to an existing set.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English"}, "lemmatize_en_all")])
+            >>> ad.add_alias("English", "en")
+            >>> ad.get("en")
+            "lemmatize_en_all"
 
         Args:
             alias (str | int | float): Existing alias.
@@ -168,6 +202,13 @@ class AliasDict:
 
         If the alias was the last one, then the value associated with it is deleted.
 
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> ad.delete_alias("en")
+            >>> ad.keys()
+            ["English"]
+
         Args:
             alias (str | int | float): Existing alias.
 
@@ -187,8 +228,14 @@ class AliasDict:
         logging.error(err_msg)
         raise KeyError(err_msg)
 
-    def has_alias(self, alias: str | int | float) -> bool:
+    def has_key(self, alias: str | int | float) -> bool:
         """Check if the alias exists.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> ad.has_key("en")
+            True
 
         Args:
             alias (str | int | float): Some alias.
@@ -201,19 +248,25 @@ class AliasDict:
     def has_value(self, value: Any) -> bool:
         """Check if the value exists.
 
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> ad.has_value("lemmatize_en_all")
+            True
+
         Args:
             value (Any): Value associated with key.
 
         Returns:
             `True` if the value is exists.
         """
-        is_present = False
+        is_exists = False
         for item in self.__dict__["store"]:
             if value == item[1]:
-                is_present = True
+                is_exists = True
                 break
 
-        return is_present
+        return is_exists
 
     def items(self) -> list[tuple[list[str | int | float], Any]]:
         """Returns a list of `AliasDict` elements grouped into tuples.
