@@ -125,6 +125,22 @@ class TestNegative:
         ):
             ad.add_alias("EN", 1)
 
+    def test_fail_delete_alias(self) -> None:
+        """Alias is missing."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+        ]
+
+        ad = AliasDict(data)
+
+        with pytest.raises(
+            KeyError,
+            match=r"Alias: `EN` is missing!",
+        ):
+            ad.delete_alias("EN")
+
 
 class TestPositive:
     """Positive tests."""
