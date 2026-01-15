@@ -151,7 +151,7 @@ class AliasDict:
         raise KeyError(err_msg)
 
     def has_alias(self, alias: str | int | float) -> bool:
-        """Check for the presence of an alias.
+        """Check if the alias exists.
 
         Args:
             alias (str | int | float): Some alias.
@@ -162,7 +162,7 @@ class AliasDict:
         return alias in self.all_alias_set
 
     def has_value(self, value: Any) -> bool:
-        """Check for the presence of a value.
+        """Check if the value exists.
 
         Args:
             value (Any): Value associated with key.

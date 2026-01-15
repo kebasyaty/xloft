@@ -55,3 +55,24 @@ class TestPositive:
 
         assert d.get("German") == "lemmatize_de_all"
         assert d.get("de") == "lemmatize_de_all"
+
+    def test_add_value(self) -> None:
+        """Test add value from dictionary."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+        ]
+        d = AliasDict(data)
+
+        d.add("Turkish", "libstemmer_tr")
+        d.add_alias("Turkish", "tr")
+
+        assert d.get("English") == "lemmatize_en_all"
+        assert d.get("en") == "lemmatize_en_all"
+
+        assert d.get("Russian") == "lemmatize_ru_all"
+        assert d.get("ru") == "lemmatize_ru_all"
+
+        assert d.get("German") == "lemmatize_de_all"
+        assert d.get("de") == "lemmatize_de_all"
