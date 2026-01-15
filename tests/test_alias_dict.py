@@ -2,7 +2,54 @@
 
 from __future__ import annotations
 
+import pytest
+
 from xloft import AliasDict
+from xloft.errors import (
+    AttributeCannotBeDeleteError,
+    AttributeDoesNotGetValueError,
+    AttributeDoesNotSetValueError,
+)
+
+
+class TestNegative:
+    """Negative tests."""
+
+    @pytest.mark.xfail(raises=AttributeDoesNotGetValueError, strict=True)
+    def test_fail_getter(self) -> None:
+        """Getter is not supported."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+        ]
+
+        d = AliasDict(data)
+        d.en  # noqa: B018
+
+    @pytest.mark.xfail(raises=AttributeDoesNotSetValueError, strict=True)
+    def test_fail_setter(self) -> None:
+        """Setter is not supported."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+        ]
+
+        d = AliasDict(data)
+        d.en = "Some test"
+
+    @pytest.mark.xfail(raises=AttributeCannotBeDeleteError, strict=True)
+    def test_fail_deletter(self) -> None:
+        """Deletter is not supported."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+        ]
+
+        d = AliasDict(data)
+        del d.en
 
 
 class TestPositive:
