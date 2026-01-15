@@ -161,3 +161,22 @@ class TestPositive:
 
         assert not d.has_alias("six")
         assert not d.has_alias(6)
+
+    def test_has_value(self) -> None:
+        """Check if the dictionary has a value."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+            ({"five", 5}, "Five it's me!"),
+        ]
+
+        d = AliasDict(data)
+
+        assert d.has_value("lemmatize_en_all")
+        assert d.has_value("lemmatize_ru_all")
+        assert d.has_value("lemmatize_de_all")
+        assert d.has_value("Five it's me!")
+
+        assert not d.has_value("Hello world!")
+        assert not d.has_value(6)
