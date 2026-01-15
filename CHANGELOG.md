@@ -1,6 +1,6 @@
 ### CHANGELOG
 
-#### v0.10.0 2026-01-115
+#### v0.10.0 2026-01-15
 
 - Added a new custom data type `AliasDict`.
 - Upgraded all dependencies.
