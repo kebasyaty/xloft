@@ -85,7 +85,7 @@ class AliasDict:
             alias (str | int | float): Alias of key.
 
         Returns:
-            `None` or `KeyError` is missing.
+            `None` or `KeyError` if alias is missing.
         """
         for item in self.store:
             if alias in item[0]:
@@ -109,7 +109,7 @@ class AliasDict:
             new_alias (str | int | float): The alias that needs to be added to the existing set.
 
         Returns:
-            `None` or `KeyError` is missing.
+            `None` or `KeyError` if new alias is already exists.
         """
         if new_alias in self.all_alias_set:
             err_msg = f"New Alias: `{new_alias}` is already exists!"
@@ -135,7 +135,7 @@ class AliasDict:
             alias (str | int | float): Existing alias.
 
         Returns:
-            `None` or `KeyError` is missing.
+            `None` or `KeyError` if alias is missing.
         """
         for item in self.store:
             if alias in item[0]:
@@ -157,7 +157,7 @@ class AliasDict:
             alias (str | int | float): Some alias.
 
         Returns:
-            `True` if the alias is present.
+            `True` if the alias is exists.
         """
         return alias in self.all_alias_set
 
@@ -168,7 +168,7 @@ class AliasDict:
             value (Any): Value associated with key.
 
         Returns:
-            `True` if the value is present.
+            `True` if the value is exists.
         """
         is_present = False
         for item in self.store:
