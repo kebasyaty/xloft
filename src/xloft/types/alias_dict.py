@@ -231,3 +231,17 @@ class AliasDict:
             `list[tuple[list[str | int | float], Any]]` or `[]`
         """
         return [(list(item[0]), item[1]) for item in self.store]
+
+    def keys(self) -> list[str]:
+        """Get a list of all aliases.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> ad.keys()
+            ["English", "en"]
+
+        Returns:
+            List of keys.
+        """
+        return list(self.__dict__["all_alias_set"])

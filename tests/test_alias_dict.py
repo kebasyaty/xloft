@@ -214,3 +214,18 @@ class TestPositive:
 
         for key, value in d.items():
             assert value == data_for_check[key[0]]  # pyrefly: ignore[bad-typed-dict-key]
+
+    def test_keys(self) -> None:
+        """Test a `keys` method."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+        ]
+
+        d = AliasDict(data)
+
+        aliases = d.keys()
+
+        assert isinstance(aliases, list)
+        assert len(aliases) == 6
