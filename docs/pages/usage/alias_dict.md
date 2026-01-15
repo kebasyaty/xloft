@@ -15,7 +15,7 @@ data = [
 ]
 d = AliasDict(data)
 
-len(d)  # => 3
+len(d)  # => 4
 #
 d.get("English")  # => "lemmatize_en_all"
 d.get("en")  # => "lemmatize_en_all"
