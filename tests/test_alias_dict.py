@@ -38,7 +38,7 @@ class TestPositive:
         assert 5 in d.all_alias_set
         assert 5.1 in d.all_alias_set
 
-    def test_get_key_and_value(self) -> None:
+    def test_get_value(self) -> None:
         """Test get value from dictionary."""
         data = [
             ({"English", "en"}, "lemmatize_en_all"),
