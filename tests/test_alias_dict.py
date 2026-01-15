@@ -114,8 +114,8 @@ class TestPositive:
         assert d.get("five") is None
         assert d.get(5) is None
 
-    def test_add_new_key(self) -> None:
-        """Test add new key from dictionary."""
+    def test_add_new_alias(self) -> None:
+        """Test add new alias to dictionary."""
         d = AliasDict()
 
         d.add({"Turkish"}, "libstemmer_tr")
