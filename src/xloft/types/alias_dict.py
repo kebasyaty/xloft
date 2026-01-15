@@ -22,13 +22,16 @@ class AliasDict:
     """Pseudo dictionary with supports aliases for keys."""
 
     def __init__(self, data: list[tuple[set[str | int | float], Any]] | None = None) -> None:  # noqa: D107
-        self.store = []
-        self.all_alias_set = set()  # for uniqueness check
+        self.__dict__["store"] = []
+        self.__dict__["all_alias_set"] = set()  # for uniqueness check
         if data is not None:
             for item in data:
-                if self.all_alias_set.isdisjoint(item[0]):
-                    self.all_alias_set.update(item[0])
-                    self.store.append(list(item))
+                if not self.all_alias_set.isdisjoint(item[0]):
+                    err_msg = "In some keys, aliases are repeated."
+                    logging.error(err_msg)
+                    raise KeyError(err_msg)
+                self.all_alias_set.update(item[0])
+                self.store.append(list(item))
 
     def __getattr__(self, name: str) -> None:
         """Blocked Getter."""
