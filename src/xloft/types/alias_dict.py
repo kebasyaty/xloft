@@ -57,29 +57,43 @@ class AliasDict:
         Returns:
             Deep copy of the value associated with the key or value by default.
         """
-        for item in self.store:
+        for item in self.__dict__["store"]:
             if alias in item[0]:
                 return copy.deepcopy(item[1])
 
         return default
 
-    def add(self, alias: str | int | float, value: Any) -> None:
-        """Add a new (key and value) or update an existing one.
+    def add(self, aliases: set[str | int | float], value: Any) -> None:
+        """Add a new key and value pair.
 
         Args:
-            alias (str | int | float): Alias of key.
+            aliases (set[str | int | float]): List (set) aliases of key.
             value (Any): Value associated with key.
 
         Returns:
             `None` or `KeyError` is missing.
         """
-        for item in self.store:
+        if not self.all_alias_set.isdisjoint(aliases):
+            err_msg = "In some keys, aliases are repeated."
+            logging.error(err_msg)
+
+        self.store.append([aliases, value])
+        self.all_alias_set.update(aliases)
+
+    def update(self, alias: set[str | int | float], value: Any) -> None:
+        """Update the value of an existing key.
+
+        Args:
+            aliases (set[str | int | float]): Alias of key.
+            value (Any): Value associated with key.
+
+        Returns:
+            `None` or `KeyError` if alias is missing.
+        """
+        for item in self.__dict__["store"]:
             if alias in item[0]:
                 item[1] = value
                 return
-
-        self.store.append([{alias}, value])
-        self.all_alias_set.add(alias)
 
     def delete(self, alias: str | int | float) -> None:
         """Delete the value associated with the key and all its aliases.
