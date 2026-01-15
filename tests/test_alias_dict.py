@@ -25,13 +25,13 @@ class TestPositive:
         """Test add value to empty dictionary."""
         d = AliasDict()
 
-        d.add("alias name", "Hello world!")
+        d.add({"alias name"}, "Hello world!")
         assert d.get("alias name") == "Hello world!"
 
-        d.add(5, 5)
+        d.add({5}, 5)
         assert d.get(5) == 5
 
-        d.add(5.1, 5.1)
+        d.add({5.1}, 5.1)
         assert d.get(5.1) == 5.1
 
         assert "alias name" in d.__dict__["all_alias_set"]
@@ -67,8 +67,7 @@ class TestPositive:
 
         d = AliasDict(data)
 
-        d.add("Turkish", "libstemmer_tr")
-        d.add_alias("Turkish", "tr")
+        d.add({"Turkish", "tr"}, "libstemmer_tr")
 
         assert d.get("English") == "lemmatize_en_all"
         assert d.get("en") == "lemmatize_en_all"
@@ -103,25 +102,10 @@ class TestPositive:
 
     def test_add_new_alias(self) -> None:
         """Test add new alias from dictionary."""
-        data = [
-            ({"English", "en"}, "lemmatize_en_all"),
-            ({"Russian", "ru"}, "lemmatize_ru_all"),
-            ({"German", "de"}, "lemmatize_de_all"),
-        ]
+        d = AliasDict()
 
-        d = AliasDict(data)
-
-        d.add("Turkish", "libstemmer_tr")
+        d.add({"Turkish"}, "libstemmer_tr")
         d.add_alias("Turkish", "tr")
-
-        assert d.get("English") == "lemmatize_en_all"
-        assert d.get("en") == "lemmatize_en_all"
-
-        assert d.get("Russian") == "lemmatize_ru_all"
-        assert d.get("ru") == "lemmatize_ru_all"
-
-        assert d.get("German") == "lemmatize_de_all"
-        assert d.get("de") == "lemmatize_de_all"
 
         assert d.get("Turkish") == "libstemmer_tr"
         assert d.get("tr") == "libstemmer_tr"
