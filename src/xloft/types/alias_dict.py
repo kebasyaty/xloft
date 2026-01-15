@@ -107,7 +107,7 @@ class AliasDict:
         self.store.append([aliases, value])
         self.all_alias_set.update(aliases)
 
-    def update(self, alias: set[str | int | float], value: Any) -> None:
+    def update(self, alias: str | int | float, value: Any) -> None:
         """Update the value of an existing key.
 
         Examples:
@@ -118,7 +118,7 @@ class AliasDict:
             "Hello world!"
 
         Args:
-            aliases (set[str | int | float]): Alias of key.
+            alias (str | int | float): Alias of key.
             value (Any): Value associated with key.
 
         Returns:
