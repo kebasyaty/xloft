@@ -109,3 +109,18 @@ class TestPositive:
 
         assert d.get("Turkish") == "libstemmer_tr"
         assert d.get("tr") == "libstemmer_tr"
+
+    def test_delete_alias(self) -> None:
+        """Test delete alias from dictionary."""
+        d = AliasDict()
+
+        d.add({"Turkish", "tr"}, "libstemmer_tr")
+
+        assert d.get("Turkish") == "libstemmer_tr"
+        assert d.get("tr") == "libstemmer_tr"
+
+        d.delete_alias("tr")
+
+        assert d.get("Turkish") == "libstemmer_tr"
+        assert d.get("tr") is None
+        assert "tr" not in d.__dict__["all_alias_set"]

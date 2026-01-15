@@ -135,7 +135,7 @@ class AliasDict:
             logging.error(err_msg)
             raise KeyError(err_msg)
 
-        for item in self.store:
+        for item in self.__dict__["store"]:
             if alias in item[0]:
                 item[0].add(new_alias)
                 self.all_alias_set.add(new_alias)
@@ -156,7 +156,7 @@ class AliasDict:
         Returns:
             `None` or `KeyError` if alias is missing.
         """
-        for item in self.store:
+        for item in self.__dict__["store"]:
             if alias in item[0]:
                 if len(item[0]) == 1:
                     self.store = [item for item in self.store if alias not in item[0]]
@@ -190,7 +190,7 @@ class AliasDict:
             `True` if the value is exists.
         """
         is_present = False
-        for item in self.store:
+        for item in self.__dict__["store"]:
             if value == item[1]:
                 is_present = True
                 break
