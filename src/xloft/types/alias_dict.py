@@ -211,9 +211,9 @@ class AliasDict:
             >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
             >>> for aliases, value in ad.items():
             ...     print(f"Aliases: {aliases}, Value: {value}")
-            "Key: x, Value: lemmatize_en_all"
+            "Key: ["English", "en"], Value: lemmatize_en_all"
 
         Returns:
-            `list[tuple[set[str | int | float], Any]]` or `[]`
+            `list[tuple[list[str | int | float], Any]]` or `[]`
         """
         return [(list(item[0]), item[1]) for item in self.store]
