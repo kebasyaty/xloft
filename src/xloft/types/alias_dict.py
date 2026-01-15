@@ -95,6 +95,10 @@ class AliasDict:
                 item[1] = value
                 return
 
+        err_msg = f"Alias: `{alias}` is missing!"
+        logging.error(err_msg)
+        raise KeyError(err_msg)
+
     def delete(self, alias: str | int | float) -> None:
         """Delete the value associated with the key and all its aliases.
 

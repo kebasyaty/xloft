@@ -39,7 +39,7 @@ class TestPositive:
         assert 5.1 in d.__dict__["all_alias_set"]
 
     def test_get_value(self) -> None:
-        """Test get value from dictionary."""
+        """Test get value by key."""
         data = [
             ({"English", "en"}, "lemmatize_en_all"),
             ({"Russian", "ru"}, "lemmatize_ru_all"),
@@ -57,8 +57,8 @@ class TestPositive:
         assert d.get("German") == "lemmatize_de_all"
         assert d.get("de") == "lemmatize_de_all"
 
-    def test_add_value(self) -> None:
-        """Test add value from dictionary."""
+    def test_add_key_and_value_pair(self) -> None:
+        """Test add a new key and value pair."""
         data = [
             ({"English", "en"}, "lemmatize_en_all"),
             ({"Russian", "ru"}, "lemmatize_ru_all"),
@@ -81,6 +81,20 @@ class TestPositive:
         assert d.get("Turkish") == "libstemmer_tr"
         assert d.get("tr") == "libstemmer_tr"
 
+    def test_update_value(self) -> None:
+        """Test update value by key."""
+        data = [({"five", 5}, "Five it's me!")]
+
+        d = AliasDict(data)
+
+        assert d.get("five") == "Five it's me!"
+        assert d.get(5) == "Five it's me!"
+
+        d.update(5, "Hello world!")
+
+        assert d.get("five") == "Hello world!"
+        assert d.get(5) == "Hello world!"
+
     def test_delete_key_and_value(self) -> None:
         """Test delete key and value from dictionary."""
         data = [
@@ -100,8 +114,8 @@ class TestPositive:
         assert d.get("five") is None
         assert d.get(5) is None
 
-    def test_add_new_alias(self) -> None:
-        """Test add new alias from dictionary."""
+    def test_add_new_key(self) -> None:
+        """Test add new key from dictionary."""
         d = AliasDict()
 
         d.add({"Turkish"}, "libstemmer_tr")
