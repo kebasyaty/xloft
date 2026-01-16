@@ -188,7 +188,7 @@ class NamedTuple:
         return [attrs[key] for key in keys]
 
     def has_key(self, key: str) -> bool:
-        """Returns True if the key exists, otherwise False.
+        """Check if the key exists.
 
         Args:
             key: Key name.
@@ -205,7 +205,7 @@ class NamedTuple:
         return key in self._0D5rSmH9Sy2XUWb5_keys
 
     def has_value(self, value: Any) -> bool:
-        """Returns True if the value exists, otherwise False.
+        """Check if the value exists.
 
         Args:
             value: Value of key.

@@ -241,7 +241,7 @@ class AliasDict:
             alias (str | int | float): Some alias.
 
         Returns:
-            `True` if the alias is exists.
+            True if the key exists, otherwise False.
         """
         return alias in self.__dict__["all_alias_set"]
 
@@ -258,7 +258,7 @@ class AliasDict:
             value (Any): Value associated with key.
 
         Returns:
-            `True` if the value is exists.
+            True if the value exists, otherwise False.
         """
         is_exists = False
         for item in self.__dict__["store"]:
