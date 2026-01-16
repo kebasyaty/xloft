@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 """`NamedTuple` - Imitates the behavior of the *named tuple*.
 
-Class `NamedTuple`  contains the following methods:
+Class `NamedTuple` contains the following methods:
 
 - `get` - Return the value for key if key is in the dictionary, else `None`.
 - `update` - Update a value of key.
