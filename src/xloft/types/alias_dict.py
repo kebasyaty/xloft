@@ -16,7 +16,6 @@ Class `AliasDict` contains the following methods:
 - `items` - Returns a list of `AliasDict` elements grouped into tuples.
 - `keys` - Get a list of all aliases.
 - `values` - Get a list of all values.
-
 """
 
 from __future__ import annotations
