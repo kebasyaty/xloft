@@ -1,7 +1,19 @@
 # XLOFT - X-Library of tools.
 # Copyright (c) 2025 Gennady Kostyunin
 # SPDX-License-Identifier: MIT
-"""`NamedTuple` class imitates the behavior of the *named tuple*."""
+"""`NamedTuple` - Imitates the behavior of the *named tuple*.
+
+Class `NamedTuple` contains the following methods:
+
+- `get` - Return the value for key if key is in the dictionary, else `None`.
+- `update` - Update a value of key.
+- `to_dict` - Convert to the dictionary.
+- `items` - Returns a list of `NamedTuple` elements grouped into tuples.
+- `keys` - Get a list of keys.
+- `values` - Get a list of values.
+- `has_key` - Returns True if the key exists, otherwise False.
+- `has_value` - Returns True if the value exists, otherwise False.
+"""
 
 from __future__ import annotations
 
@@ -176,7 +188,7 @@ class NamedTuple:
         return [attrs[key] for key in keys]
 
     def has_key(self, key: str) -> bool:
-        """Returns True if the key exists, otherwise False.
+        """Check if the key exists.
 
         Args:
             key: Key name.
@@ -193,7 +205,7 @@ class NamedTuple:
         return key in self._0D5rSmH9Sy2XUWb5_keys
 
     def has_value(self, value: Any) -> bool:
-        """Returns True if the value exists, otherwise False.
+        """Check if the value exists.
 
         Args:
             value: Value of key.
