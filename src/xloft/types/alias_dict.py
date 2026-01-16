@@ -284,7 +284,7 @@ class AliasDict:
         return is_exists
 
     def items(self) -> list[tuple[list[str | int | float], Any]]:
-        """Returns a list of `AliasDict` elements grouped into tuples.
+        """Returns a list containing a tuple for each key-value pair.
 
         This is convenient for use in a `for` loop.
 
@@ -296,7 +296,8 @@ class AliasDict:
             "Key: ['English', 'en'], Value: lemmatize_en_all"
 
         Returns:
-            `list[tuple[list[str | int | float], Any]]` or `[]`
+            Returns a list containing a tuple for each key-value pair.
+            Type: `list[tuple[list[str | int | float], Any]]` or `[]`.
         """
         return [(list(item[0]), item[1]) for item in self.store]
 

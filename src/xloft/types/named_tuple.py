@@ -138,7 +138,7 @@ class NamedTuple:
         return {key: attrs[key] for key in keys}
 
     def items(self) -> list[tuple[str, Any]]:
-        """Returns a list of `NamedTuple` elements grouped into tuples.
+        """Returns a list containing a tuple for each key-value pair.
 
         This is convenient for use in a `for` loop.
 
@@ -151,7 +151,8 @@ class NamedTuple:
             "Key: y, Value: Hello"
 
         Returns:
-            `list[tuple[str, Any]]`
+            Returns a list containing a tuple for each key-value pair.
+            Type: `list[tuple[str, Any]]`.
         """
         attrs: dict[str, Any] = self.__dict__
         keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
