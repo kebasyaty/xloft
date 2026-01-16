@@ -1,7 +1,19 @@
 # XLOFT - X-Library of tools.
 # Copyright (c) 2025 Gennady Kostyunin
 # SPDX-License-Identifier: MIT
-"""`NamedTuple` - Imitates the behavior of the *named tuple*."""
+"""`NamedTuple` - Imitates the behavior of the *named tuple*.
+
+Class `NamedTuple`  contains the following methods:
+
+- `get` - Return the value for key if key is in the dictionary, else `None`.
+- `update` - Update a value of key.
+- `to_dict` - Convert to the dictionary.
+- `items` - Returns a list of `NamedTuple` elements grouped into tuples.
+- `keys` - Get a list of keys.
+- `values` - Get a list of values.
+- `has_key` - Returns True if the key exists, otherwise False.
+- `has_value` - Returns True if the value exists, otherwise False.
+"""
 
 from __future__ import annotations
 
