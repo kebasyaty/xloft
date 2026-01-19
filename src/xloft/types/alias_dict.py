@@ -13,9 +13,9 @@ Class `AliasDict` contains the following methods:
 - `delete_alias` - Remove the alias from the existing set.
 - `has_key` - Check if the alias exists.
 - `has_value` - Check if the value exists.
-- `items` - Returns a list of `AliasDict` elements grouped into tuples.
-- `keys` - Get a list of all aliases.
-- `values` - Get a list of all values.
+- `items` - Returns a generator of list of `AliasDict` elements grouped into tuples.
+- `keys` - Get a generator of list of all aliases.
+- `values` - Get a generator of list of all values.
 """
 
 from __future__ import annotations
