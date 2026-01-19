@@ -312,7 +312,7 @@ class AliasDict:
         Examples:
             >>> from xloft import AliasDict
             >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
-            >>> ad.keys()
+            >>> list(ad.keys())
             ["English", "en"]
 
         Returns:
@@ -329,7 +329,7 @@ class AliasDict:
         Examples:
             >>> from xloft import AliasDict
             >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
-            >>> ad.values()
+            >>> list(ad.values())
             ["lemmatize_en_all"]
 
         Returns:
