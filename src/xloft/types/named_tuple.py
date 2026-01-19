@@ -8,9 +8,9 @@ Class `NamedTuple` contains the following methods:
 - `get` - Return the value for key if key is in the dictionary, else `None`.
 - `update` - Update a value of key.
 - `to_dict` - Convert to the dictionary.
-- `items` - Returns a list of `NamedTuple` elements grouped into tuples.
-- `keys` - Get a list of keys.
-- `values` - Get a list of values.
+- `items` - Returns a generator of list of `NamedTuple` elements grouped into tuples.
+- `keys` - Get a generator of list of keys.
+- `values` - Get a generator of list of values.
 - `has_key` - Returns True if the key exists, otherwise False.
 - `has_value` - Returns True if the value exists, otherwise False.
 """
@@ -19,6 +19,7 @@ from __future__ import annotations
 
 __all__ = ("NamedTuple",)
 
+from collections.abc import Generator
 from typing import Any
 
 from xloft.errors import (
@@ -137,10 +138,11 @@ class NamedTuple:
         keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
         return {key: attrs[key] for key in keys}
 
-    def items(self) -> list[tuple[str, Any]]:
-        """Returns a list containing a tuple for each key-value pair.
+    def items(self) -> Generator[tuple[str, Any]]:
+        """Returns a generator of list containing a tuple for each key-value pair.
 
         This is convenient for use in a `for` loop.
+        If you need to get a list, do it list(instance.items()).
 
         Examples:
             >>> from xloft import NamedTuple
@@ -156,10 +158,12 @@ class NamedTuple:
         """
         attrs: dict[str, Any] = self.__dict__
         keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
-        return [(key, attrs[key]) for key in keys]
+        return ((key, attrs[key]) for key in keys)
 
-    def keys(self) -> list[str]:
-        """Get a list of keys.
+    def keys(self) -> Generator[str]:
+        """Get a generator of list of keys.
+
+        If you need to get a list, do it list(instance.items()).
 
         Examples:
             >>> from xloft import NamedTuple
@@ -170,10 +174,13 @@ class NamedTuple:
         Returns:
             List of keys.
         """
-        return self._0D5rSmH9Sy2XUWb5_keys.copy()
+        keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
+        return (item for item in keys)
 
-    def values(self) -> list[Any]:
-        """Get a list of values.
+    def values(self) -> Generator[Any]:
+        """Get a generator of list of values.
+
+        If you need to get a list, do it list(instance.items()).
 
         Examples:
             >>> from xloft import NamedTuple
@@ -186,7 +193,7 @@ class NamedTuple:
         """
         attrs: dict[str, Any] = self.__dict__
         keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
-        return [attrs[key] for key in keys]
+        return (attrs[key] for key in keys)
 
     def has_key(self, key: str) -> bool:
         """Check if the key exists.

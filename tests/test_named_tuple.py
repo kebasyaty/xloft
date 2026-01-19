@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from collections.abc import Generator
+
 import pytest
 
 from xloft import NamedTuple
@@ -121,7 +123,9 @@ class TestPositive:
         """In the cycle `for`."""
         d = {"x": 10, "y": "Hello"}
         nt = init_namedtuple
-        for key, val in nt.items():
+        g = nt.items()
+        assert isinstance(g, Generator)
+        for key, val in g:
             assert d[key] == val
 
     def test_len_method(self, init_namedtuple) -> None:
@@ -132,18 +136,18 @@ class TestPositive:
     def test_keys_method(self, init_namedtuple) -> None:
         """Get a list of keys."""
         nt = init_namedtuple
-        assert nt.keys() == ["x", "y"]
-        keys = nt.keys()
-        keys[0] = "x2"
-        assert nt.keys()[0] != keys[0]
+        g = nt.keys()
+        assert isinstance(g, Generator)
+        key_list = list(g)
+        assert key_list == ["x", "y"]
 
     def test_values_method(self, init_namedtuple) -> None:
         """Get a list of values."""
         nt = init_namedtuple
-        assert nt.values() == [10, "Hello"]
-        values = nt.values()
-        values[0] = 5
-        assert nt.values()[0] != values[0]
+        g = nt.values()
+        assert isinstance(g, Generator)
+        value_list = list(g)
+        assert value_list == [10, "Hello"]
 
     def test_has_key(self, init_namedtuple) -> None:
         """Returns True if the key exists, otherwise False."""
