@@ -168,7 +168,7 @@ class NamedTuple:
         Examples:
             >>> from xloft import NamedTuple
             >>> nt = NamedTuple(x=10, y="Hello")
-            >>> nt.keys()
+            >>> list(nt.keys())
             ["x", "y"]
 
         Returns:
@@ -185,7 +185,7 @@ class NamedTuple:
         Examples:
             >>> from xloft import NamedTuple
             >>> nt = NamedTuple(x=10, y="Hello")
-            >>> nt.values()
+            >>> list(nt.values())
             [10, "Hello"]
 
         Returns:
