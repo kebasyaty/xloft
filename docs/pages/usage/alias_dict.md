@@ -50,7 +50,7 @@ d.has_value(6)  # False
 for aliases, value in d.items():
     print(f"Aliases of key: {aliases}, Value: {value}")
 #
-d.keys()  # => ["English", "en", "Russian", "ru", "German", "de", "Turkish", "tr"]
+list(d.keys())  # => ["English", "en", "Russian", "ru", "German", "de", "Turkish", "tr"]
 #
-d.values()  # => ["lemmatize_en_all", "lemmatize_ru_all", "lemmatize_de_all", "libstemmer_tr"]
+list(d.values())  # => ["lemmatize_en_all", "lemmatize_ru_all", "lemmatize_de_all", "libstemmer_tr"]
 ```
