@@ -17,8 +17,8 @@ nt._id  # => 507c7f79bcf86cd7994f6c0e
 nt.z  # => raise: KeyError
 
 len(nt)  # => 3
-nt.keys()  # => ["x", "y", "_id"]
-nt.values()  # => [10, "Hello", "507c7f79bcf86cd7994f6c0e"]
+list(nt.keys())  # => ["x", "y", "_id"]
+list(nt.values())  # => [10, "Hello", "507c7f79bcf86cd7994f6c0e"]
 
 nt.has_key("x")  # => True
 nt.has_key("y")  # => True

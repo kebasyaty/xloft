@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from collections.abc import Generator
+
 import pytest
 
 from xloft import AliasDict
@@ -348,7 +350,8 @@ class TestPositive:
         }
 
         d = AliasDict(data)
-
+        g = d.items()
+        assert isinstance(g, Generator)
         for aliases, value in d.items():
             assert value == data_for_check[aliases[0]]  # pyrefly: ignore[bad-typed-dict-key]
 
@@ -362,9 +365,10 @@ class TestPositive:
 
         d = AliasDict(data)
 
-        alias_list = d.keys()
+        alias_gen = d.keys()
 
-        assert isinstance(alias_list, list)
+        assert isinstance(alias_gen, Generator)
+        alias_list = list(alias_gen)
         assert len(alias_list) == 6
 
     def test_values(self) -> None:
@@ -377,9 +381,10 @@ class TestPositive:
 
         d = AliasDict(data)
 
-        value_list = d.values()
+        value_gen = d.values()
 
-        assert isinstance(value_list, list)
+        assert isinstance(value_gen, Generator)
+        value_list = list(value_gen)
         assert len(value_list) == 3
 
         for item in value_list:

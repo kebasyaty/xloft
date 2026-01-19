@@ -13,9 +13,9 @@ Class `AliasDict` contains the following methods:
 - `delete_alias` - Remove the alias from the existing set.
 - `has_key` - Check if the alias exists.
 - `has_value` - Check if the value exists.
-- `items` - Returns a list of `AliasDict` elements grouped into tuples.
-- `keys` - Get a list of all aliases.
-- `values` - Get a list of all values.
+- `items` - Returns a generator of list of `AliasDict` elements grouped into tuples.
+- `keys` - Get a generator of list of all aliases.
+- `values` - Get a generator of list of all values.
 """
 
 from __future__ import annotations
@@ -24,6 +24,7 @@ __all__ = ("AliasDict",)
 
 import copy
 import logging
+from collections.abc import Generator
 from typing import Any
 
 from xloft.errors import (
@@ -283,10 +284,11 @@ class AliasDict:
 
         return is_exists
 
-    def items(self) -> list[tuple[list[str | int | float], Any]]:
-        """Returns a list containing a tuple for each key-value pair.
+    def items(self) -> Generator[tuple[list[str | int | float], Any]]:
+        """Returns a generator of list containing a tuple for each key-value pair.
 
         This is convenient for use in a `for` loop.
+        If you need to get a list, do it list(instance.items()).
 
         Examples:
             >>> from xloft import AliasDict
@@ -299,32 +301,39 @@ class AliasDict:
             Returns a list containing a tuple for each key-value pair.
             Type: `list[tuple[list[str | int | float], Any]]` or `[]`.
         """
-        return [(list(item[0]), item[1]) for item in self.store]
+        store = self.__dict__["store"]
+        return ((list(item[0]), item[1]) for item in store)
 
-    def keys(self) -> list[str | int | float]:
-        """Get a list of all aliases.
+    def keys(self) -> Generator[str | int | float]:
+        """Get a generator of list of all aliases.
+
+        If you need to get a list, do it list(instance.keys()).
 
         Examples:
             >>> from xloft import AliasDict
             >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
-            >>> ad.keys()
+            >>> list(ad.keys())
             ["English", "en"]
 
         Returns:
             List of all aliases.
         """
-        return list(self.__dict__["all_alias_set"])
+        all_alias_set = self.__dict__["all_alias_set"]
+        return (item for item in all_alias_set)
 
-    def values(self) -> list[Any]:
-        """Get a list of all values.
+    def values(self) -> Generator[Any]:
+        """Get a generator of list of all values.
+
+        If you need to get a list, do it list(instance.values()).
 
         Examples:
             >>> from xloft import AliasDict
             >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
-            >>> ad.values()
+            >>> list(ad.values())
             ["lemmatize_en_all"]
 
         Returns:
             List of all values.
         """
-        return [item[1] for item in self.__dict__["store"]]
+        store = self.__dict__["store"]
+        return (item[1] for item in store)
