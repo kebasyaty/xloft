@@ -1,16 +1,23 @@
 ### CHANGELOG
 
+#### v0.10.4 2026-01-19
+
+- AliasDict - Added Generator to `items`, `keys` and `values` methods.
+- NamedTuple - Added Generator to `items`, `keys` and `values` methods.
+- Upgraded dependencies.
+- Updated documentation.
+
 #### v0.10.0 2026-01-15
 
 - Added a new custom data type `AliasDict`.
-- Upgraded all dependencies.
+- Upgraded dependencies.
 - Updated documentation.
 - Updated `README.md` file.
 
 #### v0.9.7 2026-01-03
 
 - Added a `Copyright` commets.
-- Upgraded all dependencies.
+- Upgraded dependencies.
 - Updated documentation.
 
 #### v0.9.1 2025-11-21
