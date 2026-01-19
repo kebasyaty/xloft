@@ -46,7 +46,7 @@ d.has_key("EN")  # => False
 d.has_value("lemmatize_en_all")  # True
 d.has_value(6)  # False
 #
-# items() -> `list[tuple[list[str | int | float], Any]]` or `[]`
+# items() -> `Generator[tuple[list[str | int | float], Any]]`
 for aliases, value in d.items():
     print(f"Aliases of key: {aliases}, Value: {value}")
 #
