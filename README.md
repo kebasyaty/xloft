@@ -70,8 +70,8 @@ nt._id  # => 507c7f79bcf86cd7994f6c0e
 nt.z  # => raise: KeyError
 
 len(nt)  # => 3
-nt.keys()  # => ["x", "y", "_id"]
-nt.values()  # => [10, "Hello", "507c7f79bcf86cd7994f6c0e"]
+list(nt.keys())  # => ["x", "y", "_id"]
+list(nt.values())  # => [10, "Hello", "507c7f79bcf86cd7994f6c0e"]
 
 nt.has_key("x")  # => True
 nt.has_key("y")  # => True
@@ -171,13 +171,13 @@ d.has_key("EN")  # => False
 d.has_value("lemmatize_en_all")  # True
 d.has_value(6)  # False
 #
-# items() -> `list[tuple[list[str | int | float], Any]]` or `[]`
+# items() -> `Generator[tuple[list[str | int | float], Any]]`
 for aliases, value in d.items():
     print(f"Aliases of key: {aliases}, Value: {value}")
 #
-d.keys()  # => ["English", "en", "Russian", "ru", "German", "de", "Turkish", "tr"]
+list(d.keys())  # => ["English", "en", "Russian", "ru", "German", "de", "Turkish", "tr"]
 #
-d.values()  # => ["lemmatize_en_all", "lemmatize_ru_all", "lemmatize_de_all", "libstemmer_tr"]
+list(d.values())  # => ["lemmatize_en_all", "lemmatize_ru_all", "lemmatize_de_all", "libstemmer_tr"]
 ```
 
 - **Converters**
