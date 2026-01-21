@@ -43,4 +43,4 @@ In the future, new tools can be added.
 
 #### License
 
-[![MIT](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/link-mit.svg "MIT")](https://github.com/kebasyaty/xloft/blob/main/MIT-LICENSE "MIT")
+[![MIT](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/link-mit.svg "MIT")](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")
