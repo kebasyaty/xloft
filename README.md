@@ -37,11 +37,11 @@
 
 ## Documentation
 
-Online browsable documentation is available at [https://kebasyaty.github.io/xloft/](https://kebasyaty.github.io/xloft/ "Documentation").
+[![Documentation](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/link-documentation.svg "Documentation")](https://kebasyaty.github.io/xloft/ "Documentation")
 
 ## Requirements
 
-[View the list of requirements.](https://github.com/kebasyaty/xloft/blob/main/REQUIREMENTS.md "View the list of requirements.")
+[![Requirements](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/link-requirements.svg "Requirements")](https://github.com/kebasyaty/xloft/blob/v0/REQUIREMENTS.md "Requirements")
 
 ## Installation
 
@@ -50,6 +50,8 @@ uv add xloft
 ```
 
 ## Usage
+
+[![Examples](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/link-examples.svg "Examples")](https://kebasyaty.github.io/xloft/latest/pages/usage/ "Examples")
 
 - **NamedTuple**
 
@@ -236,8 +238,8 @@ is_palindrome("")  # ValueError
 
 ## Changelog
 
-[View the change history.](https://github.com/kebasyaty/xloft/blob/main/CHANGELOG.md "Changelog")
+[![Changelog](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/link-changelog.svg "Changelog")](https://github.com/kebasyaty/xloft/blob/v0/CHANGELOG.md "Changelog")
 
 ## License
 
-This project is licensed under the [MIT](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT").
+[![MIT](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/link-mit.svg "MIT")](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")
