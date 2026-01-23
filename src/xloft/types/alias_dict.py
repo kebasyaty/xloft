@@ -75,6 +75,26 @@ class AliasDict:
         """Blocked Deleter."""
         raise AttributeCannotBeDeleteError(name)
 
+    def __getitem__(self, alias: str | int | float) -> Any:
+        """Get value by [key_name].
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> ad["en"]
+            "lemmatize_en_all"
+
+        Args:
+            alias (str | int | float): Alias of key.
+
+        Returns:
+            Deep copy of the value associated with the alias.
+        """
+        for item in self.__dict__["store"]:
+            if alias in item[0]:
+                return copy.deepcopy(item[1])
+        raise KeyError(f"Alias `{alias}` is missing!")
+
     def get(self, alias: str | int | float, default: Any = None) -> Any:
         """Get value by alias.
 
@@ -91,7 +111,7 @@ class AliasDict:
             default (Any): Value by default.
 
         Returns:
-            Deep copy of the value associated with the key or value by default.
+            Deep copy of the value associated with the alias or value by default.
         """
         for item in self.__dict__["store"]:
             if alias in item[0]:
@@ -145,7 +165,7 @@ class AliasDict:
                 item[1] = value
                 return
 
-        err_msg = f"Alias: `{alias}` is missing!"
+        err_msg = f"Alias `{alias}` is missing!"
         logging.error(err_msg)
         raise KeyError(err_msg)
 
@@ -173,7 +193,7 @@ class AliasDict:
                 self.__dict__["store"] = [item for item in self.__dict__["store"] if alias not in item[0]]
                 return
 
-        err_msg = f"Alias: `{alias}` is missing!"
+        err_msg = f"Alias `{alias}` is missing!"
         logging.error(err_msg)
         raise KeyError(err_msg)
 
@@ -199,7 +219,7 @@ class AliasDict:
             `None` or `KeyError` if new alias is already exists.
         """
         if new_alias in self.__dict__["all_alias_set"]:
-            err_msg = f"New Alias: `{new_alias}` is already exists!"
+            err_msg = f"New Alias `{new_alias}` is already exists!"
             logging.error(err_msg)
             raise KeyError(err_msg)
 
@@ -209,7 +229,7 @@ class AliasDict:
                 self.all_alias_set.add(new_alias)
                 return
 
-        err_msg = f"Alias: `{alias}` is missing!"
+        err_msg = f"Alias `{alias}` is missing!"
         logging.error(err_msg)
         raise KeyError(err_msg)
 
@@ -240,7 +260,7 @@ class AliasDict:
                 self.all_alias_set.remove(alias)
                 return
 
-        err_msg = f"Alias: `{alias}` is missing!"
+        err_msg = f"Alias `{alias}` is missing!"
         logging.error(err_msg)
         raise KeyError(err_msg)
 

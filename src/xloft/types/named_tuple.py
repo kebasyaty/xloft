@@ -19,7 +19,7 @@ from __future__ import annotations
 
 __all__ = ("NamedTuple",)
 
-from collections.abc import Generator
+import copy
 from typing import Any
 
 from xloft.errors import (
@@ -32,10 +32,7 @@ class NamedTuple:
     """This class imitates the behavior of the `named tuple`."""
 
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
-        self.__dict__["_0D5rSmH9Sy2XUWb5_keys"] = []
-        for name, value in kwargs.items():
-            self.__dict__[name] = value
-            self._0D5rSmH9Sy2XUWb5_keys.append(name)
+        self.__dict__["_0D5rSmH9Sy2XUWb5_dict"] = kwargs
 
     def __len__(self) -> int:
         """Get the number of elements in the tuple.
@@ -49,7 +46,7 @@ class NamedTuple:
         Returns:
             The number of elements in the tuple.
         """
-        return len(self._0D5rSmH9Sy2XUWb5_keys)
+        return len(self._0D5rSmH9Sy2XUWb5_dict)
 
     def __getattr__(self, name: str) -> Any:
         """Getter.
@@ -66,7 +63,7 @@ class NamedTuple:
         Returns:
             Value of key.
         """
-        return self.__dict__[name]
+        return self._0D5rSmH9Sy2XUWb5_dict[name]
 
     def __setattr__(self, name: str, value: Any) -> None:
         """Blocked Setter."""
@@ -76,7 +73,25 @@ class NamedTuple:
         """Blocked Deleter."""
         raise AttributeCannotBeDeleteError(name)
 
-    def get(self, key: str) -> Any:
+    def __getitem__(self, key: str) -> Any:
+        """Get value by [key_name].
+
+        Args:
+            key: Key name.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> nt["x"]
+            10
+
+        Returns:
+            Deep copy of the value associated with the key.
+        """
+        value = self._0D5rSmH9Sy2XUWb5_dict[key]
+        return copy.deepcopy(value)
+
+    def get(self, key: str, default: Any = None) -> Any:
         """Return the value for key if key is in the dictionary, else `None`.
 
         Args:
@@ -89,12 +104,12 @@ class NamedTuple:
             10
 
         Returns:
-            Value of key.
+            Deep copy of the value associated with the alias or value by default.
         """
-        value = self.__dict__.get(key)
+        value = self._0D5rSmH9Sy2XUWb5_dict.get(key)
         if value is not None:
-            return value
-        return None
+            return copy.deepcopy(value)
+        return default
 
     def update(self, key: str, value: Any) -> None:
         """Update a value of key.
@@ -115,11 +130,11 @@ class NamedTuple:
         Returns:
             None
         """
-        keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
+        keys: list[str] = self._0D5rSmH9Sy2XUWb5_dict.keys()
         if key not in keys:
             err_msg = f"The key `{key}` is missing!"
             raise KeyError(err_msg)
-        self.__dict__[key] = value
+        self._0D5rSmH9Sy2XUWb5_dict[key] = value
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to the dictionary.
@@ -134,11 +149,9 @@ class NamedTuple:
         Returns:
             Dictionary with keys and values of the tuple.
         """
-        attrs: dict[str, Any] = self.__dict__
-        keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
-        return {key: attrs[key] for key in keys}
+        return dict(self._0D5rSmH9Sy2XUWb5_dict)
 
-    def items(self) -> Generator[tuple[str, Any]]:
+    def items(self) -> Any:
         """Returns a generator of list containing a tuple for each key-value pair.
 
         This is convenient for use in a `for` loop.
@@ -156,11 +169,9 @@ class NamedTuple:
             Returns a list containing a tuple for each key-value pair.
             Type: `list[tuple[str, Any]]`.
         """
-        attrs: dict[str, Any] = self.__dict__
-        keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
-        return ((key, attrs[key]) for key in keys)
+        return self._0D5rSmH9Sy2XUWb5_dict.items()
 
-    def keys(self) -> Generator[str]:
+    def keys(self) -> Any:
         """Get a generator of list of keys.
 
         If you need to get a list, do it list(instance.items()).
@@ -174,10 +185,9 @@ class NamedTuple:
         Returns:
             List of keys.
         """
-        keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
-        return (item for item in keys)
+        return self._0D5rSmH9Sy2XUWb5_dict.keys()
 
-    def values(self) -> Generator[Any]:
+    def values(self) -> Any:
         """Get a generator of list of values.
 
         If you need to get a list, do it list(instance.items()).
@@ -191,9 +201,7 @@ class NamedTuple:
         Returns:
             List of values.
         """
-        attrs: dict[str, Any] = self.__dict__
-        keys: list[str] = self._0D5rSmH9Sy2XUWb5_keys
-        return (attrs[key] for key in keys)
+        return self._0D5rSmH9Sy2XUWb5_dict.values()
 
     def has_key(self, key: str) -> bool:
         """Check if the key exists.
@@ -210,7 +218,8 @@ class NamedTuple:
         Returns:
             True if the key exists, otherwise False.
         """
-        return key in self._0D5rSmH9Sy2XUWb5_keys
+        keys = self._0D5rSmH9Sy2XUWb5_dict.keys()
+        return key in keys
 
     def has_value(self, value: Any) -> bool:
         """Check if the value exists.
@@ -227,4 +236,5 @@ class NamedTuple:
         Returns:
             True if the value exists, otherwise False.
         """
-        return value in self.values()
+        values = self._0D5rSmH9Sy2XUWb5_dict.values()
+        return value in values

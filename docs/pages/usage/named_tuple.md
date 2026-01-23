@@ -14,7 +14,17 @@ nt = NamedTuple(**d)
 nt.x  # => 10
 nt.y  # => Hello
 nt._id  # => 507c7f79bcf86cd7994f6c0e
-nt.z  # => raise: KeyError
+nt.z  # => KeyError
+
+nt["x"]  # => 10
+nt["y"]  # => Hello
+nt["_id"]  # => 507c7f79bcf86cd7994f6c0e
+nt["z"]  # => KeyError
+
+nt.get("x")  # => 10
+nt.get("y")  # => Hello
+nt.get("_id")  # => 507c7f79bcf86cd7994f6c0e
+nt.get("z")  # => None
 
 len(nt)  # => 3
 list(nt.keys())  # => ["x", "y", "_id"]
@@ -29,11 +39,6 @@ nt.has_value(10)  # => True
 nt.has_value("Hello")  # => True
 nt.has_value("507c7f79bcf86cd7994f6c0e")  # => True
 nt.has_value([1, 2, 3])  # => False
-
-nt.get("x")  # => 10
-nt.get("y")  # => Hello
-nt.get("_id")  # => 507c7f79bcf86cd7994f6c0e
-nt.get("z")  # => None
 
 d = nt.to_dict()
 d["x"]  # => 10
