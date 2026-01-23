@@ -140,6 +140,9 @@ d = AliasDict(data)
 
 len(d)  # => 4
 #
+d["English"]  # => "lemmatize_en_all"
+d["en"]  # => "lemmatize_en_all"
+d["EN"]  # => KeyError
 d.get("English")  # => "lemmatize_en_all"
 d.get("en")  # => "lemmatize_en_all"
 d.get("EN")  # => None
