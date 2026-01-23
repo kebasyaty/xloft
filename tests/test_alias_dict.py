@@ -166,9 +166,9 @@ class TestPositive:
     def test_create_empty(self) -> None:
         """Test the creation of an empty dictionary."""
         d = AliasDict()
-        assert isinstance(d.store, list)
+        assert isinstance(d._store, list)
         assert isinstance(d.all_alias_set, set)
-        assert d.store == []
+        assert d._store == []
         assert d.all_alias_set == set()
 
     def test_get_value_from_empty(self) -> None:
