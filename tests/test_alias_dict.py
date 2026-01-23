@@ -423,6 +423,21 @@ class TestPositive:
         res = d["English"]
         assert res == "lemmatize_en_all"
 
+        res = d["Russian"]
+        assert res == "lemmatize_ru_all"
+
+        res = d["German"]
+        assert res == "lemmatize_de_all"
+
+        res = d["en"]
+        assert res == "lemmatize_en_all"
+
+        res = d["ru"]
+        assert res == "lemmatize_ru_all"
+
+        res = d["de"]
+        assert res == "lemmatize_de_all"
+
         x = d["en"]
         x = "Some text"
         assert d["en"] != x
