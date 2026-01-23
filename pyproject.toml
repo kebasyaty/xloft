@@ -1,13 +1,13 @@
 [project]
 name = "xloft"
-version = "0.10.9"
+version = "0.10.10"
 description = "(XLOFT) X-Library of tools"
 readme = "README.md"
 authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
 license = "MIT"
 license-files = ["LICENSE"]
 requires-python = ">=3.12,<4.0"
-keywords = ["collection", "tools", "xloft", "namedtuple", "aliasdict"]
+keywords = ["namedtuple", "aliasdict", "tools", "xloft", "collection"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",

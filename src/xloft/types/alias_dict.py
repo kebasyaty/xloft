@@ -38,7 +38,7 @@ class AliasDict:
     """Pseudo dictionary with supports aliases for keys."""
 
     def __init__(self, data: list[tuple[set[str | int | float], Any]] | None = None) -> None:  # noqa: D107
-        self.__dict__["store"] = []
+        self.__dict__["_store"] = []
         self.__dict__["all_alias_set"] = set()  # for uniqueness check
         if data is not None:
             for item in data:
@@ -47,7 +47,7 @@ class AliasDict:
                     logging.error(err_msg)
                     raise KeyError(err_msg)
                 self.all_alias_set.update(item[0])
-                self.store.append(list(item))
+                self._store.append(list(item))
 
     def __len__(self) -> int:
         """Get the number of elements in the dictionary.
@@ -61,7 +61,7 @@ class AliasDict:
         Returns:
             The number of elements in the dictionary.
         """
-        return len(self.__dict__["store"])
+        return len(self.__dict__["_store"])
 
     def __getattr__(self, name: str) -> None:
         """Blocked Getter."""
@@ -90,7 +90,7 @@ class AliasDict:
         Returns:
             Deep copy of the value associated with the alias.
         """
-        for item in self.__dict__["store"]:
+        for item in self.__dict__["_store"]:
             if alias in item[0]:
                 return copy.deepcopy(item[1])
         raise KeyError(f"Alias `{alias}` is missing!")
@@ -113,7 +113,7 @@ class AliasDict:
         Returns:
             Deep copy of the value associated with the alias or value by default.
         """
-        for item in self.__dict__["store"]:
+        for item in self.__dict__["_store"]:
             if alias in item[0]:
                 return copy.deepcopy(item[1])
 
@@ -140,7 +140,7 @@ class AliasDict:
             err_msg = "In some keys, aliases are repeated."
             logging.error(err_msg)
 
-        self.store.append([aliases, value])
+        self._store.append([aliases, value])
         self.all_alias_set.update(aliases)
 
     def update(self, alias: str | int | float, value: Any) -> None:
@@ -160,7 +160,7 @@ class AliasDict:
         Returns:
             `None` or `KeyError` if alias is missing.
         """
-        for item in self.__dict__["store"]:
+        for item in self.__dict__["_store"]:
             if alias in item[0]:
                 item[1] = value
                 return
@@ -185,12 +185,12 @@ class AliasDict:
         Returns:
             `None` or `KeyError` if alias is missing.
         """
-        for item in self.__dict__["store"]:
+        for item in self.__dict__["_store"]:
             if alias in item[0]:
                 self.__dict__["all_alias_set"] = {
                     alias for alias in self.__dict__["all_alias_set"] if alias not in item[0]
                 }
-                self.__dict__["store"] = [item for item in self.__dict__["store"] if alias not in item[0]]
+                self.__dict__["_store"] = [item for item in self.__dict__["_store"] if alias not in item[0]]
                 return
 
         err_msg = f"Alias `{alias}` is missing!"
@@ -223,7 +223,7 @@ class AliasDict:
             logging.error(err_msg)
             raise KeyError(err_msg)
 
-        for item in self.__dict__["store"]:
+        for item in self.__dict__["_store"]:
             if alias in item[0]:
                 item[0].add(new_alias)
                 self.all_alias_set.add(new_alias)
@@ -251,10 +251,10 @@ class AliasDict:
         Returns:
             `None` or `KeyError` if alias is missing.
         """
-        for item in self.__dict__["store"]:
+        for item in self.__dict__["_store"]:
             if alias in item[0]:
                 if len(item[0]) == 1:
-                    self.store = [item for item in self.store if alias not in item[0]]
+                    self._store = [item for item in self._store if alias not in item[0]]
                 else:
                     item[0].remove(alias)
                 self.all_alias_set.remove(alias)
@@ -297,7 +297,7 @@ class AliasDict:
             True if the value exists, otherwise False.
         """
         is_exists = False
-        for item in self.__dict__["store"]:
+        for item in self.__dict__["_store"]:
             if value == item[1]:
                 is_exists = True
                 break
@@ -321,7 +321,7 @@ class AliasDict:
             Returns a list containing a tuple for each key-value pair.
             Type: `list[tuple[list[str | int | float], Any]]` or `[]`.
         """
-        store = self.__dict__["store"]
+        store = self.__dict__["_store"]
         return ((list(item[0]), item[1]) for item in store)
 
     def keys(self) -> Generator[str | int | float]:
@@ -355,5 +355,5 @@ class AliasDict:
         Returns:
             List of all values.
         """
-        store = self.__dict__["store"]
+        store = self.__dict__["_store"]
         return (item[1] for item in store)

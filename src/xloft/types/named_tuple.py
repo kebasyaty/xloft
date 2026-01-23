@@ -32,7 +32,7 @@ class NamedTuple:
     """This class imitates the behavior of the `named tuple`."""
 
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
-        self.__dict__["_0D5rSmH9Sy2XUWb5_dict"] = kwargs
+        self.__dict__["_store"] = kwargs
 
     def __len__(self) -> int:
         """Get the number of elements in the tuple.
@@ -46,7 +46,7 @@ class NamedTuple:
         Returns:
             The number of elements in the tuple.
         """
-        return len(self._0D5rSmH9Sy2XUWb5_dict)
+        return len(self._store)
 
     def __getattr__(self, name: str) -> Any:
         """Getter.
@@ -63,7 +63,7 @@ class NamedTuple:
         Returns:
             Value of key.
         """
-        return self._0D5rSmH9Sy2XUWb5_dict[name]
+        return self._store[name]
 
     def __setattr__(self, name: str, value: Any) -> None:
         """Blocked Setter."""
@@ -88,7 +88,7 @@ class NamedTuple:
         Returns:
             Deep copy of the value associated with the key.
         """
-        value = self._0D5rSmH9Sy2XUWb5_dict[key]
+        value = self._store[key]
         return copy.deepcopy(value)
 
     def get(self, key: str, default: Any = None) -> Any:
@@ -106,7 +106,7 @@ class NamedTuple:
         Returns:
             Deep copy of the value associated with the alias or value by default.
         """
-        value = self._0D5rSmH9Sy2XUWb5_dict.get(key)
+        value = self._store.get(key)
         if value is not None:
             return copy.deepcopy(value)
         return default
@@ -130,11 +130,11 @@ class NamedTuple:
         Returns:
             None
         """
-        keys: list[str] = self._0D5rSmH9Sy2XUWb5_dict.keys()
+        keys: list[str] = self._store.keys()
         if key not in keys:
             err_msg = f"The key `{key}` is missing!"
             raise KeyError(err_msg)
-        self._0D5rSmH9Sy2XUWb5_dict[key] = value
+        self._store[key] = value
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to the dictionary.
@@ -149,7 +149,7 @@ class NamedTuple:
         Returns:
             Dictionary with keys and values of the tuple.
         """
-        return dict(self._0D5rSmH9Sy2XUWb5_dict)
+        return dict(self._store)
 
     def items(self) -> Any:
         """Returns a generator of list containing a tuple for each key-value pair.
@@ -169,7 +169,7 @@ class NamedTuple:
             Returns a list containing a tuple for each key-value pair.
             Type: `list[tuple[str, Any]]`.
         """
-        return self._0D5rSmH9Sy2XUWb5_dict.items()
+        return self._store.items()
 
     def keys(self) -> Any:
         """Get a generator of list of keys.
@@ -185,7 +185,7 @@ class NamedTuple:
         Returns:
             List of keys.
         """
-        return self._0D5rSmH9Sy2XUWb5_dict.keys()
+        return self._store.keys()
 
     def values(self) -> Any:
         """Get a generator of list of values.
@@ -201,7 +201,7 @@ class NamedTuple:
         Returns:
             List of values.
         """
-        return self._0D5rSmH9Sy2XUWb5_dict.values()
+        return self._store.values()
 
     def has_key(self, key: str) -> bool:
         """Check if the key exists.
@@ -218,7 +218,7 @@ class NamedTuple:
         Returns:
             True if the key exists, otherwise False.
         """
-        keys = self._0D5rSmH9Sy2XUWb5_dict.keys()
+        keys = self._store.keys()
         return key in keys
 
     def has_value(self, value: Any) -> bool:
@@ -236,5 +236,5 @@ class NamedTuple:
         Returns:
             True if the value exists, otherwise False.
         """
-        values = self._0D5rSmH9Sy2XUWb5_dict.values()
+        values = self._store.values()
         return value in values
