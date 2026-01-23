@@ -144,7 +144,7 @@ class TestNegative:
             ad.delete_alias("EN")
 
     def test_fail_getitem(self) -> None:
-        """Test alias is missing."""
+        """Test `__getitem__` - alias is missing."""
         data = [
             ({"English", "en"}, "lemmatize_en_all"),
             ({"Russian", "ru"}, "lemmatize_ru_all"),
