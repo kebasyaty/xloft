@@ -91,7 +91,7 @@ class TestNegative:
 
         with pytest.raises(
             KeyError,
-            match=r"Alias: `x` is missing!",
+            match=r"Alias `x` is missing!",
         ):
             ad.update("x", "Some text")
 
@@ -107,7 +107,7 @@ class TestNegative:
 
         with pytest.raises(
             KeyError,
-            match=r"New Alias: `en` is already exists!",
+            match=r"New Alias `en` is already exists!",
         ):
             ad.add_alias("English", "en")
 
@@ -123,7 +123,7 @@ class TestNegative:
 
         with pytest.raises(
             KeyError,
-            match=r"Alias: `EN` is missing!",
+            match=r"Alias `EN` is missing!",
         ):
             ad.add_alias("EN", 1)
 
@@ -139,9 +139,25 @@ class TestNegative:
 
         with pytest.raises(
             KeyError,
-            match=r"Alias: `EN` is missing!",
+            match=r"Alias `EN` is missing!",
         ):
             ad.delete_alias("EN")
+
+    def test_fail_getitem(self) -> None:
+        """Test alias is missing."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+        ]
+
+        d = AliasDict(data)
+
+        with pytest.raises(
+            KeyError,
+            match=r"Alias `EN` is missing!",
+        ):
+            d["EN"]
 
 
 class TestPositive:

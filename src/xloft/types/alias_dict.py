@@ -152,7 +152,7 @@ class AliasDict:
                 item[1] = value
                 return
 
-        err_msg = f"Alias: `{alias}` is missing!"
+        err_msg = f"Alias `{alias}` is missing!"
         logging.error(err_msg)
         raise KeyError(err_msg)
 
@@ -180,7 +180,7 @@ class AliasDict:
                 self.__dict__["store"] = [item for item in self.__dict__["store"] if alias not in item[0]]
                 return
 
-        err_msg = f"Alias: `{alias}` is missing!"
+        err_msg = f"Alias `{alias}` is missing!"
         logging.error(err_msg)
         raise KeyError(err_msg)
 
@@ -206,7 +206,7 @@ class AliasDict:
             `None` or `KeyError` if new alias is already exists.
         """
         if new_alias in self.__dict__["all_alias_set"]:
-            err_msg = f"New Alias: `{new_alias}` is already exists!"
+            err_msg = f"New Alias `{new_alias}` is already exists!"
             logging.error(err_msg)
             raise KeyError(err_msg)
 
@@ -216,7 +216,7 @@ class AliasDict:
                 self.all_alias_set.add(new_alias)
                 return
 
-        err_msg = f"Alias: `{alias}` is missing!"
+        err_msg = f"Alias `{alias}` is missing!"
         logging.error(err_msg)
         raise KeyError(err_msg)
 
@@ -247,7 +247,7 @@ class AliasDict:
                 self.all_alias_set.remove(alias)
                 return
 
-        err_msg = f"Alias: `{alias}` is missing!"
+        err_msg = f"Alias `{alias}` is missing!"
         logging.error(err_msg)
         raise KeyError(err_msg)
 
