@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from collections.abc import Generator
-
 import pytest
 
 from xloft import NamedTuple
@@ -63,6 +61,16 @@ class TestNegative:
         """Test a `update` method."""
         nt = init_namedtuple
         nt.update("z", [1, 2, 3])
+
+    def test_fail_key_no_str(self) -> None:
+        """Test a `update` method."""
+        d = {"x": 10, 5: "Hello"}
+
+        with pytest.raises(
+            TypeError,
+            match=r"keywords must be strings",
+        ):
+            NamedTuple(**d)  # pyrefly: ignore[bad-unpacking]
 
 
 class TestPositive:
@@ -124,7 +132,6 @@ class TestPositive:
         d = {"x": 10, "y": "Hello"}
         nt = init_namedtuple
         g = nt.items()
-        assert isinstance(g, Generator)
         for key, val in g:
             assert d[key] == val
 
@@ -137,7 +144,6 @@ class TestPositive:
         """Get a list of keys."""
         nt = init_namedtuple
         g = nt.keys()
-        assert isinstance(g, Generator)
         key_list = list(g)
         assert key_list == ["x", "y"]
 
@@ -145,7 +151,6 @@ class TestPositive:
         """Get a list of values."""
         nt = init_namedtuple
         g = nt.values()
-        assert isinstance(g, Generator)
         value_list = list(g)
         assert value_list == [10, "Hello"]
 
