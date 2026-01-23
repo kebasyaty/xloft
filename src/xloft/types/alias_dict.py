@@ -75,6 +75,13 @@ class AliasDict:
         """Blocked Deleter."""
         raise AttributeCannotBeDeleteError(name)
 
+    def __getitem__(self, alias: str | int | float):
+        """Get value by [key_name]."""
+        for item in self.__dict__["store"]:
+            if alias in item[0]:
+                return copy.deepcopy(item[1])
+        raise KeyError(f"Alias `{alias}` is missing!")
+
     def get(self, alias: str | int | float, default: Any = None) -> Any:
         """Get value by alias.
 
