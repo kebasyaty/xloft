@@ -76,7 +76,20 @@ class AliasDict:
         raise AttributeCannotBeDeleteError(name)
 
     def __getitem__(self, alias: str | int | float):
-        """Get value by [key_name]."""
+        """Get value by [key_name].
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> ad["en"]
+            "lemmatize_en_all"
+
+        Args:
+            alias (str | int | float): Alias of key.
+
+        Returns:
+            Deep copy of the value associated with the alias.
+        """
         for item in self.__dict__["store"]:
             if alias in item[0]:
                 return copy.deepcopy(item[1])
@@ -98,7 +111,7 @@ class AliasDict:
             default (Any): Value by default.
 
         Returns:
-            Deep copy of the value associated with the key or value by default.
+            Deep copy of the value associated with the alias or value by default.
         """
         for item in self.__dict__["store"]:
             if alias in item[0]:
