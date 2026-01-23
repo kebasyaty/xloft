@@ -33,14 +33,10 @@ The collection is represented by three modules of `NamedTuple`, `AliasDict`, `Co
 In the future, new tools can be added.
 </p>
 
-#### Requirements
+<hr>
 
 [![Requirements](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/requirements.svg "Requirements")](https://github.com/kebasyaty/xloft/blob/v0/REQUIREMENTS.md "Requirements")
 
-#### Changelog
-
 [![Changelog](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/changelog.svg "Changelog")](https://github.com/kebasyaty/xloft/blob/v0/CHANGELOG.md "Changelog")
-
-#### License
 
 [![MIT](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/mit.svg "MIT")](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")
