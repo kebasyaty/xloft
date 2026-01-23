@@ -44,11 +44,11 @@ class TestNegative:
         nt = init_namedtuple
         nt.z = 20
 
-    @pytest.mark.xfail(raises=TypeError, strict=True)
+    @pytest.mark.xfail(raises=(AssertionError, KeyError), strict=True)
     def test_fail_getitem(self, init_namedtuple) -> None:
-        """Access by  name of key."""
+        """Test `__getitem__` - key is missing."""
         nt = init_namedtuple
-        nt["x"]
+        nt["z"]
 
     @pytest.mark.xfail(raises=TypeError, strict=True)
     def test_fail_setitem(self, init_namedtuple) -> None:
@@ -97,7 +97,7 @@ class TestPositive:
         y = "Hi"
         assert nt.y != y
 
-    def test_get_method(self, init_namedtuple) -> None:
+    def test_get(self, init_namedtuple) -> None:
         """Test a `get` method."""
         nt = init_namedtuple
         assert nt.get("x") == 10
@@ -107,7 +107,7 @@ class TestPositive:
         x = 5
         assert nt.get("x") != x
 
-    def test_update_method(self, init_namedtuple) -> None:
+    def test_update(self, init_namedtuple) -> None:
         """Test a `update` method."""
         nt = init_namedtuple
         assert nt.x == 10
@@ -117,7 +117,7 @@ class TestPositive:
         assert nt.x == 20
         assert nt.y == "Hi"
 
-    def test_to_dict_method(self, init_namedtuple) -> None:
+    def test_to_dict(self, init_namedtuple) -> None:
         """Convert to the dictionary."""
         nt = init_namedtuple
         d = nt.to_dict()
@@ -127,7 +127,7 @@ class TestPositive:
         d["x"] = 5
         assert nt.x != d["x"]
 
-    def test_items_method(self, init_namedtuple) -> None:
+    def test_items(self, init_namedtuple) -> None:
         """In the cycle `for`."""
         d = {"x": 10, "y": "Hello"}
         nt = init_namedtuple
@@ -135,19 +135,19 @@ class TestPositive:
         for key, val in g:
             assert d[key] == val
 
-    def test_len_method(self, init_namedtuple) -> None:
+    def test_len(self, init_namedtuple) -> None:
         """Get the number of elements."""
         nt = init_namedtuple
         assert len(nt) == 2
 
-    def test_keys_method(self, init_namedtuple) -> None:
+    def test_keys(self, init_namedtuple) -> None:
         """Get a list of keys."""
         nt = init_namedtuple
         g = nt.keys()
         key_list = list(g)
         assert key_list == ["x", "y"]
 
-    def test_values_method(self, init_namedtuple) -> None:
+    def test_values(self, init_namedtuple) -> None:
         """Get a list of values."""
         nt = init_namedtuple
         g = nt.values()
@@ -167,3 +167,12 @@ class TestPositive:
         assert nt.has_value(10)
         assert nt.has_value("Hello")
         assert not nt.has_value([1, 2, 3])
+
+    def test_getitem(self, init_namedtuple) -> None:
+        """Test a `__getitem__` method."""
+        nt = init_namedtuple
+        assert nt["x"] == 10
+        assert nt["y"] == "Hello"
+        x = nt["x"]
+        x = 5
+        assert nt["x"] != x

@@ -421,5 +421,8 @@ class TestPositive:
         d = AliasDict(data)
 
         res = d["English"]
-
         assert res == "lemmatize_en_all"
+
+        x = d["en"]
+        x = "Some text"
+        assert d["en"] != x
