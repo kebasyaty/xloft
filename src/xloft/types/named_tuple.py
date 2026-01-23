@@ -73,6 +73,24 @@ class NamedTuple:
         """Blocked Deleter."""
         raise AttributeCannotBeDeleteError(name)
 
+    def __getitem__(self, key: str) -> Any:
+        """Get value by [key_name].
+
+        Args:
+            key: Key name.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> nt["x"]
+            10
+
+        Returns:
+            Deep copy of the value associated with the key.
+        """
+        value = self._0D5rSmH9Sy2XUWb5_dict[key]
+        return copy.deepcopy(value)
+
     def get(self, key: str, default: Any = None) -> Any:
         """Return the value for key if key is in the dictionary, else `None`.
 

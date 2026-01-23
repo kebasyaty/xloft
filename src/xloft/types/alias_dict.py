@@ -75,7 +75,7 @@ class AliasDict:
         """Blocked Deleter."""
         raise AttributeCannotBeDeleteError(name)
 
-    def __getitem__(self, alias: str | int | float):
+    def __getitem__(self, alias: str | int | float) -> Any:
         """Get value by [key_name].
 
         Examples:
