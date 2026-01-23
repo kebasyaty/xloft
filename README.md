@@ -35,11 +35,7 @@
 
 <br>
 
-## Documentation
-
 [![Documentation](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/documentation.svg "Documentation")](https://kebasyaty.github.io/xloft/ "Documentation")
-
-## Requirements
 
 [![Requirements](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/requirements.svg "Requirements")](https://github.com/kebasyaty/xloft/blob/v0/REQUIREMENTS.md "Requirements")
 
@@ -236,10 +232,8 @@ is_palindrome(123)  # TypeError
 is_palindrome("")  # ValueError
 ```
 
-## Changelog
+<br>
 
 [![Changelog](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/changelog.svg "Changelog")](https://github.com/kebasyaty/xloft/blob/v0/CHANGELOG.md "Changelog")
-
-## License
 
 [![MIT](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/mit.svg "MIT")](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")
