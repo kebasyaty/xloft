@@ -142,7 +142,7 @@ class AliasDict:
         self.all_alias_set.update(aliases)
 
     def update(self, alias: str | int | float, value: Any) -> None:
-        """Update the value of an existing key.
+        """Update the value of an existing alias.
 
         Examples:
             >>> from xloft import AliasDict
