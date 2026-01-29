@@ -63,7 +63,8 @@ class NamedTuple:
         Returns:
             Value of key.
         """
-        return self._store[name]
+        value = self._store[name]
+        return copy.deepcopy(value)
 
     def __setattr__(self, name: str, value: Any) -> None:
         """Blocked Setter."""
@@ -107,10 +108,11 @@ class NamedTuple:
         Returns:
             Return the value for key if key is in the NamedTuple, else default.
         """
-        value = self._store.get(key)
-        if value is not None:
+        try:
+            value = self._store[key]
             return copy.deepcopy(value)
-        return default
+        except KeyError:
+            return default
 
     def update(self, key: str, value: Any) -> None:
         """Update a value of key.
