@@ -88,7 +88,7 @@ class AliasDict:
             alias (str | int | float): Alias of key.
 
         Returns:
-            Deep copy of the value associated with the alias.
+            Return the value for alias, else KeyError.
         """
         for item in self.__dict__["_store"]:
             if alias in item[0]:
@@ -96,7 +96,7 @@ class AliasDict:
         raise KeyError(f"Alias `{alias}` is missing!")
 
     def get(self, alias: str | int | float, default: Any = None) -> Any:
-        """Get value by alias.
+        """Return the value for alias if alias is in the dictionary, else default.
 
         If there is no alias, return the default value.
 
@@ -111,7 +111,7 @@ class AliasDict:
             default (Any): Value by default.
 
         Returns:
-            Deep copy of the value associated with the alias or value by default.
+            Return the value for alias if alias is in the dictionary, else default.
         """
         for item in self.__dict__["_store"]:
             if alias in item[0]:

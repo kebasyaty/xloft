@@ -131,7 +131,7 @@ class NamedTuple:
             20
 
         Returns:
-            None
+            None or KeyError.
         """
         keys: list[str] = self._store.keys()
         if key not in keys:
