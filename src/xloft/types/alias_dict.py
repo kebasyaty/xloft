@@ -212,7 +212,7 @@ class AliasDict:
             new_alias (str | int | float): The alias that needs to be added to the existing set.
 
         Returns:
-            `None` or `KeyError` if new alias is already exists.
+            `None` or `KeyError` if alias is missing or if new alias is already exists.
         """
         if new_alias in self.__dict__["all_alias_set"]:
             err_msg = f"New Alias `{new_alias}` is already exists!"
