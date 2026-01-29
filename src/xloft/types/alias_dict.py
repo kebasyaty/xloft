@@ -23,7 +23,6 @@ from __future__ import annotations
 __all__ = ("AliasDict",)
 
 import copy
-import logging
 from collections.abc import Generator
 from typing import Any
 
@@ -44,7 +43,6 @@ class AliasDict:
             for item in data:
                 if not self.all_alias_set.isdisjoint(item[0]):
                     err_msg = "In some keys, aliases are repeated!"
-                    logging.error(err_msg)
                     raise KeyError(err_msg)
                 self.all_alias_set.update(item[0])
                 self._store.append(list(item))
@@ -88,7 +86,7 @@ class AliasDict:
             alias (str | int | float): Alias of key.
 
         Returns:
-            Deep copy of the value associated with the alias.
+            Return the value for alias, else KeyError.
         """
         for item in self.__dict__["_store"]:
             if alias in item[0]:
@@ -96,7 +94,7 @@ class AliasDict:
         raise KeyError(f"Alias `{alias}` is missing!")
 
     def get(self, alias: str | int | float, default: Any = None) -> Any:
-        """Get value by alias.
+        """Return the value for alias if alias is in the dictionary, else default.
 
         If there is no alias, return the default value.
 
@@ -111,7 +109,7 @@ class AliasDict:
             default (Any): Value by default.
 
         Returns:
-            Deep copy of the value associated with the alias or value by default.
+            Return the value for alias if alias is in the dictionary, else default.
         """
         for item in self.__dict__["_store"]:
             if alias in item[0]:
@@ -134,17 +132,17 @@ class AliasDict:
             value (Any): Value associated with key.
 
         Returns:
-            `None` or `KeyError` is missing.
+            `None` or `KeyError` if some aliases already exist.
         """
         if not self.all_alias_set.isdisjoint(aliases):
-            err_msg = "In some keys, aliases are repeated."
-            logging.error(err_msg)
+            err_msg = "Some aliases already exist."
+            raise KeyError(err_msg)
 
         self._store.append([aliases, value])
         self.all_alias_set.update(aliases)
 
     def update(self, alias: str | int | float, value: Any) -> None:
-        """Update the value of an existing key.
+        """Update the value of an existing alias.
 
         Examples:
             >>> from xloft import AliasDict
@@ -166,11 +164,10 @@ class AliasDict:
                 return
 
         err_msg = f"Alias `{alias}` is missing!"
-        logging.error(err_msg)
         raise KeyError(err_msg)
 
     def delete(self, alias: str | int | float) -> None:
-        """Delete the value associated with the key and all its aliases.
+        """Delete the value associated with the alias and all its siblings.
 
         Examples:
             >>> from xloft import AliasDict
@@ -194,7 +191,6 @@ class AliasDict:
                 return
 
         err_msg = f"Alias `{alias}` is missing!"
-        logging.error(err_msg)
         raise KeyError(err_msg)
 
     def add_alias(
@@ -216,11 +212,10 @@ class AliasDict:
             new_alias (str | int | float): The alias that needs to be added to the existing set.
 
         Returns:
-            `None` or `KeyError` if new alias is already exists.
+            `None` or `KeyError` if alias is missing or if new alias is already exists.
         """
         if new_alias in self.__dict__["all_alias_set"]:
             err_msg = f"New Alias `{new_alias}` is already exists!"
-            logging.error(err_msg)
             raise KeyError(err_msg)
 
         for item in self.__dict__["_store"]:
@@ -230,7 +225,6 @@ class AliasDict:
                 return
 
         err_msg = f"Alias `{alias}` is missing!"
-        logging.error(err_msg)
         raise KeyError(err_msg)
 
     def delete_alias(self, alias: str | int | float) -> None:
@@ -261,7 +255,6 @@ class AliasDict:
                 return
 
         err_msg = f"Alias `{alias}` is missing!"
-        logging.error(err_msg)
         raise KeyError(err_msg)
 
     def has_key(self, alias: str | int | float) -> bool:

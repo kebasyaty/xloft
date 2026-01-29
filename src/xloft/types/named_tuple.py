@@ -58,12 +58,13 @@ class NamedTuple:
             10
 
         Args:
-            name: Key name.
+            name (str): Key name.
 
         Returns:
             Value of key.
         """
-        return self._store[name]
+        value = self._store[name]
+        return copy.deepcopy(value)
 
     def __setattr__(self, name: str, value: Any) -> None:
         """Blocked Setter."""
@@ -77,7 +78,7 @@ class NamedTuple:
         """Get value by [key_name].
 
         Args:
-            key: Key name.
+            key (str): Key name.
 
         Examples:
             >>> from xloft import NamedTuple
@@ -86,16 +87,17 @@ class NamedTuple:
             10
 
         Returns:
-            Deep copy of the value associated with the key.
+            Return the value for key, else KeyError.
         """
         value = self._store[key]
         return copy.deepcopy(value)
 
     def get(self, key: str, default: Any = None) -> Any:
-        """Return the value for key if key is in the dictionary, else `None`.
+        """Return the value for key if key is in the NamedTuple, else default.
 
         Args:
-            key: Key name.
+            key (str): Key name.
+            default (Any): Returns if the value is missing.
 
         Examples:
             >>> from xloft import NamedTuple
@@ -104,12 +106,13 @@ class NamedTuple:
             10
 
         Returns:
-            Deep copy of the value associated with the alias or value by default.
+            Return the value for key if key is in the NamedTuple, else default.
         """
-        value = self._store.get(key)
-        if value is not None:
+        try:
+            value = self._store[key]
             return copy.deepcopy(value)
-        return default
+        except KeyError:
+            return default
 
     def update(self, key: str, value: Any) -> None:
         """Update a value of key.
@@ -117,8 +120,8 @@ class NamedTuple:
         Attention: This is an uncharacteristic action for the type `tuple`.
 
         Args:
-            key: Key name.
-            value: Value of key.
+            key (str): Key name.
+            value (Any): Value of key.
 
         Examples:
             >>> from xloft import NamedTuple
@@ -128,7 +131,7 @@ class NamedTuple:
             20
 
         Returns:
-            None
+            `None` or `KeyError` is missing.
         """
         keys: list[str] = self._store.keys()
         if key not in keys:
@@ -207,7 +210,7 @@ class NamedTuple:
         """Check if the key exists.
 
         Args:
-            key: Key name.
+            key (str): Key name.
 
         Examples:
             >>> from xloft import NamedTuple
@@ -225,7 +228,7 @@ class NamedTuple:
         """Check if the value exists.
 
         Args:
-            value: Value of key.
+            value (Any): Value of key.
 
         Examples:
             >>> from xloft import NamedTuple
