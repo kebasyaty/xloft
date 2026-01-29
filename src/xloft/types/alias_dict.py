@@ -132,7 +132,7 @@ class AliasDict:
             value (Any): Value associated with key.
 
         Returns:
-            `None` or `KeyError` if alias is missing.
+            `None` or `KeyError` if some aliases already exist.
         """
         if not self.all_alias_set.isdisjoint(aliases):
             err_msg = "Some aliases already exist."
