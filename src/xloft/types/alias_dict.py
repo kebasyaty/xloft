@@ -23,7 +23,6 @@ from __future__ import annotations
 __all__ = ("AliasDict",)
 
 import copy
-import logging
 from collections.abc import Generator
 from typing import Any
 
@@ -44,7 +43,6 @@ class AliasDict:
             for item in data:
                 if not self.all_alias_set.isdisjoint(item[0]):
                     err_msg = "In some keys, aliases are repeated!"
-                    logging.error(err_msg)
                     raise KeyError(err_msg)
                 self.all_alias_set.update(item[0])
                 self._store.append(list(item))
@@ -134,11 +132,11 @@ class AliasDict:
             value (Any): Value associated with key.
 
         Returns:
-            `None` or `KeyError` is missing.
+            `None` or `KeyError` if alias is missing.
         """
         if not self.all_alias_set.isdisjoint(aliases):
-            err_msg = "In some keys, aliases are repeated."
-            logging.error(err_msg)
+            err_msg = "Some aliases already exist."
+            raise KeyError(err_msg)
 
         self._store.append([aliases, value])
         self.all_alias_set.update(aliases)
@@ -166,7 +164,6 @@ class AliasDict:
                 return
 
         err_msg = f"Alias `{alias}` is missing!"
-        logging.error(err_msg)
         raise KeyError(err_msg)
 
     def delete(self, alias: str | int | float) -> None:
@@ -194,7 +191,6 @@ class AliasDict:
                 return
 
         err_msg = f"Alias `{alias}` is missing!"
-        logging.error(err_msg)
         raise KeyError(err_msg)
 
     def add_alias(
@@ -220,7 +216,6 @@ class AliasDict:
         """
         if new_alias in self.__dict__["all_alias_set"]:
             err_msg = f"New Alias `{new_alias}` is already exists!"
-            logging.error(err_msg)
             raise KeyError(err_msg)
 
         for item in self.__dict__["_store"]:
@@ -230,7 +225,6 @@ class AliasDict:
                 return
 
         err_msg = f"Alias `{alias}` is missing!"
-        logging.error(err_msg)
         raise KeyError(err_msg)
 
     def delete_alias(self, alias: str | int | float) -> None:
@@ -261,7 +255,6 @@ class AliasDict:
                 return
 
         err_msg = f"Alias `{alias}` is missing!"
-        logging.error(err_msg)
         raise KeyError(err_msg)
 
     def has_key(self, alias: str | int | float) -> bool:
