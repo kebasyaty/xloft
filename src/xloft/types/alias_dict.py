@@ -167,7 +167,7 @@ class AliasDict:
         raise KeyError(err_msg)
 
     def delete(self, alias: str | int | float) -> None:
-        """Delete the value associated with the key and all its aliases.
+        """Delete the value associated with the alias and all its siblings.
 
         Examples:
             >>> from xloft import AliasDict
