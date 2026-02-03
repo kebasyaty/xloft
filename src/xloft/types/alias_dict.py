@@ -54,7 +54,7 @@ class AliasDict:
             >>> from xloft import AliasDict
             >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
             >>> str(ad)
-            "???"
+            "[({"English", "en"}, "lemmatize_en_all")]"
 
         Returns:
             String representation of dictionary.
