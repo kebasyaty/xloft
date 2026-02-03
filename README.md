@@ -149,6 +149,14 @@ d["English"]  # => "lemmatize_en_all"
 d["en"]  # => "lemmatize_en_all"
 d["EN"]  # => KeyError
 #
+d["English"] = "Hi"
+d["en"]  # => "Hi"
+d["en"] = "lemmatize_en_all"
+d["English"]  # => "lemmatize_en_all"
+#
+d["five"] = "I'm fifth"
+d["five"]  # => "I'm fifth"
+#
 d.get("English")  # => "lemmatize_en_all"
 d.get("en")  # => "lemmatize_en_all"
 d.get("EN")  # => None
@@ -167,9 +175,9 @@ d.get("four stars")  # => "Hello world!"
 d.delete_alias("four stars")
 d.get("four stars")  # => None
 #
-d.delete(5)
-d.get("five")  # => None
-d.get(5)  # => None
+d.delete(four)
+d.get("four")  # => None
+d.get(4)  # => None
 #
 d.has_key("English")  # => True
 d.has_key("en")  # => True

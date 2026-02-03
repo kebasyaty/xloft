@@ -488,3 +488,21 @@ class TestPositive:
 
         d["new key"] = "Hello world!"
         assert d["new key"] == "Hello world!"
+
+    def test_delitem(self) -> None:
+        """Test a `__delitem__` method."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+            ({"four", "Four", 4}, "I'm fourth"),
+        ]
+
+        d = AliasDict(data)
+
+        assert d["English"] == "lemmatize_en_all"
+        assert d["en"] == "lemmatize_en_all"
+
+        del d["English"]
+        assert d.get("English") is None
+        assert d.get("en") is None

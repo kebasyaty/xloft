@@ -164,6 +164,24 @@ class AliasDict:
         except KeyError:
             self.add({alias}, value)
 
+    def __delitem__(self, alias: str | int | float) -> None:
+        """Delete an element by index.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> del ad["en"]
+            >>> ad.get("English")
+            None
+
+        Args:
+            alias (str | int | float): Alias of the conditional key.
+
+        Returns:
+            `None` or `KeyError` if alias is missing.
+        """
+        self.delete(alias)
+
     def get(self, alias: str | int | float, default: Any = None) -> Any:
         """Return the value for alias if alias is in the dictionary, else default.
 
