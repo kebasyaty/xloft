@@ -504,5 +504,15 @@ class TestPositive:
         assert d["en"] == "lemmatize_en_all"
 
         del d["English"]
-        assert d.get("English") is None
-        assert d.get("en") is None
+
+        with pytest.raises(
+            KeyError,
+            match=r"Alias `English` is missing!",
+        ):
+            d["English"]
+
+        with pytest.raises(
+            KeyError,
+            match=r"Alias `en` is missing!",
+        ):
+            d["en"]
