@@ -157,6 +157,9 @@ d["English"]  # => "lemmatize_en_all"
 d["five"] = "I'm fifth"
 d["five"]  # => "I'm fifth"
 #
+del d["five"]
+d["five"]  # => KeyError
+#
 d.get("English")  # => "lemmatize_en_all"
 d.get("en")  # => "lemmatize_en_all"
 d.get("EN")  # => None
