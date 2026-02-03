@@ -139,7 +139,7 @@ data = [
     ({"English", "en"}, "lemmatize_en_all"),
     ({"Russian", "ru"}, "lemmatize_ru_all"),
     ({"German", "de"}, "lemmatize_de_all"),
-    ({"five", 5}, "Five it's me!"),
+    ({"four", "Four", 4}, "I'm fourth"),
 ]
 d = AliasDict(data)
 
@@ -157,15 +157,15 @@ d.add({"Turkish", "tr"}, "libstemmer_tr")
 d.get("Turkish")  # => "libstemmer_tr"
 d.get("tr")  # => "libstemmer_tr"
 #
-d.update(5, "Hello world!")
-d.get("five")  # => "Hello world!"
-d.get(5)  # => "Hello world!"
+d.update(4, "Hello world!")
+d.get("four")  # => "Hello world!"
+d.get(4)  # => "Hello world!"
 #
-d.add_alias(5, "five stars")  # or -> d.add_alias("five", "five stars")
-d.get("five stars")  # => "Hello world!"
+d.add_alias(4, "four stars")
+d.get("four stars")  # => "Hello world!"
 #
-d.delete_alias("five stars")
-d.get("five stars")  # => None
+d.delete_alias("four stars")
+d.get("four stars")  # => None
 #
 d.delete(5)
 d.get("five")  # => None

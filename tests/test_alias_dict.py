@@ -293,18 +293,18 @@ class TestPositive:
             ({"English", "en"}, "lemmatize_en_all"),
             ({"Russian", "ru"}, "lemmatize_ru_all"),
             ({"German", "de"}, "lemmatize_de_all"),
-            ({"five", 5}, "Five it's me!"),
+            ({"four", "Four", 4}, "I'm fourth"),
         ]
 
         d = AliasDict(data)
 
-        assert d.get("five") == "Five it's me!"
-        assert d.get(5) == "Five it's me!"
+        assert d.get("four") == "I'm fourth"
+        assert d.get(4) == "I'm fourth"
 
-        d.delete(5)
+        d.delete(4)
 
         assert d.get("five") is None
-        assert d.get(5) is None
+        assert d.get(4) is None
 
     def test_add_new_alias(self) -> None:
         """Test add new alias to dictionary."""
@@ -337,7 +337,7 @@ class TestPositive:
             ({"English", "en"}, "lemmatize_en_all"),
             ({"Russian", "ru"}, "lemmatize_ru_all"),
             ({"German", "de"}, "lemmatize_de_all"),
-            ({"five", 5}, "Five it's me!"),
+            ({"four", "Four", 4}, "I'm fourth"),
         ]
 
         d = AliasDict(data)
@@ -348,8 +348,8 @@ class TestPositive:
         assert d.has_key("ru")
         assert d.has_key("German")
         assert d.has_key("de")
-        assert d.has_key("five")
-        assert d.has_key(5)
+        assert d.has_key("four")
+        assert d.has_key(4)
 
         assert not d.has_key("six")
         assert not d.has_key(6)
@@ -360,7 +360,7 @@ class TestPositive:
             ({"English", "en"}, "lemmatize_en_all"),
             ({"Russian", "ru"}, "lemmatize_ru_all"),
             ({"German", "de"}, "lemmatize_de_all"),
-            ({"five", 5}, "Five it's me!"),
+            ({"four", "Four", 4}, "I'm fourth"),
         ]
 
         d = AliasDict(data)
@@ -368,7 +368,7 @@ class TestPositive:
         assert d.has_value("lemmatize_en_all")
         assert d.has_value("lemmatize_ru_all")
         assert d.has_value("lemmatize_de_all")
-        assert d.has_value("Five it's me!")
+        assert d.has_value("I'm fourth")
 
         assert not d.has_value("Hello world!")
         assert not d.has_value(6)
