@@ -95,7 +95,7 @@ class AliasDict:
         raise KeyError(f"Alias `{alias}` is missing!")
 
     def __setitem__(self, alias: str | int | float, value: Any) -> None:
-        """Update value by [alias_name].
+        """Update value by [alias_name] or add a new conditional key and value.
 
         Examples:
             >>> from xloft import AliasDict
@@ -111,7 +111,10 @@ class AliasDict:
         Returns:
             `None` or `KeyError` if alias is missing.
         """
-        self.update(alias, value)
+        try:
+            self.update(alias, value)
+        except KeyError:
+            self.add({alias}, value)
 
     def get(self, alias: str | int | float, default: Any = None) -> Any:
         """Return the value for alias if alias is in the dictionary, else default.
@@ -138,7 +141,7 @@ class AliasDict:
         return default
 
     def add(self, aliases: set[str | int | float], value: Any) -> None:
-        """Add a new key and value pair.
+        """Add a new conditional key and value.
 
         Examples:
             >>> from xloft import AliasDict

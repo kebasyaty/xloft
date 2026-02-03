@@ -457,3 +457,9 @@ class TestPositive:
 
         d["four"] = "Hello world!"
         assert d[4] == "Hello world!"
+
+        d["new key"] = "I'm new key"
+        assert d["new key"] == "I'm new key"
+
+        d["new key"] = "Hello world!"
+        assert d["new key"] == "Hello world!"
