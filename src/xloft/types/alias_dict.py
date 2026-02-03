@@ -47,6 +47,22 @@ class AliasDict:
                 self.all_alias_set.update(item[0])
                 self._store.append(list(item))
 
+    def __repr__(self) -> str:
+        """Called by the repr built-in function.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> repr(ad)
+            "AliasDict([({"English", "en"}, "lemmatize_en_all")])"
+
+        Returns:
+            Returns raw data used for internal representation in python.
+        """
+        store = self.__dict__["_store"]
+        source_data = [tuple(item) for item in store]
+        return f"AliasDict({source_data})"
+
     def __str__(self) -> str:
         """Get a string representation of dictionary.
 

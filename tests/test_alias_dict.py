@@ -193,6 +193,13 @@ class TestPositive:
         assert 5 in d.__dict__["all_alias_set"]
         assert 5.1 in d.__dict__["all_alias_set"]
 
+    def test_repr(self) -> None:
+        """Test a `__repr__` method."""
+        data = [({"English", "en"}, "lemmatize_en_all")]
+
+        d = AliasDict(data)
+        assert repr(d) == f"AliasDict({[({'English', 'en'}, 'lemmatize_en_all')]})"
+
     def test_str(self) -> None:
         """Get a string representation of dictionary."""
         data = [({"English", "en"}, "lemmatize_en_all")]
@@ -202,7 +209,7 @@ class TestPositive:
         assert str(d) == str([({"English", "en"}, "lemmatize_en_all")])
 
     def test_bool(self) -> None:
-        """Checking for truth."""
+        """Test a `__bool__` method."""
         data = [({"English", "en"}, "lemmatize_en_all")]
 
         d = AliasDict(data)
@@ -212,7 +219,7 @@ class TestPositive:
         assert not bool(d)
 
     def test_len(self) -> None:
-        """Get the number of elements in the dictionary."""
+        """Test a `__len__` method."""
         data = [
             ({"English", "en"}, "lemmatize_en_all"),
             ({"Russian", "ru"}, "lemmatize_ru_all"),
