@@ -47,6 +47,51 @@ class AliasDict:
                 self.all_alias_set.update(item[0])
                 self._store.append(list(item))
 
+    def __repr__(self) -> str:
+        """Called by the repr built-in function.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> repr(ad)
+            'AliasDict([({"English", "en"}, "lemmatize_en_all")])'
+
+        Returns:
+            Returns raw data used for internal representation in python.
+        """
+        store = self.__dict__["_store"]
+        source_data = [tuple(item) for item in store]
+        return f"AliasDict({source_data})"
+
+    def __str__(self) -> str:
+        """Get a string representation of dictionary.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> str(ad)
+            '[({"English", "en"}, "lemmatize_en_all")]'
+
+        Returns:
+            String representation of dictionary.
+        """
+        store = self.__dict__["_store"]
+        return str([tuple(item) for item in store])
+
+    def __bool__(self) -> bool:
+        """Called when checking for truth.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> bool(ad)
+            True
+
+        Returns:
+            Boolean value.
+        """
+        return len(self.__dict__["_store"]) > 0
+
     def __len__(self) -> int:
         """Get the number of elements in the dictionary.
 
@@ -74,7 +119,7 @@ class AliasDict:
         raise AttributeCannotBeDeleteError(name)
 
     def __getitem__(self, alias: str | int | float) -> Any:
-        """Get value by [key_name].
+        """Get the value by named index.
 
         Examples:
             >>> from xloft import AliasDict
@@ -83,7 +128,7 @@ class AliasDict:
             "lemmatize_en_all"
 
         Args:
-            alias (str | int | float): Alias of key.
+            alias (str | int | float): Alias of the conditional key.
 
         Returns:
             Return the value for alias, else KeyError.
@@ -91,7 +136,51 @@ class AliasDict:
         for item in self.__dict__["_store"]:
             if alias in item[0]:
                 return copy.deepcopy(item[1])
+
         raise KeyError(f"Alias `{alias}` is missing!")
+
+    def __setitem__(self, alias: str | int | float, value: Any) -> None:
+        """Update the value at the named index or add a new one if the alias is missing.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> ad["en"] = "Hello world!"
+            >>> ad["English"]
+            "Hello world!"
+            >>> ad["new key"] = "I'm new key"
+            >>> ad["new key"]
+            "I'm new key"
+
+        Args:
+            alias (str | int | float): Alias of the conditional key.
+            value (Any): Value associated with alias.
+
+        Returns:
+            `None` or `KeyError` if alias is missing.
+        """
+        try:
+            self.update(alias, value)
+        except KeyError:
+            self.add({alias}, value)
+
+    def __delitem__(self, alias: str | int | float) -> None:
+        """Delete an element by index.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> del ad["en"]
+            >>> ad.get("English")
+            None
+
+        Args:
+            alias (str | int | float): Alias of the conditional key.
+
+        Returns:
+            `None` or `KeyError` if alias is missing.
+        """
+        self.delete(alias)
 
     def get(self, alias: str | int | float, default: Any = None) -> Any:
         """Return the value for alias if alias is in the dictionary, else default.
@@ -105,7 +194,7 @@ class AliasDict:
             "lemmatize_en_all"
 
         Args:
-            alias (str | int | float): Alias of key.
+            alias (str | int | float): Alias of the conditional key.
             default (Any): Value by default.
 
         Returns:
@@ -118,7 +207,7 @@ class AliasDict:
         return default
 
     def add(self, aliases: set[str | int | float], value: Any) -> None:
-        """Add a new key and value pair.
+        """Add a new conditional key and value.
 
         Examples:
             >>> from xloft import AliasDict
@@ -129,7 +218,7 @@ class AliasDict:
 
         Args:
             aliases (set[str | int | float]): List (set) aliases of key.
-            value (Any): Value associated with key.
+            value (Any): Value associated with alias.
 
         Returns:
             `None` or `KeyError` if some aliases already exist.
@@ -152,8 +241,8 @@ class AliasDict:
             "Hello world!"
 
         Args:
-            alias (str | int | float): Alias of key.
-            value (Any): Value associated with key.
+            alias (str | int | float): Alias of the conditional key.
+            value (Any): Value associated with alias.
 
         Returns:
             `None` or `KeyError` if alias is missing.
@@ -177,7 +266,7 @@ class AliasDict:
             None
 
         Args:
-            alias (str | int | float): Alias of key.
+            alias (str | int | float): Alias of the conditional key.
 
         Returns:
             `None` or `KeyError` if alias is missing.
@@ -284,7 +373,7 @@ class AliasDict:
             True
 
         Args:
-            value (Any): Value associated with key.
+            value (Any): Value associated with alias.
 
         Returns:
             True if the value exists, otherwise False.

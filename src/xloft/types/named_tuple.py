@@ -32,7 +32,56 @@ class NamedTuple:
     """This class imitates the behavior of the `named tuple`."""
 
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
-        self.__dict__["_store"] = kwargs
+        self.__dict__["_store"] = dict(kwargs)
+
+    def __repr__(self) -> str:
+        """Called by the repr built-in function.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> repr(nt)
+            'NamedTuple(x=10, y="Hello")'
+
+        Returns:
+            Returns raw data used for internal representation in python.
+        """
+        args = []
+        for key, val in self.__dict__["_store"].items():
+            if isinstance(val, str):
+                args.append(f'{key}="{val}"')  # pyrefly: ignore[bad-argument-type]
+            else:
+                args.append(f"{key}={val}")  # pyrefly: ignore[bad-argument-type]
+
+        return f"NamedTuple({', '.join(args)})"
+
+    def __str__(self) -> str:
+        """Get a string representation of NamedTuple.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> str(nt)
+            ''
+
+        Returns:
+            String representation of NamedTuple.
+        """
+        return str(self.__dict__["_store"])
+
+    def __bool__(self) -> bool:
+        """Called when checking for truth.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> bool(nt)
+            True
+
+        Returns:
+            Boolean value.
+        """
+        return len(self.__dict__["_store"]) > 0
 
     def __len__(self) -> int:
         """Get the number of elements in the tuple.

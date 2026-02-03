@@ -1,5 +1,13 @@
 ### CHANGELOG
 
+#### v0.10.12 2026-02-03
+
+- AliasDict - Added a `__repr__`, `__str__`, `__bool__` and `__len__` methods.
+- NamedTuple - Added a `__repr__`, `__str__`, `__bool__`, `__len__`, `__setitem__` and `__delitem__` methods.
+- Upgraded dependencies.
+- Updated documentation.
+- Updated `README.md` file.
+
 #### v0.10.4 2026-01-19
 
 - AliasDict - Added Generator to `items`, `keys` and `values` methods.
