@@ -62,6 +62,20 @@ class AliasDict:
         store = self.__dict__["_store"]
         return str([tuple(item) for item in store])
 
+    def __bool__(self) -> bool:
+        """Called when checking for truth.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> bool(ad)
+            True
+
+        Returns:
+            Boolean value.
+        """
+        return len(self.__dict__["_store"]) > 0
+
     def __len__(self) -> int:
         """Get the number of elements in the dictionary.
 

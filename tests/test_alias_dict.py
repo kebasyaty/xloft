@@ -201,6 +201,16 @@ class TestPositive:
 
         assert str(d) == str([({"English", "en"}, "lemmatize_en_all")])
 
+    def test_bool(self) -> None:
+        """Checking for truth."""
+        data = [({"English", "en"}, "lemmatize_en_all")]
+
+        d = AliasDict(data)
+        assert bool(d)
+
+        d = AliasDict()
+        assert not bool(d)
+
     def test_len(self) -> None:
         """Get the number of elements in the dictionary."""
         data = [
