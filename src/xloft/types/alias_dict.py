@@ -74,7 +74,7 @@ class AliasDict:
         raise AttributeCannotBeDeleteError(name)
 
     def __getitem__(self, alias: str | int | float) -> Any:
-        """Get value by [key_name].
+        """Get value by [alias_name].
 
         Examples:
             >>> from xloft import AliasDict
@@ -83,7 +83,7 @@ class AliasDict:
             "lemmatize_en_all"
 
         Args:
-            alias (str | int | float): Alias of key.
+            alias (str | int | float): Alias of the conditional key.
 
         Returns:
             Return the value for alias, else KeyError.
@@ -91,7 +91,27 @@ class AliasDict:
         for item in self.__dict__["_store"]:
             if alias in item[0]:
                 return copy.deepcopy(item[1])
+
         raise KeyError(f"Alias `{alias}` is missing!")
+
+    def __setitem__(self, alias: str | int | float, value: Any) -> None:
+        """Update value by [alias_name].
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> ad["en"] = "Hello world!"
+            >>> ad["English"]
+            "Hello world!"
+
+        Args:
+            alias (str | int | float): Alias of the conditional key.
+            value (Any): Value associated with alias.
+
+        Returns:
+            `None` or `KeyError` if alias is missing.
+        """
+        self.update(alias, value)
 
     def get(self, alias: str | int | float, default: Any = None) -> Any:
         """Return the value for alias if alias is in the dictionary, else default.
@@ -105,7 +125,7 @@ class AliasDict:
             "lemmatize_en_all"
 
         Args:
-            alias (str | int | float): Alias of key.
+            alias (str | int | float): Alias of the conditional key.
             default (Any): Value by default.
 
         Returns:
@@ -129,7 +149,7 @@ class AliasDict:
 
         Args:
             aliases (set[str | int | float]): List (set) aliases of key.
-            value (Any): Value associated with key.
+            value (Any): Value associated with alias.
 
         Returns:
             `None` or `KeyError` if some aliases already exist.
@@ -152,8 +172,8 @@ class AliasDict:
             "Hello world!"
 
         Args:
-            alias (str | int | float): Alias of key.
-            value (Any): Value associated with key.
+            alias (str | int | float): Alias of the conditional key.
+            value (Any): Value associated with alias.
 
         Returns:
             `None` or `KeyError` if alias is missing.
@@ -177,7 +197,7 @@ class AliasDict:
             None
 
         Args:
-            alias (str | int | float): Alias of key.
+            alias (str | int | float): Alias of the conditional key.
 
         Returns:
             `None` or `KeyError` if alias is missing.
@@ -284,7 +304,7 @@ class AliasDict:
             True
 
         Args:
-            value (Any): Value associated with key.
+            value (Any): Value associated with alias.
 
         Returns:
             True if the value exists, otherwise False.

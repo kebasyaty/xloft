@@ -441,3 +441,19 @@ class TestPositive:
         x = d["en"]
         x = "Some text"
         assert d["en"] != x
+
+    def test_setitem(self) -> None:
+        """Test a `__setitem__` method."""
+        data = [
+            ({"English", "en"}, "lemmatize_en_all"),
+            ({"Russian", "ru"}, "lemmatize_ru_all"),
+            ({"German", "de"}, "lemmatize_de_all"),
+            ({"four", "Four", 4}, "I'm fourth"),
+        ]
+
+        d = AliasDict(data)
+
+        assert d["four"] == "I'm fourth"
+
+        d["four"] = "Hello world!"
+        assert d[4] == "Hello world!"
