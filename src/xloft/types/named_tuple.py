@@ -55,6 +55,20 @@ class NamedTuple:
 
         return f"NamedTuple({', '.join(args)})"
 
+    def __str__(self) -> str:
+        """Get a string representation of NamedTuple.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> str(nt)
+            ''
+
+        Returns:
+            String representation of NamedTuple.
+        """
+        return str(self.__dict__["_store"])
+
     def __len__(self) -> int:
         """Get the number of elements in the tuple.
 

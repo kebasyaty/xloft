@@ -182,3 +182,9 @@ class TestPositive:
         nt = init_namedtuple
 
         assert repr(nt) == "NamedTuple(x=10, y={})".format('"Hello"')
+
+    def test_str(self, init_namedtuple) -> None:
+        """Test a `__str__` method."""
+        nt = init_namedtuple
+
+        assert str(nt) == str({"x": 10, "y": "Hello"})
