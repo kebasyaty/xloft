@@ -74,7 +74,7 @@ class AliasDict:
         raise AttributeCannotBeDeleteError(name)
 
     def __getitem__(self, alias: str | int | float) -> Any:
-        """Get value by [alias_name].
+        """Get the value by named index.
 
         Examples:
             >>> from xloft import AliasDict
@@ -95,7 +95,7 @@ class AliasDict:
         raise KeyError(f"Alias `{alias}` is missing!")
 
     def __setitem__(self, alias: str | int | float, value: Any) -> None:
-        """Update value by [alias_name] or add a new conditional key and value.
+        """Update the value at the named index or add a new one if the alias is missing.
 
         Examples:
             >>> from xloft import AliasDict
@@ -103,6 +103,9 @@ class AliasDict:
             >>> ad["en"] = "Hello world!"
             >>> ad["English"]
             "Hello world!"
+            >>> ad["new key"] = "I'm new key"
+            >>> ad["new key"]
+            "I'm new key"
 
         Args:
             alias (str | int | float): Alias of the conditional key.
