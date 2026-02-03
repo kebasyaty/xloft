@@ -69,6 +69,20 @@ class NamedTuple:
         """
         return str(self.__dict__["_store"])
 
+    def __bool__(self) -> bool:
+        """Called when checking for truth.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> bool(nt)
+            True
+
+        Returns:
+            Boolean value.
+        """
+        return len(self.__dict__["_store"]) > 0
+
     def __len__(self) -> int:
         """Get the number of elements in the tuple.
 

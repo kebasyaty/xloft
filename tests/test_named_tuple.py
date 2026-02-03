@@ -188,3 +188,11 @@ class TestPositive:
         nt = init_namedtuple
 
         assert str(nt) == str({"x": 10, "y": "Hello"})
+
+    def test_bool(self, init_namedtuple) -> None:
+        """Test a `__bool__` method."""
+        nt = init_namedtuple
+        assert bool(nt)
+
+        nt = NamedTuple()
+        assert not bool(nt)
