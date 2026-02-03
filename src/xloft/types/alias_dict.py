@@ -54,7 +54,7 @@ class AliasDict:
             >>> from xloft import AliasDict
             >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
             >>> repr(ad)
-            "AliasDict([({"English", "en"}, "lemmatize_en_all")])"
+            'AliasDict([({"English", "en"}, "lemmatize_en_all")])'
 
         Returns:
             Returns raw data used for internal representation in python.

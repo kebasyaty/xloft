@@ -176,3 +176,9 @@ class TestPositive:
         x = nt["x"]
         x = 5
         assert nt["x"] != x
+
+    def test_repr(self, init_namedtuple) -> None:
+        """Test a `__repr__` method."""
+        nt = init_namedtuple
+
+        assert repr(nt) == "NamedTuple(x=10, y={})".format('"Hello"')

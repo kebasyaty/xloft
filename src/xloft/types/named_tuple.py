@@ -34,6 +34,27 @@ class NamedTuple:
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
         self.__dict__["_store"] = kwargs
 
+    def __repr__(self) -> str:
+        """Called by the repr built-in function.
+
+        Examples:
+            >>> from xloft import NamedTuple
+            >>> nt = NamedTuple(x=10, y="Hello")
+            >>> repr(nt)
+            'NamedTuple(x=10, y="Hello")'
+
+        Returns:
+            Returns raw data used for internal representation in python.
+        """
+        args = []
+        for key, val in self.__dict__["_store"].items():
+            if isinstance(val, str):
+                args.append(f'{key}="{val}"')  # pyrefly: ignore[bad-argument-type]
+            else:
+                args.append(f"{key}={val}")  # pyrefly: ignore[bad-argument-type]
+
+        return f"NamedTuple({', '.join(args)})"
+
     def __len__(self) -> int:
         """Get the number of elements in the tuple.
 
