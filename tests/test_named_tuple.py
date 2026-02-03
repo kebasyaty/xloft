@@ -135,11 +135,6 @@ class TestPositive:
         for key, val in g:
             assert d[key] == val
 
-    def test_len(self, init_namedtuple) -> None:
-        """Get the number of elements."""
-        nt = init_namedtuple
-        assert len(nt) == 2
-
     def test_keys(self, init_namedtuple) -> None:
         """Get a list of keys."""
         nt = init_namedtuple
@@ -196,3 +191,8 @@ class TestPositive:
 
         nt = NamedTuple()
         assert not bool(nt)
+
+    def test_len(self, init_namedtuple) -> None:
+        """Get the number of elements."""
+        nt = init_namedtuple
+        assert len(nt) == 2
