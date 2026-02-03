@@ -47,6 +47,21 @@ class AliasDict:
                 self.all_alias_set.update(item[0])
                 self._store.append(list(item))
 
+    def __str__(self) -> str:
+        """Get a string representation of dictionary.
+
+        Examples:
+            >>> from xloft import AliasDict
+            >>> ad = AliasDict([({"English", "en"}, "lemmatize_en_all")])
+            >>> str(ad)
+            "???"
+
+        Returns:
+            String representation of dictionary.
+        """
+        store = self.__dict__["_store"]
+        return str([tuple(item) for item in store])
+
     def __len__(self) -> int:
         """Get the number of elements in the dictionary.
 

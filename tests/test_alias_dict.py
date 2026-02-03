@@ -193,6 +193,14 @@ class TestPositive:
         assert 5 in d.__dict__["all_alias_set"]
         assert 5.1 in d.__dict__["all_alias_set"]
 
+    def test_str(self) -> None:
+        """Get a string representation of dictionary."""
+        data = [({"English", "en"}, "lemmatize_en_all")]
+
+        d = AliasDict(data)
+
+        assert str(d) == str([({"English", "en"}, "lemmatize_en_all")])
+
     def test_len(self) -> None:
         """Get the number of elements in the dictionary."""
         data = [
