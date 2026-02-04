@@ -32,7 +32,7 @@ class NamedTuple:
     """This class imitates the behavior of the `named tuple`."""
 
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
-        self.__dict__["_store"] = dict(kwargs)
+        self.__dict__["_store"] = copy.deepcopy(kwargs)
 
     def __repr__(self) -> str:
         """Called by the repr built-in function.
