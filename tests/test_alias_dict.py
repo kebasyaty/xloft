@@ -429,13 +429,11 @@ class TestPositive:
 
     def test_getitem(self) -> None:
         """Test a `__getitem__` method."""
-        data = [
+        d = AliasDict(
             ({"English", "en"}, "lemmatize_en_all"),
             ({"Russian", "ru"}, "lemmatize_ru_all"),
             ({"German", "de"}, "lemmatize_de_all"),
-        ]
-
-        d = AliasDict(*data)
+        )
 
         res = d["English"]
         assert res == "lemmatize_en_all"
