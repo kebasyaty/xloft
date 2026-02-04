@@ -25,11 +25,11 @@ class TestNegative:
             ({"German", "de"}, "lemmatize_de_all"),
         ]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
 
         with pytest.raises(
             AttributeDoesNotGetValueError,
-            match=r"The attribute `en` does not get value!",
+            match=r"The attribute `en` does not get value.",
         ):
             d.en  # noqa: B018
 
@@ -41,11 +41,11 @@ class TestNegative:
             ({"German", "de"}, "lemmatize_de_all"),
         ]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
 
         with pytest.raises(
             AttributeDoesNotSetValueError,
-            match=r"The attribute `en` does not set value!",
+            match=r"The attribute `en` does not set value.",
         ):
             d.en = "Some test"
 
@@ -57,11 +57,11 @@ class TestNegative:
             ({"German", "de"}, "lemmatize_de_all"),
         ]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
 
         with pytest.raises(
             AttributeCannotBeDeleteError,
-            match=r"The attribute `en` cannot be delete!",
+            match=r"The attribute `en` cannot be delete.",
         ):
             del d.en
 
@@ -75,9 +75,9 @@ class TestNegative:
 
         with pytest.raises(
             KeyError,
-            match=r"In some keys, aliases are repeated!",
+            match=r"In some keys, aliases are repeated.",
         ):
-            AliasDict(data)
+            AliasDict(*data)
 
     def test_fail_update(self) -> None:
         """Alias is missing."""
@@ -87,11 +87,11 @@ class TestNegative:
             ({"German", "de"}, "lemmatize_de_all"),
         ]
 
-        ad = AliasDict(data)
+        ad = AliasDict(*data)
 
         with pytest.raises(
             KeyError,
-            match=r"Alias `x` is missing!",
+            match=r"Alias `x` is missing.",
         ):
             ad.update("x", "Some text")
 
@@ -103,11 +103,11 @@ class TestNegative:
             ({"German", "de"}, "lemmatize_de_all"),
         ]
 
-        ad = AliasDict(data)
+        ad = AliasDict(*data)
 
         with pytest.raises(
             KeyError,
-            match=r"New Alias `en` is already exists!",
+            match=r"New Alias `en` is already exists.",
         ):
             ad.add_alias("English", "en")
 
@@ -119,11 +119,11 @@ class TestNegative:
             ({"German", "de"}, "lemmatize_de_all"),
         ]
 
-        ad = AliasDict(data)
+        ad = AliasDict(*data)
 
         with pytest.raises(
             KeyError,
-            match=r"Alias `EN` is missing!",
+            match=r"Alias `EN` is missing.",
         ):
             ad.add_alias("EN", 1)
 
@@ -135,11 +135,11 @@ class TestNegative:
             ({"German", "de"}, "lemmatize_de_all"),
         ]
 
-        ad = AliasDict(data)
+        ad = AliasDict(*data)
 
         with pytest.raises(
             KeyError,
-            match=r"Alias `EN` is missing!",
+            match=r"Alias `EN` is missing.",
         ):
             ad.delete_alias("EN")
 
@@ -151,11 +151,11 @@ class TestNegative:
             ({"German", "de"}, "lemmatize_de_all"),
         ]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
 
         with pytest.raises(
             KeyError,
-            match=r"Alias `EN` is missing!",
+            match=r"Alias `EN` is missing.",
         ):
             d["EN"]
 
@@ -167,9 +167,9 @@ class TestPositive:
         """Test the creation of an empty dictionary."""
         d = AliasDict()
         assert isinstance(d._store, list)
-        assert isinstance(d.all_alias_set, set)
+        assert isinstance(d._aliases, set)
         assert d._store == []
-        assert d.all_alias_set == set()
+        assert d._aliases == set()
 
     def test_get_value_from_empty(self) -> None:
         """Test get value from empty dictionary."""
@@ -189,22 +189,22 @@ class TestPositive:
         d.add({5.1}, 5.1)
         assert d.get(5.1) == 5.1
 
-        assert "alias name" in d.__dict__["all_alias_set"]
-        assert 5 in d.__dict__["all_alias_set"]
-        assert 5.1 in d.__dict__["all_alias_set"]
+        assert "alias name" in d.__dict__["_aliases"]
+        assert 5 in d.__dict__["_aliases"]
+        assert 5.1 in d.__dict__["_aliases"]
 
     def test_repr(self) -> None:
         """Test a `__repr__` method."""
         data = [({"English", "en"}, "lemmatize_en_all")]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
         assert repr(d) == f"AliasDict({[({'English', 'en'}, 'lemmatize_en_all')]})"
 
     def test_str(self) -> None:
         """Get a string representation of dictionary."""
         data = [({"English", "en"}, "lemmatize_en_all")]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
 
         assert str(d) == str([({"English", "en"}, "lemmatize_en_all")])
 
@@ -212,7 +212,7 @@ class TestPositive:
         """Test a `__bool__` method."""
         data = [({"English", "en"}, "lemmatize_en_all")]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
         assert bool(d)
 
         d = AliasDict()
@@ -226,19 +226,17 @@ class TestPositive:
             ({"German", "de"}, "lemmatize_de_all"),
         ]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
 
         assert len(d) == 3
 
     def test_get_value(self) -> None:
         """Test get value by key."""
-        data = [
+        d = AliasDict(
             ({"English", "en"}, "lemmatize_en_all"),
             ({"Russian", "ru"}, "lemmatize_ru_all"),
             ({"German", "de"}, "lemmatize_de_all"),
-        ]
-
-        d = AliasDict(data)
+        )
 
         assert d.get("English") == "lemmatize_en_all"
         assert d.get("en") == "lemmatize_en_all"
@@ -257,7 +255,7 @@ class TestPositive:
             ({"German", "de"}, "lemmatize_de_all"),
         ]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
 
         d.add({"Turkish", "tr"}, "libstemmer_tr")
 
@@ -275,9 +273,7 @@ class TestPositive:
 
     def test_update_value(self) -> None:
         """Test update value by key."""
-        data = [({"five", 5}, "Five it's me!")]
-
-        d = AliasDict(data)
+        d = AliasDict(({"five", 5}, "Five it's me!"))
 
         assert d.get("five") == "Five it's me!"
         assert d.get(5) == "Five it's me!"
@@ -296,7 +292,7 @@ class TestPositive:
             ({"four", "Four", 4}, "I'm fourth"),
         ]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
 
         assert d.get("four") == "I'm fourth"
         assert d.get(4) == "I'm fourth"
@@ -329,18 +325,16 @@ class TestPositive:
 
         assert d.get("Turkish") == "libstemmer_tr"
         assert d.get("tr") is None
-        assert "tr" not in d.__dict__["all_alias_set"]
+        assert "tr" not in d.__dict__["_aliases"]
 
     def test_has_key(self) -> None:
         """Check if the dictionary has an alias."""
-        data = [
+        d = AliasDict(
             ({"English", "en"}, "lemmatize_en_all"),
             ({"Russian", "ru"}, "lemmatize_ru_all"),
             ({"German", "de"}, "lemmatize_de_all"),
             ({"four", "Four", 4}, "I'm fourth"),
-        ]
-
-        d = AliasDict(data)
+        )
 
         assert d.has_key("English")
         assert d.has_key("en")
@@ -363,7 +357,7 @@ class TestPositive:
             ({"four", "Four", 4}, "I'm fourth"),
         ]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
 
         assert d.has_value("lemmatize_en_all")
         assert d.has_value("lemmatize_ru_all")
@@ -390,7 +384,7 @@ class TestPositive:
             "de": "lemmatize_de_all",
         }
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
         g = d.items()
         assert isinstance(g, Generator)
         for aliases, value in d.items():
@@ -398,13 +392,11 @@ class TestPositive:
 
     def test_keys(self) -> None:
         """Test a `keys` method."""
-        data = [
+        d = AliasDict(
             ({"English", "en"}, "lemmatize_en_all"),
             ({"Russian", "ru"}, "lemmatize_ru_all"),
             ({"German", "de"}, "lemmatize_de_all"),
-        ]
-
-        d = AliasDict(data)
+        )
 
         alias_gen = d.keys()
 
@@ -420,7 +412,7 @@ class TestPositive:
             ({"German", "de"}, "lemmatize_de_all"),
         ]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
 
         value_gen = d.values()
 
@@ -443,7 +435,7 @@ class TestPositive:
             ({"German", "de"}, "lemmatize_de_all"),
         ]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
 
         res = d["English"]
         assert res == "lemmatize_en_all"
@@ -469,14 +461,12 @@ class TestPositive:
 
     def test_setitem(self) -> None:
         """Test a `__setitem__` method."""
-        data = [
+        d = AliasDict(
             ({"English", "en"}, "lemmatize_en_all"),
             ({"Russian", "ru"}, "lemmatize_ru_all"),
             ({"German", "de"}, "lemmatize_de_all"),
             ({"four", "Four", 4}, "I'm fourth"),
-        ]
-
-        d = AliasDict(data)
+        )
 
         assert d["four"] == "I'm fourth"
 
@@ -498,7 +488,7 @@ class TestPositive:
             ({"four", "Four", 4}, "I'm fourth"),
         ]
 
-        d = AliasDict(data)
+        d = AliasDict(*data)
 
         assert d["English"] == "lemmatize_en_all"
         assert d["en"] == "lemmatize_en_all"
@@ -507,12 +497,12 @@ class TestPositive:
 
         with pytest.raises(
             KeyError,
-            match=r"Alias `English` is missing!",
+            match=r"Alias `English` is missing.",
         ):
             d["English"]
 
         with pytest.raises(
             KeyError,
-            match=r"Alias `en` is missing!",
+            match=r"Alias `en` is missing.",
         ):
             d["en"]

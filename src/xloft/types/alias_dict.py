@@ -36,16 +36,16 @@ from xloft.errors import (
 class AliasDict:
     """Pseudo dictionary with supports aliases for keys."""
 
-    def __init__(self, data: list[tuple[set[str | int | float], Any]] | None = None) -> None:  # noqa: D107
+    def __init__(self, *args: tuple[set[str | int | float], Any]) -> None:  # noqa: D107
         self.__dict__["_store"] = []
-        self.__dict__["all_alias_set"] = set()  # for uniqueness check
-        if data is not None:
-            for item in data:
-                if not self.all_alias_set.isdisjoint(item[0]):
-                    err_msg = "In some keys, aliases are repeated!"
+        self.__dict__["_aliases"] = set()  # for uniqueness check
+        if len(args) > 0:
+            for item in args:
+                if not self._aliases.isdisjoint(item[0]):
+                    err_msg = "In some keys, aliases are repeated."
                     raise KeyError(err_msg)
-                self.all_alias_set.update(item[0])
-                self._store.append(list(item))
+                self._aliases.update(item[0])
+                self._store.append(copy.deepcopy(list(item)))
 
     def __repr__(self) -> str:
         """Called by the repr built-in function.
@@ -137,7 +137,7 @@ class AliasDict:
             if alias in item[0]:
                 return copy.deepcopy(item[1])
 
-        raise KeyError(f"Alias `{alias}` is missing!")
+        raise KeyError(f"Alias `{alias}` is missing.")
 
     def __setitem__(self, alias: str | int | float, value: Any) -> None:
         """Update the value at the named index or add a new one if the alias is missing.
@@ -223,15 +223,15 @@ class AliasDict:
         Returns:
             `None` or `KeyError` if some aliases already exist.
         """
-        if not self.all_alias_set.isdisjoint(aliases):
+        if not self._aliases.isdisjoint(aliases):
             err_msg = "Some aliases already exist."
             raise KeyError(err_msg)
 
-        self._store.append([aliases, value])
-        self.all_alias_set.update(aliases)
+        self._store.append([aliases, copy.deepcopy(value)])
+        self._aliases.update(aliases)
 
     def update(self, alias: str | int | float, value: Any) -> None:
-        """Update the value of an existing alias.
+        """Update value for existing alias.
 
         Examples:
             >>> from xloft import AliasDict
@@ -249,10 +249,10 @@ class AliasDict:
         """
         for item in self.__dict__["_store"]:
             if alias in item[0]:
-                item[1] = value
+                item[1] = copy.deepcopy(value)
                 return
 
-        err_msg = f"Alias `{alias}` is missing!"
+        err_msg = f"Alias `{alias}` is missing."
         raise KeyError(err_msg)
 
     def delete(self, alias: str | int | float) -> None:
@@ -273,13 +273,11 @@ class AliasDict:
         """
         for item in self.__dict__["_store"]:
             if alias in item[0]:
-                self.__dict__["all_alias_set"] = {
-                    alias for alias in self.__dict__["all_alias_set"] if alias not in item[0]
-                }
+                self.__dict__["_aliases"] = {alias for alias in self.__dict__["_aliases"] if alias not in item[0]}
                 self.__dict__["_store"] = [item for item in self.__dict__["_store"] if alias not in item[0]]
                 return
 
-        err_msg = f"Alias `{alias}` is missing!"
+        err_msg = f"Alias `{alias}` is missing."
         raise KeyError(err_msg)
 
     def add_alias(
@@ -303,17 +301,17 @@ class AliasDict:
         Returns:
             `None` or `KeyError` if alias is missing or if new alias is already exists.
         """
-        if new_alias in self.__dict__["all_alias_set"]:
+        if new_alias in self.__dict__["_aliases"]:
             err_msg = f"New Alias `{new_alias}` is already exists!"
             raise KeyError(err_msg)
 
         for item in self.__dict__["_store"]:
             if alias in item[0]:
                 item[0].add(new_alias)
-                self.all_alias_set.add(new_alias)
+                self._aliases.add(new_alias)
                 return
 
-        err_msg = f"Alias `{alias}` is missing!"
+        err_msg = f"Alias `{alias}` is missing."
         raise KeyError(err_msg)
 
     def delete_alias(self, alias: str | int | float) -> None:
@@ -340,10 +338,10 @@ class AliasDict:
                     self._store = [item for item in self._store if alias not in item[0]]
                 else:
                     item[0].remove(alias)
-                self.all_alias_set.remove(alias)
+                self._aliases.remove(alias)
                 return
 
-        err_msg = f"Alias `{alias}` is missing!"
+        err_msg = f"Alias `{alias}` is missing."
         raise KeyError(err_msg)
 
     def has_key(self, alias: str | int | float) -> bool:
@@ -361,7 +359,7 @@ class AliasDict:
         Returns:
             True if the key exists, otherwise False.
         """
-        return alias in self.__dict__["all_alias_set"]
+        return alias in self.__dict__["_aliases"]
 
     def has_value(self, value: Any) -> bool:
         """Check if the value exists.
@@ -404,7 +402,7 @@ class AliasDict:
             Type: `list[tuple[list[str | int | float], Any]]` or `[]`.
         """
         store = self.__dict__["_store"]
-        return ((list(item[0]), item[1]) for item in store)
+        return ((list(item[0]), copy.deepcopy(item[1])) for item in store)
 
     def keys(self) -> Generator[str | int | float]:
         """Get a generator of list of all aliases.
@@ -420,8 +418,8 @@ class AliasDict:
         Returns:
             List of all aliases.
         """
-        all_alias_set = self.__dict__["all_alias_set"]
-        return (item for item in all_alias_set)
+        aliases = self.__dict__["_aliases"]
+        return (item for item in aliases)
 
     def values(self) -> Generator[Any]:
         """Get a generator of list of all values.
@@ -438,4 +436,4 @@ class AliasDict:
             List of all values.
         """
         store = self.__dict__["_store"]
-        return (item[1] for item in store)
+        return (copy.deepcopy(item[1]) for item in store)
