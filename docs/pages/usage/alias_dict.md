@@ -7,13 +7,19 @@ from xloft import AliasDict
 
 d = AliasDict()
 # or
+d = AliasDict(
+    ({"English", "en"}, "lemmatize_en_all"),
+    ({"Russian", "ru"}, "lemmatize_ru_all"),
+    ({"German", "de"}, "lemmatize_de_all"),
+)
+# or
 data = [
     ({"English", "en"}, "lemmatize_en_all"),
     ({"Russian", "ru"}, "lemmatize_ru_all"),
     ({"German", "de"}, "lemmatize_de_all"),
     ({"four", "Four", 4}, "I'm fourth"),
 ]
-d = AliasDict(data)
+d = AliasDict(*data)
 
 len(d)  # => 4
 #

@@ -1,5 +1,12 @@
 ### CHANGELOG
 
+#### v0.11.0 2026-02-04
+
+- Data security has been improved in `AliasDict` and `NamedTuple`.
+- Updated tests.
+- Updated documentation.
+- Updated `README.md` file.
+
 #### v0.10.12 2026-02-03
 
 - AliasDict - Added a `__repr__`, `__str__`, `__bool__` and `__len__` methods.

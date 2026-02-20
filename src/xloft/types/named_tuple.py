@@ -32,7 +32,7 @@ class NamedTuple:
     """This class imitates the behavior of the `named tuple`."""
 
     def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
-        self.__dict__["_store"] = dict(kwargs)
+        self.__dict__["_store"] = copy.deepcopy(kwargs)
 
     def __repr__(self) -> str:
         """Called by the repr built-in function.
@@ -184,9 +184,9 @@ class NamedTuple:
         """
         keys: list[str] = self._store.keys()
         if key not in keys:
-            err_msg = f"The key `{key}` is missing!"
+            err_msg = f"The key `{key}` is missing."
             raise KeyError(err_msg)
-        self._store[key] = value
+        self._store[key] = copy.deepcopy(value)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to the dictionary.
@@ -201,7 +201,7 @@ class NamedTuple:
         Returns:
             Dictionary with keys and values of the tuple.
         """
-        return dict(self._store)
+        return copy.deepcopy(self._store)
 
     def items(self) -> Any:
         """Returns a generator of list containing a tuple for each key-value pair.
@@ -221,7 +221,7 @@ class NamedTuple:
             Returns a list containing a tuple for each key-value pair.
             Type: `list[tuple[str, Any]]`.
         """
-        return self._store.items()
+        return ((key, copy.deepcopy(value)) for key, value in self._store.items())
 
     def keys(self) -> Any:
         """Get a generator of list of keys.
@@ -253,7 +253,7 @@ class NamedTuple:
         Returns:
             List of values.
         """
-        return self._store.values()
+        return (copy.deepcopy(value) for value in self._store.values())
 
     def has_key(self, key: str) -> bool:
         """Check if the key exists.
@@ -270,8 +270,8 @@ class NamedTuple:
         Returns:
             True if the key exists, otherwise False.
         """
-        keys = self._store.keys()
-        return key in keys
+        key_list = self._store.keys()
+        return key in key_list
 
     def has_value(self, value: Any) -> bool:
         """Check if the value exists.
@@ -288,5 +288,5 @@ class NamedTuple:
         Returns:
             True if the value exists, otherwise False.
         """
-        values = self._store.values()
-        return value in values
+        value_list = self._store.values()
+        return value in value_list
