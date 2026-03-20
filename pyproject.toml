@@ -197,5 +197,6 @@ matches = "tests/**"
 missing-attribute = false
 bad-argument-type = false
 
-[tool.pytest.ini_options]
+[tool.pytest]
+addopts = ["--strict-markers"]
 testpaths = ["tests"]
