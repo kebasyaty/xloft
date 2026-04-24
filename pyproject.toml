@@ -194,6 +194,7 @@ matches = "tests/**"
 [tool.pyrefly.sub-config.errors]
 missing-attribute = false
 bad-argument-type = false
+missing-import = false
 
 [tool.pytest]
 addopts = ["--strict-markers"]
