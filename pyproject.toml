@@ -74,6 +74,7 @@ indent-width = 4
 src = ["src", "tests"]
 include = ["src/**/*.py", "tests/**/*.py"]
 exclude = [
+    "**/node_modules",
     "**/__pycache__",
     "**/.[!/.]*/**",
     ".bzr",
@@ -98,8 +99,8 @@ exclude = [
     "buck-out",
     "build",
     "dist",
-    "node_modules",
     "site-packages",
+    "examples",
     ".github",
     "assets",
     "docs",
@@ -183,6 +184,7 @@ line-ending = "auto"
 project-includes = ["src", "tests"]
 search-path = ["src", "tests"]
 project-excludes = [
+    "**/node_modules",
     "**/__pycache__",
     "**/.[!/.]*/**",
     ".bzr",
@@ -207,8 +209,8 @@ project-excludes = [
     "buck-out",
     "build",
     "dist",
-    "node_modules",
     "site-packages",
+    "examples",
     ".github",
     "assets",
     "docs",
