@@ -37,6 +37,6 @@ def to_human_size(n_bytes: int) -> str:
     ndigits: int = [0, 3, 6, 9, 12][idx]
     human_size: int | float = n_bytes if n_bytes < 1024 else abs(round(n_bytes / pow(1024, idx), ndigits))
     order = ["bytes", "KB", "MB", "GB", "TB"][idx]
-    if math.modf(human_size)[0] == 0.0:
+    if math.modf(human_size)[0] == 0.0:  # noqa: RUF069
         human_size = int(human_size)
     return f"{human_size} {order}"

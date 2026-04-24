@@ -1,6 +1,6 @@
 [project]
 name = "xloft"
-version = "0.11.1"
+version = "0.11.2"
 description = "(XLOFT) X-Library of tools"
 readme = "README.md"
 authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
@@ -41,8 +41,8 @@ default-groups = ["dev", "lint", "test", "docs", "types"]
 compile-bytecode = true
 check-url = "https://pypi.org/simple"
 
-[tool.uv.build-backend]
-module-root = "src"
+[tool.hatch.build.targets.wheel]
+packages = ["src/xloft"]
 
 [build-system]
 requires = ["hatchling"]
@@ -74,6 +74,9 @@ indent-width = 4
 src = ["src", "tests"]
 include = ["src/**/*.py", "tests/**/*.py"]
 exclude = [
+    "**/node_modules",
+    "**/__pycache__",
+    "**/.[!/.]*/**",
     ".bzr",
     ".direnv",
     ".eggs",
@@ -81,7 +84,6 @@ exclude = [
     ".git-rewrite",
     ".hg",
     ".ipynb_checkpoints",
-    ".mypy_cache",
     ".nox",
     ".pants.d",
     ".pyenv",
@@ -97,9 +99,8 @@ exclude = [
     "buck-out",
     "build",
     "dist",
-    "node_modules",
     "site-packages",
-    "venv",
+    "examples",
     ".github",
     "assets",
     "docs",
@@ -182,6 +183,39 @@ line-ending = "auto"
 [tool.pyrefly]
 project-includes = ["src", "tests"]
 search-path = ["src", "tests"]
+project-excludes = [
+    "**/node_modules",
+    "**/__pycache__",
+    "**/.[!/.]*/**",
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "site-packages",
+    "examples",
+    ".github",
+    "assets",
+    "docs",
+    "site",
+]
 ignore-errors-in-generated-code = true
 untyped_def_behavior = "check-and-infer-return-any"
 
@@ -194,6 +228,7 @@ matches = "tests/**"
 [tool.pyrefly.sub-config.errors]
 missing-attribute = false
 bad-argument-type = false
+missing-import = false
 
 [tool.pytest]
 addopts = ["--strict-markers"]

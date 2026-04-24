@@ -187,7 +187,7 @@ class TestPositive:
         assert d.get(5) == 5
 
         d.add({5.1}, 5.1)
-        assert d.get(5.1) == 5.1
+        assert d.get(5.1) == 5.1  # noqa: RUF069
 
         assert "alias name" in d.__dict__["_aliases"]
         assert 5 in d.__dict__["_aliases"]
