@@ -56,10 +56,6 @@ nt.y  # => Hi
 nt._id  # => new_id
 nt.update("z", [1, 2, 3])  # => raise: KeyError
 
-nt["x"]  # => raise: KeyError
-nt["y"]  # => raise: KeyError
-nt["_id"]  # => raise: KeyError
-nt["z"]  # => raise: KeyError
 nt["x"] = 20  # => TypeError
 nt["y"] = "Hi"  # => TypeError
 nt["_id"] = "new_id"  # => TypeError
