@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -821,11 +821,7 @@
 <span class="normal"><a href="#__codelineno-0-65">65</a></span>
 <span class="normal"><a href="#__codelineno-0-66">66</a></span>
 <span class="normal"><a href="#__codelineno-0-67">67</a></span>
-<span class="normal"><a href="#__codelineno-0-68">68</a></span>
-<span class="normal"><a href="#__codelineno-0-69">69</a></span>
-<span class="normal"><a href="#__codelineno-0-70">70</a></span>
-<span class="normal"><a href="#__codelineno-0-71">71</a></span>
-<span class="normal"><a href="#__codelineno-0-72">72</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="sd">&quot;&quot;&quot;This class imitates the behavior of the `named tuple`.&quot;&quot;&quot;</span>
+<span class="normal"><a href="#__codelineno-0-68">68</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="sd">&quot;&quot;&quot;This class imitates the behavior of the `named tuple`.&quot;&quot;&quot;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xloft</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>
@@ -880,23 +876,19 @@
 </span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="n">nt</span><span class="o">.</span><span class="n">_id</span>  <span class="c1"># =&gt; new_id</span>
 </span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="n">nt</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>  <span class="c1"># =&gt; raise: KeyError</span>
 </span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55"></a>
-</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="n">nt</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>  <span class="c1"># =&gt; raise: KeyError</span>
-</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="n">nt</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>  <span class="c1"># =&gt; raise: KeyError</span>
-</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="n">nt</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]</span>  <span class="c1"># =&gt; raise: KeyError</span>
-</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="n">nt</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span>  <span class="c1"># =&gt; raise: KeyError</span>
-</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="n">nt</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># =&gt; TypeError</span>
-</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="n">nt</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Hi&quot;</span>  <span class="c1"># =&gt; TypeError</span>
-</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="n">nt</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;new_id&quot;</span>  <span class="c1"># =&gt; TypeError</span>
-</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="n">nt</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># =&gt; TypeError</span>
-</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64"></a>
-</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="n">nt</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># =&gt; raise: AttributeDoesNotSetValueError</span>
-</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="n">nt</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Hi&quot;</span>  <span class="c1"># =&gt; raise: AttributeDoesNotSetValueError</span>
-</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="n">nt</span><span class="o">.</span><span class="n">_id</span> <span class="o">=</span> <span class="s2">&quot;new_id&quot;</span>  <span class="c1"># =&gt; raise: AttributeDoesNotSetValueError</span>
-</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="n">nt</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># =&gt; raise: AttributeDoesNotSetValueError</span>
-</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69"></a>
-</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="k">del</span> <span class="n">nt</span><span class="o">.</span><span class="n">x</span>  <span class="c1"># =&gt; raise: AttributeCannotBeDeleteError</span>
-</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="k">del</span> <span class="n">nt</span><span class="o">.</span><span class="n">y</span> <span class="c1"># =&gt; raise: AttributeCannotBeDeleteError</span>
-</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="k">del</span> <span class="n">nt</span><span class="o">.</span><span class="n">_id</span> <span class="c1"># =&gt; raise: AttributeCannotBeDeleteError</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="n">nt</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># =&gt; TypeError</span>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="n">nt</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Hi&quot;</span>  <span class="c1"># =&gt; TypeError</span>
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="n">nt</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;new_id&quot;</span>  <span class="c1"># =&gt; TypeError</span>
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="n">nt</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># =&gt; TypeError</span>
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60"></a>
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="n">nt</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># =&gt; raise: AttributeDoesNotSetValueError</span>
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="n">nt</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Hi&quot;</span>  <span class="c1"># =&gt; raise: AttributeDoesNotSetValueError</span>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="n">nt</span><span class="o">.</span><span class="n">_id</span> <span class="o">=</span> <span class="s2">&quot;new_id&quot;</span>  <span class="c1"># =&gt; raise: AttributeDoesNotSetValueError</span>
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="n">nt</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># =&gt; raise: AttributeDoesNotSetValueError</span>
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65"></a>
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="k">del</span> <span class="n">nt</span><span class="o">.</span><span class="n">x</span>  <span class="c1"># =&gt; raise: AttributeCannotBeDeleteError</span>
+</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="k">del</span> <span class="n">nt</span><span class="o">.</span><span class="n">y</span> <span class="c1"># =&gt; raise: AttributeCannotBeDeleteError</span>
+</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="k">del</span> <span class="n">nt</span><span class="o">.</span><span class="n">_id</span> <span class="c1"># =&gt; raise: AttributeCannotBeDeleteError</span>
 </span></code></pre></div></td></tr></table></div>
 
 
