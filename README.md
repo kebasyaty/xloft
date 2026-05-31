@@ -35,9 +35,9 @@
 
 <br>
 
-[![Documentation](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/documentation.svg "Documentation")](https://kebasyaty.github.io/xloft/ "Documentation")
+[![Documentation](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/documentation.svg "Documentation")](https://kebasyaty.github.io/xloft/ "Documentation")
 
-[![Requirements](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/requirements.svg "Requirements")](https://github.com/kebasyaty/xloft/blob/v0/REQUIREMENTS.md "Requirements")
+[![Requirements](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/requirements.svg "Requirements")](https://github.com/kebasyaty/xloft/blob/v1/REQUIREMENTS.md "Requirements")
 
 ## Installation
 
@@ -47,7 +47,7 @@ uv add xloft
 
 ## Usage
 
-[![Examples](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/examples.svg "Examples")](https://kebasyaty.github.io/xloft/latest/pages/usage/ "Examples")
+[![Examples](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/examples.svg "Examples")](https://kebasyaty.github.io/xloft/latest/pages/usage/ "Examples")
 
 - **NamedTuple**
 
@@ -258,6 +258,6 @@ is_number("-72028601076372765770200707816364342373431783018070841859646251155447
 
 <br>
 
-[![Changelog](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/changelog.svg "Changelog")](https://github.com/kebasyaty/xloft/blob/v0/CHANGELOG.md "Changelog")
+[![Changelog](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/changelog.svg "Changelog")](https://github.com/kebasyaty/xloft/blob/v1/CHANGELOG.md "Changelog")
 
-[![MIT](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/mit.svg "MIT")](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")
+[![MIT](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/mit.svg "MIT")](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")
