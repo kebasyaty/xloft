@@ -24,12 +24,11 @@ __all__ = (
     "roman_to_int",
     "to_human_size",
     "is_number",
-    "is_palindrome",
     "AliasDict",
     "NamedTuple",
 )
 
 from xloft.converters import int_to_roman, roman_to_int, to_human_size
-from xloft.itis import is_number, is_palindrome
+from xloft.itis import is_number
 from xloft.types.alias_dict import AliasDict
 from xloft.types.named_tuple import NamedTuple
