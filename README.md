@@ -35,9 +35,9 @@
 
 <br>
 
-[![Documentation](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/documentation.svg "Documentation")](https://kebasyaty.github.io/xloft/ "Documentation")
+[![Documentation](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/documentation.svg "Documentation")](https://kebasyaty.github.io/xloft/ "Documentation")
 
-[![Requirements](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/requirements.svg "Requirements")](https://github.com/kebasyaty/xloft/blob/v0/REQUIREMENTS.md "Requirements")
+[![Requirements](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/requirements.svg "Requirements")](https://github.com/kebasyaty/xloft/blob/v1/REQUIREMENTS.md "Requirements")
 
 ## Installation
 
@@ -47,7 +47,7 @@ uv add xloft
 
 ## Usage
 
-[![Examples](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/examples.svg "Examples")](https://kebasyaty.github.io/xloft/latest/pages/usage/ "Examples")
+[![Examples](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/examples.svg "Examples")](https://kebasyaty.github.io/xloft/latest/pages/usage/ "Examples")
 
 - **NamedTuple**
 
@@ -204,8 +204,8 @@ list(d.values())  # => ["lemmatize_en_all", "lemmatize_ru_all", "lemmatize_de_al
 ```python
 """Convert the number of bytes into a human-readable format."""
 
-from xloft import to_human_size, int_to_roman, roman_to_int
-# from xloft.converters import to_human_size, int_to_roman, roman_to_int
+from xloft import to_human_size
+# from xloft.converters import to_human_size
 
 
 to_human_size(200)  # => 200 bytes
@@ -216,13 +216,24 @@ int_to_roman(1994)  # => MCMXCIV
 roman_to_int("MCMXCIV")  # => 1994
 ```
 
+```python
+"""Convert an integer to Roman and vice versa."""
+
+from xloft import int_to_roman, roman_to_int
+# from xloft.converters import int_to_roman, roman_to_int
+
+
+int_to_roman(1994)  # => MCMXCIV
+roman_to_int("MCMXCIV")  # => 1994
+```
+
 - **ItIs**
 
 ```python
 """Check if a string is a number."""
 
-from xloft import is_number, is_palindrome
-# from xloft.itis import is_number, is_palindrome
+from xloft import is_number
+# from xloft.itis import is_number
 
 
 is_number("")  # => False
@@ -243,18 +254,10 @@ is_number("-1.7976931348623157e+308")  # => True
 is_number("1.7976931348623157e+308")  # => True
 is_number("72028601076372765770200707816364342373431783018070841859646251155447849538676")  # => True
 is_number("-72028601076372765770200707816364342373431783018070841859646251155447849538676")  # => True
-#
-is_palindrome("racecar")  # True
-is_palindrome("Go hang a salami, I'm a lasagna hog") # True
-is_palindrome("22022022")  # True
-is_palindrome("Gene")  # False
-is_palindrome("123")  # False
-is_palindrome(123)  # TypeError
-is_palindrome("")  # ValueError
 ```
 
 <br>
 
-[![Changelog](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/changelog.svg "Changelog")](https://github.com/kebasyaty/xloft/blob/v0/CHANGELOG.md "Changelog")
+[![Changelog](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/changelog.svg "Changelog")](https://github.com/kebasyaty/xloft/blob/v1/CHANGELOG.md "Changelog")
 
-[![MIT](https://raw.githubusercontent.com/kebasyaty/xloft/v0/assets/links/mit.svg "MIT")](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")
+[![MIT](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/mit.svg "MIT")](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")
