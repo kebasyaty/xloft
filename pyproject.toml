@@ -30,7 +30,7 @@ dependencies = []
 
 [project.urls]
 "Bug Tracker" = "https://github.com/kebasyaty/xloft/issues"
-Changelog = "https://github.com/kebasyaty/xloft/blob/v0/CHANGELOG.md"
+Changelog = "https://github.com/kebasyaty/xloft/blob/v1/CHANGELOG.md"
 Homepage = "https://kebasyaty.github.io/xloft/"
 Repository = "https://github.com/kebasyaty/xloft"
 Source = "https://github.com/kebasyaty/xloft"
