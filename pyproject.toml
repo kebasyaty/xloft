@@ -1,6 +1,6 @@
 [project]
 name = "xloft"
-version = "1.0.0"
+version = "1.0.1"
 description = "(XLOFT) X-Library of tools"
 readme = "README.md"
 requires-python = ">=3.12,<4.0"
@@ -30,7 +30,7 @@ dependencies = []
 
 [project.urls]
 "Bug Tracker" = "https://github.com/kebasyaty/xloft/issues"
-Changelog = "https://github.com/kebasyaty/xloft/blob/v0/CHANGELOG.md"
+Changelog = "https://github.com/kebasyaty/xloft/blob/v1/CHANGELOG.md"
 Homepage = "https://kebasyaty.github.io/xloft/"
 Repository = "https://github.com/kebasyaty/xloft"
 Source = "https://github.com/kebasyaty/xloft"
