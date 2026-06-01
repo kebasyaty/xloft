@@ -1,6 +1,6 @@
 [project]
 name = "xloft"
-version = "1.0.0"
+version = "1.0.1"
 description = "(XLOFT) X-Library of tools"
 readme = "README.md"
 requires-python = ">=3.12,<4.0"
