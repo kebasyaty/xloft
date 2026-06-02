@@ -4,7 +4,7 @@
       <img
         id="logo"
         alt="Logo"
-        src="https://raw.githubusercontent.com/kebasyaty/xloft/main/assets/logo.png">
+        src="https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/logo.png">
     </a>
   </p>
   <p>
