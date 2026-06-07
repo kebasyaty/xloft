@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from xloft.converters import int_to_roman, roman_to_int, to_human_size
+from xloft.converters import int_to_roman, roman_to_int, to_human_size, word_to_color
 from xloft.converters.roman import ROMAN
 
 
@@ -42,3 +42,9 @@ def test_roman_to_int() -> None:
     data = [*ROMAN, (3, "III"), (58, "LVIII"), (1994, "MCMXCIV")]
     for item in data:
         assert roman_to_int(item[1]) == item[0]
+
+
+def test_word_to_color() -> None:
+    """Test a `word_to_color` method."""
+    assert word_to_color("xloft") == "#09cacd"
+    assert word_to_color("Hello World!") == "#1db63c"
