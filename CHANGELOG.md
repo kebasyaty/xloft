@@ -1,5 +1,12 @@
 ### CHANGELOG
 
+#### v1.1.0 2026-06-07
+
+- Added a `word_to_color` method.
+- Updated tests.
+- Updated documentation.
+- Updated `README.md` file.
+
 #### v0.11.0 2026-02-04
 
 - Data security has been improved in `AliasDict` and `NamedTuple`.
