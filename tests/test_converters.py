@@ -48,3 +48,5 @@ def test_word_to_color() -> None:
     """Test a `word_to_color` method."""
     assert word_to_color("xloft") == "#09cacd"
     assert word_to_color("Hello World!") == "#1db63c"
+    assert word_to_color(" ") == "#200000"
+    assert word_to_color("") == "#000000"
