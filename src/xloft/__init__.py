@@ -23,12 +23,13 @@ __all__ = (
     "int_to_roman",
     "roman_to_int",
     "to_human_size",
+    "word_to_color",
     "is_number",
     "AliasDict",
     "NamedTuple",
 )
 
-from xloft.converters import int_to_roman, roman_to_int, to_human_size
+from xloft.converters import int_to_roman, roman_to_int, to_human_size, word_to_color
 from xloft.itis import is_number
 from xloft.types.alias_dict import AliasDict
 from xloft.types.named_tuple import NamedTuple
