@@ -5,10 +5,10 @@
 
 The module contains the following functions:
 
-- `to_human_size(n_bytes)` - Returns a humanized string: 200 bytes | 1 KB | 1.5 MB etc.
+- `to_human_size(n_bytes)` - Convert the number of bytes into a human-readable format.
 - `int_to_roman` - Convert an integer to Roman.
 - `roman_to_int` - Convert to integer from Roman.
-- `word_to_color` - Converts text to a hexadecimal color code.
+- `word_to_color` - Convert text to a hexadecimal color code.
 """
 
 from __future__ import annotations
