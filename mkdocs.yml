@@ -33,7 +33,7 @@ theme:
     accent: indigo
 
 extra_css:
-  - stylesheets/themes/github_indigo.css
+  - stylesheets/themes/github_black.css
   - stylesheets/extra.css
 
 plugins:
