@@ -388,7 +388,7 @@ class TestPositive:
         g = d.items()
         assert isinstance(g, Generator)
         for aliases, value in d.items():
-            assert value == data_for_check[aliases[0]]  # pyrefly: ignore[bad-typed-dict-key]
+            assert value == data_for_check[aliases[0]]  # pyrefly: ignore[bad-typed-dict-key,bad-index]
 
     def test_keys(self) -> None:
         """Test a `keys` method."""
