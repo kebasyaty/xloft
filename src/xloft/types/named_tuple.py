@@ -31,7 +31,7 @@ from xloft.errors import (
 class NamedTuple:
     """This class imitates the behavior of the `named tuple`."""
 
-    def __init__(self, **kwargs: dict[str, Any]) -> None:  # noqa: D107
+    def __init__(self, **kwargs: dict[str, Any]) -> None:  # ruff:ignore[undocumented-public-init]
         self.__dict__["_store"] = copy.deepcopy(kwargs)
 
     def __repr__(self) -> str:

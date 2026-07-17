@@ -36,7 +36,7 @@ from xloft.errors import (
 class AliasDict:
     """Pseudo dictionary with supports aliases for keys."""
 
-    def __init__(self, *args: tuple[set[str | int | float], Any]) -> None:  # noqa: D107
+    def __init__(self, *args: tuple[set[str | int | float], Any]) -> None:  # ruff:ignore[undocumented-public-init]
         self.__dict__["_store"] = []
         self.__dict__["_aliases"] = set()  # for uniqueness check
         if len(args) > 0:
