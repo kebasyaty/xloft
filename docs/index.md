@@ -20,7 +20,7 @@
       <a href="https://docs.astral.sh/ruff/" alt="Code style: Ruff"><img src="https://img.shields.io/badge/code%20style-Ruff-FDD835.svg" alt="Code style: Ruff"></a>
       <a href="https://pypi.org/project/xloft"><img src="https://img.shields.io/pypi/format/xloft" alt="Format"></a>
       <a href="https://pepy.tech/projects/xloft"><img src="https://static.pepy.tech/badge/xloft" alt="PyPI Downloads"></a>
-      <a href="https://github.com/kebasyaty/xloft/blob/main/LICENSE" alt="GitHub license"><img src="https://img.shields.io/github/license/kebasyaty/xloft" alt="GitHub license"></a>
+      <a href="https://github.com/kebasyaty/xloft/blob/v1/LICENSE" alt="GitHub license"><img src="https://img.shields.io/github/license/kebasyaty/xloft" alt="GitHub license"></a>
     </p>
   </p>
 </div>
@@ -39,4 +39,4 @@ In the future, new tools can be added.
 
 [![Changelog](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/changelog.svg "Changelog")](https://github.com/kebasyaty/xloft/blob/v1/CHANGELOG.md "Changelog")
 
-[![MIT](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/mit.svg "MIT")](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")
+[![MIT](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/mit.svg "MIT")](https://github.com/kebasyaty/xloft/blob/v1/LICENSE "MIT")

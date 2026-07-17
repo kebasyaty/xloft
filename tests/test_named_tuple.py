@@ -36,7 +36,7 @@ class TestNegative:
     def test_fail_access_to_attribute(self, init_namedtuple) -> None:
         """An attempt to access the non-existent attribute."""
         nt = init_namedtuple
-        nt.z  # noqa: B018
+        nt.z  # ruff:ignore[useless-expression]
 
     @pytest.mark.xfail(raises=AttributeDoesNotSetValueError, strict=True)
     def test_fail_add_new_attribute(self, init_namedtuple) -> None:

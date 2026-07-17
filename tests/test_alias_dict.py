@@ -31,7 +31,7 @@ class TestNegative:
             AttributeDoesNotGetValueError,
             match=r"The attribute `en` does not get value.",
         ):
-            d.en  # noqa: B018
+            d.en  # ruff:ignore[useless-expression]
 
     def test_fail_setter(self) -> None:
         """Setter is not supported."""
@@ -187,7 +187,7 @@ class TestPositive:
         assert d.get(5) == 5
 
         d.add({5.1}, 5.1)
-        assert d.get(5.1) == 5.1  # noqa: RUF069
+        assert d.get(5.1) == pytest.approx(5.1)
 
         assert "alias name" in d.__dict__["_aliases"]
         assert 5 in d.__dict__["_aliases"]

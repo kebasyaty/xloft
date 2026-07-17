@@ -15,7 +15,7 @@ __all__ = (
 class XLOTException(Exception):
     """Root Custom Exception."""
 
-    def __init__(self, *args, **kwargs) -> None:  # type: ignore[no-untyped-def]# noqa: D107
+    def __init__(self, *args, **kwargs) -> None:  # type: ignore[no-untyped-def]  # ruff:ignore[undocumented-public-init]
         super().__init__(*args, **kwargs)
 
 
@@ -30,7 +30,7 @@ class AttributeDoesNotGetValueError(XLOTException):
 class AttributeDoesNotSetValueError(XLOTException):
     """Exception is raised if the attribute tries to set a value."""
 
-    def __init__(self, attribute_name: str) -> None:  # noqa: D107
+    def __init__(self, attribute_name: str) -> None:  # ruff:ignore[undocumented-public-init]
         self.message = f"The attribute `{attribute_name}` does not set value!"
         super().__init__(self.message)
 
@@ -38,6 +38,6 @@ class AttributeDoesNotSetValueError(XLOTException):
 class AttributeCannotBeDeleteError(XLOTException):
     """Exception is raised if the attribute cannot be delete."""
 
-    def __init__(self, attribute_name: str) -> None:  # noqa: D107
+    def __init__(self, attribute_name: str) -> None:  # ruff:ignore[undocumented-public-init]
         self.message = f"The attribute `{attribute_name}` cannot be delete!"
         super().__init__(self.message)
