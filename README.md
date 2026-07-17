@@ -21,7 +21,7 @@
       <a href="https://docs.astral.sh/ruff/" alt="Code style: Ruff"><img src="https://img.shields.io/badge/code%20style-Ruff-FDD835.svg" alt="Code style: Ruff"></a>
       <a href="https://pypi.org/project/xloft"><img src="https://img.shields.io/pypi/format/xloft" alt="Format"></a>
       <a href="https://pepy.tech/projects/xloft"><img src="https://static.pepy.tech/badge/xloft" alt="PyPI Downloads"></a>
-      <a href="https://github.com/kebasyaty/xloft/blob/main/LICENSE" alt="GitHub license"><img src="https://img.shields.io/github/license/kebasyaty/xloft" alt="GitHub license"></a>
+      <a href="https://github.com/kebasyaty/xloft/blob/v1/LICENSE" alt="GitHub license"><img src="https://img.shields.io/github/license/kebasyaty/xloft" alt="GitHub license"></a>
     </p>
     <p align="center">
       The collection is represented by three modules of `NamedTuple`, `AliasDict`, `Converters`, `ItIs`.
@@ -47,7 +47,7 @@ uv add xloft
 
 ## Usage
 
-[![Examples](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/examples.svg "Examples")](https://kebasyaty.github.io/xloft/latest/pages/usage/ "Examples")
+[![Examples](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/more-examples.svg "Examples")](https://kebasyaty.github.io/xloft/latest/pages/usage/ "Examples")
 
 - **NamedTuple**
 
@@ -273,4 +273,4 @@ is_number("-72028601076372765770200707816364342373431783018070841859646251155447
 
 [![Changelog](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/changelog.svg "Changelog")](https://github.com/kebasyaty/xloft/blob/v1/CHANGELOG.md "Changelog")
 
-[![MIT](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/mit.svg "MIT")](https://github.com/kebasyaty/xloft/blob/main/LICENSE "MIT")
+[![MIT](https://raw.githubusercontent.com/kebasyaty/xloft/v1/assets/links/mit.svg "MIT")](https://github.com/kebasyaty/xloft/blob/v1/LICENSE "MIT")
